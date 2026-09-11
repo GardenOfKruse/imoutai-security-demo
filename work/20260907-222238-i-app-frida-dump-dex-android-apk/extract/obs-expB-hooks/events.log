@@ -1,0 +1,30 @@
+[*] attaching already-running pid=13423
+[agent-send] {'type': 'log', 'msg': 'annot4 entered'}
+[agent-send] {'type': 'endpoints', 'data': {'Production': 'https://app.moutai519.com.cn', 'Development': 'http://devapp.moutai519.com.cn', 'GuizhouDevelopment': 'https://testapp.moutai519.com.cn'}}
+[agent-send] {'type': 'log', 'msg': 'step1 endpoints done'}
+[agent-send] {'type': 'log', 'msg': 'step2 intercept hooked'}
+[agent-send] {'type': 'log', 'msg': 'safe[req]: TypeError: not a function'}
+[agent-send] {'type': 'log', 'msg': 'safe[req]: TypeError: not a function'}
+[agent-send] {'type': 'log', 'msg': 'safe[req]: TypeError: not a function'}
+[agent-send] {'type': 'log', 'msg': 'step3 ctors hooked'}
+[agent-send] {'type': 'log', 'msg': 'step4 header sources hooked'}
+[agent-send] {'type': 'log', 'msg': 'annot4 all hooks installed'}
+[!] rpc set_live_scan failed: unable to find method 'setLiveScan'
+[!] rpc set_native_redirect failed: unable to find method 'setNativeRedirect'
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[agent-send] {'type': 'log', 'msg': 'safe[req]: TypeError: not a function'}
+[agent-send] {'type': 'log', 'msg': 'a$b.a() = clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4='}
+[+] NEW process pid=13458 @ 4.4s
+[+] NEW process pid=13830 @ 4.4s
+[agent-send] {'type': 'log', 'msg': 'safe[req]: TypeError: not a function'}
+[agent-send] {'type': 'log', 'msg': 'a$b.a() = clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4='}
+[agent-send] {'type': 'log', 'msg': 'safe[req]: TypeError: not a function'}
+[agent-send] {'type': 'log', 'msg': 'a$b.a() = clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4='}
+[agent-send] {'type': 'log', 'msg': 'safe[req]: TypeError: not a function'}
+[agent-send] {'type': 'log', 'msg': 'a$b.a() = clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4='}
+[!] main pid=13423 GONE @ 7.8s
+[*] stats: {"ok": true, "agent": "annot4"}
+[!] rpc list_loaded_classes failed: unable to find method 'listLoadedClasses'
+[!] script destroyed @ 20.6s
+[!] session detached @ 20.6s reason=application-requested (None,)
+[*] done rs_seen=False dex=0 regnat_msgs=0

@@ -1,0 +1,17 @@
+[*] attaching already-running pid=11205
+[agent-send] {'type': 'log', 'msg': 'annot4 entered'}
+[agent-send] {'type': 'endpoints', 'data': {'Production': 'https://app.moutai519.com.cn', 'Development': 'http://devapp.moutai519.com.cn', 'GuizhouDevelopment': 'https://testapp.moutai519.com.cn'}}
+[agent-send] {'type': 'log', 'msg': 'step1 endpoints done'}
+[agent-send] {'type': 'log', 'msg': 'step2 intercept hooked'}
+[agent-send] {'type': 'log', 'msg': 'step3 ctors hooked'}
+[agent-send] {'type': 'log', 'msg': 'step4 header sources hooked'}
+[agent-send] {'type': 'log', 'msg': 'annot4 all hooks installed'}
+[!] rpc set_live_scan failed: unable to find method 'setLiveScan'
+[!] rpc set_native_redirect failed: unable to find method 'setNativeRedirect'
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[+] NEW process pid=11257 @ 2.2s
+[+] NEW process pid=11534 @ 2.2s
+[+] NEW process pid=11540 @ 2.2s
+[+] NEW process pid=11545 @ 2.2s
+[+] NEW process pid=11583 @ 3.5s
+[!] main pid=11205 GONE @ 3.5s

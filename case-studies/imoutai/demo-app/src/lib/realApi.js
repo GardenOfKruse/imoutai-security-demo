@@ -94,17 +94,22 @@ export async function liveRequest({ api, method = 'POST', body = {}, host = 'h5'
 
   state.count++
   const t0 = performance.now()
-  let status = 0, respText = '', errMsg = null
+  let status = 0, respText = '', errMsg = null, jsonBody = null, reqHeaders = null, respHeaders = null
   try {
-    const res = await fetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json', ...state.profile.headers },
-      body: method === 'GET' ? undefined : JSON.stringify(body),
-      credentials: 'omit',
-      mode: 'cors',
+    // 浏览器 → 本地原生服务（同源）；真实请求由 live-server.mjs 用 Node https 原生客户端发出
+    // （零浏览器指纹 + cookie jar + 头按真实 App 形态——浏览器直发会被 ESA 边缘 480/4010 拒绝）
+    const res = await fetch(LIVE_SERVER, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ host, api, method, body, profile: state.profile }),
     })
-    status = res.status
-    respText = await res.text()
+    const data = await res.json()
+    status = data.status
+    respText = data.text || ''
+    jsonBody = data.json || null
+    reqHeaders = data.reqHeaders || null
+    respHeaders = data.respHeaders || null
+    if (data.error) errMsg = data.error
   } catch (e) {
     errMsg = String(e)
   }
@@ -113,7 +118,7 @@ export async function liveRequest({ api, method = 'POST', body = {}, host = 'h5'
   logStore._emit({
     id: `${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
     time: new Date().toLocaleTimeString('zh-CN', { hour12: false }),
-    method, url: (DISPLAY_HOSTS[host] || url) + api, api,
+    method, url: (DISPLAY_HOSTS[host] || '') + api, api,
     body: JSON.parse(redact(body) || '{}'),
     live: true, windowLevel: ws.level, status, ms,
     reqHeaders, respHeaders,
