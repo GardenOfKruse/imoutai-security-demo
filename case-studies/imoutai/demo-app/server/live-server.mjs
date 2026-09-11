@@ -61,18 +61,21 @@ function cookieHeader() {
 
 // ---------- 头构造：按真实 App 形态，剔除浏览器痕迹与空值 ----------
 function buildHeaders(profile, bodyStr, hasBody) {
+  // 全真实原则：profile 头按真实抓包原样转发（含 Origin/Referer/Sec-Fetch/空 csrf）。
+  // 仅剔除传输层自动管理的头；空值头保留 x-csrf-token（真实请求中存在且为空）。
   const h = {}
   for (const [k, v] of Object.entries(profile?.headers || {})) {
-    if (v === '' || v === null || v === undefined) continue   // 空值头不发（如未登录的 MT-Token）
-    if (/^(origin|referer|sec-fetch-.*|sec-ch-ua.*|pragma|cache-control|accept-language|cookie)$/i.test(k)) continue
+    if (v === null || v === undefined) continue
+    if (v === '' && !/csrf/i.test(k)) continue
+    if (/^(connection|content-length|host)$/i.test(k)) continue
     h[k] = String(v)
   }
   if (!h['User-Agent']) h['User-Agent'] = 'MT/android 12;screen/1080*2400;app/1.9.12;h5/1.9.12;'
   h['Accept'] = h['Accept'] || 'application/json'
-  h['Connection'] = 'keep-alive'
+  h['Connection'] = h['Connection'] || 'keep-alive'
   if (hasBody) h['Content-Type'] = h['Content-Type'] || 'application/json'
   const ck = cookieHeader()
-  if (ck) h['Cookie'] = ck
+  if (ck && !h['Cookie']) h['Cookie'] = ck   // profile 自带 Cookie（真实登录态）时优先
   return h
 }
 
@@ -102,13 +105,13 @@ function realRequest({ host: hostKey, api, method = 'POST', body = {}, profile }
     if (bodyStr) headers['Content-Length'] = Buffer.byteLength(bodyStr)
 
     const req = https.request({
-      hostname, port: 443, path: api, method, headers,
+      hostname, port: 443, path: api, method, headers, gzip: true,
       timeout: 15000,
     }, (res) => {
       saveCookies(res.headers)
-      let data = ''
-      res.on('data', (c) => { data += c })
-      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, text: data }))
+      let chunks = []
+      res.on('data', (c) => { chunks.push(c) })
+      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, text: Buffer.concat(chunks).toString('utf8'), setCookie: res.headers['set-cookie'] || [] }))
     })
     req.on('timeout', () => req.destroy(new Error('timeout 15s')))
     req.on('error', reject)
@@ -152,8 +155,9 @@ async function handleLive(req, res, raw) {
 
   return json(res, 200, {
     status: out.status, ms,
-    text: String(out.text).slice(0, 4000),
+    text: String(out.text).slice(0, 8000),
     json: jsonBody,
+    setCookie: out.setCookie || [],
     reqHeaders: headersSentShim(payload, out),
     respHeaders: {
       server: out.headers?.server, via: out.headers?.via,

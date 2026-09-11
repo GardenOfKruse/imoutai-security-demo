@@ -139,8 +139,13 @@ export const live = {
     }),
   login: (body) =>
     liveRequest({ api: '/xhr/front/user/register/login', host: 'app', body, note: 'F0 · 真实登录（测试账号，人工输入验证码）' }),
-  purchaseInfo: (body) =>
-    liveRequest({ api: '/xhr/front/mall/item/purchaseInfoV2', host: 'h5', method: 'POST', body, note: 'F1 · 目标接口 purchaseInfoV2' }),
+  purchaseInfo: (body) => {
+    const b = (body && Object.keys(body).length) ? body : { hot: true, spuId: 'IMTP1000313', jt: 'anonymous' }
+    return liveRequest({
+      api: '/xhr/front/mall/item/purchaseInfoV2', host: 'h5', method: 'POST', body: b,
+      note: 'F1 · 目标接口 purchaseInfoV2（真实抓包 body 模板，200 已复现）',
+    })
+  },
   composeOrder: (body) =>
     liveRequest({ api: '/xhr/front/trade/order/standard/compose/v2', host: 'app', body, note: 'F2 · 订单组合' }),
   submitOrder: (body) =>

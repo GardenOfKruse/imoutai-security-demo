@@ -41,6 +41,15 @@ export default function ModeGate({ onConfirm }) {
   const ws = windowStatus()
 
   const regenerate = () => setProfileText(JSON.stringify(generateDefaultProfile(), null, 2))
+  const loadReal = async () => {
+    try {
+      const r = await fetch('./real-headermap.json')
+      if (!r.ok) throw new Error('HTTP ' + r.status)
+      const j = await r.json()
+      setProfileText(JSON.stringify(j, null, 2))
+      setErr('')
+    } catch (e) { setErr('真实档案加载失败：' + e.message + '（确认 real-headermap.json 随包部署）') }
+  }
 
   const confirm = () => {
     if (ws.level === 'peak') { setErr(ws.label); return }
@@ -78,7 +87,10 @@ export default function ModeGate({ onConfirm }) {
           HeaderMap 档案（已自动生成默认档案，每次进入实弹模式都会重新生成；如现场有测试设备真实抓包 JSON 可直接粘贴覆盖）
         </label>
         <textarea className="ipt area" rows={10} value={profileText} onChange={(e) => setProfileText(e.target.value)} />
-        <button className="btn ghost" style={{ alignSelf: 'flex-start' }} onClick={regenerate}>↺ 重新生成默认档案</button>
+        <div style={{ display: 'flex', gap: 10 }}>
+          <button className="btn ghost" style={{ alignSelf: 'flex-start' }} onClick={regenerate}>↺ 重新生成默认档案</button>
+          <button className="btn primary" style={{ alignSelf: 'flex-start' }} onClick={loadReal}>📂 加载真实档案（mitm 抓包）</button>
+        </div>
       </div>
 
       <div className="note">📌 档案说明：请求头按<b>真实 App 形态</b>生成，不含任何模拟标记（实弹全真实原则，见 AGENTS.md）；

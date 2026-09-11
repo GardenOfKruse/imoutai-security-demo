@@ -181,3 +181,33 @@ Swagger 文档再生成（取证数据更新时）：`python hooks/gen_openapi.p
 - 验证码自动求解为 Mock 叙事；真实验证码组件识别（厂商/协议/弱点）是 G2 研究项，结论进报告不进 demo。
 - 支付链接模板为公开协议形态整理，实际字段以现场抓包校准（永远只读不调）。
 - Swagger 文档随取证批次更新重新生成。
+
+
+---
+
+## 11. v2 追加（2026-09-12）：实弹双路径 + 真实档案
+
+### 11.1 实弹链路当前形态
+```
+浏览器 UI ──(同源 /api/live)──▶ live-server.mjs（Node 原生 https）
+                                   ├─ 硬门禁：peak 06:00–06:15 拒发 / 预算 ≤300 / 档案必须
+                                   ├─ 头构造：profile 原样转发（全真实，含 Cookie/Origin/空 csrf）
+                                   ├─ cookie jar + 证据 JSONL（evidence/live-requests.jsonl）
+                                   └─ ▶ 生产网关（app/h5.moutai519.com.cn）
+```
+- 浏览器指纹永不外泄（实测浏览器直发被 ESA 480/4010 拒）
+- CORS 由同源代理解决（/mt-app、/mt-h5 备用直连通道保留）
+
+### 11.2 实弹双路径（同一套代码，两种档案）
+| 档案 | 结果 | 演示叙事 |
+|---|---|---|
+| 自动生成档案（本机指纹） | 服务端 480/4010 拒绝 | "被识别为非注册设备——设备绑定防线有效" |
+| 📂 真实档案（mitm 抓包，`public/real-headermap.json`） | **HTTP 200 · code 2000 真实业务数据** | "与真实 App 逐头一致，后台查无异常" |
+
+### 11.3 purchaseInfoV2 已完整还原（目标接口）
+- 请求规范/响应结构/拒绝矩阵：`work/.../findings/purchase-info-v2-assessment.md`
+- 关键结论：**H5 域无应用层签名，鉴权仅 JWT Cookie（30 天）**；demo 管线已实测 200 复现
+- UI 内 `purchaseInfo` 调用自动使用真实 body 模板 `{hot:true,spuId,jt:anonymous}`
+
+### 11.4 全局错误可见化
+`index.html` 注入 window error/unhandledrejection 钩子——JS 崩溃栈直接渲染在页面上，演示现场排障不用开 DevTools。

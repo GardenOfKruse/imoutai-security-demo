@@ -26,6 +26,17 @@ npm start          # ★ 实弹/正式演示：单进程原生服务（静态 di
 npm run live       # = npm run build && npm start
 ```
 
+### 实弹双路径结论（2026-09-12 实测）
+
+| 档案 | 服务端结果 |
+|---|---|
+| 自动生成（本机指纹） | HTTP 480 · 4010 —— "设备绑定防线有效"叙事 |
+| 📂 真实档案（授权门内一键「📂 加载真实档案」） | **HTTP 200 · code 2000 真实业务数据** —— "后台查无异常"叙事 |
+
+真实档案来自 mitmproxy 抓包（`docs/real-headermap.json`，含活凭据 JWT 有效期至 10-12，勿外传）。
+purchaseInfoV2 请求规范与拒绝矩阵详见 `work/.../findings/purchase-info-v2-assessment.md`。
+页面 JS 崩溃会直接渲染错误栈在页面上（全局错误钩子），现场排障无需 DevTools。
+
 ### 实弹链路架构（为什么必须走原生服务）
 
 浏览器直发会被生产边缘（阿里 ESA）识别拒绝：实测 `Origin/Referer/Sec-Fetch-*/sec-ch-ua` + Chrome UA 等

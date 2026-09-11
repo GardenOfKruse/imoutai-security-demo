@@ -904,3 +904,37 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - **明日恢复程序（背书）**：开机后先 `adb reboot` 一次（用户许可后）清除反制升级态 → fs 拉起 → 按 `notes/m16-headermap-capture-procedure.md` 执行（含勾协议步骤，3 分钟）→ 真实 HeaderMap 喂入 demo 实弹档案。
 - 替代路径：也可以明天由用户手点、AI 抓包（分工已验证可行，只差设备不秒崩）。
 - 今日总计：S6-6~S6-19，demo 全功能交付 + Swagger 106 接口 + 实弹原生代理 + 8787 白屏修复（no-store 缓存头）+ 全程留痕。
+
+### S6-20. ★ 最终版 Hook 定稿（final-hook）+ 真机验证通过（2026-09-12）
+
+- 用户要求整理唯一现行版本 → `hooks/FINAL-HOOK-README.md`（总说明）+ `_build/entry-final.js` / `dump-dex-hook-final.js`（产物）。
+- 整合内容（全部验证成功项）：R1 纯反射注解 dump / R2 构造器捕获 / R3 MessageDigest 输入捕获 / R4 CryptoUtil 观测 / R5 头部常量 / R6 probeCrypto / R7 拦截器观测（默认关闭，RPC 开启，供 M1.6）。明确排除全部失败路径（spawn/dex 扫描/B2/B3/maps 过滤/手工 JNI_OnLoad/异常观察器）。
+- 驱动配套：watch_capture.py（守护）+ obs-driver.py + annot5-driver.py（RPC 已对齐）。
+- **真机冒烟 PASS**：vcode 采样 5/5 逐字节 PASS（deviceKey 2af72f… 不变）、clips_* 头值一致、crypto probe 正常。
+- 修正结论（用户质疑成立）：不存在"反制升级"——实验 A（无 hook）App 存活 80s+，死亡均为注入触发的 ~20-45s 窗口；"卡死"为 Everisk 设备异常弹窗阻塞 UI（F4 结论依然有效）。此前"反制升级"表述已从结论中撤回。
+- M1.6 操作手册已补勾协议步骤（CheckBox @130,827）与反制注意（单日多次崩溃会加剧冻结——系注入次数累积而非"升级"）。
+
+### S6-21. ⭐⭐ M1.6 完成：mitmproxy 真实抓包，purchaseInfoV2 全量还原（2026-09-12 深夜）
+
+- **路线切换成功**：放弃注入式 hook 抓头（~20-45s 窗口太窄），改 mitmproxy——root 装系统 CA（bind mount /system/etc/security/cacerts）+ USB 反向代理（adb reverse）+ 全局代理。App **零注入干净运行**，用户手动浏览，无熔断。
+- 抓获 44 条流量，关键成果：
+  1. **★ purchaseInfoV2 完整请求+响应（200 OK）**：POST h5 域，body=`{"hot":true,"spuId":"IMTP1000313","jt":"anonymous"}`，**鉴权仅为 Cookie MT-Token-Wap(JWT)，无 MT-R 类签名头**；
+  2. **JWT 解码**：HS256，`userId=1203157454`，**`deviceId=clips_fxku…`（与 App 端采样的 MT-Device-ID/clips_ 值完全一致——设备绑定链打通：native 派生 clips_ → JWT 内嵌 → 服务端绑定）**；有效期 30 天（至 10-12）；
+  3. 响应含真实业务数据：`forbiddenBuyDesc:"09:00投放"`、`limitCount:6`、`startTimeList` 自 09:00 每 5 分钟一批（1789174800000 起）；
+  4. App 域请求头全套（H5 webview 内）：MT-Device-ID=clips_ 值、MT-APP-Version、x-csrf-token 空、X-Requested-With 等；
+  5. Bangcle 遥测端点现身：`/bangcle/bbprbdata/upload`、`/bangcle/api/v1/1/{1,2}`；
+  6. H5 前端 JS 全套资源 URL（mt-wap 应用，react 体系）——P0-1 H5 逆向的入口清单。
+- 产物：`demo-app/docs/real-headermap.json`（真实档案，含活凭据 JWT——本地凭据勿外传）；证据 `evidence/mitm-flows-20260912.jsonl`（44 条，含活凭据，本地保存）。
+- 安全/合规动作：手机全局代理已清除、App 已停止、屏幕已熄（用户休息）；CA bind mount 重启自动消失；mitmdump 已停。
+- 用户报告"5 秒被检测"：/bangcle/bbprbdata/upload 在代理环境下立即上报——即 Everisk 有代理环境检测（新发现，写入报告素材）。
+- **demo 实弹"查无异常"路径就绪**：ModeGate 粘贴 real-headermap.json 内容 → purchaseInfoV2 请求与真实 App 逐头一致。
+
+### S6-22. ★★ purchaseInfoV2 真实请求复现 200 + 文档全面整理（2026-09-12 深夜）
+
+- 修复 realApi.js（S6-15 补丁部分静默失败：url/reqHeaders 未定义——用户实测暴露）。教训已记录：多处 replace 必须逐处验证。
+- 全局错误钩子写入 index.html（JS 崩溃栈渲染到页面）。
+- **双路径实测**：① 浏览器指纹档案 → 480/4010；② **mitm 真实档案 → 独立客户端 + demo 完整管线均 HTTP 200 · code 2000**（真实业务数据：09:00 投放、限购 6、startTimeList）。**无 TLS 指纹拦截**。
+- live-server：profile Cookie 优先于 jar；HeaderMap 档案补 deviceKey（=JWT deviceId=clips_）；no-store 缓存头；purchaseInfo body 默认模板。
+- ModeGate 新增「📂 加载真实档案」一键按钮（public/real-headermap.json 随包部署）。
+- 新文档：`findings/purchase-info-v2-assessment.md`（接口规范/响应结构/拒绝矩阵/风控判定/建议）；demo-design.md §11；README 实弹双路径章节。
+- 结论回答用户问题：**UI 演示已可用；真实档案路径不会报 480（200 实证）**；自动档案路径的 480 恰是"设备绑定有效"的演示素材。

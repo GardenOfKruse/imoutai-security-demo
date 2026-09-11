@@ -12,3 +12,16 @@ Thumbs.db
 
 # Potentially sensitive live traffic capture; keep local unless sanitized
 **/evidence/live-requests.jsonl
+
+# Raw authentication/traffic captures; keep local unless explicitly sanitized
+**/docs/login-resp-raw.json
+**/docs/real-headermap.json
+**/docs/real-app-profile.json
+**/dist/real-headermap.json
+**/public/real-headermap.json
+**/evidence/mitm-flows-*.jsonl
+**/extract/obs-final-smoke-20260912/
+**/extract/obs-final-smoke2-20260912/
+**/extract/obs-headermap8-021345-1.log
+**/extract/obs-headermap8-021345-1/
+**/evidence/c8750f0d.0
