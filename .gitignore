@@ -1,0 +1,14 @@
+# Regenerable dependencies and build caches
+**/node_modules/
+**/.vite/
+**/__pycache__/
+*.pyc
+
+# Local/editor and transient files
+.claude/
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Potentially sensitive live traffic capture; keep local unless sanitized
+**/evidence/live-requests.jsonl

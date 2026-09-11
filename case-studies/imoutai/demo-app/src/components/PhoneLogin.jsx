@@ -36,9 +36,9 @@ export default function PhoneLogin({ clean, mobile, setMobile, deviceKey, api, i
   return (
     <div className="card stepcard">
       <h2>📱 短信验证码登录</h2>
-      {isLive && (
+      {isLive && cachedSession?.token && (
         <div className="servermsg cached">
-          🔑 检测到本地缓存的实弹登录态（{String(cachedSession?.token || '').slice(0, 26)}…）——本次无需短信验证，已自动保持登录。
+          🔑 检测到本地缓存的实弹登录态（{String(cachedSession.token).slice(0, 26)}…）——本次无需短信验证，已自动保持登录。
         </div>
       )}
       <div className="form">
