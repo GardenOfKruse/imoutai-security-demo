@@ -1,0 +1,25 @@
+[*] attaching pid=18258
+[*] script loaded; waiting 2s for install
+[agent-send] {"type": "log", "msg": "annot5 entered"}
+[agent-send] {"type": "log", "msg": "ctors hooked"}
+[agent-send] {"type": "log", "msg": "intercept hooked"}
+[agent-send] {"type": "log", "msg": "annot5 installed"}
+[agent-send] {"type": "log", "msg": "safe[aa]: Error: invoke: cannot call instance method without an instance"}
+[agent-send] {"type": "headers-sample", "data": {"api.a.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "api.a.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "api.a.d": "android;31;Redmi;lime", "a$b.a": "clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4=", "a$b.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "a$b.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "a$b.d": "android;31;Redmi;lime"}}
+[+] headers: {"api.a.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "api.a.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "api.a.d": "android;31;Redmi;lime", "a$b.a": "clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4=", "a$b.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "a$b.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "a$b.d": "android;31;Redmi;lime"}
+[agent-send] {"type": "ctor", "cls": "com.moutai.mall.api.model.GetVerifyCodeRequest", "args": ["8d4a7c48f74f6d02c90e80523729f56b", "13000000001", "1789140043229"]}
+[agent-send] {"type": "vcode-sample", "data": {"mobile": "13000000001", "timestamp": "1789140043229", "md5": "8d4a7c48f74f6d02c90e80523729f56b", "_input_mobile": "13000000001"}}
+[+] vcode 13000000001: {"mobile": "13000000001", "timestamp": "1789140043229", "md5": "8d4a7c48f74f6d02c90e80523729f56b", "_input_mobile": "13000000001"}
+[agent-send] {"type": "ctor", "cls": "com.moutai.mall.api.model.GetVerifyCodeRequest", "args": ["ecba0887d4bdd91bf3163bc0c5f46ac6", "13000000002", "1789140043727"]}
+[agent-send] {"type": "vcode-sample", "data": {"mobile": "13000000002", "timestamp": "1789140043727", "md5": "ecba0887d4bdd91bf3163bc0c5f46ac6", "_input_mobile": "13000000002"}}
+[+] vcode 13000000002: {"mobile": "13000000002", "timestamp": "1789140043727", "md5": "ecba0887d4bdd91bf3163bc0c5f46ac6", "_input_mobile": "13000000002"}
+[agent-send] {"type": "ctor", "cls": "com.moutai.mall.api.model.GetVerifyCodeRequest", "args": ["deffcbcd7b9f231b15d6f6fbabd5a3b0", "15888888888", "1789140044225"]}
+[agent-send] {"type": "vcode-sample", "data": {"mobile": "15888888888", "timestamp": "1789140044225", "md5": "deffcbcd7b9f231b15d6f6fbabd5a3b0", "_input_mobile": "15888888888"}}
+[+] vcode 15888888888: {"mobile": "15888888888", "timestamp": "1789140044225", "md5": "deffcbcd7b9f231b15d6f6fbabd5a3b0", "_input_mobile": "15888888888"}
+[agent-send] {"type": "ctor", "cls": "com.moutai.mall.api.model.GetVerifyCodeRequest", "args": ["5c6ef8411ca8bb253e8ee5a029ef75e3", "19912345678", "1789140044725"]}
+[agent-send] {"type": "vcode-sample", "data": {"mobile": "19912345678", "timestamp": "1789140044725", "md5": "5c6ef8411ca8bb253e8ee5a029ef75e3", "_input_mobile": "19912345678"}}
+[+] vcode 19912345678: {"mobile": "19912345678", "timestamp": "1789140044725", "md5": "5c6ef8411ca8bb253e8ee5a029ef75e3", "_input_mobile": "19912345678"}
+[agent-send] {"type": "ctor", "cls": "com.moutai.mall.api.model.GetVerifyCodeRequest", "args": ["94dcdc25aeed069ad1079b54bf408d87", "10086", "1789140045212"]}
+[agent-send] {"type": "vcode-sample", "data": {"mobile": "10086", "timestamp": "1789140045212", "md5": "94dcdc25aeed069ad1079b54bf408d87", "_input_mobile": "10086"}}
+[+] vcode 10086: {"mobile": "10086", "timestamp": "1789140045212", "md5": "94dcdc25aeed069ad1079b54bf408d87", "_input_mobile": "10086"}
+[*] saved samples.json vcode=5

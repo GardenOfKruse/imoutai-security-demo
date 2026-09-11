@@ -1,0 +1,12 @@
+[*] connect 127.0.0.1:8899
+[*] spawn com.moutai.mall
+[dexhook] A: pthread_create 压制已装
+[dexhook] B+C: scheduling Java.perform, available=true
+[dexhook] v2 script loaded, hooks ready
+[+] resumed pid=21131; hook 捕获窗口 40s（自动阻断 System.exit）
+[!] script destroyed @ 1.9s
+[!] session detached @ 1.9s: reason=process-terminated (Crash(pid=21131, process_name="com.moutai.mall", summary="Bad access due to protection failure", report=<25638 bytes>, parameters={}),)
+[!] process 21131 gone @ 2.6s
+[-] getStats failed: script has been destroyed
+[-] fallback scan failed: script has been destroyed
+[+] done -> E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\dexes-hook (captured+fallback=0)

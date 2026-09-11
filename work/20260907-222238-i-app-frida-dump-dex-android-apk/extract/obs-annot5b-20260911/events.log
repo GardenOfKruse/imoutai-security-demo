@@ -1,0 +1,16 @@
+[*] started com.moutai.mall/.module.splash.SplashActivity
+[*] attaching pid=17839
+[*] script loaded; waiting 2s for install
+[agent-send] {"type": "log", "msg": "annot5 entered"}
+[agent-send] {"type": "log", "msg": "ctors hooked"}
+[agent-send] {"type": "log", "msg": "intercept hooked"}
+[agent-send] {"type": "log", "msg": "annot5 installed"}
+[agent-send] {"type": "log", "msg": "safe[aa]: Error: invoke: cannot call instance method without an instance"}
+[agent-send] {"type": "headers-sample", "data": {"api.a.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "api.a.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "api.a.d": "android;31;Redmi;lime", "a$b.a": "clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4=", "a$b.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "a$b.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "a$b.d": "android;31;Redmi;lime"}}
+[+] headers: {"api.a.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "api.a.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "api.a.d": "android;31;Redmi;lime", "a$b.a": "clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4=", "a$b.b": "clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/HGhHdw==", "a$b.c": "clips_ehwpSC0fLBggRnJAdxYgFiAYLxl9Si5PfEl/TC0afkw=", "a$b.d": "android;31;Redmi;lime"}
+[-] vcode 13000000001: no LoginActivity instance on heap
+[-] vcode 13000000002: no LoginActivity instance on heap
+[-] vcode 15888888888: no LoginActivity instance on heap
+[-] vcode 19912345678: no LoginActivity instance on heap
+[-] vcode 10086: no LoginActivity instance on heap
+[*] saved samples.json vcode=0

@@ -1,0 +1,2741 @@
+{
+  "files": 273,
+  "target_hits": {
+    "Lcom/moutai/mall": 38,
+    "com/moutai/mall/module": 0,
+    "LoginActivity": 22
+  },
+  "candidates": 0,
+  "results": [
+    {
+      "file": "000.bin.gz",
+      "bytes": 1073741824,
+      "target_hits": {
+        "Lcom/moutai/mall": 38,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 21
+      },
+      "candidates": []
+    },
+    {
+      "file": "001.bin.gz",
+      "bytes": 2465792,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "002.bin.gz",
+      "bytes": 266240,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "003.bin.gz",
+      "bytes": 155648,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "004.bin.gz",
+      "bytes": 212992,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "005.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "006.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "007.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "008.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "009.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "010.bin.gz",
+      "bytes": 12746752,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "011.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "012.bin.gz",
+      "bytes": 122880,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "013.bin.gz",
+      "bytes": 1769472,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "014.bin.gz",
+      "bytes": 684032,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "015.bin.gz",
+      "bytes": 299008,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "016.bin.gz",
+      "bytes": 1536000,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "017.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "018.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "019.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "020.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "021.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "022.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "023.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "024.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "025.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "026.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "027.bin.gz",
+      "bytes": 7647232,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 1
+      },
+      "candidates": []
+    },
+    {
+      "file": "028.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "029.bin.gz",
+      "bytes": 225280,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "030.bin.gz",
+      "bytes": 8384512,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "031.bin.gz",
+      "bytes": 536870912,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "032.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "033.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "034.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "035.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "036.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "037.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "038.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "039.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "040.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "041.bin.gz",
+      "bytes": 10485760,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "042.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "043.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "044.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "045.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "046.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "047.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "048.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "049.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "050.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "051.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "052.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "053.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "054.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "055.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "056.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "057.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "058.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "059.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "060.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "061.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "062.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "063.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "064.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "065.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "066.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "067.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "068.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "069.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "070.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "071.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "072.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "073.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "074.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "075.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "076.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "077.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "078.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "079.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "080.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "081.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "082.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "083.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "084.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "085.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "086.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "087.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "088.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "089.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "090.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "091.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "092.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "093.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "094.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "095.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "096.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "097.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "098.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "099.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "100.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "101.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "102.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "103.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "104.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "105.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "106.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "107.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "108.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "109.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "110.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "111.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "112.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "113.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "114.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "115.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "116.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "117.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "118.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "119.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "120.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "121.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "122.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "123.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "124.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "125.bin.gz",
+      "bytes": 94208,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "126.bin.gz",
+      "bytes": 114688,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "127.bin.gz",
+      "bytes": 32768,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "128.bin.gz",
+      "bytes": 176128,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "129.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "130.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "131.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "132.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "133.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "134.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "135.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "136.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "137.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "138.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "139.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "140.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "141.bin.gz",
+      "bytes": 12288,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "142.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "143.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "144.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "145.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "146.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "147.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "148.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "149.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "150.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "151.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "152.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "153.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "154.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "155.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "156.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "157.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "158.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "159.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "160.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "161.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "162.bin.gz",
+      "bytes": 6815744,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "163.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "164.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "165.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "166.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "167.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "168.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "169.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "170.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "171.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "172.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "173.bin.gz",
+      "bytes": 24576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "174.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "175.bin.gz",
+      "bytes": 12288,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "176.bin.gz",
+      "bytes": 393216,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "177.bin.gz",
+      "bytes": 28672,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "178.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "179.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "180.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "181.bin.gz",
+      "bytes": 16384,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "182.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "183.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "184.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "185.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "186.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "187.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "188.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "189.bin.gz",
+      "bytes": 10485760,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "190.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "191.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "192.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "193.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "194.bin.gz",
+      "bytes": 1032192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "195.bin.gz",
+      "bytes": 90112,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "196.bin.gz",
+      "bytes": 81920,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "197.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "198.bin.gz",
+      "bytes": 929792,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "199.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "200.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "201.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "202.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "203.bin.gz",
+      "bytes": 1204224,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "204.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "205.bin.gz",
+      "bytes": 16384,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "206.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "207.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "208.bin.gz",
+      "bytes": 24576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "209.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "210.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "211.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "212.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "213.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "214.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "215.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "216.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "217.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "218.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "219.bin.gz",
+      "bytes": 1077248,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "220.bin.gz",
+      "bytes": 1060864,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "221.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "222.bin.gz",
+      "bytes": 1028096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "223.bin.gz",
+      "bytes": 8192,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "224.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "225.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "226.bin.gz",
+      "bytes": 32768,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "227.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "228.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "229.bin.gz",
+      "bytes": 929792,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "230.bin.gz",
+      "bytes": 24576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "231.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "232.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "233.bin.gz",
+      "bytes": 167936,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "234.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "235.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "236.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "237.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "238.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "239.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "240.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "241.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "242.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "243.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "244.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "245.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "246.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "247.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "248.bin.gz",
+      "bytes": 32768,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "249.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "250.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "251.bin.gz",
+      "bytes": 262144,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "252.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "253.bin.gz",
+      "bytes": 2621440,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "254.bin.gz",
+      "bytes": 1638400,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "255.bin.gz",
+      "bytes": 1048576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "256.bin.gz",
+      "bytes": 16777216,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "257.bin.gz",
+      "bytes": 2097152,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "258.bin.gz",
+      "bytes": 8388608,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "259.bin.gz",
+      "bytes": 2097152,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "260.bin.gz",
+      "bytes": 8388608,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "261.bin.gz",
+      "bytes": 8392704,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "262.bin.gz",
+      "bytes": 8392704,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "263.bin.gz",
+      "bytes": 4198400,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "264.bin.gz",
+      "bytes": 1048576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "265.bin.gz",
+      "bytes": 16777216,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "266.bin.gz",
+      "bytes": 1048576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "267.bin.gz",
+      "bytes": 1048576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "268.bin.gz",
+      "bytes": 32768,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "269.bin.gz",
+      "bytes": 24576,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "270.bin.gz",
+      "bytes": 16384,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "271.bin.gz",
+      "bytes": 4096,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    },
+    {
+      "file": "272.bin.gz",
+      "bytes": 131072,
+      "target_hits": {
+        "Lcom/moutai/mall": 0,
+        "com/moutai/mall/module": 0,
+        "LoginActivity": 0
+      },
+      "candidates": []
+    }
+  ]
+}

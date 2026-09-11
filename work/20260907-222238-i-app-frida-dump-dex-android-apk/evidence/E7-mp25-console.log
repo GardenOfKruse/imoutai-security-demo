@@ -1,0 +1,73 @@
+[dexhook] A: pthread_create 观察 + 壳线程入口压制已装
+[dexhook] A5b: libart FindClass 直呼入口已挂 @0x7a50265e60 head=0xd503233f
+[dexhook] A5: module observer installed
+[dexhook] A5: dlsym JNI_OnLoad observer installed
+[dexhook] A2/A3: native exit/signal 观察 + shell 来源 pc-redirect 拦截已装
+[dexhook] A4: android_dlopen_ext 观察已装
+[dexhook] B+C: scheduling Java.performNow/perform, available=true
+[dexhook] B+C: Java.perform entered
+[dexhook] B3: MiuiForceDark native hooks installed (2 overloads)
+[dexhook] B4: UEH observer installed
+[dexhook] E1: RegisterNatives 观察已装
+[dexhook] E2: 类加载时间线已装 (3s)
+[dexhook] C1: InMemoryDexClassLoader hooks installed (3 overloads)
+[dexhook] C2: DexFile.openInMemoryDexFiles hooked (1 overloads)
+[dexhook] C2: DexFile.loadDex hooked (2 overloads)
+[dexhook] C2: DexFile.openDexFile hooked (1 overloads)
+[dexhook] C3: DexClassLoader hooks installed
+[dexhook] v5 script loaded, hooks ready
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] resumed pid=11014
+[dexhook] A2: raise(19) caller=boot-framework.oat @boot-framework.oat+0x18aa70
+[dexhook] A2: tgkill(19) caller=unknown @unmapped@0x7b0010b410
+[dexhook] B2: System.loadLibrary(miui_runtime)
+[dexhook] B2: Runtime.nativeLoad(libmiui_runtime.so)
+[dexhook] B2: Runtime.nativeLoad result=success(null)
+[dexhook] C2: DexFile.openDexFile called args=[str[len=44,tail=org.apache.http.legacy.jar], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(org.apache.http.legacy.odex) caller=libart.so ret=ok
+[dexhook] C2: DexFile.openDexFile called args=[str[len=86,tail=base.apk], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(base.odex) caller=libart.so ret=ok
+[dexhook] B2: System.loadLibrary(DexHelper)
+[dexhook] B2: Runtime.nativeLoad(libDexHelper.so)
+[dexhook] B2: rewrite nativeLoad arg "libDexHelper.so" -> /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[dexhook] B2: app loader = dalvik.system.PathClassLoader @ 135688008
+[dexhook] B2: nativeLoad loader arg[1] -> app PathClassLoader
+[dexhook] A4: dlopen_ext(libDexHelper.so) caller=libnativeloader.so ret=ok
+[dexhook] A5: JNI_OnLoad observer attached @0x79c5826884 source=dlsym
+[dexhook] A5: JNI_OnLoad enter(gate=ON) vm=0xb400007a53421540 reserved=0x0
+[dexhook] A5b: loadClass fallback fail(com/secneo/apkwrapper/H): Error: java.lang.ClassNotFoundException: Didn't find class "com.secneo.apkwrapper.H" on path: DexPathList[[directory "."],nativeLibraryDirectories=[/system/lib64, /system_ext/lib64, /system/lib64, /system_ext/lib64]]
+[dexhook] A5b: direct FindClass(com/secneo/apkwrapper/H) NULL, fallback unavailable
+[dexhook] A5b: loadClass fallback fail(com/secneo/apkwrapper/AW): Error: java.lang.ClassNotFoundException: Didn't find class "com.secneo.apkwrapper.AW" on path: DexPathList[[directory "."],nativeLibraryDirectories=[/system/lib64, /system_ext/lib64, /system/lib64, /system_ext/lib64]]
+[dexhook] A5b: direct FindClass(com/secneo/apkwrapper/AW) NULL, fallback unavailable
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: tgkill(33) caller=libbacktrace.so @libbacktrace.so+0xca58
+[dexhook] A2: abort caller=libart.so @libart.so+0x634b38
+[dexhook] A2: abort backtrace:
+libart.so+0x634b38
+libart.so+0x634b38
+libart.so+0x634b38
+[!] script destroyed @ 2.2s
+[!] session detached @ 2.2s reason=process-terminated (Crash(pid=11014, process_name="Binder:11014_1", summary="Trace/BPT trap", report=<1611 bytes>, parameters={}),)
+[+] NEW process pid=11059 @ 2.4s
+[+] NEW process pid=11075 @ 2.4s
+[+] NEW process pid=11083 @ 3.6s
+[+] NEW process pid=11295 @ 4.8s
+[+] NEW process pid=11435 @ 6.0s
+[!] rpc get_stats failed: script has been destroyed
+[*] stats: null
+[!] rpc list_loaded_classes failed: script has been destroyed
+[*] done rs_seen=False dex=0 regnat_msgs=0

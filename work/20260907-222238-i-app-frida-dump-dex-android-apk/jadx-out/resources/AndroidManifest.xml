@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="10912"
+    android:versionName="1.9.12"
+    android:compileSdkVersion="33"
+    android:compileSdkVersionCodename="13"
+    platformBuildVersionName="13"
+    platformBuildVersionCode="33"
+    package="com.moutai.mall">
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="33"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="com.android.permission.GET_INSTALLED_APPS"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-feature android:name="android.hardware.nfc.hce"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <queries>
+        <package android:name="com.tencent.mm"/>
+        <package android:name="com.tencent.mobileqq"/>
+        <package android:name="com.sina.weibo"/>
+        <package android:name="com.eg.android.AlipayGphone"/>
+        <package android:name="com.unionpay"/>
+        <package android:name="com.netease.epay"/>
+        <package android:name="cn.cyberIdentity.certification"/>
+        <intent>
+            <action android:name="com.hihonor.push.action.BIND_PUSH_SERVICE"/>
+        </intent>
+        <package android:name="com.jingdong.app.mall"/>
+        <package android:name="com.jd.jrapp"/>
+        <package android:name="com.bbk.appstore"/>
+        <package android:name="com.huawei.appmarket"/>
+        <package android:name="com.xiaomi.market"/>
+        <package android:name="com.sec.android.app.samsungapps"/>
+        <package android:name="com.meizu.mstore"/>
+        <package android:name="com.oppo.market"/>
+        <package android:name="com.tencent.android.qqdownloader"/>
+        <package android:name="com.lenovo.leos.appstore"/>
+        <package android:name="com.huawei.android.pushagent"/>
+        <package android:name="com.huawei.hff"/>
+        <package android:name="com.huawei.hms"/>
+        <package android:name="com.huawei.hwid"/>
+        <package android:name="com.huawei.hwid.tv"/>
+        <intent>
+            <action android:name="com.huawei.hms.core.aidlservice"/>
+        </intent>
+        <intent>
+            <action android:name="com.huawei.hms.core"/>
+        </intent>
+        <package android:name="com.huawei.works"/>
+    </queries>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <permission
+        android:name="com.moutai.mall.permission.haotian.RECEIVE"
+        android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.moutai.mall.permission.haotian.RECEIVE"/>
+    <uses-permission android:name="android.permission.DETECT_SCREEN_RECORDING"/>
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape"/>
+    <uses-feature android:name="android.hardware.touchscreen"/>
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"/>
+    <permission
+        android:name="com.moutai.mall.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.moutai.mall.permission.C2D_MESSAGE"/>
+    <permission
+        android:name="com.moutai.mall.push.permission.MESSAGE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.moutai.mall.push.permission.MESSAGE"/>
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+    <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_CONTENT_PROVIDERS_EXTERNALLY"/>
+    <permission
+        android:name="com.moutai.mall.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.moutai.mall.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <supports-screens
+        android:anyDensity="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:resizeable="true"/>
+    <uses-permission android:name="com.meizu.flyme.permission.PUSH"/>
+    <permission
+        android:name="com.moutai.mall.permission.PROCESS_PUSH_MSG"
+        android:protectionLevel="signature"/>
+    <permission
+        android:name="com.moutai.mall.permission.PUSH_PROVIDER"
+        android:protectionLevel="signature"/>
+    <permission
+        android:name="com.moutai.mall.permission.PUSH_WRITE_PROVIDER"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.moutai.mall.permission.PROCESS_PUSH_MSG"/>
+    <uses-permission android:name="com.moutai.mall.permission.PUSH_PROVIDER"/>
+    <uses-permission android:name="com.hihonor.push.permission.READ_PUSH_NOTIFICATION_INFO"/>
+    <permission
+        android:name="com.moutai.mall.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.moutai.mall.permission.MIPUSH_RECEIVE"/>
+    <application
+        android:theme="@style/Theme.Moutaimall"
+        android:label="@string/app_name"
+        android:icon="@mipmap/all_ic_launcher"
+        android:name="com.secneo.apkwrapper.AW"
+        android:enabled="true"
+        android:allowBackup="false"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:extractNativeLibs="true"
+        android:usesCleartextTraffic="true"
+        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/all_ic_launcher"
+        android:appComponentFactory="com.secneo.apkwrapper.AP"
+        android:requestLegacyExternalStorage="true">
+        <activity
+            android:name="com.moutai.mall.module.culture.CommunityUserHomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.culture.NoteDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.address.AddressEditorActivity"
+            android:exported="false"/>
+        <activity
+            android:name="com.moutai.mall.module.address.AddressManagementActivity"
+            android:exported="false"/>
+        <activity
+            android:name="com.moutai.mall.module.shortvideo.ShortVideoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.reserveentrance.ReserveEntranceActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.reservation.ReservationDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.ReservationListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.ProtocolActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.SettingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.DeviceInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.AccountManageActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.AboutActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.FeedbackActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.PersonalInfoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.demo.UpdateDemoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.login.LoginActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.login.BindPhoneActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.demo.StateLayoutAndStatusBarSetDemoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.certification.CertificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.certification.FaceDetectActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.demo.ImagePickDemoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.demo.EventBusActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.demo.GlideDemoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.pay.placeorder.PlaceOrderActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.OrderDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.OrderListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.OrderCancelProgressActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.OrderQRCodeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.OrderAggregationActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/translucent_activity_style"
+            android:label="@string/app_name"
+            android:name="com.moutai.mall.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sdksample"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.moutai.mall.module.pay.payresult.PayResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.mtpay.sdk.MtPayActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.webview.view.WebViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/photoItemImagePreview"
+            android:name="com.moutai.mall.image.preview.activity.SingleItemImagePreviewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/photoItemImagePreview"
+            android:name="com.moutai.mall.image.preview.activity.MultiItemImagesPreviewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.image.pick.activity.PickImageActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|navigation|keyboardHidden|keyboard"/>
+        <activity
+            android:name="com.moutai.mall.image.pick.activity.PickSingleImageActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|navigation|keyboardHidden|keyboard"/>
+        <activity
+            android:name="com.moutai.mall.image.crop.activity.ImageCropActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|navigation|keyboardHidden|keyboard"/>
+        <activity
+            android:name="com.moutai.mall.module.shop.ShopListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.search.CommunitySearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing|stateVisible"/>
+        <activity
+            android:name="com.moutai.mall.module.certification.OcrEntranceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.certification.OcrScanActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.qrcode.QrcodeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.qrcode.QrcodePickSingleImageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/splash_theme"
+            android:name="com.moutai.mall.module.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@style/route_theme"
+            android:name="com.moutai.mall.module.splash.RouteActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <data android:scheme="moutaiapp"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.moutai.mall.module.reservation.submit.ReserveActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.shop.NearbyShopListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.message.MessageCenterActivity"
+            android:screenOrientation="portrait"/>
+        <meta-data
+            android:name="EasyGoClient"
+            android:value="true"/>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="BJtqEBNPCphgHhLnrpIAoMpCX14TWT1J"/>
+        <provider
+            android:name="com.moutai.mall.share.AbsFileProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.abs.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/abs_file_provider_paths"/>
+        </provider>
+        <receiver
+            android:name="com.moutai.mall.share.shareutil.wxapi.AppRegister"
+            android:permission="com.tencent.mm.plugin.permission.SEND"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP"/>
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="com.moutai.mall.share.shareutil.wxapi.ShareFileProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.share.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/share_file_provider_paths"/>
+        </provider>
+        <activity
+            android:theme="@style/activity_share"
+            android:name="com.moutai.mall.share.view.FragmentShareActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter android:priority="1000">
+                <data android:scheme="tencent1104949895"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@style/activity_share"
+            android:name="com.moutai.mall.share.view.SharePanelActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter android:priority="1000">
+                <data android:scheme="tencent1104949895"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="behind"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencentxxxx"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.moutai.mall.module.shop.OnlineShopListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.shoppingcart.ShoppingCartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.ComposeOrderActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.orderV2.ComposeOrderActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.DrawInvoiceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity
+            android:name="com.moutai.mall.module.reservation.select.SelectReservationListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.reservation.select.order.ReservationOrderPayActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.shop.ChangeShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.shopV2.ChangeShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.shop.SettingDefaultShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.shop.ShopPreferenceActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.cloudshop.CloudShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.CityPickAct"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.image.pick.activity.PickImageConvertActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.image.pick.activity.PickerAlbumActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/photoItemImagePreview"
+            android:name="com.moutai.mall.image.pick.activity.PickerAlbumPreviewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.PermissionManagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.order.ChooseSelfPickUpActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.NumIdentityPswManagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.did.DIDEntranceActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.did.DIDPasswordCheckActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.personal.UserCertificationInfoConfirmActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.culture.FoldScreenSecondaryActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.nfc.NFCTraceBottleActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.module.culture.CommunityVideoDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout|orientation|keyboardHidden"/>
+        <activity
+            android:theme="@style/Theme.Moutaimall.DarkNavigation"
+            android:name="com.moutai.mall.view.photo.PhotoPreviewPagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.moutai.mall.browsing.BrowsingCloudShopActivity"
+            android:screenOrientation="portrait"/>
+        <service
+            android:name="com.baidu.haotian.HaotianService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.baidu.action.Haotian.VIEW"/>
+                <category android:name="com.baidu.category.haotian"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <provider
+            android:name="com.baidu.haotian.HaotianProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.haotian.ac.provider"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent"
+            android:name="com.bangcle.everisk.core.c"/>
+        <service
+            android:name="com.leopard.zeus.main.checkers.isolated.RSService"
+            android:exported="false"
+            android:process=":isolated"
+            android:isolatedProcess="true"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.hearttouch.htimagepicker"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+        <activity
+            android:name="com.netease.hearttouch.htimagepicker.defaultui.imagepick.activity.HTImagePickActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|navigation|keyboardHidden|keyboard"/>
+        <activity
+            android:name="com.netease.hearttouch.htimagepicker.defaultui.imagepreview.activity.HTMultiImagesPreviewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.hearttouch.htimagepicker.defaultui.imagepreview.activity.HTSingleImagePreviewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.hearttouch.htimagepicker.defaultui.imagecrop.activity.HTImageCropActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|navigation|keyboardHidden|keyboard"/>
+        <activity
+            android:name="com.netease.hearttouch.htimagepicker.core.camera.HTCameraActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|keyboard"/>
+        <receiver
+            android:name="com.netease.yanxuan.push.thirdpart.miui.MiuiPushMessageReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.vivo.push.sdk.service.CommandClientService"
+            android:permission="com.push.permission.UPSTAGESERVICE"
+            android:exported="true"/>
+        <meta-data
+            android:name="com.vivo.push.api_key"
+            android:value="3f006a54d35296251b7743327a1f5244"/>
+        <meta-data
+            android:name="com.vivo.push.app_id"
+            android:value="105528341"/>
+        <meta-data
+            android:name="com.hihonor.push.app_id"
+            android:value="900806216"/>
+        <service
+            android:name="com.netease.yanxuan.push.thirdpart.honor.HonorPushService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.hihonor.push.action.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.netease.yanxuan.push.thirdpart.vivo.VIVOPushMessageReceiverImpl"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.vivo.pushclient.action.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
+            android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.heytap.msp.push.service.DataMessageCallbackService"
+            android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+                <action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.netease.yanxuan.push.thirdpart.oppo.service.OppoPushMessageService"
+            android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.netease.yanxuan.push.thirdpart.oppo.service.OppoAppPushMessageService"
+            android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+                <action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.netease.yanxuan.push.thirdpart.huawei.EmuiMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.netease.yanxuan.push.thirdpart.flyme.FlymePushMsgReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.meizu.flyme.push.intent.MESSAGE"/>
+                <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK"/>
+                <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
+                <action android:name="com.meizu.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.meizu.c2dm.intent.RECEIVE"/>
+                <category android:name="com.moutai.mall"/>
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.androidx-startup">
+            <meta-data
+                android:name="com.netease.libs.yxstorage.approuter.AppContextInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="com.netease.libs.netoast.ToastApplication"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup"/>
+        </provider>
+        <service
+            android:name="com.netease.deviceid.jni.EmulatorCheckService"
+            android:process=":cache"/>
+        <provider
+            android:name="com.snail.collie.startup.LauncherHelpProvider"
+            android:exported="false"
+            android:multiprocess="true"
+            android:authorities="com.moutai.mall"/>
+        <receiver android:name="com.snail.collie.battery.BatteryLevelReceiver"/>
+        <service android:name="com.snail.collie.startup.HelpService"/>
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.jakewharton.processphoenix.ProcessPhoenix"
+            android:exported="false"
+            android:process=":phoenix"/>
+        <activity android:name="com.mtpay.sdk.GZBankActivity"/>
+        <activity
+            android:name="com.unionpay.UPPayWapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.mtpay.sdk.wxapi.WXPayEntryActivity"
+            android:launchMode="singleTop"
+            android:configChanges="screenSize|orientation|navigation|keyboardHidden"/>
+        <activity-alias
+            android:name="com.moutai.mall.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:targetActivity="com.mtpay.sdk.wxapi.WXPayEntryActivity"/>
+        <activity
+            android:theme="@style/Theme.Activity.Translucent"
+            android:name="com.jdpaysdk.author.AuthorActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="fontScale|smallestScreenSize|screenSize|uiMode|screenLayout|orientation|navigation|keyboardHidden|touchscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="jdpauthjdjr117944902158"/>
+                <data android:scheme="jdpauthjdjr190830354002"/>
+                <data android:scheme="jdpauthjdjr190830354004"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="jdpauth"/>
+            </intent-filter>
+        </activity>
+        <service
+            android:label="dexopt"
+            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+            android:process=":dexopt"/>
+        <activity
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:exported="false"
+            android:configChanges="fontScale|layoutDirection|density|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden|keyboard|locale"/>
+        <activity
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:exported="false"
+            android:configChanges="fontScale|layoutDirection|density|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden|keyboard|locale"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.alipay.sdk.app.PayResultActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:configChanges="fontScale|layoutDirection|density|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden|keyboard|locale"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.alipay.sdk.app.AlipayResultActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="fontScale|layoutDirection|density|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden|keyboard|locale"/>
+        <activity
+            android:name="com.alipay.sdk.app.H5OpenAuthActivity"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:configChanges="fontScale|layoutDirection|density|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden|keyboard|locale"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.alipay.sdk.app.APayEntranceActivity"
+            android:exported="false"
+            android:configChanges="fontScale|layoutDirection|density|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden|keyboard|locale"/>
+        <activity
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:name="com.jdpaysdk.author.browser.BrowserActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <meta-data
+            android:name="huawei_module_scankit_local"
+            android:value="21200301"/>
+        <meta-data
+            android:name="huawei_module_scankit_sdk_version"
+            android:value="scanplus:2.12.0.301"/>
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:scanplus"
+            android:value="scanplus:2.12.0.301"/>
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:scanplus:huawei_module_scankit"
+            android:value="1"/>
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:scanplus:hmscore"
+            android:value="1"/>
+        <activity
+            android:name="com.huawei.hms.hmsscankit.ScanKitActivity"
+            android:launchMode="singleTask"
+            android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|navigation"/>
+        <service
+            android:name="com.meizu.cloud.pushsdk.NotificationService"
+            android:exported="true"/>
+        <receiver
+            android:name="com.meizu.cloud.pushsdk.MzPushSystemReceiver"
+            android:permission="com.meizu.flyme.permission.PUSH"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.meizu.flyme.push.intent.PUSH_SYSTEM"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:permission="android.permission.DUMP"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.huawei.hms.support.api.push.PushMsgReceiver"
+            android:permission="com.moutai.mall.permission.PROCESS_PUSH_MSG"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY"/>
+                <action android:name="com.huawei.intent.action.PUSH"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.huawei.hms.support.api.push.PushReceiver"
+            android:permission="com.moutai.mall.permission.PROCESS_PUSH_MSG"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
+                <action android:name="com.huawei.android.push.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.huawei.hms.support.api.push.service.HmsMsgService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":pushservice"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="com.huawei.push.msg.NOTIFY_MSG"/>
+                <action android:name="com.huawei.push.msg.PASSBY_MSG"/>
+            </intent-filter>
+        </service>
+        <provider
+            android:name="com.huawei.hms.support.api.push.PushProvider"
+            android:readPermission="com.moutai.mall.permission.PUSH_PROVIDER"
+            android:writePermission="com.moutai.mall.permission.PUSH_WRITE_PROVIDER"
+            android:exported="true"
+            android:authorities="com.moutai.mall.huawei.push.provider"/>
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:push"
+            android:value="push:6.12.0.300"/>
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:push:push"
+            android:value="1"/>
+        <activity
+            android:name="com.huawei.hms.support.api.push.TransActivity"
+            android:exported="false"/>
+        <meta-data
+            android:name="com.hihonor.push.sdk_version"
+            android:value="7.0.61.303"/>
+        <meta-data
+            android:name="sdkVersion"
+            android:value="3503"/>
+        <meta-data
+            android:name="sdk_version_vivo"
+            android:value="500"/>
+        <meta-data
+            android:name="local_iv"
+            android:value="MzMsMzQsMzUsMzYsMzcsMzgsMzksNDAsNDEsMzIsMzgsMzcsMzYsMzUsMzQsMzMsI0AzNCwzMiwzMywzNywzMywzNCwzMiwzMywzMywzMywzNCw0MSwzNSwzNSwzMiwzMiwjQDMzLDM0LDM1LDM2LDM3LDM4LDM5LDQwLDQxLDMyLDM4LDM3LDMzLDM1LDM0LDMzLCNAMzQsMzIsMzMsMzcsMzMsMzQsMzIsMzMsMzMsMzMsMzQsNDEsMzUsMzIsMzIsMzI"/>
+        <meta-data
+            android:name="com.vivo.push.support_monitor"
+            android:value="1"/>
+        <meta-data
+            android:name="MIPUSH_SDK_VERSION_CODE"
+            android:value="60001"/>
+        <meta-data
+            android:name="MIPUSH_SDK_VERSION_NAME"
+            android:value="6_0_1-C"/>
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:enabled="true"
+            android:process=":pushservice"/>
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushservice"/>
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:permission="com.xiaomi.xmsf.permission.MIPUSH_RECEIVE"
+            android:enabled="true"
+            android:exported="true"/>
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true"/>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.PingReceiver"
+            android:exported="false"
+            android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.xiaomi.mipush.sdk.NotificationClickedActivity"
+            android:enabled="true"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance">
+            <meta-data
+                android:name="supportStyle"
+                android:value="scene|voip"/>
+        </activity>
+        <provider
+            android:name="com.huawei.hms.aaid.InitProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.aaidinitprovider"
+            android:initOrder="500"/>
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:opendevice"
+            android:value="opendevice:6.12.0.300"/>
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:opendevice:push"
+            android:value="1"/>
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:base"
+            android:value="base:6.11.0.302"/>
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:base:hmscore"
+            android:value="1"/>
+        <meta-data
+            android:name="availableLoaded"
+            android:value="yes"/>
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:dynamic-api"
+            android:value="dynamic-api:1.0.24.300"/>
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:dynamic-api:huawei_module_dynamicloader"
+            android:value="10"/>
+        <provider
+            android:name="com.huawei.hms.mlsdk.common.provider.MLInitializerProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.MLInitializerProvider"/>
+        <provider
+            android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
+            android:exported="false"
+            android:authorities="com.moutai.mall.AGCInitializeProvider"/>
+        <service
+            android:name="com.huawei.agconnect.core.ServiceDiscovery"
+            android:exported="false"/>
+        <activity
+            android:theme="@style/Base_Translucent"
+            android:name="com.huawei.hms.activity.BridgeActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="behind"
+            android:configChanges="fontScale|layoutDirection|smallestScreenSize|screenSize|uiMode|screenLayout|orientation|locale"
+            android:hardwareAccelerated="true">
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity
+            android:name="com.huawei.hms.activity.EnableServiceActivity"
+            android:exported="false"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboardHidden"/>
+        <meta-data
+            android:name="com.hihonor.mcs.client.appid"
+            android:value="900806216"/>
+        <meta-data
+            android:name="com.hihonor.mcs.client.developerid"
+            android:value="developerid=109999824738"/>
+        <provider
+            android:name="com.secneo.apkwrapper.CP"
+            android:exported="false"
+            android:authorities="com.moutai.mall.CP"
+            android:initOrder="2147483647"/>
+        <service
+            android:name="com.moutai.mall.IsoService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":rs"
+            android:isolatedProcess="true"/>
+    </application>
+</manifest>

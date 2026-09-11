@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="12dp"
+        android:textColor="@color/gray_7f"
+        android:id="@+id/tvDeclaration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="50dp"/>
+</FrameLayout>

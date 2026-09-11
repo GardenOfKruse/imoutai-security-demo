@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="25dp"
+    android:paddingBottom="40dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/etInput"
+        app:layout_constraintLeft_toLeftOf="@+id/etInput"
+        app:layout_constraintRight_toRightOf="@+id/etInput"
+        app:layout_constraintTop_toTopOf="@+id/etInput"
+        app:strokeColor="@color/gray_33"
+        app:strokeWidth="0.5dp"/>
+    <EditText
+        android:textSize="18dp"
+        android:textColor="@color/gray_33"
+        android:id="@+id/etInput"
+        android:background="@null"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="number"
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

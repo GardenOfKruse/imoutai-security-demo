@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_cancel">Wurung</string>
+    <string name="dialog_go_setting">Setelan</string>
+    <string name="hms_apk_not_installed_hints">Sawetara fitur ing %1$s bisa uga ora mlaku kanthi bener tanpa HMS Core, sing durung diinstal ing piranti.</string>
+    <string name="hms_bindfaildlg_message">%1$s ora bisa nggunakake HMS Core. Luncurake Pangoptimal (Atur Ponsel) utawa bukak Setelan kanggo ngaktifake kabeh izin kanggo %2$s (kalebu luncurake otomatis lan paluncuran kaloro), banjur coba maneh.</string>
+    <string name="hms_confirm">OK</string>
+    <string name="hms_is_spoof">Kayane HMS Core (%1$s) sing diinstal ing piranti sampeyan kuwi versi bajakan. Busak instalan HMS Core saka Setelan banjur mbalika menyang apl iki kanggo nginstal versi sing resmi.</string>
+    <string name="hms_push_channel">Gawan</string>
+    <string name="hms_spoof_hints">Cathetan</string>
+    <string name="permission_dialog_info">Iki digunakake kanggo nyedhiyakake layanan pamindaian.</string>
+    <string name="permission_dialog_title">Wenehi idin Kamera ing Setelan &gt; Apl &gt; Pangatur idin</string>
+    <string name="scankit_confirm">OK</string>
+    <string name="scankit_light">Dumuk supaya cahyane luwih akeh</string>
+    <string name="scankit_light_off">Pateni cahya</string>
+    <string name="scankit_no_code_tip">Ora ana kode kadeteksi.</string>
+    <string name="scankit_scan_tip">Selehake kode sajrone bingkai</string>
+    <string name="scankit_talkback_back">Back</string>
+    <string name="scankit_talkback_photo">Gallery</string>
+    <string name="scankit_title">Pindai</string>
+    <string name="scankit_title_all">Pindai kode QR/kode wilah</string>
+    <string name="scankit_title_all_level_two">Lempengake kode QR/kode wilah ing ngisor iki</string>
+    <string name="scankit_title_qr">Pindai kode QR</string>
+    <string name="scankit_title_qr_level_two">Lempengake kode QR ing ngisor iki</string>
+</resources>

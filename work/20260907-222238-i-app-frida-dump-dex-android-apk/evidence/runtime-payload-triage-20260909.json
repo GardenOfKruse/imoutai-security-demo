@@ -1,0 +1,129 @@
+{
+  "files": [
+    {
+      "path": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\runtime-app-files-25103-20260909\\classes.dve",
+      "size": 24,
+      "sha256": "9c5286f9dd36cc275e4863a88d3f123c3e02ce1370bbbff2294383e7956be2a3",
+      "head_hex": "081ff53a14a0f5dc86dafeabe3883e3b78579f6a00000000",
+      "entropy_bits_per_byte": 4.168296,
+      "zero_bytes": 4,
+      "unique_byte_values": 20,
+      "markers": {
+        "dex": [],
+        "cdex": [],
+        "vdex": [],
+        "elf": [],
+        "zip_local": [],
+        "zip_central": [],
+        "zip_end": [],
+        "dexdata": [],
+        "fdex": []
+      },
+      "keywords": {
+        "com/moutai/mall": [],
+        "login": [],
+        "signature": [],
+        "classes.dve": [],
+        "KEY_RES_ENC": [],
+        "InMemoryDexClassLoader": []
+      },
+      "zip": {
+        "valid": false,
+        "error": "BadZipFile"
+      }
+    },
+    {
+      "path": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\runtime-app-files-25103-20260909\\classes.jar",
+      "size": 23646714,
+      "sha256": "98d6d83d4b76156a6b4c630ff72ffe9c344a3a3a2ea1e6b28357e2dad312f0b2",
+      "head_hex": "6465780d0a30333700478f47eef55bd6203bf4b699c5a05a763edc81aff74dc19baca9660170000000785634120000000000000000bc58000059010000700000",
+      "entropy_bits_per_byte": 6.446991,
+      "zero_bytes": 6625430,
+      "unique_byte_values": 256,
+      "markers": {
+        "dex": [],
+        "cdex": [],
+        "vdex": [],
+        "elf": [],
+        "zip_local": [
+          5681572
+        ],
+        "zip_central": [],
+        "zip_end": [],
+        "dexdata": [
+          23031
+        ],
+        "fdex": [
+          15437032,
+          18545348,
+          22125337,
+          23646710
+        ]
+      },
+      "keywords": {
+        "com/moutai/mall": [
+          7023,
+          7055,
+          10042266,
+          10042323
+        ],
+        "login": [
+          9401249,
+          9479231,
+          9479283,
+          9479334,
+          9479387,
+          9479436,
+          9479498
+        ],
+        "signature": [
+          7437,
+          9277635,
+          9278450,
+          9279634,
+          9333095,
+          9459118,
+          9468263,
+          9480473,
+          10042851,
+          10052074,
+          10097686,
+          10097703,
+          10105115,
+          10106237,
+          10119554,
+          10122192,
+          10136203,
+          10223280,
+          10241291,
+          10241309,
+          10241332,
+          10241352,
+          10254475,
+          10288257,
+          10307629,
+          10492949,
+          10493963,
+          10550181,
+          10580842,
+          10580856,
+          10580929,
+          10612659,
+          10712382,
+          10732173,
+          10835558,
+          10898304,
+          10898316,
+          10942312
+        ],
+        "classes.dve": [],
+        "KEY_RES_ENC": [],
+        "InMemoryDexClassLoader": []
+      },
+      "zip": {
+        "valid": false,
+        "error": "BadZipFile"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:background="@color/jdpay_author_transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/jdpay_author_loadingLayout"
+        android:background="@drawable/jdpay_author_activity_loading_bg"
+        android:visibility="gone"
+        android:layout_width="93dp"
+        android:layout_height="93dp">
+        <ImageView
+            android:id="@+id/jdpay_author_loadingImageView"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:src="@drawable/jdpay_author_loading"
+            android:scaleType="center"/>
+        <TextView
+            android:textSize="12sp"
+            android:textColor="#e6ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/jdpay_author_activity_loading"/>
+    </LinearLayout>
+</LinearLayout>

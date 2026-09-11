@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_cancel">Whakakore</string>
+    <string name="dialog_go_setting">Ngā tautuhinga</string>
+    <string name="hms_apk_not_installed_hints">Kāore pea e mahi tika ētahi āhuahira i %1$s ki te kore te HMS Core, ā, kāore i te tāuta ki tō pūrere.</string>
+    <string name="hms_bindfaildlg_message">Kāore e taea e %1$s te whakamahi HMS Core. Whakarewatia te Pūarotau (Pūwhakahaere Waea), haere rānei ki Ngā Tautuhinga, whakahohea ngā taupānga katoa mō %2$s (tae atu ki whakarewa-aunoa me te whakarewa tuarua), ka ngana anō.</string>
+    <string name="hms_confirm">ĀE</string>
+    <string name="hms_is_spoof">Te āhua nei kua putanga manakore tāu o HMS Core (%1$s) kua tāutahia ki tō pūrere. Me tangotāuta i te HMS Core mai i Ngā tautuhinga ka hoki ki tēnei taupānga hei tāuta i te putanga whaimana.</string>
+    <string name="hms_push_channel">Taunoa</string>
+    <string name="hms_spoof_hints">Kia mōhio</string>
+    <string name="permission_dialog_info">Ka whakamahia tēnei hei tuku i ngā ratonga karapa.</string>
+    <string name="permission_dialog_title">Tukuna te whakaaetanga Kāmera i Ngā Tautuhinga &gt; Ngā taupānga &gt; Kaiwhakahaere whakaaetanga</string>
+    <string name="scankit_confirm">ĀE</string>
+    <string name="scankit_light">Pā atu mō ngā tūrama atu anō</string>
+    <string name="scankit_light_off">Whakaweto tūrama</string>
+    <string name="scankit_no_code_tip">Kāore i kitea he waehere.</string>
+    <string name="scankit_scan_tip">Raua te waehere ki roto i te tāpare</string>
+    <string name="scankit_talkback_back">Back</string>
+    <string name="scankit_talkback_photo">Gallery</string>
+    <string name="scankit_title">Karapa</string>
+    <string name="scankit_title_all">Karapa waehere QR/waeherepae</string>
+    <string name="scankit_title_all_level_two">Tīarohia te waehere QR/waeherepae i raro nei</string>
+    <string name="scankit_title_qr">Karapa waehere QR</string>
+    <string name="scankit_title_qr_level_two">Tīarohia te waehere QR i raro nei</string>
+    <string name="yd_tip_close">katinga</string>
+    <string name="yd_tip_init_timeout">Kua pau te wa arataki, pawhiria te Ngana Anō</string>
+    <string name="yd_tip_load_failed">I rahua te uta, pawhiria kia ngana ano</string>
+    <string name="yd_tip_loading">Te rapunga mohio</string>
+    <string name="yd_tip_no_network">He rereke te whatunga, tirohia te whatunga ka ngana ano</string>
+    <string name="yd_tip_validate_timeout">Kua pau te motuhēhēnga, kati koa ka tirohia te whatunga</string>
+</resources>

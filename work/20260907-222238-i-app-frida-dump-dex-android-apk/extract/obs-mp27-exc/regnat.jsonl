@@ -1,0 +1,7 @@
+{"type": "regnat", "seq": 1, "count": 3, "caller": "?", "methods": ["bs(Landroid/content/Context;I)Ljava/lang/Object;@0x79c47be3fc", "is(I)Z@0x79c47bef48", "us(Landroid/content/Context;)V@0x79c47bef68"]}
+{"type": "regnat", "seq": 2, "count": 1, "caller": "?", "methods": ["hn(Landroid/content/Context;Landroid/app/Application;)V@0x79c47c4f84"]}
+{"type": "regnat", "seq": 3, "count": 1, "caller": "?", "methods": ["pn()V@0x79c47c6018"]}
+{"type": "regnat", "seq": 4, "count": 1, "caller": "?", "methods": ["d(Ljava/lang/String;)Ljava/lang/String;@0x79c47c6d8c"]}
+{"type": "regnat", "seq": 5, "count": 6, "caller": "?", "methods": ["gha(Ljava/lang/String;)I@0x79c47c8d38", "ghc(Ljava/lang/String;)J@0x79c47c8da8", "gah()[Ljava/lang/Object;@0x79c47c8e10", "sha(Ljava/lang/String;I)V@0x79c47c94a8", "he(I)V@0x79c47c94e0", "gv()I@0x79c47c9b68"]}
+{"type": "regnat", "seq": 6, "count": 7, "caller": "?", "methods": ["bli(Ljava/lang/String;)Z@0x79c47c702c", "bla(Ljava/lang/String;)V@0x79c47c71cc", "blr(Ljava/lang/String;)V@0x79c47c72d4", "blq(Ljava/lang/String;)Z@0x79c47c73dc", "blc()V@0x79c47c7408", "bls(J)Z@0x79c47c742c", "blv()J@0x79c47c7470"]}
+{"type": "regnat", "seq": 7, "count": 1, "caller": "?", "methods": ["sn(Ljava/lang/String;)I@0x79c47d7558"]}

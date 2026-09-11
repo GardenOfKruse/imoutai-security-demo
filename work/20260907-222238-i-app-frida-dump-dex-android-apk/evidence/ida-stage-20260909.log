@@ -1,0 +1,81 @@
+C:\Users\76327\AppData\Roaming\Hex-Rays\IDA Pro\plugins\mcp-plugin.py: PLUGIN_ENTRY was not defined or the class name 'MCP' was already used in 'ida_mcp.py'
+Possible file format: ELF64 for ARM64 (Shared object) (E:\Program Files\IDA Professional 9.3\loaders\elf.dll)
+
+  bytes   pages size description
+--------- ----- ---- --------------------------------------------
+  4718592   576 8192 allocating memory for b-tree...
+  4718592   576 8192 allocating memory for virtual array...
+   262144    32 8192 allocating memory for name pointers...
+-----------------------------------------------------------------
+  9699328            total memory allocated
+
+Loading file 'E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\libDexHelper-stage-decrypted-20260909.elf' into database...
+Detected file format: ELF64 for ARM64 (Shared object)
+Loading processor module E:\Program Files\IDA Professional 9.3\procs\arm.dll for arm...OK
+Autoanalysis subsystem has been initialized.
+C:\Users\76327\AppData\Roaming\Hex-Rays\IDA Pro\plugins\mcp-plugin.py: PLUGIN_ENTRY was not defined or the class name 'MCP' was already used in 'ida_mcp.py'
+stalker_trace_so plugin has been loaded.
+Assuming __fastcall calling convention by default
+  0. Creating a new segment  (0000000000000000-000000000011506C) ... ... OK
+  1. Creating a new segment  (000000000011B938-0000000000143D60) ... ... OK
+Assuming __fastcall calling convention by default
+Type library 'gnulnx_arm64' loaded. Applying types...
+Types applied to 0 names.
+  2. Creating a new segment  (000000000000EA40-000000000000F8B0) ... ... OK
+  3. Creating a new segment  (000000000000F8B0-000000000011506C) ... ... OK
+  4. Creating a new segment  (000000000000F8B0-00000000000EC19C) ... ... OK
+     Deleting segment        (00000000000EC19C-000000000011506C) ...
+  4. Creating a new segment  (00000000000EC19C-000000000011506C) ... ... OK
+  5. Creating a new segment  (00000000000EC1A0-00000000000FE781) ... ... OK
+  6. Creating a new segment  (00000000000FE781-000000000011506C) ... ... OK
+  7. Creating a new segment  (00000000000FE784-0000000000102438) ... ... OK
+  8. Creating a new segment  (0000000000102438-000000000011506C) ... ... OK
+  9. Creating a new segment  (0000000000102438-0000000000112DF8) ... ... OK
+     Deleting segment        (0000000000112DF8-000000000011506C) ...
+  9. Creating a new segment  (0000000000112DF8-000000000011506C) ... ... OK
+ 10. Creating a new segment  (0000000000112DF8-0000000000114FD4) ... ... OK
+     Deleting segment        (0000000000114FD4-000000000011506C) ...
+ 10. Creating a new segment  (0000000000114FD4-000000000011506C) ... ... OK
+ 11. Creating a new segment  (000000000011B938-000000000011B940) ... ... OK
+     Deleting segment        (000000000011B940-0000000000143D60) ...
+ 11. Creating a new segment  (000000000011B940-0000000000143D60) ... ... OK
+ 12. Creating a new segment  (000000000011B940-000000000011B950) ... ... OK
+     Deleting segment        (000000000011B950-0000000000143D60) ...
+ 12. Creating a new segment  (000000000011B950-0000000000143D60) ... ... OK
+ 13. Creating a new segment  (000000000011B950-000000000011F220) ... ... OK
+     Deleting segment        (000000000011F220-0000000000143D60) ...
+ 13. Creating a new segment  (000000000011F220-0000000000143D60) ... ... OK
+ 14. Creating a new segment  (000000000011F450-0000000000120000) ... ... OK
+ 15. Creating a new segment  (0000000000120000-0000000000143D60) ... ... OK
+ 16. Creating a new segment  (0000000000120000-0000000000123528) ... ... OK
+     Deleting segment        (0000000000123528-0000000000143D60) ...
+ 16. Creating a new segment  (0000000000123528-0000000000143D60) ... ... OK
+ 17. Creating a new segment  (0000000000124000-0000000000143D60) ... ... OK
+ 18. Creating a new segment  (0000000000143D60-0000000000144498) ... ... OK
+Type library 'android_arm64' loaded. Applying types...
+Types applied to 4 names.
+Processing relocations...
+Patching PLT...
+Flushing buffers, please wait...ok
+File 'E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\libDexHelper-stage-decrypted-20260909.elf' has been successfully loaded into the database.
+Flushing buffers, please wait...ok
+Hex-Rays Decompiler plugin has been loaded (v9.3.0.251224)
+  The hotkeys are F5: decompile, Ctrl-F5: decompile all.
+
+  Please check the Edit/Plugins menu for more information.
+Hex-rays version 9.3.0.251224 has been detected, gooMBA plugin ready to use
+[MCP] Plugin loaded (idalib mode, server managed externally)
+C:\Users\76327\AppData\Roaming\Hex-Rays\IDA Pro\plugins\mcp-plugin.py: PLUGIN_ENTRY was not defined or the class name 'MCP' was already used in 'ida_mcp.py'
+Using type parser: legacy
+IDA is analysing the input file...
+You may start to explore the input file right now.
+Propagating type information...
+Function argument information has been propagated
+The initial autoanalysis has been finished.
+IDA_TRIAGE_OUT=E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\evidence\ida-triage-libdexhelper-stage-20260909.json
+IDA_IMPORT_MODULES=1
+IDA_IMPORT_SYMBOLS=231
+IDA_INTERESTING_STRINGS=114
+IDA_INTERESTING_FUNCTIONS=64
+Flushing buffers, please wait...ok
+Unloading IDP module E:\Program Files\IDA Professional 9.3\procs\arm.dll...

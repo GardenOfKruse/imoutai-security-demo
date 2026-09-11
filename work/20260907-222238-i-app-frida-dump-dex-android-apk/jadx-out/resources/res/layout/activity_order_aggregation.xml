@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.button.MaterialButton
+        android:textColor="@color/white"
+        android:id="@+id/open_order_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开订单详情"/>
+    <com.google.android.material.button.MaterialButton
+        android:textColor="@color/white"
+        android:id="@+id/open_order_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开订单列表"/>
+    <com.google.android.material.button.MaterialButton
+        android:textColor="@color/white"
+        android:id="@+id/open_place_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开组单页"/>
+    <com.google.android.material.button.MaterialButton
+        android:textColor="@color/white"
+        android:id="@+id/open_mt_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开茅台支付测试页面"/>
+    <com.google.android.material.button.MaterialButton
+        android:textColor="@color/white"
+        android:id="@+id/open_mt_pay_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开茅台支付结果测试页面"/>
+</LinearLayout>

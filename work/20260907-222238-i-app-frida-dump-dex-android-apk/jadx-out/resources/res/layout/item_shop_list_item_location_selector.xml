@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clShopListItemTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutLocationSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="31dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <ImageView
+            android:id="@+id/ivLocationIcon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@mipmap/ic_location_gold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCity"
+            app:layout_constraintRight_toLeftOf="@+id/tvCity"
+            app:layout_constraintTop_toTopOf="@+id/tvCity"/>
+        <TextView
+            android:textSize="14dp"
+            android:textColor="@color/gray_33"
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/ivLocationIcon"/>
+        <ImageView
+            android:id="@+id/ivDownArrow"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginLeft="3dp"
+            android:src="@mipmap/icon_location_selector_down_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCity"
+            app:layout_constraintLeft_toRightOf="@+id/tvCity"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCity"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,4315 @@
+{
+ "openapi": "3.0.3",
+ "info": {
+  "title": "i茅台 App 后端接口全景（运行时取证还原）",
+  "version": "1.0.0-forensic",
+  "description": "**本文档由授权安全测试的运行时取证数据自动生成**（Frida 延迟附加 + 纯反射注解 dump，2026-09-11，220 个业务类 / 0 失败；签名算法已离线逐字节验证 15/15）。\n\n### 数据来源\n- 接口路径与 HTTP 方法：Retrofit 注解（运行时 `getDeclaredAnnotations`）\n- 请求模型字段：类字段反射（Moshi 序列化，字段名即 JSON key）\n- 签名机制：`md5(deviceKey + mobile + timestamp)`（验证码接口），HeaderMap 签名头由 okhttp 拦截器 `api.a.intercept` 集中注入\n\n### 基础设施（本次取证确认）\n- **网关（App 端，生产）**：https://app.moutai519.com.cn\n- **H5 前端 / 目标接口**：https://h5.moutai519.com.cn\n- **开发环境**：http://devapp.moutai519.com.cn\n- **贵州开发环境**：https://testapp.moutai519.com.cn\n- **CDN / 统计 / Web**：Endpoints 枚举中存在 getApp/cdn/statistic/web 五个 getter，本次快照仅读取了 getApp()；其余域名现场补齐\n- **IP 说明**：全部域名走 CDN 动态解析，无静态 IP；现场演示可用 nslookup/dig 现场解析佐证\n\n### 合规声明\n- 客户盖章授权 + 线下备案；本文档仅用于授权范围内的安全测试与开发者培训演示\n- 🚫 支付相关接口（order/pay）**仅文档化，禁止真实调用**——保护线上账务\n- 文档由脚本自动生成，可复现：`hooks/gen_openapi.py`",
+  "x-extraction-stats": {
+   "classes_dumped": 220,
+   "endpoints_documented": 106,
+   "request_models": 42,
+   "skipped_dynamic_url": 0
+  }
+ },
+ "servers": [
+  {
+   "url": "https://app.moutai519.com.cn",
+   "description": "App 网关（生产）"
+  },
+  {
+   "url": "https://h5.moutai519.com.cn",
+   "description": "H5 前端（目标接口 purchaseInfoV2 所在）"
+  }
+ ],
+ "tags": [
+  {
+   "name": "交易 · 其他"
+  },
+  {
+   "name": "交易 · 发票"
+  },
+  {
+   "name": "交易 · 订单"
+  },
+  {
+   "name": "交易 · 购物车"
+  },
+  {
+   "name": "其他"
+  },
+  {
+   "name": "商城 · 其他"
+  },
+  {
+   "name": "商城 · 商品"
+  },
+  {
+   "name": "商城 · 消息"
+  },
+  {
+   "name": "商城 · 门店"
+  },
+  {
+   "name": "商城 · 预约申购"
+  },
+  {
+   "name": "推送"
+  },
+  {
+   "name": "游戏"
+  },
+  {
+   "name": "社区"
+  },
+  {
+   "name": "账户 · 其他"
+  },
+  {
+   "name": "账户 · 地址"
+  },
+  {
+   "name": "账户 · 实名认证"
+  },
+  {
+   "name": "账户 · 注册与登录"
+  },
+  {
+   "name": "账户 · 设备绑定 ctdid"
+  }
+ ],
+ "paths": {
+  "/game/userinfo/getUserCoin": {
+   "get": {
+    "operationId": "api_f_l1",
+    "summary": "[l1] 游戏金币查询",
+    "tags": [
+     "游戏"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.l1(java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "游戏金币查询｜App 内方法：l1｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/push/client/entry.do": {
+   "post": {
+    "operationId": "api_f_b0",
+    "summary": "[b0] 推送客户端入口",
+    "tags": [
+     "推送"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.b0(com.moutai.mall.api.model.OperatePushRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "推送客户端入口｜App 内方法：b0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.OperatePushRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/config/camera/white": {
+   "get": {
+    "operationId": "api_f_Z0",
+    "summary": "[Z0] 相机白名单配置",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.Z0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "相机白名单配置｜App 内方法：Z0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/config/check/phoneSegment": {
+   "get": {
+    "operationId": "api_f_m1",
+    "summary": "[m1] 号段校验（发码前检查）",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.m1(java.lang.String,java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "号段校验（发码前检查）｜App 内方法：m1｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/config/webview/white": {
+   "get": {
+    "operationId": "api_f_m0",
+    "summary": "[m0] WebView 域名白名单",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.m0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "WebView 域名白名单｜App 内方法：m0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/index/checkScanCode": {
+   "get": {
+    "operationId": "api_f_k",
+    "summary": "[k] 扫码结果校验",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.k(int,java.lang.String,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      },
+      "description": "GET 参数（原类型 int，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "扫码结果校验｜App 内方法：k｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/index/common/popup/get": {
+   "get": {
+    "operationId": "api_f_k1",
+    "summary": "[k1] 通用弹窗",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.k1(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "通用弹窗｜App 内方法：k1｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/index/pop": {
+   "get": {
+    "operationId": "api_f_v0",
+    "summary": "[v0] 首页弹层",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.v0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "首页弹层｜App 内方法：v0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/index/popup/get": {
+   "get": {
+    "operationId": "api_f_b",
+    "summary": "[b] 首页弹窗配置",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.b(int,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      },
+      "description": "GET 参数（原类型 int，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "首页弹窗配置｜App 内方法：b｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/index/xmy/user/coin": {
+   "get": {
+    "operationId": "api_f_Y",
+    "summary": "[Y] 小茅运积分",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.Y(java.lang.Integer,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "小茅运积分｜App 内方法：Y｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/item/codeTrace/getIndex": {
+   "get": {
+    "operationId": "api_f_g1",
+    "summary": "[g1] 码上追溯索引",
+    "tags": [
+     "商城 · 商品"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.g1(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "码上追溯索引｜App 内方法：g1｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/item/nfcTrace/getInfo": {
+   "post": {
+    "operationId": "api_f_r",
+    "summary": "[r] NFC 防伪追溯信息",
+    "tags": [
+     "商城 · 商品"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.r(com.moutai.mall.api.model.ScanVO,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "NFC 防伪追溯信息｜App 内方法：r｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.ScanVO"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/item/nfcTrace/getRandomCode": {
+   "get": {
+    "operationId": "api_f_J",
+    "summary": "[J] NFC 防伪追溯随机码",
+    "tags": [
+     "商城 · 商品"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.J(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "NFC 防伪追溯随机码｜App 内方法：J｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/item/popular": {
+   "post": {
+    "operationId": "api_f_e1",
+    "summary": "[e1] 热门商品推荐",
+    "tags": [
+     "商城 · 商品"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.e1(com.moutai.mall.api.model.recommend.RecommendRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "热门商品推荐｜App 内方法：e1｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.recommend.RecommendRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/item/purchaseInfoV2": {
+   "post": {
+    "operationId": "h5_purchaseInfoV2",
+    "summary": "★ 测试目标：商品购买信息（H5 域专用，App 端 api.f 中不存在）",
+    "description": "**本次测试指定目标接口**（客户指定，域：h5.moutai519.com.cn）。\n\n- 注意：该接口不在 App 端 api.f 的 105 个还原接口中——它是 H5 前端专用调用，App 端 `api.f` 仅含 `popular/shopList` 等商品查询。\n- 请求结构、签名头与设备号参数：待 H5 前端 JS 逆向（Phase 0 P0-1）补全。\n- 风控测试用例设计见 runbook（F1 组：purchaseInfoV2 行为基线）。",
+    "tags": [
+     "商城 · 商品"
+    ],
+    "x-source": "客户指定目标 + Phase 0 待逆向",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "H5 端签名头（字段待 P0-1 逆向确认）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待 H5 前端 JS 逆向补全（Phase 0 P0-1）"
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "商品购买信息（结构待逆向）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/item/shopList": {
+   "post": {
+    "operationId": "api_f_g",
+    "summary": "[g] 门店商品列表",
+    "tags": [
+     "商城 · 商品"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.g(java.util.Map,com.moutai.mall.api.model.ShopListRequest,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "门店商品列表｜App 内方法：g｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.ShopListRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/item/shopList/v2": {
+   "post": {
+    "operationId": "api_f_G0",
+    "summary": "[G0] 门店商品列表 V2",
+    "tags": [
+     "商城 · 商品"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.G0(java.util.Map,com.moutai.mall.api.model.ShopListRequest,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "门店商品列表 V2｜App 内方法：G0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.ShopListRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/message/list/query": {
+   "post": {
+    "operationId": "api_f_C0",
+    "summary": "[C0] 站内消息列表",
+    "tags": [
+     "商城 · 消息"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.C0(long,int,int,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "站内消息列表｜App 内方法：C0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/message/status/update": {
+   "get": {
+    "operationId": "api_f_R0",
+    "summary": "[R0] 消息状态更新",
+    "tags": [
+     "商城 · 消息"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.R0(long,long,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     },
+     {
+      "name": "param2",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "消息状态更新｜App 内方法：R0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/message/unRead/query": {
+   "get": {
+    "operationId": "api_f_F0",
+    "summary": "[F0] 未读消息数",
+    "tags": [
+     "商城 · 消息"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.F0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "未读消息数｜App 内方法：F0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/praise/status/update": {
+   "post": {
+    "operationId": "api_f_X0",
+    "summary": "[X0] 点赞状态更新",
+    "tags": [
+     "商城 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.X0(com.moutai.mall.api.model.UpdateLikeRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "点赞状态更新｜App 内方法：X0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.UpdateLikeRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/reservation/add": {
+   "post": {
+    "operationId": "api_f_M",
+    "summary": "[M] 提交申购预约（核心业务写接口，风控重点）",
+    "tags": [
+     "商城 · 预约申购"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.M(com.moutai.mall.api.model.WrapperAddReservationRequest,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "提交申购预约（核心业务写接口，风控重点）｜App 内方法：M｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.WrapperAddReservationRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/reservation/detail/query": {
+   "get": {
+    "operationId": "api_f_z0",
+    "summary": "[z0] 预约详情",
+    "tags": [
+     "商城 · 预约申购"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.z0(java.lang.Long,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "预约详情｜App 内方法：z0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/reservation/list/days": {
+   "get": {
+    "operationId": "api_f_Y0",
+    "summary": "[Y0] 预约开放日历",
+    "tags": [
+     "商城 · 预约申购"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.Y0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "预约开放日历｜App 内方法：Y0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/reservation/list/more/queryV2": {
+   "get": {
+    "operationId": "api_f_q0",
+    "summary": "[q0] 预约列表加载更多",
+    "tags": [
+     "商城 · 预约申购"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.q0(java.lang.Long,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "预约列表加载更多｜App 内方法：q0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/reservation/list/pageOne/queryV2": {
+   "get": {
+    "operationId": "api_f_i0",
+    "summary": "[i0] 预约列表第一页",
+    "tags": [
+     "商城 · 预约申购"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.i0(java.lang.Long,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "预约列表第一页｜App 内方法：i0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/reservation/record/cache": {
+   "get": {
+    "operationId": "api_f_v",
+    "summary": "[v] 预约记录缓存",
+    "tags": [
+     "商城 · 预约申购"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.v(long,java.lang.String,java.lang.String,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "预约记录缓存｜App 内方法：v｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/reservation/third/party/page": {
+   "get": {
+    "operationId": "api_f_O",
+    "summary": "[O] GET 查询（运行时还原，路径尾段 page）",
+    "tags": [
+     "商城 · 预约申购"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.O(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "GET 查询（运行时还原，路径尾段 page）｜App 内方法：O｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/shop/reservation/userAttention/list": {
+   "post": {
+    "operationId": "api_f_f1",
+    "summary": "[f1] 关注的可预约门店",
+    "tags": [
+     "商城 · 门店"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.f1(com.moutai.mall.api.model.QueryReservationAttentionShopsRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "关注的可预约门店｜App 内方法：f1｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.QueryReservationAttentionShopsRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/mall/shop/selfPickUp/getAllCity": {
+   "get": {
+    "operationId": "api_f_p",
+    "summary": "[p] 自提门店城市列表",
+    "tags": [
+     "商城 · 门店"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.p(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "自提门店城市列表｜App 内方法：p｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/mall/shop/selfPickUp/queryList": {
+   "post": {
+    "operationId": "api_f_i",
+    "summary": "[i] 自提门店列表",
+    "tags": [
+     "商城 · 门店"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.i(com.moutai.mall.api.model.SelfPIckupRequestModel,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "自提门店列表｜App 内方法：i｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.SelfPIckupRequestModel"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/support/feedback/report": {
+   "post": {
+    "operationId": "api_f_i1",
+    "summary": "[i1] 意见反馈上报（multipart）",
+    "tags": [
+     "其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.i1(com.moutai.mall.api.model.Feedback,java.util.List,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "Feedback",
+      "in": "query",
+      "schema": {
+       "$ref": "#/components/schemas/com.moutai.mall.api.model.Feedback"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "意见反馈上报（multipart）｜App 内方法：i1｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/cart/delete": {
+   "post": {
+    "operationId": "api_f_o0",
+    "summary": "[o0] 删除购物车条目",
+    "tags": [
+     "交易 · 购物车"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.o0(com.moutai.mall.api.model.shoppincart.DeleteCartItemBody,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "删除购物车条目｜App 内方法：o0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.shoppincart.DeleteCartItemBody"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/cart/getCarts": {
+   "post": {
+    "operationId": "api_f_w",
+    "summary": "[w] 获取购物车",
+    "tags": [
+     "交易 · 购物车"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.w(com.moutai.mall.api.model.shoppincart.GetCartsBody,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "获取购物车｜App 内方法：w｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.shoppincart.GetCartsBody"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/cart/getMiniCartNum": {
+   "post": {
+    "operationId": "api_f_J0",
+    "summary": "[J0] 迷你购物车数量角标",
+    "tags": [
+     "交易 · 购物车"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.J0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "迷你购物车数量角标｜App 内方法：J0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/cart/precheck": {
+   "post": {
+    "operationId": "api_f_h0",
+    "summary": "[h0] 购物车结算前置校验",
+    "tags": [
+     "交易 · 购物车"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.h0(com.moutai.mall.api.model.shoppincart.CartPreCheckBody,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "购物车结算前置校验｜App 内方法：h0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.shoppincart.CartPreCheckBody"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/cart/updateCheck": {
+   "post": {
+    "operationId": "api_f_c0",
+    "summary": "[c0] 购物车勾选状态",
+    "tags": [
+     "交易 · 购物车"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.c0(com.moutai.mall.api.model.shoppincart.UpdateCartItemCheckBody,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "购物车勾选状态｜App 内方法：c0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.shoppincart.UpdateCartItemCheckBody"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/cart/updateCount": {
+   "post": {
+    "operationId": "api_f_R",
+    "summary": "[R] 更新购物车数量",
+    "tags": [
+     "交易 · 购物车"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.R(com.moutai.mall.api.model.shoppincart.UpdateCartItemCountBody,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "更新购物车数量｜App 内方法：R｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.shoppincart.UpdateCartItemCountBody"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/invoice/fuzzySearch": {
+   "post": {
+    "operationId": "api_f_I0",
+    "summary": "[I0] 发票抬头模糊搜索",
+    "tags": [
+     "交易 · 发票"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.I0(java.util.Map,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "发票抬头模糊搜索｜App 内方法：I0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/invoice/saveTempInvoice": {
+   "post": {
+    "operationId": "api_f_d0",
+    "summary": "[d0] 暂存发票信息",
+    "tags": [
+     "交易 · 发票"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.d0(com.moutai.mall.api.model.InvoiceVO,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "暂存发票信息｜App 内方法：d0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.InvoiceVO"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/invoice/supply": {
+   "post": {
+    "operationId": "api_f_O0",
+    "summary": "[O0] 发票信息提供",
+    "tags": [
+     "交易 · 发票"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.O0(com.moutai.mall.api.model.InvoiceVO,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "发票信息提供｜App 内方法：O0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.InvoiceVO"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/detail/get": {
+   "get": {
+    "operationId": "api_f_p0",
+    "summary": "[p0] 订单详情",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.p0(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "订单详情｜App 内方法：p0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/trade/order/list/get": {
+   "get": {
+    "operationId": "api_f_w0",
+    "summary": "[w0] 订单列表",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.w0(java.lang.String,int,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      },
+      "description": "GET 参数（原类型 int，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "订单列表｜App 内方法：w0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/trade/order/ops/cancel": {
+   "post": {
+    "operationId": "api_f_I",
+    "summary": "[I] 取消订单",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.I(com.moutai.mall.api.model.order.orderlist.OrderCancelRequestTO,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "取消订单｜App 内方法：I｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.order.orderlist.OrderCancelRequestTO"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/pay": {
+   "post": {
+    "operationId": "api_f_c",
+    "summary": "[c] 🚫 发起支付（仅文档化——测试红线：绝不真实调用，保护线上账务）",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.c(com.moutai.mall.api.model.order.pay.PayOrderVO,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "🚫 发起支付（仅文档化——测试红线：绝不真实调用，保护线上账务）｜App 内方法：c｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.order.pay.PayOrderVO"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/payResult": {
+   "get": {
+    "operationId": "api_f_u",
+    "summary": "[u] 🚫 支付结果查询（同上，仅文档化）",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.u(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "🚫 支付结果查询（同上，仅文档化）｜App 内方法：u｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/trade/order/place/batch/create": {
+   "post": {
+    "operationId": "api_f_h1",
+    "summary": "[h1] 批量创建订单",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.h1(com.moutai.mall.api.model.order.pay.ReservationCreateOrderRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "批量创建订单｜App 内方法：h1｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.order.pay.ReservationCreateOrderRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/place/batch/get": {
+   "post": {
+    "operationId": "api_f_d",
+    "summary": "[d] 批量下单前置数据",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.d(com.moutai.mall.api.model.order.pay.ReservationComposeOrderRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "批量下单前置数据｜App 内方法：d｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.order.pay.ReservationComposeOrderRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/place/create": {
+   "post": {
+    "operationId": "api_f_a",
+    "summary": "[a] 创建订单",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.a(com.moutai.mall.api.model.order.pay.SubmitOrderVO,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "创建订单｜App 内方法：a｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.order.pay.SubmitOrderVO"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/place/get": {
+   "post": {
+    "operationId": "api_f_D",
+    "summary": "[D] 下单前置数据获取",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.D(com.moutai.mall.api.model.order.pay.ComposeOrderVO,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "下单前置数据获取｜App 内方法：D｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.order.pay.ComposeOrderVO"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/standard/compose": {
+   "post": {
+    "operationId": "api_f_D0",
+    "summary": "[D0] 订单组合（结算页数据生成）",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.D0(com.moutai.mall.api.model.ComposeOrderRequestWrapper,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "订单组合（结算页数据生成）｜App 内方法：D0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.ComposeOrderRequestWrapper"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/standard/compose/v2": {
+   "post": {
+    "operationId": "api_f_e",
+    "summary": "[e] 订单组合 V2",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.e(com.moutai.mall.api.model.ComposeOrderRequestWrapper,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "订单组合 V2｜App 内方法：e｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.ComposeOrderRequestWrapper"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/standard/submit": {
+   "post": {
+    "operationId": "api_f_V",
+    "summary": "[V] 订单提交（核心写接口，止步支付）",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.V(com.moutai.mall.api.model.SubmitOrderRequestWrapper,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "订单提交（核心写接口，止步支付）｜App 内方法：V｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.SubmitOrderRequestWrapper"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/order/standard/submit/v2": {
+   "post": {
+    "operationId": "api_f_T0",
+    "summary": "[T0] 订单提交 V2（核心写接口，止步支付）",
+    "tags": [
+     "交易 · 订单"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.T0(com.moutai.mall.api.model.SubmitOrderRequestV2Wrapper,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "订单提交 V2（核心写接口，止步支付）｜App 内方法：T0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.SubmitOrderRequestV2Wrapper"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/trade/pickupCode/get": {
+   "get": {
+    "operationId": "api_f_l",
+    "summary": "[l] 自提码获取",
+    "tags": [
+     "交易 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.l(java.lang.String,int,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      },
+      "description": "GET 参数（原类型 int，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "自提码获取｜App 内方法：l｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/trade/priority/static/resource": {
+   "get": {
+    "operationId": "api_f_c1",
+    "summary": "[c1] 静态资源优先级配置",
+    "tags": [
+     "交易 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.c1(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "静态资源优先级配置｜App 内方法：c1｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/address/ship/delete": {
+   "post": {
+    "operationId": "api_f_M0",
+    "summary": "[M0] 删除收货地址",
+    "tags": [
+     "账户 · 地址"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.M0(com.moutai.mall.api.model.ShipAddressResult,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "删除收货地址｜App 内方法：M0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.ShipAddressResult"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/address/ship/query": {
+   "get": {
+    "operationId": "api_f_j0",
+    "summary": "[j0] 收货地址列表",
+    "tags": [
+     "账户 · 地址"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.j0(java.lang.String,int,int,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      },
+      "description": "GET 参数（原类型 int，具体名待抓包校准）"
+     },
+     {
+      "name": "param2",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      },
+      "description": "GET 参数（原类型 int，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "收货地址列表｜App 内方法：j0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/address/ship/upsert": {
+   "post": {
+    "operationId": "api_f_a1",
+    "summary": "[a1] 新建/更新收货地址",
+    "tags": [
+     "账户 · 地址"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.a1(com.moutai.mall.api.model.ShipAddressResult,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "新建/更新收货地址｜App 内方法：a1｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.ShipAddressResult"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/authConfig": {
+   "post": {
+    "operationId": "api_f_y0",
+    "summary": "[y0] 认证/登录配置拉取（登录页自动调用，风控信号观测点）",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.y0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "认证/登录配置拉取（登录页自动调用，风控信号观测点）｜App 内方法：y0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/avatar/query": {
+   "post": {
+    "operationId": "api_f_f0",
+    "summary": "[f0] 头像查询",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.f0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "头像查询｜App 内方法：f0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/avatar/update": {
+   "post": {
+    "operationId": "api_f_S",
+    "summary": "[S] 头像更新",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.S(com.moutai.mall.api.model.AvatarUpdateRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "头像更新｜App 内方法：S｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.AvatarUpdateRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/birthday/set": {
+   "post": {
+    "operationId": "api_f_N0",
+    "summary": "[N0] 设置生日",
+    "tags": [
+     "账户 · 实名认证"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.N0(com.moutai.mall.api.model.SetBirthdayRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "设置生日｜App 内方法：N0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.SetBirthdayRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/center/order": {
+   "post": {
+    "operationId": "api_f_z",
+    "summary": "[z] 用户中心订单入口",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.z(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "用户中心订单入口｜App 内方法：z｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/center/service": {
+   "post": {
+    "operationId": "api_f_K",
+    "summary": "[K] 用户中心服务入口",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.K(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "用户中心服务入口｜App 内方法：K｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/community/index": {
+   "post": {
+    "operationId": "api_f_n",
+    "summary": "[n] 社区首页",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.n(com.moutai.mall.api.model.community.CommunityIndexRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "社区首页｜App 内方法：n｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.community.CommunityIndexRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/community/note/collect": {
+   "get": {
+    "operationId": "api_f_f",
+    "summary": "[f] 笔记收藏",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.f(long,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "笔记收藏｜App 内方法：f｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/note/detail": {
+   "get": {
+    "operationId": "api_f_L0",
+    "summary": "[L0] 笔记详情",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.L0(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "笔记详情｜App 内方法：L0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/note/dislike": {
+   "get": {
+    "operationId": "api_f_L",
+    "summary": "[L] 笔记点踩",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.L(long,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "笔记点踩｜App 内方法：L｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/note/like": {
+   "get": {
+    "operationId": "api_f_U0",
+    "summary": "[U0] 笔记点赞",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.U0(long,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "笔记点赞｜App 内方法：U0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/note/read": {
+   "get": {
+    "operationId": "api_f_N",
+    "summary": "[N] 笔记已读",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.N(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "笔记已读｜App 内方法：N｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/note/share": {
+   "get": {
+    "operationId": "api_f_E",
+    "summary": "[E] 笔记分享",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.E(long,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "笔记分享｜App 内方法：E｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/note/uncollect": {
+   "get": {
+    "operationId": "api_f_T",
+    "summary": "[T] 取消收藏",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.T(long,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      },
+      "description": "GET 参数（原类型 long，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "取消收藏｜App 内方法：T｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/search": {
+   "post": {
+    "operationId": "api_f_x",
+    "summary": "[x] 社区搜索",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.x(com.moutai.mall.api.model.search.SearchCommunityRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "社区搜索｜App 内方法：x｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.search.SearchCommunityRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/community/search/random": {
+   "get": {
+    "operationId": "api_f_W",
+    "summary": "[W] 社区随机内容",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.W(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "社区随机内容｜App 内方法：W｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/tab": {
+   "get": {
+    "operationId": "api_f_g0",
+    "summary": "[g0] 社区标签页配置",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.g0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "社区标签页配置｜App 内方法：g0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/community/user/follow": {
+   "post": {
+    "operationId": "api_f_d1",
+    "summary": "[d1] 关注用户",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.d1(com.moutai.mall.api.model.community.CommunityFollowRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "关注用户｜App 内方法：d1｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.community.CommunityFollowRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/community/user/home/page": {
+   "post": {
+    "operationId": "api_f_P0",
+    "summary": "[P0] 社区用户主页",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.P0(com.moutai.mall.api.model.community.CommunityUserHomeRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "社区用户主页｜App 内方法：P0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.community.CommunityUserHomeRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/community/user/unfollow": {
+   "post": {
+    "operationId": "api_f_X",
+    "summary": "[X] 取消关注",
+    "tags": [
+     "社区"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.X(com.moutai.mall.api.model.community.CommunityFollowRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "取消关注｜App 内方法：X｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.community.CommunityFollowRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/copy/userInfo/checkCode": {
+   "get": {
+    "operationId": "api_f_H",
+    "summary": "[H] 跨账号迁移校验验证码",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.H(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "跨账号迁移校验验证码｜App 内方法：H｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/copy/userInfo/sendCode": {
+   "post": {
+    "operationId": "api_f_o",
+    "summary": "[o] 跨账号迁移发送验证码",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.o(com.moutai.mall.api.model.CopyInfoVerifyCodeModel,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "跨账号迁移发送验证码｜App 内方法：o｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.CopyInfoVerifyCodeModel"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/ctdid/args": {
+   "get": {
+    "operationId": "api_f_a0",
+    "summary": "[a0] ctdid 参数下发",
+    "tags": [
+     "账户 · 设备绑定 ctdid"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.a0(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "ctdid 参数下发｜App 内方法：a0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/ctdid/bindNewCtdid": {
+   "post": {
+    "operationId": "api_f_s",
+    "summary": "[s] 绑定新设备数字身份",
+    "tags": [
+     "账户 · 设备绑定 ctdid"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.s(java.util.Map,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "绑定新设备数字身份｜App 内方法：s｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/ctdid/didInfo": {
+   "get": {
+    "operationId": "api_f_C",
+    "summary": "[C] 设备数字身份（ctdid）信息查询",
+    "tags": [
+     "账户 · 设备绑定 ctdid"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.C(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "设备数字身份（ctdid）信息查询｜App 内方法：C｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/ctdid/sendUnbindCode": {
+   "post": {
+    "operationId": "api_f_n0",
+    "summary": "[n0] 发送设备解绑验证码",
+    "tags": [
+     "账户 · 设备绑定 ctdid"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.n0(com.moutai.mall.api.model.CopyInfoVerifyCodeModel,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "发送设备解绑验证码｜App 内方法：n0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.CopyInfoVerifyCodeModel"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/ctdid/unbind": {
+   "post": {
+    "operationId": "api_f_K0",
+    "summary": "[K0] 解绑设备数字身份",
+    "tags": [
+     "账户 · 设备绑定 ctdid"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.K0(java.util.Map,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "解绑设备数字身份｜App 内方法：K0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/ctdid/userBind": {
+   "post": {
+    "operationId": "api_f_r0",
+    "summary": "[r0] 用户与设备数字身份绑定",
+    "tags": [
+     "账户 · 设备绑定 ctdid"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.r0(com.moutai.mall.api.model.UserBindRequest,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "用户与设备数字身份绑定｜App 内方法：r0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.UserBindRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/did/send/success": {
+   "post": {
+    "operationId": "api_f_G",
+    "summary": "[G] 设备身份绑定成功回执",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.G(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "设备身份绑定成功回执｜App 内方法：G｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/did/user/center": {
+   "post": {
+    "operationId": "api_f_W0",
+    "summary": "[W0] 设备身份用户中心",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.W0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "设备身份用户中心｜App 内方法：W0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/getRealNameAuthInfo": {
+   "post": {
+    "operationId": "api_f_e0",
+    "summary": "[e0] 查询已提交的实名认证信息",
+    "tags": [
+     "账户 · 实名认证"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.e0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "查询已提交的实名认证信息｜App 内方法：e0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/gray/grayInfo": {
+   "get": {
+    "operationId": "api_f_j1",
+    "summary": "[j1] 灰度配置查询",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.j1(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "灰度配置查询｜App 内方法：j1｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/info": {
+   "get": {
+    "operationId": "api_f_F",
+    "summary": "[F] 用户信息",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.F(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "用户信息｜App 内方法：F｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/privacy/query": {
+   "get": {
+    "operationId": "api_f_t0",
+    "summary": "[t0] 隐私协议查询",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.t0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "隐私协议查询｜App 内方法：t0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/realNameAuth": {
+   "post": {
+    "operationId": "api_f_m",
+    "summary": "[m] 实名认证提交（姓名 + 身份证）",
+    "tags": [
+     "账户 · 实名认证"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.m(com.moutai.mall.api.model.RealNameAuthRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "实名认证提交（姓名 + 身份证）｜App 内方法：m｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.RealNameAuthRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/realPersonAuth": {
+   "post": {
+    "operationId": "api_f_l0",
+    "summary": "[l0] 人脸核身（V1）",
+    "tags": [
+     "账户 · 实名认证"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.l0(com.moutai.mall.api.model.FaceDetectAuthRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "人脸核身（V1）｜App 内方法：l0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.FaceDetectAuthRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/realPersonAuthV2": {
+   "post": {
+    "operationId": "api_f_P",
+    "summary": "[P] 人脸核身（V2）",
+    "tags": [
+     "账户 · 实名认证"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.P(com.moutai.mall.api.model.FaceDetectAuthRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "人脸核身（V2）｜App 内方法：P｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.FaceDetectAuthRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/register/cancel": {
+   "post": {
+    "operationId": "api_f_y",
+    "summary": "[y] 账号注销",
+    "tags": [
+     "账户 · 注册与登录"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.y(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "账号注销｜App 内方法：y｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": false,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "x-note": "请求体结构待运行时二次取证"
+      }
+     }
+    }
+   }
+  },
+  "/xhr/front/user/register/ctdid/bindLogin": {
+   "post": {
+    "operationId": "api_f_u0",
+    "summary": "[u0] 一键登录绑定手机号",
+    "tags": [
+     "账户 · 注册与登录"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.u0(com.moutai.mall.api.model.BindPhoneRequest,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "一键登录绑定手机号｜App 内方法：u0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.BindPhoneRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/register/ctdid/login": {
+   "post": {
+    "operationId": "api_f_b1",
+    "summary": "[b1] 一键登录（中国移动认证）：bizSeq + certPwdData + idCardAuthData",
+    "tags": [
+     "账户 · 注册与登录"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.b1(com.moutai.mall.api.model.AuthLoginRequest,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "一键登录（中国移动认证）：bizSeq + certPwdData + idCardAuthData｜App 内方法：b1｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.AuthLoginRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/register/login": {
+   "post": {
+    "operationId": "api_f_E0",
+    "summary": "[E0] 短信验证码登录（登录即隐式注册）。HeaderMap 携带签名头（MT-Token 等）",
+    "tags": [
+     "账户 · 注册与登录"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.E0(com.moutai.mall.api.model.LoginRequest,java.util.Map,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "X-HeaderMap",
+      "in": "header",
+      "required": true,
+      "description": "@HeaderMap 动态签名头（MT-Token / clips_* 设备头等，由 okhttp 拦截器 api.a.intercept 注入；头名→值映射见 findings F3）",
+      "schema": {
+       "type": "object",
+       "additionalProperties": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "短信验证码登录（登录即隐式注册）。HeaderMap 携带签名头（MT-Token 等）｜App 内方法：E0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.LoginRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/register/vcode": {
+   "post": {
+    "operationId": "api_f_s0",
+    "summary": "[s0] 发送短信验证码。md5 = MD5(deviceKey + mobile + timestamp)，客户端预计算（已离线逐字节验证 15/15）",
+    "tags": [
+     "账户 · 注册与登录"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.s0(com.moutai.mall.api.model.GetVerifyCodeRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "发送短信验证码。md5 = MD5(deviceKey + mobile + timestamp)，客户端预计算（已离线逐字节验证 15/15）｜App 内方法：s0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.GetVerifyCodeRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/front/user/shop/attention/list": {
+   "get": {
+    "operationId": "api_f_S0",
+    "summary": "[S0] 关注的门店列表",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.S0(kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "关注的门店列表｜App 内方法：S0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/shop/attention/subscribe": {
+   "get": {
+    "operationId": "api_f_B0",
+    "summary": "[B0] 订阅/关注门店",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.B0(java.lang.String,int,kotlin.coroutines.d)",
+    "parameters": [
+     {
+      "name": "param1",
+      "in": "query",
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      },
+      "description": "GET 参数（原类型 int，具体名待抓包校准）"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "订阅/关注门店｜App 内方法：B0｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/shop/default/subscribe": {
+   "get": {
+    "operationId": "api_f_U",
+    "summary": "[U] 设置默认门店",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.U(java.lang.String,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "设置默认门店｜App 内方法：U｜提取方式：运行时反射注解 dump"
+   }
+  },
+  "/xhr/front/user/shop/default/upsert": {
+   "post": {
+    "operationId": "api_f_k0",
+    "summary": "[k0] 更新默认自提门店",
+    "tags": [
+     "账户 · 其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.k0(com.moutai.mall.api.model.SelfpickupUpsertRequestModel,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "更新默认自提门店｜App 内方法：k0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.SelfpickupUpsertRequestModel"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  },
+  "/xhr/x/api/geo/city/query": {
+   "post": {
+    "operationId": "api_f_A0",
+    "summary": "[A0] POST 提交（运行时还原，路径尾段 query）",
+    "tags": [
+     "其他"
+    ],
+    "x-source": "Frida 运行时反射注解 dump（annot2，2026-09-11，220 类 0 失败）",
+    "x-app-method": "public abstract java.lang.Object com.moutai.mall.api.f.A0(com.moutai.mall.api.model.QueryGeoRequest,kotlin.coroutines.d)",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "服务端响应（结构待运行时二次取证）"
+     }
+    },
+    "description": "POST 提交（运行时还原，路径尾段 query） · 请求字段：lat, lng｜App 内方法：A0｜提取方式：运行时反射注解 dump",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/com.moutai.mall.api.model.QueryGeoRequest"
+       }
+      },
+      "x-note": "@hj.a() Body 序列化：Moshi（字段名即 key）"
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "com.moutai.mall.api.model.AuthLoginRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "bizSeq": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "certPwdData": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "idCardAuthData": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.AvatarUpdateRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（1 字段）",
+    "properties": {
+     "avatarId": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.BindPhoneRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "ctdidToken": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "mobile": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "vCode": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.ComposeOrderRequestWrapper": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（6 字段）",
+    "properties": {
+     "actParam": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "addressInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.ComposeAddressUpload"
+     },
+     "deliverMethod": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.DeliverMethod"
+     },
+     "itemList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "selfPickUpSite": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.PickUpSite"
+     },
+     "shopSelfPickUpInventoryInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.ShopSelfPickUpInventoryDTO"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.CopyInfoVerifyCodeModel": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "md5": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "timestamp": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.FaceDetectAuthRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（15 字段）",
+    "properties": {
+     "backPicture": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "cardNo": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "cardNoEncrypt": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "deviceId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "frontPicture": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "picType": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "realName": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "realNameEncrypt": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "token": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "verifyType": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "Companion": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.FaceDetectAuthRequest$Companion"
+     },
+     "TYPE_PICTURE_BASE64": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "TYPE_PICTURE_URL": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "TYPE_VERIFY_FACE": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "TYPE_VERIFY_OCR": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.Feedback": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "content": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "mobile": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.GetVerifyCodeRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "md5": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "mobile": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "timestamp": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.InvoiceVO": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（15 字段）",
+    "properties": {
+     "bankAccount": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "content": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "depositBank": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "email": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "mobile": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "orderId": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "price": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "realName": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "registeredAddress": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "registeredMobile": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "sceneType": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "taxNumber": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "title": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "titleType": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "type": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.LoginRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（4 字段）",
+    "properties": {
+     "mobile": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "vCode": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "ydLogId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "ydToken": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.OperatePushRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（14 字段）",
+    "properties": {
+     "appVer": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "appid": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "deviceID": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "deviceType": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "func": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "osVer": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "osmanu": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "token": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "uid": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "ANONYMOUS": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "Companion": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.OperatePushRequest$Companion"
+     },
+     "FUNC_BIND": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "FUNC_UNBIND": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "FUNC_UNREAD_SYNC": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.QueryGeoRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "lat": {
+      "type": "number",
+      "format": "double"
+     },
+     "lng": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.QueryReservationAttentionShopsRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "itemCode": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "sessionId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "special": {
+      "type": "boolean"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.RealNameAuthRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "cardType": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "idCardNameEncrypt": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "idCardNoEncrypt": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.ScanVO": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "qrCode": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "type": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.SelfPIckupRequestModel": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "cityId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "itemCodeNumMap": {
+      "type": "object",
+      "x-unknown": "java.util.Map"
+     },
+     "provinceId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.SelfpickupUpsertRequestModel": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "cityId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "provinceId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "shopId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.SetBirthdayRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "day": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "month": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "year": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.ShipAddressResult": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（28 字段）",
+    "properties": {
+     "address": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "backgroundDrawable": {
+      "type": "object",
+      "x-unknown": "android.graphics.drawable.Drawable"
+     },
+     "city": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "cityId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "cityName": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "dft": {
+      "type": "boolean"
+     },
+     "district": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "districtId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "districtName": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "foregroundDrawable": {
+      "type": "object",
+      "x-unknown": "android.graphics.drawable.Drawable"
+     },
+     "fullAddress": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "grey": {
+      "type": "boolean"
+     },
+     "illegalText": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "latitude": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "legal": {
+      "type": "boolean"
+     },
+     "longitude": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "mobile": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "name": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "province": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "provinceId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "provinceName": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "recent": {
+      "type": "boolean"
+     },
+     "selectable": {
+      "type": "boolean"
+     },
+     "selected": {
+      "type": "boolean"
+     },
+     "shipAddressId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "townId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "townName": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "userId": {
+      "type": "integer",
+      "format": "int64"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.ShopListRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（11 字段）",
+    "properties": {
+     "activityCode": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "city": {
+      "type": "object",
+      "x-unknown": "java.lang.Long"
+     },
+     "deliverMethod": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "district": {
+      "type": "object",
+      "x-unknown": "java.lang.Long"
+     },
+     "hot": {
+      "type": "boolean"
+     },
+     "itemCode": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "itemPriorityActId": {
+      "type": "object",
+      "x-unknown": "java.lang.Long"
+     },
+     "jt": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "latitude": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "longitude": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "province": {
+      "type": "object",
+      "x-unknown": "java.lang.Long"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.SubmitOrderRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（15 字段）",
+    "properties": {
+     "addressInfo": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.ShipAddressResult"
+     },
+     "deliverMethod": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.DeliverMethod"
+     },
+     "deliverMethodList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "ignorePromInconsistent": {
+      "type": "boolean"
+     },
+     "invoiceSubmitDTO": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.InvoiceVO"
+     },
+     "itemList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "payChannel": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "promIdList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "selectedCoupon": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.order.OrderCoupon"
+     },
+     "selfPickUpSite": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.PickUpSite"
+     },
+     "shopSelfPickUpInventoryInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.ShopSelfPickUpInventoryDTO"
+     },
+     "source": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "sourceId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "transactionId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "userPriorityInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.UserPriorityInfo"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.SubmitOrderRequestV2Wrapper": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（13 字段）",
+    "properties": {
+     "actParam": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "addressInfo": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.ShipAddressResult"
+     },
+     "deliverMethod": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.DeliverMethod"
+     },
+     "instantDeliveryInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.InstantDeliveryInfoParamTO"
+     },
+     "invoiceSubmitDTO": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.InvoiceVO"
+     },
+     "itemList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "payChannel": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "selectedCoupon": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.order.OrderCoupon"
+     },
+     "selfPickUpSite": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.PickUpSite"
+     },
+     "shopSelfPickUpInventoryInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.ShopSelfPickUpInventoryDTO"
+     },
+     "source": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "sourceId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "transactionId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.SubmitOrderRequestWrapper": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（11 字段）",
+    "properties": {
+     "actParam": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "addressInfo": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.ShipAddressResult"
+     },
+     "deliverMethod": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.DeliverMethod"
+     },
+     "invoiceSubmitDTO": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.InvoiceVO"
+     },
+     "itemList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "payChannel": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "selfPickUpSite": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.PickUpSite"
+     },
+     "shopSelfPickUpInventoryInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.ShopSelfPickUpInventoryDTO"
+     },
+     "source": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "sourceId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "transactionId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.UpdateLikeRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "articleId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "status": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.UserBindRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "bizSeq": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "certPwdData": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "idCardAuthData": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.WrapperAddReservationRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（6 字段）",
+    "properties": {
+     "actParam": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "sessionId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "shopId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "ydLogId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "ydToken": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.community.CommunityFollowRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（1 字段）",
+    "properties": {
+     "followerId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.community.CommunityIndexRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（8 字段）",
+    "properties": {
+     "page": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "size": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "tabType": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "Companion": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.community.CommunityIndexRequest$Companion"
+     },
+     "noteSize": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "tabTypeAttention": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "tabTypeRank": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "tabTypeRecommend": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.community.CommunityUserHomeRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（7 字段）",
+    "properties": {
+     "page": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "publisherId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "size": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "tabType": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "Companion": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.community.CommunityUserHomeRequest$Companion"
+     },
+     "TYPE_FAVORITE": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "TYPE_NOTE": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.order.orderlist.OrderCancelRequestTO": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "orderId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "orderStatus": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.order.pay.ComposeOrderVO": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（1 字段）",
+    "properties": {
+     "reservationRecordId": {
+      "type": "integer",
+      "format": "int64"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.order.pay.PayOrderVO": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（5 字段）",
+    "properties": {
+     "orderId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "payMethod": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "Companion": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.order.pay.PayOrderVO$Companion"
+     },
+     "PAY_METHOD_OFFLINE": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "PAY_METHOD_ONLINE": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.order.pay.ReservationComposeOrderRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "addressInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.ComposeAddressUpload"
+     },
+     "deliverMethod": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.DeliverMethod"
+     },
+     "ids": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.order.pay.ReservationCreateOrderRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（8 字段）",
+    "properties": {
+     "addressInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.ComposeAddressUpload"
+     },
+     "deliverMethod": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.DeliverMethod"
+     },
+     "deliverMethodList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "ids": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "invoiceSubmitDTO": {
+      "$ref": "#/components/schemas/com.moutai.mall.api.model.InvoiceVO"
+     },
+     "payChannel": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "transactionId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "userId": {
+      "type": "integer",
+      "format": "int64"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.order.pay.SubmitOrderVO": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "payChannel": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "reservationRecordId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "transactionId": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.recommend.RecommendRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（3 字段）",
+    "properties": {
+     "allItemCodeList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "itemPoolSourceKey": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "lastItemCode": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.search.SearchCommunityRequest": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（7 字段）",
+    "properties": {
+     "content": {
+      "type": "object",
+      "x-unknown": "java.lang.String"
+     },
+     "page": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "size": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "tabType": {
+      "type": "object",
+      "x-unknown": "java.lang.Integer"
+     },
+     "Companion": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.search.SearchCommunityRequest$Companion"
+     },
+     "tabTypeNote": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "tabTypeShop": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.shoppincart.CartPreCheckBody": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "addressInfo": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.module.shoppingcart.ShipAddress"
+     },
+     "cartItemList": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.shoppincart.DeleteCartItemBody": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（1 字段）",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.shoppincart.GetCartsBody": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（0 字段）",
+    "properties": {},
+    "required": []
+   },
+   "com.moutai.mall.api.model.shoppincart.UpdateCartItemCheckBody": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（2 字段）",
+    "properties": {
+     "checked": {
+      "type": "boolean"
+     },
+     "ids": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    },
+    "required": []
+   },
+   "com.moutai.mall.api.model.shoppincart.UpdateCartItemCountBody": {
+    "type": "object",
+    "description": "运行时反射提取的字段结构（7 字段）",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "operation": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "Companion": {
+      "type": "object",
+      "x-unknown": "com.moutai.mall.api.model.shoppincart.UpdateCartItemCountBody$Companion"
+     },
+     "OPERATION_EDIT": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "OPERATION_MINUS": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "OPERATION_PLUS": {
+      "type": "integer",
+      "format": "int32"
+     }
+    },
+    "required": []
+   }
+  }
+ },
+ "x-infrastructure": {
+  "网关（App 端，生产）": "https://app.moutai519.com.cn",
+  "H5 前端 / 目标接口": "https://h5.moutai519.com.cn",
+  "开发环境": "http://devapp.moutai519.com.cn",
+  "贵州开发环境": "https://testapp.moutai519.com.cn",
+  "CDN / 统计 / Web": "Endpoints 枚举中存在 getApp/cdn/statistic/web 五个 getter，本次快照仅读取了 getApp()；其余域名现场补齐",
+  "IP 说明": "全部域名走 CDN 动态解析，无静态 IP；现场演示可用 nslookup/dig 现场解析佐证"
+ }
+}

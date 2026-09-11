@@ -1,0 +1,10 @@
+[*] attaching already-running pid=15921
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[+] NEW process pid=15951 @ 2.3s
+[+] NEW process pid=16259 @ 2.3s
+[*] app class snapshot=209 -> E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\obs-mp34-lateattach-20260910\loaded-classes-snapshot-01.txt
+[!] script destroyed @ 22.0s
+[!] rpc get_stats failed: script has been destroyed
+[*] stats: null
+[!] session detached @ 22.0s reason=process-terminated (None,)
+[!] rpc list_loaded_classes failed: script has been destroyed

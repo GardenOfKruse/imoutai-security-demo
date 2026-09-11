@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yd_tip_close">close</string>
+    <string name="yd_tip_init_timeout">Initialization timeout, please retry</string>
+    <string name="yd_tip_load_failed">Loading failed. Please retry</string>
+    <string name="yd_tip_loading">Intelligent detection</string>
+    <string name="yd_tip_no_network">No network,please retry</string>
+    <string name="yd_tip_validate_timeout">Validate timeout,please retry</string>
+</resources>

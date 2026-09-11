@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.moutai.mall.webview.view.MTWebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.moutai.mall.view.progressdialog.ArcProgressbar
+        android:layout_gravity="center"
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:arcColor="@color/yx_red"
+        app:radius="20dp"
+        app:trokeWidth="2dp"/>
+    <com.moutai.mall.view.H5ErrorView
+        android:layout_gravity="center"
+        android:id="@+id/error_view"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_error_try_again_text"/>
+</FrameLayout>

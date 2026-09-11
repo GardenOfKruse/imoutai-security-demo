@@ -1,0 +1,144 @@
+input=E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\libDexHelper-stage-decrypted-20260909.elf
+range=0x23880-0x23ac0
+00023880: ADRL            X8, byte_120227
+00023888: LDRB            W9, [X8,#(byte_120253 - 0x120227)]
+0002388c: ADD             X1, SP, #0x980+s
+00023890: MOV             W2, #1
+00023894: STRB            W9, [SP,#0x980+s]
+00023898: LDRB            W9, [X8,#(byte_12024E - 0x120227)]
+0002389c: STRB            W9, [SP,#0x980+s+1]
+000238a0: LDRB            W9, [X8,#(byte_120242 - 0x120227)]
+000238a4: STRB            W9, [SP,#0x980+s+2]
+000238a8: LDRB            W9, [X8]
+000238ac: STRB            W9, [SP,#0x980+s+3]
+000238b0: LDRB            W9, [X8,#(byte_120255 - 0x120227)]
+000238b4: STRB            W9, [SP,#0x980+s+4]
+000238b8: LDRB            W9, [X8,#(byte_120266 - 0x120227)]
+000238bc: STRB            W9, [SP,#0x980+s+5]
+000238c0: LDRB            W9, [X8,#(word_120268 - 0x120227)]
+000238c4: STRB            W9, [SP,#0x980+s+6]
+000238c8: LDRB            W9, [X8,#(byte_12022B - 0x120227)]
+000238cc: STRB            W9, [SP,#0x980+s+7]
+000238d0: LDRB            W9, [X8,#(byte_120246 - 0x120227)]
+000238d4: STRB            W9, [SP,#0x980+var_4B8]
+000238d8: LDRB            W9, [X8,#(word_120268+1 - 0x120227)]
+000238dc: STRB            W9, [SP,#0x980+var_4B8+1]
+000238e0: LDRB            W9, [X8,#(byte_120262 - 0x120227)]
+000238e4: STRB            W9, [SP,#0x980+var_4B8+2]
+000238e8: LDRB            W9, [X8,#(word_120268 - 0x120227)]
+000238ec: STRB            W9, [SP,#0x980+var_4B8+3]
+000238f0: LDRB            W9, [X8,#(byte_12025D - 0x120227)]
+000238f4: STRB            W9, [SP,#0x980+var_4B8+4]
+000238f8: LDRB            W9, [X8,#(byte_120261 - 0x120227)]
+000238fc: STRB            W9, [SP,#0x980+var_4B8+5]
+00023900: LDRB            W9, [X8,#(word_120258+1 - 0x120227)]
+00023904: STRB            W9, [SP,#0x980+var_4B8+6]
+00023908: LDRB            W9, [X8,#(byte_12022D - 0x120227)]
+0002390c: STRB            W9, [SP,#0x980+var_4B8+7]
+00023910: LDRB            W9, [X8,#(byte_12025D - 0x120227)]
+00023914: STRB            W9, [SP,#0x980+var_4B0]
+00023918: LDRB            W9, [X8,#(byte_120262 - 0x120227)]
+0002391c: STRB            W9, [SP,#0x980+var_4B0+1]
+00023920: LDRB            W9, [X8,#(unk_120267 - 0x120227)]
+00023924: STRB            W9, [SP,#0x980+var_4B0+2]
+00023928: LDRB            W9, [X8,#(word_120268 - 0x120227)]
+0002392c: STRB            W9, [SP,#0x980+var_4B0+3]
+00023930: LDRB            W9, [X8,#(byte_120255 - 0x120227)]
+00023934: STRB            W9, [SP,#0x980+var_4B0+4]
+00023938: LDRB            W9, [X8,#(byte_120262 - 0x120227)]
+0002393c: STRB            W9, [SP,#0x980+var_4B0+5]
+00023940: LDRB            W9, [X8,#(word_120256+1 - 0x120227)]
+00023944: STRB            W9, [SP,#0x980+var_4B0+6]
+00023948: LDRB            W9, [X8,#(word_120258+1 - 0x120227)]
+0002394c: STRB            W9, [SP,#0x980+var_4B0+7]
+00023950: LDRB            W9, [X8,#(byte_120253 - 0x120227)]
+00023954: STRB            W9, [SP,#0x980+var_4A8]
+00023958: LDRB            W8, [X8,#(byte_120239 - 0x120227)]
+0002395c: ADRP            X9, #qword_1263E8@PAGE
+00023960: LDR             X9, [X9,#qword_1263E8@PAGEOFF]
+00023964: STRB            WZR, [SP,#0x980+var_4A8+2]
+00023968: STRB            W8, [SP,#0x980+var_4A8+1]
+0002396c: LDR             X0, [X9,#0x20]
+00023970: BL              sub_283D4
+00023974: LDR             X21, [X0]
+00023978: CMP             W24, #0x15
+0002397c: B.NE            loc_239DC
+00023980: LDRB            W8, [X21,#0x448]
+00023984: CMP             W8, #1
+00023988: B.NE            loc_239AC
+0002398c: ADRP            X8, #off_11FDC0@PAGE
+00023990: LDR             X8, [X8,#off_11FDC0@PAGEOFF]; qword_124000
+00023994: LDRB            W9, [X21,#0x44C]
+00023998: LDR             X8, [X8]
+0002399c: LDR             W8, [X8,#0x170]
+000239a0: CMP             W8, W9
+000239a4: B.NE            loc_239AC
+000239a8: STRB            WZR, [X21,#0x448]
+000239ac: LDRB            W8, [X21,#0x478]
+000239b0: CMP             W8, #1
+000239b4: B.NE            loc_23D40
+000239b8: ADRP            X8, #off_11FDC0@PAGE
+000239bc: LDR             X8, [X8,#off_11FDC0@PAGEOFF]; qword_124000
+000239c0: LDRB            W9, [X21,#0x47C]
+000239c4: LDR             X8, [X8]
+000239c8: LDR             W8, [X8,#0x170]
+000239cc: CMP             W8, W9
+000239d0: B.NE            loc_23D40
+000239d4: STRB            WZR, [X21,#0x478]
+000239d8: B               loc_23D40
+000239dc: CMP             W24, #0x17
+000239e0: B.EQ            loc_23A74
+000239e4: CMP             W24, #0x16
+000239e8: B.NE            loc_23A7C
+000239ec: ADRP            X8, #off_11FDC0@PAGE
+000239f0: LDR             X8, [X8,#off_11FDC0@PAGEOFF]; qword_124000
+000239f4: LDR             X8, [X8]
+000239f8: LDR             W8, [X8,#0x170]
+000239fc: CMP             W8, #1
+00023a00: B.LT            loc_23D40
+00023a04: LDRB            W9, [X21,#0x448]
+00023a08: CMP             W9, #1
+00023a0c: B.NE            loc_23B28
+00023a10: LDRB            W9, [X21,#0x44C]
+00023a14: CMP             W8, W9
+00023a18: B.NE            loc_23B28
+00023a1c: STRB            WZR, [X21,#0x448]
+00023a20: B               loc_23D40
+00023a24: AND             X11, X10, #0xFFFFFFFFFFFFFFE0
+00023a28: DUP             V0.16B, W15
+00023a2c: ADD             X12, X9, #0x11
+00023a30: ORR             X9, X11, #1
+00023a34: ADD             X13, X13, #0x51 ; 'Q'
+00023a38: MOV             X14, X11
+00023a3c: LDP             Q1, Q2, [X12,#-0x10]
+00023a40: LDP             Q3, Q4, [X13,#-0x10]
+00023a44: SUBS            X14, X14, #0x20 ; ' '
+00023a48: ADD             X13, X13, #0x20 ; ' '
+00023a4c: EOR             V1.16B, V1.16B, V0.16B
+00023a50: EOR             V2.16B, V2.16B, V0.16B
+00023a54: EOR             V1.16B, V1.16B, V3.16B
+00023a58: EOR             V2.16B, V2.16B, V4.16B
+00023a5c: STP             Q1, Q2, [X12,#-0x10]
+00023a60: ADD             X12, X12, #0x20 ; ' '
+00023a64: B.NE            loc_23A3C
+00023a68: CMP             X10, X11
+00023a6c: B.EQ            loc_22918
+00023a70: B               loc_228E4
+00023a74: STRB            WZR, [X21,#0x440]
+00023a78: B               loc_23D40
+00023a7c: SUB             W8, W24, #0x18
+00023a80: CMP             W8, #0xB
+00023a84: B.HI            loc_23D40
+00023a88: CMP             W24, #0x23 ; '#'
+00023a8c: B.NE            loc_23B6C
+00023a90: ADRL            X8, xmmword_EF393
+00023a98: LDP             Q0, Q1, [X8]
+00023a9c: LDUR            Q2, [X8,#(xmmword_EF3A3+0xB - 0xEF393)]
+00023aa0: ADD             X8, SP, #0x980+s
+00023aa4: STP             Q0, Q1, [X8]
+00023aa8: STUR            Q2, [X8,#0x1B]
+00023aac: LDRB            W9, [X20,#byte_120253@PAGEOFF]
+00023ab0: MOV             W8, #1
+00023ab4: STRB            W9, [SP,#0x980+s]
+00023ab8: ADD             X9, SP, #0x980+s
+00023abc: LDRB            W10, [X9,X8]

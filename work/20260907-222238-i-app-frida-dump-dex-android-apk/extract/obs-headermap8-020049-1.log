@@ -1,0 +1,20 @@
+[*] attaching already-running pid=8860
+[agent-send] {'type': 'log', 'msg': 'annot4 entered'}
+[agent-send] {'type': 'endpoints', 'data': {'Production': 'https://app.moutai519.com.cn', 'Development': 'http://devapp.moutai519.com.cn', 'GuizhouDevelopment': 'https://testapp.moutai519.com.cn'}}
+[agent-send] {'type': 'log', 'msg': 'step1 endpoints done'}
+[agent-send] {'type': 'log', 'msg': 'step2 intercept hooked'}
+[agent-send] {'type': 'log', 'msg': 'step3 ctors hooked'}
+[agent-send] {'type': 'log', 'msg': 'step4 header sources hooked'}
+[agent-send] {'type': 'log', 'msg': 'annot4 all hooks installed'}
+[!] rpc set_live_scan failed: unable to find method 'setLiveScan'
+[!] rpc set_native_redirect failed: unable to find method 'setNativeRedirect'
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[+] NEW process pid=8911 @ 2.1s
+[+] NEW process pid=9907 @ 2.1s
+[!] main pid=8860 GONE @ 19.5s
+[!] script destroyed @ 19.8s[!] rpc get_stats failed: script has been destroyed
+
+[*] stats: null
+[!] rpc list_loaded_classes failed: script has been destroyed
+[!] session detached @ 19.8s reason=process-terminated (None,)
+[*] done rs_seen=False dex=0 regnat_msgs=0

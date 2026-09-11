@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/ivEmptyView"
+        android:background="@mipmap/ic_search_empty_view"
+        android:layout_width="219dp"
+        android:layout_height="191dp"
+        android:layout_marginTop="77dp"/>
+    <TextView
+        android:textSize="15dp"
+        android:textColor="@color/gray_33"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tvEmptyView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="没有找到相关内容，换个词试试吧。"/>
+</LinearLayout>

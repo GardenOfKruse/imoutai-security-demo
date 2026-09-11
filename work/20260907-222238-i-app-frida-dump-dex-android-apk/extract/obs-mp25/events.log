@@ -1,0 +1,13 @@
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] resumed pid=11014
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[!] script destroyed @ 2.2s
+[!] session detached @ 2.2s reason=process-terminated (Crash(pid=11014, process_name="Binder:11014_1", summary="Trace/BPT trap", report=<1611 bytes>, parameters={}),)
+[+] NEW process pid=11059 @ 2.4s
+[+] NEW process pid=11075 @ 2.4s
+[+] NEW process pid=11083 @ 3.6s
+[+] NEW process pid=11295 @ 4.8s
+[+] NEW process pid=11435 @ 6.0s
+[!] rpc get_stats failed: script has been destroyed
+[*] stats: null
+[!] rpc list_loaded_classes failed: script has been destroyed

@@ -1,0 +1,29 @@
+{
+  "easyGoVersion": "1.0",
+  "client": "com.moutai.mall",
+  "logicEntities": [
+    {
+      "head": {
+        "function": "magicwindow",
+        "required": "true"
+      },
+      "body": {
+        "mode": "0",
+        "defaultDualActivities": {
+          "mainPages": "com.moutai.mall.MainActivity",
+          "relatedPage": "com.moutai.mall.module.culture.FoldScreenSecondaryActivity"
+        },
+        "activityPairs": [
+          {
+            "mainPages": "com.moutai.mall.MainActivity",
+            "relatedPage": "com.moutai.mall.module.culture.FoldScreenSecondaryActivity"
+          }
+        ],
+        "transActivities": [
+        ],
+        "isRelaunchWhenResize": "true"
+      }
+    }
+  ]
+}
+

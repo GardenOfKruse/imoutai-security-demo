@@ -1,0 +1,1961 @@
+input=E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\native-memdump\mp19\libDexHelper-runtime-18231.so
+
+=== xref 0x3560 ===
+function=0x33f8
+name=sub_33F8
+// positive sp value has been detected, the output may be wrong!
+__int64 sub_33F8()
+{
+  int *v0; // x1
+  int v1; // w19
+  int v2; // w0
+  int *v3; // x1
+  int v4; // w0
+  __int64 v5; // x23
+  unsigned int v6; // w22
+  __int64 v7; // x21
+  __int64 v8; // x0
+  __int64 v9; // x24
+  __int64 v10; // x4
+  int *v11; // x1
+  __int64 v12; // x6
+  unsigned int v13; // w2
+  unsigned __int64 v14; // d14
+  int v15; // w0
+  int v16; // w7
+  unsigned __int64 v17; // x0
+  unsigned int v18; // w5
+  unsigned __int64 v19; // x3
+  __int64 v20; // x4
+  __int64 v21; // x21
+  __int64 v22; // x0
+  int *v23; // x1
+  __int64 v24; // x6
+  __int64 v25; // d10
+  int v26; // w0
+  __int64 v27; // d8
+  int v28; // s13
+  unsigned __int64 v29; // x27
+  bool v30; // zf
+  int v31; // w1
+  __int64 v32; // x0
+  unsigned int v33; // w3
+  int v34; // w1
+  unsigned int v35; // w1
+  __int64 v36; // x22
+  unsigned __int8 *v37; // x21
+  unsigned __int8 *v38; // d15
+  unsigned int v39; // w23
+  int *v40; // x1
+  int v41; // w0
+  int v42; // w23
+  unsigned __int8 *v43; // x22
+  int v44; // w28
+  __int64 v45; // x3
+  int v46; // w2
+  int v47; // w23
+  int *v48; // x1
+  int v49; // w0
+  int v50; // w28
+  unsigned __int8 *v51; // x22
+  int v52; // w23
+  __int64 v53; // x3
+  int v54; // w2
+  unsigned __int64 v55; // x3
+  __int64 v56; // x0
+  __int64 v57; // x0
+  __int64 i; // x21
+  void (*v59)(void); // x0
+  int v60; // w20
+  __int64 v61; // x24
+  unsigned __int64 v62; // x21
+  __int64 v63; // x2
+  __int64 v64; // x20
+  __int64 v65; // x19
+  __int64 result; // x0
+  int v67; // w2
+  int v68; // w3
+  int *v69; // x1
+  unsigned int v70; // w5
+  int v71; // w0
+  unsigned __int64 v72; // x0
+  bool v73; // cc
+  __int64 v74; // x19
+  int v75; // w3
+  _QWORD *v76; // x22
+  __int64 v77; // x20
+  _QWORD *v78; // x1
+  __int64 v79; // x2
+  void (__fastcall *v80)(__int64); // x21
+  _QWORD *v81; // x2
+  int *v82; // x1
+  int v83; // w0
+  int v84; // w28
+  int v85; // w22
+  unsigned int v86; // w23
+  __int64 v87; // x3
+  int v88; // w2
+  int v89; // w23
+  unsigned int v90; // w24
+  _QWORD *v91; // x23
+  __int64 v92; // x0
+  unsigned __int64 v93; // x27
+  __int64 v94; // x25
+  __int64 v95; // x22
+  _QWORD *v96; // x1
+  _QWORD *v97; // x2
+  __int64 v98; // x3
+  int v99; // w6
+  _DWORD *k; // x2
+  __int64 v101; // x0
+  int j; // [xsp-20h] [xbp-D30h]
+  int m; // [xsp+2Ch] [xbp-CE4h]
+  unsigned int v104; // [xsp+94h] [xbp-C7Ch]
+  int v105; // [xsp+A0h] [xbp-C70h] BYREF
+  char *v106; // [xsp+A8h] [xbp-C68h]
+  __int64 v107; // [xsp+B8h] [xbp-C58h]
+  __int64 v108; // [xsp+C0h] [xbp-C50h]
+  __int64 v109; // [xsp+D0h] [xbp-C40h]
+  __int64 v110; // [xsp+D8h] [xbp-C38h]
+  unsigned __int64 v111; // [xsp+E0h] [xbp-C30h]
+  __int64 v112; // [xsp+E8h] [xbp-C28h] BYREF
+  __int64 v113; // [xsp+F0h] [xbp-C20h]
+  __int64 v114; // [xsp+F8h] [xbp-C18h]
+  __int64 v115; // [xsp+100h] [xbp-C10h]
+  __int64 v116; // [xsp+108h] [xbp-C08h]
+  __int64 v117; // [xsp+110h] [xbp-C00h]
+  unsigned int v118; // [xsp+120h] [xbp-BF0h]
+  __int64 v119; // [xsp+128h] [xbp-BE8h]
+  __int64 v120; // [xsp+130h] [xbp-BE0h] BYREF
+  __int64 v121; // [xsp+138h] [xbp-BD8h] BYREF
+  __int64 v122; // [xsp+158h] [xbp-BB8h]
+  unsigned __int64 v123; // [xsp+160h] [xbp-BB0h]
+  _DWORD *v124; // [xsp+170h] [xbp-BA0h]
+  __int64 v125; // [xsp+178h] [xbp-B98h]
+  __int64 v126; // [xsp+180h] [xbp-B90h] BYREF
+  __int64 v127; // [xsp+188h] [xbp-B88h] BYREF
+  unsigned __int64 v128; // [xsp+190h] [xbp-B80h]
+  __int64 v129; // [xsp+1A0h] [xbp-B70h]
+  int v130; // [xsp+1A8h] [xbp-B68h]
+  int v131; // [xsp+1ACh] [xbp-B64h]
+  int *v132; // [xsp+1B0h] [xbp-B60h]
+  __int64 v133; // [xsp+1B8h] [xbp-B58h]
+  unsigned __int64 v134; // [xsp+1C0h] [xbp-B50h]
+  int v135; // [xsp+1E0h] [xbp-B30h]
+  int v136; // [xsp+1E4h] [xbp-B2Ch]
+  _DWORD v137[2]; // [xsp+1E8h] [xbp-B28h] BYREF
+  __int64 v138; // [xsp+1F0h] [xbp-B20h] BYREF
+  int v139; // [xsp+214h] [xbp-AFCh]
+  __int64 v140; // [xsp+218h] [xbp-AF8h] BYREF
+  int v141; // [xsp+238h] [xbp-AD8h]
+  int v142; // [xsp+23Ch] [xbp-AD4h]
+  __int64 v143; // [xsp+248h] [xbp-AC8h]
+  __int64 v144; // [xsp+250h] [xbp-AC0h] BYREF
+  char v145[32]; // [xsp+588h] [xbp-788h] BYREF
+  __int64 v146; // [xsp+5A8h] [xbp-768h]
+  __int64 v147; // [xsp+5B0h] [xbp-760h]
+  __int64 v148; // [xsp+5B8h] [xbp-758h]
+  __int64 v149; // [xsp+5C0h] [xbp-750h]
+  char v150[192]; // [xsp+6C8h] [xbp-648h] BYREF
+  char v151[192]; // [xsp+8C8h] [xbp-448h] BYREF
+  __int64 v152; // [xsp+C48h] [xbp-C8h]
+  __int64 v153; // [xsp+D08h] [xbp-8h]
+
+  v0 = &v105;
+  v152 = *(_QWORD *)off_14FF8;
+  v105 = 273;
+LABEL_2:
+  while ( 1 )
+  {
+    v1 = *v0;
+    if ( *v0 == 70 )
+      break;
+    while ( 1 )
+    {
+      v2 = *v0;
+      if ( *v0 == 261 )
+        break;
+      if ( v2 == 273 )
+      {
+        *v0 = 70;
+        goto LABEL_2;
+      }
+      if ( v2 != 21 )
+        goto LABEL_2;
+      *v0 = 20 * *v0 + 116;
+      if ( *v0 <= 3 )
+        goto LABEL_2;
+      *v0 = 214;
+      v1 = *v0;
+      if ( *v0 == 70 )
+        goto LABEL_8;
+    }
+    v0 = &dword_44 + 2;
+  }
+LABEL_8:
+  ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+    v145,
+    0,
+    256,
+    70,
+    30,
+    214,
+    6);
+  HIDWORD(v111) = 0;
+  v3 = (int *)&v112 + 1;
+  v112 = 0x1110000001ELL;
+LABEL_9:
+  while ( *v3 != 70 )
+  {
+    while ( 1 )
+    {
+      v4 = *v3;
+      if ( *v3 == 261 )
+      {
+        v3 = (_DWORD *)(&off_18 + 6);
+        goto LABEL_9;
+      }
+      if ( v4 == 273 )
+      {
+        LODWORD(v112) = 30;
+        *v3 = v1;
+        goto LABEL_9;
+      }
+      if ( v4 != 21 )
+        goto LABEL_9;
+      *v3 = 20 * *v3 + 116;
+      if ( *v3 <= 3 )
+        break;
+      *v3 = 214;
+      if ( *v3 == 70 )
+        goto LABEL_15;
+    }
+    LODWORD(v112) = 6;
+  }
+LABEL_15:
+  v5 = ((__int64 (__fastcall *)(const char *, const char *))sub_2A60)("/proc/self/maps", "r");
+  ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v151, 0, 1024);
+  v127 = 0;
+  v126 = 0;
+  ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 256);
+  while ( ((__int64 (__fastcall *)(char *, __int64, __int64))sub_29A0)(v151, 1024, v5) )
+  {
+    off_15038(v151, "%lx-%lx %s %s %s %s %s", &v126, &v127, v150, v150, v150, v150, v145);
+    if ( v126 <= qword_15048 && qword_15048 < v127 )
+      break;
+  }
+  ((void (__fastcall *)(__int64))sub_2A80)(v5);
+  v106 = v145;
+  v104 = ((__int64 (__fastcall *)(char *, __int64))sub_2AE0)(v145, 0x80000);
+  sub_2AC0();
+  dword_15080 = dword_15060;
+  memset(v145, 0, sizeof(v145));
+  qword_15068 = qword_15050;
+  qword_15070 = qword_15058;
+  v146 = 0;
+  v147 = 0;
+  v148 = 0;
+  v149 = 0;
+  ((void (__fastcall *)(_QWORD, char *, __int64, _QWORD))sub_2AC0)(v104, v145, 64, (unsigned int)dword_15040);
+  ((void (__fastcall *)(char *, _QWORD))sub_3184)(v145, (unsigned int)dword_15040);
+  v6 = ((v146 + 4095 + 56 * (unsigned __int16)v149) & 0xFFFFF000) - (v146 & 0xFFFFF000);
+  v7 = v146 & 0xFFF;
+  v8 = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int64, _QWORD, unsigned __int64))sub_29E0)(
+         0,
+         v6 & 0xFFFFF000,
+         3,
+         2,
+         v104,
+         (v146 + (unsigned int)dword_15040) & 0xFFFFFFFFFFFFF000LL);
+  v108 = v8;
+  v9 = v8;
+  if ( v8 != -1 )
+  {
+    ((void (__fastcall *)(__int64, _QWORD, _QWORD))sub_2B1C)(v8, 0, v6);
+    v120 = 0x1E00000000LL;
+    v10 = (unsigned __int16)v149;
+    v11 = (int *)&v121;
+    v12 = 70;
+    v111 = v7 + (unsigned int)dword_15040 - (((unsigned int)dword_15040 + v146) & 0xFFFFFFFFFFFFF000LL);
+    v13 = (unsigned __int16)v149;
+    v14 = v9 + v111;
+    LODWORD(v121) = 273;
+LABEL_21:
+    while ( *v11 != 70 )
+    {
+      while ( 1 )
+      {
+        v15 = *v11;
+        if ( *v11 == 261 )
+        {
+          v11 = (int *)((unsigned int)&v120 + 4);
+          goto LABEL_21;
+        }
+        if ( v15 == 273 )
+        {
+          HIDWORD(v120) = 30;
+          *v11 = 70;
+          goto LABEL_21;
+        }
+        if ( v15 != 21 )
+          goto LABEL_21;
+        *v11 = 20 * *v11 + 116;
+        if ( *v11 <= 3 )
+          break;
+        *v11 = 214;
+        if ( *v11 == 70 )
+          goto LABEL_27;
+      }
+      HIDWORD(v120) = 6;
+    }
+LABEL_27:
+    if ( (_WORD)v10 )
+    {
+      v16 = -1;
+      v17 = v14;
+      v18 = 0;
+      v13 = -1;
+      v19 = v14 + 56 * v10;
+      do
+      {
+        while ( 1 )
+        {
+          if ( *(_DWORD *)v17 == 1 )
+          {
+            v20 = *(_QWORD *)(v17 + 16);
+            v12 = *(_QWORD *)(v17 + 40);
+            v16 = 1;
+            if ( v20 < v13 )
+              v13 = *(_QWORD *)(v17 + 16);
+            if ( v20 + v12 > v18 )
+              break;
+          }
+          v17 += 56LL;
+          if ( v17 == v19 )
+            goto LABEL_35;
+        }
+        v17 += 56LL;
+        v18 = v12 + v20;
+      }
+      while ( v17 != v19 );
+LABEL_35:
+      if ( v16 != 1 )
+        v13 = 0;
+    }
+    else
+    {
+      v18 = 0;
+    }
+    v21 = v13 & 0xFFFFF000;
+    v22 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64, __int64, _QWORD, __int64))sub_29E0)(
+            v21,
+            ((v18 + 4095) & 0xFFFFF000) - (unsigned int)v21,
+            3,
+            34,
+            0xFFFFFFFFLL,
+            0,
+            v12);
+    if ( v22 != -1 )
+    {
+      v107 = v22 - v21;
+      sub_2A70();
+      HIDWORD(v125) = 0;
+      v23 = (int *)&v126 + 1;
+      v24 = 6;
+      v126 = 0x1110000001ELL;
+      v25 = *(unsigned __int16 *)(v112 + 56);
+LABEL_39:
+      while ( *v23 != 70 )
+      {
+        while ( 1 )
+        {
+          v26 = *v23;
+          if ( *v23 == 261 )
+          {
+            v23 = &dword_44 + 2;
+            goto LABEL_39;
+          }
+          if ( v26 == 273 )
+          {
+            LODWORD(v126) = 30;
+            *v23 = 70;
+            goto LABEL_39;
+          }
+          if ( v26 != 21 )
+            goto LABEL_39;
+          *v23 = 20 * *v23 + 116;
+          if ( *v23 <= 3 )
+            break;
+          *v23 = 214;
+          if ( *v23 == 70 )
+            goto LABEL_45;
+        }
+        LODWORD(v126) = 6;
+      }
+LABEL_45:
+      if ( !v25 )
+        goto LABEL_132;
+      v27 = 0;
+      v28 = 0;
+      v29 = v14 + 4;
+LABEL_48:
+      while ( 2 )
+      {
+        if ( *(_DWORD *)(v29 - 4) == 1 )
+        {
+          ++v28;
+          v31 = dword_15040 + *(_QWORD *)(v29 + 4);
+          v32 = *(_QWORD *)(v29 + 12);
+          v33 = v31 & 0xFFFFF000;
+          v34 = v31 + *(_QWORD *)(v29 + 28);
+          LODWORD(v111) = v33;
+          v35 = v34 - v33;
+          if ( v35 )
+          {
+            v36 = v35;
+            v115 = v35;
+            v37 = (unsigned __int8 *)((__int64 (__fastcall *)(unsigned __int64, _QWORD, __int64, __int64, _QWORD, _QWORD, __int64))sub_29E0)(
+                                       (v32 + v114) & 0xFFFFFFFFFFFFF000LL,
+                                       v35,
+                                       3,
+                                       50,
+                                       0,
+                                       0,
+                                       v24);
+            v38 = v37;
+            if ( v37 == (unsigned __int8 *)-1LL )
+              break;
+            v39 = HIDWORD(v117);
+            if ( ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))sub_29D0)(
+                   HIDWORD(v117),
+                   (unsigned int)v111 & 0xFFFFF000,
+                   0) == -1 )
+              break;
+            v116 = ((__int64 (__fastcall *)(_QWORD, unsigned __int8 *, __int64))sub_2A20)(v39, v37, v36);
+            if ( (_DWORD)v116 == -1 )
+              break;
+            if ( v28 != 1 )
+            {
+              ((void (__fastcall *)(unsigned __int8 *, _QWORD, _QWORD))sub_2B1C)(v37, 0, (unsigned int)v116);
+              goto LABEL_125;
+            }
+            v40 = v137;
+            v135 = 0;
+            v136 = 30;
+            v137[0] = 273;
+LABEL_55:
+            while ( *v40 != 70 )
+            {
+              while ( 1 )
+              {
+                v41 = *v40;
+                if ( *v40 == 261 )
+                {
+                  v40 = &dword_44 + 2;
+                  goto LABEL_55;
+                }
+                if ( v41 == 273 )
+                {
+                  v136 = 30;
+                  *v40 = 70;
+                  goto LABEL_55;
+                }
+                if ( v41 != 21 )
+                  goto LABEL_55;
+                *v40 = 20 * *v40 + 116;
+                if ( *v40 <= 3 )
+                  break;
+                *v40 = 214;
+                if ( *v40 == 70 )
+                  goto LABEL_61;
+              }
+              v136 = 6;
+            }
+LABEL_61:
+            v42 = 1;
+            v43 = v37;
+            ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+              v151,
+              0,
+              1024,
+              70,
+              30,
+              214,
+              6);
+            v44 = 0;
+            sub_2AB0(v151, "%08X:", 0);
+            ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+            while ( 1 )
+            {
+              ++v44;
+              sub_2AB0(v151, "%s %02X", v151, *v43);
+              v120 = *v43;
+              if ( (unsigned int)((__int64 (__fastcall *)(_QWORD))sub_2A90)((unsigned int)v120) )
+                v45 = (unsigned int)v120;
+              else
+                v45 = 32;
+              sub_2AB0(v150, "%s%c", v150, v45);
+              if ( (v44 & 3) != 0 )
+              {
+                if ( v44 != 16 )
+                  goto LABEL_63;
+LABEL_69:
+                v44 = 0;
+                ++v43;
+                ((void (__fastcall *)(char *))sub_2A70)(v151);
+                v46 = v42++;
+                sub_2AB0(v151, "%08X:", v46);
+                ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+                if ( v42 == 65 )
+                {
+LABEL_70:
+                  v47 = v44;
+                  if ( v44 && v44 <= 15 )
+                  {
+                    while ( 1 )
+                    {
+                      ++v47;
+                      *(_DWORD *)&v151[((__int64 (__fastcall *)(char *))sub_2AD0)(v151)] = *(_DWORD *)"   ";
+                      if ( v47 == 16 )
+                        break;
+                      while ( v44 != v47 && (v47 & 3) == 0 )
+                      {
+                        ++v47;
+                        sub_2AB0(v151, "%s |", v151);
+                        *(_DWORD *)&v151[((__int64 (__fastcall *)(char *))sub_2AD0)(v151)] = *(_DWORD *)"   ";
+                        if ( v47 == 16 )
+                          goto LABEL_76;
+                      }
+                    }
+                  }
+LABEL_76:
+                  ((void (__fastcall *)(unsigned __int8 *, _QWORD))sub_3184)(v37, v118);
+                  v139 = 0;
+                  v48 = (int *)&v140 + 1;
+                  v140 = 0x1110000001ELL;
+LABEL_77:
+                  while ( *v48 != 70 )
+                  {
+                    while ( 1 )
+                    {
+                      v49 = *v48;
+                      if ( *v48 == 261 )
+                      {
+                        v48 = &dword_44 + 2;
+                        goto LABEL_77;
+                      }
+                      if ( v49 == 273 )
+                      {
+                        LODWORD(v140) = 30;
+                        *v48 = 70;
+                        goto LABEL_77;
+                      }
+                      if ( v49 != 21 )
+                        goto LABEL_77;
+                      *v48 = 20 * *v48 + 116;
+                      if ( *v48 <= 3 )
+                        break;
+                      *v48 = 214;
+                      if ( *v48 == 70 )
+                        goto LABEL_83;
+                    }
+                    LODWORD(v140) = 6;
+                  }
+LABEL_83:
+                  v50 = 0;
+                  v51 = v37;
+                  v52 = 1;
+                  ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+                    v151,
+                    0,
+                    1024,
+                    70,
+                    30,
+                    214,
+                    6);
+                  sub_2AB0(v151, "%08X:", 0);
+                  ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+                  while ( 2 )
+                  {
+                    while ( 2 )
+                    {
+                      ++v50;
+                      sub_2AB0(v151, "%s %02X", v151, *v51);
+                      v124 = (_DWORD *)*v51;
+                      if ( (unsigned int)((__int64 (__fastcall *)(_QWORD))sub_2A90)((unsigned int)v124) )
+                        v53 = (unsigned int)v124;
+                      else
+                        v53 = 32;
+                      sub_2AB0(v150, "%s%c", v150, v53);
+                      if ( (v50 & 3) != 0 )
+                      {
+                        if ( v50 == 16 )
+                          goto LABEL_91;
+LABEL_85:
+                        ++v52;
+                        ++v51;
+                        if ( v52 == 65 )
+                          goto LABEL_92;
+                        continue;
+                      }
+                      break;
+                    }
+                    sub_2AB0(v151, "%s |", v151);
+                    if ( v50 != 16 )
+                      goto LABEL_85;
+LABEL_91:
+                    v50 = 0;
+                    ++v51;
+                    ((void (__fastcall *)(char *))sub_2A70)(v151);
+                    v54 = v52++;
+                    sub_2AB0(v151, "%08X:", v54);
+                    ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+                    if ( v52 != 65 )
+                      continue;
+                    break;
+                  }
+LABEL_92:
+                  v55 = (unsigned int)v50;
+                  if ( v50 && v50 <= 15 )
+                  {
+                    while ( 1 )
+                    {
+                      v123 = (unsigned int)(v55 + 1);
+                      v124 = (_DWORD *)v123;
+                      v56 = ((__int64 (__fastcall *)(char *))sub_2AD0)(v151);
+                      v55 = v123;
+                      strcpy(&v151[v56], "   ");
+                      if ( (_DWORD)v55 == 16 )
+                        break;
+                      if ( (_DWORD)v55 != v50 && (v55 & 3) == 0 )
+                      {
+                        v124 = (_DWORD *)v55;
+                        sub_2AB0(v151, "%s |", v151);
+                        LODWORD(v55) = (_DWORD)v124;
+                      }
+                    }
+                  }
+                  ((void (__fastcall *)(unsigned __int8 *, __int64, _QWORD, unsigned __int64))sub_2B1C)(
+                    v37,
+                    64,
+                    (unsigned int)(v127 - 64),
+                    v55);
+                  v143 = 0x1E00000000LL;
+                  v82 = (int *)&v144;
+                  LODWORD(v144) = 273;
+LABEL_152:
+                  while ( *v82 != 70 )
+                  {
+                    while ( 1 )
+                    {
+                      v83 = *v82;
+                      if ( *v82 == 261 )
+                      {
+                        v82 = &dword_44 + 2;
+                        goto LABEL_152;
+                      }
+                      if ( v83 == 273 )
+                      {
+                        HIDWORD(v143) = 30;
+                        *v82 = 70;
+                        goto LABEL_152;
+                      }
+                      if ( v83 != 21 )
+                        goto LABEL_152;
+                      *v82 = 20 * *v82 + 116;
+                      if ( *v82 <= 3 )
+                        break;
+                      *v82 = 214;
+                      if ( *v82 == 70 )
+                        goto LABEL_158;
+                    }
+                    HIDWORD(v143) = 6;
+                  }
+LABEL_158:
+                  v84 = 0;
+                  v85 = 1;
+                  ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+                    v151,
+                    0,
+                    1024,
+34e0: ADD ADD             X1, SP, #0xCE0+var_B68+4
+34e4: MOV MOV             W0, #0x1E
+34e8: MOV MOV             W5, #6
+34ec: MOV MOV             W3, W0
+34f0: MOV MOV             W4, #0xD6
+34f4: STR STR             W0, [X2]
+34f8: MOV MOV             W0, #0x111
+34fc: STR STR             W0, [X1]
+3500: LDR LDR             W0, [X1]
+3504: CMP CMP             W0, #0x46 ; 'F'
+3508: B.EQ B.EQ            loc_355C
+350c: LDR LDR             W0, [X1]
+3510: CMP CMP             W0, #0x105
+3514: B.EQ B.EQ            loc_3EB0
+3518: CMP CMP             W0, #0x111
+351c: B.EQ B.EQ            loc_3EA4
+3520: CMP CMP             W0, #0x15
+3524: B.NE B.NE            loc_3500
+3528: LDR LDR             W0, [X1]
+352c: ADD ADD             W0, W0, W0,LSL#2
+3530: LSL LSL             W0, W0, #2
+3534: ADD ADD             W0, W0, #0x74 ; 't'
+3538: STR STR             W0, [X1]
+353c: ADD ADD             SP, SP, #0x40 ; '@'
+3540: LDR LDR             W0, [X1]
+3544: CMP CMP             W0, #3
+3548: B.LE B.LE            loc_3EBC
+354c: STR STR             W4, [X1]
+3550: LDR LDR             W0, [X1]
+3554: CMP CMP             W0, #0x46 ; 'F'
+3558: B.NE B.NE            loc_350C
+355c: ADRP ADRP            X1, #aR@PAGE; "r"
+3560: ADRP ADRP            X0, #aProcSelfMaps@PAGE; "/proc/self/maps"
+3564: ADD ADD             X1, X1, #aR@PAGEOFF; "r"
+3568: ADD ADD             X0, X0, #aProcSelfMaps@PAGEOFF; "/proc/self/maps"
+356c: ADD ADD             X19, SP, #0xCA0+var_388
+3570: ADD ADD             X26, SP, #0xCA0+var_AD0
+3574: BL BL              sub_2A60
+3578: MOV MOV             X23, X0
+357c: ADD ADD             X3, SP, #0xCA0+var_AC8
+3580: MOV MOV             W1, #0
+3584: MOV MOV             X22, X3
+3588: MOV MOV             X2, #0x400
+358c: FMOV FMOV            D11, X3
+3590: MOV MOV             X0, X19
+3594: ADD ADD             X20, SP, #0xCA0+var_588
+3598: ADRP ADRP            X25, #off_15038@PAGE
+359c: ADRP ADRP            X24, #qword_15048@PAGE
+35a0: BL BL              sub_2A70
+35a4: STR STR             XZR, [X22]
+35a8: ADRP ADRP            X22, #aLxLxSSSSS@PAGE; "%lx-%lx %s %s %s %s %s"
+35ac: MOV MOV             X0, X20
+35b0: MOV MOV             W1, #0
+35b4: MOV MOV             X2, #0x100
+35b8: ADD ADD             X22, X22, #aLxLxSSSSS@PAGEOFF; "%lx-%lx %s %s %s %s %s"
+35bc: STR STR             XZR, [X26]
+35c0: BL BL              sub_2A70
+35c4: MOV MOV             X0, X19
+35c8: MOV MOV             W1, #0x400
+35cc: MOV MOV             X2, X23
+35d0: BL BL              sub_29A0
+35d4: CBZ CBZ             X0, loc_3624
+35d8: FMOV FMOV            X3, D11
+35dc: LDR LDR             X8, [X25,#off_15038@PAGEOFF]
+35e0: MOV MOV             X1, X22
+35e4: MOV MOV             X0, X19
+35e8: STR STR             X21, [SP,#0xCA0+var_CA0]
+35ec: MOV MOV             X2, X26
+35f0: MOV MOV             X4, X20
+35f4: MOV MOV             X5, X20
+35f8: MOV MOV             X6, X20
+35fc: MOV MOV             X7, X20
+3600: BLR BLR             X8
+3604: LDR LDR             X0, [X24,#qword_15048@PAGEOFF]
+3608: LDR LDR             X1, [X26]
+360c: CMP CMP             X1, X0
+3610: B.GT B.GT            loc_35C4
+3614: FMOV FMOV            X1, D11
+3618: LDR LDR             X1, [X1]
+361c: CMP CMP             X0, X1
+3620: B.GE B.GE            loc_35C4
+3624: MOV MOV             X0, X23
+3628: BL BL              sub_2A80
+362c: ADD ADD             X5, SP, #0xCA0+var_6C8
+3630: MOV MOV             W1, #0x80000
+3634: MOV MOV             X0, X21
+3638: MOV MOV             X22, X5
+363c: STR STR             X5, [SP,#0xCA0+var_BA8]
+3640: ADRP ADRP            X21, #qword_15050@PAGE
+3644: BL BL              sub_2AE0
+3648: ADD ADD             X21, X21, #qword_15050@PAGEOFF
+364c: ADRP ADRP            X3, #dword_1507C@PAGE
+3650: MOV MOV             X1, X21
+3654: MOV MOV             X2, #0x14
+3658: MOV MOV             W24, W0
+365c: STR STR             W0, [SP,#0xCA0+var_BBC]
+3660: MOV MOV             X23, X22
+3664: LDR LDR             W3, [X3,#dword_1507C@PAGEOFF]
+3668: BL BL              sub_2AC0
+366c: ADRP ADRP            X4, #dword_15080@PAGE
+3670: LDR LDR             W5, [X21,#(dword_15060 - 0x15050)]
+3674: ADRP ADRP            X0, #dword_15040@PAGE
+3678: MOV MOV             X2, #0x40 ; '@'
+367c: LDP LDP             X6, X7, [X21]
+3680: STR STR             W5, [X4,#dword_15080@PAGEOFF]
+3684: ADRL ADRL            X4, qword_15068
+368c: LDR LDR             W3, [X0,#dword_15040@PAGEOFF]
+3690: MOV MOV             X1, X22
+3694: MOV MOV             W0, W24
+3698: STP STP             XZR, XZR, [X22]
+369c: STP STP             X6, X7, [X4]
+36a0: STP STP             XZR, XZR, [X22,#0x10]
+36a4: STP STP             XZR, XZR, [X22,#0x20]
+36a8: STP STP             XZR, XZR, [X22,#0x30]
+36ac: BL BL              sub_2AC0
+36b0: ADRP ADRP            X1, #dword_15040@PAGE
+36b4: MOV MOV             X0, X22
+36b8: LDR LDR             W1, [X1,#dword_15040@PAGEOFF]
+36bc: BL BL              sub_3184
+36c0: LDR LDR             X21, [X22,#0x20]
+36c4: LDRH LDRH            W1, [X22,#0x38]
+36c8: ADRP ADRP            X2, #dword_15040@PAGE
+36cc: ADD ADD             W6, W21, #0xFFF
+36d0: AND AND             W22, W21, #0xFFFFF000
+36d4: LSL LSL             W7, W1, #6
+36d8: MOV MOV             W4, W24
+36dc: SUB SUB             W1, W7, W1,LSL#3
+
+=== xref 0x3568 ===
+function=0x33f8
+name=sub_33F8
+// positive sp value has been detected, the output may be wrong!
+__int64 sub_33F8()
+{
+  int *v0; // x1
+  int v1; // w19
+  int v2; // w0
+  int *v3; // x1
+  int v4; // w0
+  __int64 v5; // x23
+  unsigned int v6; // w22
+  __int64 v7; // x21
+  __int64 v8; // x0
+  __int64 v9; // x24
+  __int64 v10; // x4
+  int *v11; // x1
+  __int64 v12; // x6
+  unsigned int v13; // w2
+  unsigned __int64 v14; // d14
+  int v15; // w0
+  int v16; // w7
+  unsigned __int64 v17; // x0
+  unsigned int v18; // w5
+  unsigned __int64 v19; // x3
+  __int64 v20; // x4
+  __int64 v21; // x21
+  __int64 v22; // x0
+  int *v23; // x1
+  __int64 v24; // x6
+  __int64 v25; // d10
+  int v26; // w0
+  __int64 v27; // d8
+  int v28; // s13
+  unsigned __int64 v29; // x27
+  bool v30; // zf
+  int v31; // w1
+  __int64 v32; // x0
+  unsigned int v33; // w3
+  int v34; // w1
+  unsigned int v35; // w1
+  __int64 v36; // x22
+  unsigned __int8 *v37; // x21
+  unsigned __int8 *v38; // d15
+  unsigned int v39; // w23
+  int *v40; // x1
+  int v41; // w0
+  int v42; // w23
+  unsigned __int8 *v43; // x22
+  int v44; // w28
+  __int64 v45; // x3
+  int v46; // w2
+  int v47; // w23
+  int *v48; // x1
+  int v49; // w0
+  int v50; // w28
+  unsigned __int8 *v51; // x22
+  int v52; // w23
+  __int64 v53; // x3
+  int v54; // w2
+  unsigned __int64 v55; // x3
+  __int64 v56; // x0
+  __int64 v57; // x0
+  __int64 i; // x21
+  void (*v59)(void); // x0
+  int v60; // w20
+  __int64 v61; // x24
+  unsigned __int64 v62; // x21
+  __int64 v63; // x2
+  __int64 v64; // x20
+  __int64 v65; // x19
+  __int64 result; // x0
+  int v67; // w2
+  int v68; // w3
+  int *v69; // x1
+  unsigned int v70; // w5
+  int v71; // w0
+  unsigned __int64 v72; // x0
+  bool v73; // cc
+  __int64 v74; // x19
+  int v75; // w3
+  _QWORD *v76; // x22
+  __int64 v77; // x20
+  _QWORD *v78; // x1
+  __int64 v79; // x2
+  void (__fastcall *v80)(__int64); // x21
+  _QWORD *v81; // x2
+  int *v82; // x1
+  int v83; // w0
+  int v84; // w28
+  int v85; // w22
+  unsigned int v86; // w23
+  __int64 v87; // x3
+  int v88; // w2
+  int v89; // w23
+  unsigned int v90; // w24
+  _QWORD *v91; // x23
+  __int64 v92; // x0
+  unsigned __int64 v93; // x27
+  __int64 v94; // x25
+  __int64 v95; // x22
+  _QWORD *v96; // x1
+  _QWORD *v97; // x2
+  __int64 v98; // x3
+  int v99; // w6
+  _DWORD *k; // x2
+  __int64 v101; // x0
+  int j; // [xsp-20h] [xbp-D30h]
+  int m; // [xsp+2Ch] [xbp-CE4h]
+  unsigned int v104; // [xsp+94h] [xbp-C7Ch]
+  int v105; // [xsp+A0h] [xbp-C70h] BYREF
+  char *v106; // [xsp+A8h] [xbp-C68h]
+  __int64 v107; // [xsp+B8h] [xbp-C58h]
+  __int64 v108; // [xsp+C0h] [xbp-C50h]
+  __int64 v109; // [xsp+D0h] [xbp-C40h]
+  __int64 v110; // [xsp+D8h] [xbp-C38h]
+  unsigned __int64 v111; // [xsp+E0h] [xbp-C30h]
+  __int64 v112; // [xsp+E8h] [xbp-C28h] BYREF
+  __int64 v113; // [xsp+F0h] [xbp-C20h]
+  __int64 v114; // [xsp+F8h] [xbp-C18h]
+  __int64 v115; // [xsp+100h] [xbp-C10h]
+  __int64 v116; // [xsp+108h] [xbp-C08h]
+  __int64 v117; // [xsp+110h] [xbp-C00h]
+  unsigned int v118; // [xsp+120h] [xbp-BF0h]
+  __int64 v119; // [xsp+128h] [xbp-BE8h]
+  __int64 v120; // [xsp+130h] [xbp-BE0h] BYREF
+  __int64 v121; // [xsp+138h] [xbp-BD8h] BYREF
+  __int64 v122; // [xsp+158h] [xbp-BB8h]
+  unsigned __int64 v123; // [xsp+160h] [xbp-BB0h]
+  _DWORD *v124; // [xsp+170h] [xbp-BA0h]
+  __int64 v125; // [xsp+178h] [xbp-B98h]
+  __int64 v126; // [xsp+180h] [xbp-B90h] BYREF
+  __int64 v127; // [xsp+188h] [xbp-B88h] BYREF
+  unsigned __int64 v128; // [xsp+190h] [xbp-B80h]
+  __int64 v129; // [xsp+1A0h] [xbp-B70h]
+  int v130; // [xsp+1A8h] [xbp-B68h]
+  int v131; // [xsp+1ACh] [xbp-B64h]
+  int *v132; // [xsp+1B0h] [xbp-B60h]
+  __int64 v133; // [xsp+1B8h] [xbp-B58h]
+  unsigned __int64 v134; // [xsp+1C0h] [xbp-B50h]
+  int v135; // [xsp+1E0h] [xbp-B30h]
+  int v136; // [xsp+1E4h] [xbp-B2Ch]
+  _DWORD v137[2]; // [xsp+1E8h] [xbp-B28h] BYREF
+  __int64 v138; // [xsp+1F0h] [xbp-B20h] BYREF
+  int v139; // [xsp+214h] [xbp-AFCh]
+  __int64 v140; // [xsp+218h] [xbp-AF8h] BYREF
+  int v141; // [xsp+238h] [xbp-AD8h]
+  int v142; // [xsp+23Ch] [xbp-AD4h]
+  __int64 v143; // [xsp+248h] [xbp-AC8h]
+  __int64 v144; // [xsp+250h] [xbp-AC0h] BYREF
+  char v145[32]; // [xsp+588h] [xbp-788h] BYREF
+  __int64 v146; // [xsp+5A8h] [xbp-768h]
+  __int64 v147; // [xsp+5B0h] [xbp-760h]
+  __int64 v148; // [xsp+5B8h] [xbp-758h]
+  __int64 v149; // [xsp+5C0h] [xbp-750h]
+  char v150[192]; // [xsp+6C8h] [xbp-648h] BYREF
+  char v151[192]; // [xsp+8C8h] [xbp-448h] BYREF
+  __int64 v152; // [xsp+C48h] [xbp-C8h]
+  __int64 v153; // [xsp+D08h] [xbp-8h]
+
+  v0 = &v105;
+  v152 = *(_QWORD *)off_14FF8;
+  v105 = 273;
+LABEL_2:
+  while ( 1 )
+  {
+    v1 = *v0;
+    if ( *v0 == 70 )
+      break;
+    while ( 1 )
+    {
+      v2 = *v0;
+      if ( *v0 == 261 )
+        break;
+      if ( v2 == 273 )
+      {
+        *v0 = 70;
+        goto LABEL_2;
+      }
+      if ( v2 != 21 )
+        goto LABEL_2;
+      *v0 = 20 * *v0 + 116;
+      if ( *v0 <= 3 )
+        goto LABEL_2;
+      *v0 = 214;
+      v1 = *v0;
+      if ( *v0 == 70 )
+        goto LABEL_8;
+    }
+    v0 = &dword_44 + 2;
+  }
+LABEL_8:
+  ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+    v145,
+    0,
+    256,
+    70,
+    30,
+    214,
+    6);
+  HIDWORD(v111) = 0;
+  v3 = (int *)&v112 + 1;
+  v112 = 0x1110000001ELL;
+LABEL_9:
+  while ( *v3 != 70 )
+  {
+    while ( 1 )
+    {
+      v4 = *v3;
+      if ( *v3 == 261 )
+      {
+        v3 = (_DWORD *)(&off_18 + 6);
+        goto LABEL_9;
+      }
+      if ( v4 == 273 )
+      {
+        LODWORD(v112) = 30;
+        *v3 = v1;
+        goto LABEL_9;
+      }
+      if ( v4 != 21 )
+        goto LABEL_9;
+      *v3 = 20 * *v3 + 116;
+      if ( *v3 <= 3 )
+        break;
+      *v3 = 214;
+      if ( *v3 == 70 )
+        goto LABEL_15;
+    }
+    LODWORD(v112) = 6;
+  }
+LABEL_15:
+  v5 = ((__int64 (__fastcall *)(const char *, const char *))sub_2A60)("/proc/self/maps", "r");
+  ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v151, 0, 1024);
+  v127 = 0;
+  v126 = 0;
+  ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 256);
+  while ( ((__int64 (__fastcall *)(char *, __int64, __int64))sub_29A0)(v151, 1024, v5) )
+  {
+    off_15038(v151, "%lx-%lx %s %s %s %s %s", &v126, &v127, v150, v150, v150, v150, v145);
+    if ( v126 <= qword_15048 && qword_15048 < v127 )
+      break;
+  }
+  ((void (__fastcall *)(__int64))sub_2A80)(v5);
+  v106 = v145;
+  v104 = ((__int64 (__fastcall *)(char *, __int64))sub_2AE0)(v145, 0x80000);
+  sub_2AC0();
+  dword_15080 = dword_15060;
+  memset(v145, 0, sizeof(v145));
+  qword_15068 = qword_15050;
+  qword_15070 = qword_15058;
+  v146 = 0;
+  v147 = 0;
+  v148 = 0;
+  v149 = 0;
+  ((void (__fastcall *)(_QWORD, char *, __int64, _QWORD))sub_2AC0)(v104, v145, 64, (unsigned int)dword_15040);
+  ((void (__fastcall *)(char *, _QWORD))sub_3184)(v145, (unsigned int)dword_15040);
+  v6 = ((v146 + 4095 + 56 * (unsigned __int16)v149) & 0xFFFFF000) - (v146 & 0xFFFFF000);
+  v7 = v146 & 0xFFF;
+  v8 = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int64, _QWORD, unsigned __int64))sub_29E0)(
+         0,
+         v6 & 0xFFFFF000,
+         3,
+         2,
+         v104,
+         (v146 + (unsigned int)dword_15040) & 0xFFFFFFFFFFFFF000LL);
+  v108 = v8;
+  v9 = v8;
+  if ( v8 != -1 )
+  {
+    ((void (__fastcall *)(__int64, _QWORD, _QWORD))sub_2B1C)(v8, 0, v6);
+    v120 = 0x1E00000000LL;
+    v10 = (unsigned __int16)v149;
+    v11 = (int *)&v121;
+    v12 = 70;
+    v111 = v7 + (unsigned int)dword_15040 - (((unsigned int)dword_15040 + v146) & 0xFFFFFFFFFFFFF000LL);
+    v13 = (unsigned __int16)v149;
+    v14 = v9 + v111;
+    LODWORD(v121) = 273;
+LABEL_21:
+    while ( *v11 != 70 )
+    {
+      while ( 1 )
+      {
+        v15 = *v11;
+        if ( *v11 == 261 )
+        {
+          v11 = (int *)((unsigned int)&v120 + 4);
+          goto LABEL_21;
+        }
+        if ( v15 == 273 )
+        {
+          HIDWORD(v120) = 30;
+          *v11 = 70;
+          goto LABEL_21;
+        }
+        if ( v15 != 21 )
+          goto LABEL_21;
+        *v11 = 20 * *v11 + 116;
+        if ( *v11 <= 3 )
+          break;
+        *v11 = 214;
+        if ( *v11 == 70 )
+          goto LABEL_27;
+      }
+      HIDWORD(v120) = 6;
+    }
+LABEL_27:
+    if ( (_WORD)v10 )
+    {
+      v16 = -1;
+      v17 = v14;
+      v18 = 0;
+      v13 = -1;
+      v19 = v14 + 56 * v10;
+      do
+      {
+        while ( 1 )
+        {
+          if ( *(_DWORD *)v17 == 1 )
+          {
+            v20 = *(_QWORD *)(v17 + 16);
+            v12 = *(_QWORD *)(v17 + 40);
+            v16 = 1;
+            if ( v20 < v13 )
+              v13 = *(_QWORD *)(v17 + 16);
+            if ( v20 + v12 > v18 )
+              break;
+          }
+          v17 += 56LL;
+          if ( v17 == v19 )
+            goto LABEL_35;
+        }
+        v17 += 56LL;
+        v18 = v12 + v20;
+      }
+      while ( v17 != v19 );
+LABEL_35:
+      if ( v16 != 1 )
+        v13 = 0;
+    }
+    else
+    {
+      v18 = 0;
+    }
+    v21 = v13 & 0xFFFFF000;
+    v22 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64, __int64, _QWORD, __int64))sub_29E0)(
+            v21,
+            ((v18 + 4095) & 0xFFFFF000) - (unsigned int)v21,
+            3,
+            34,
+            0xFFFFFFFFLL,
+            0,
+            v12);
+    if ( v22 != -1 )
+    {
+      v107 = v22 - v21;
+      sub_2A70();
+      HIDWORD(v125) = 0;
+      v23 = (int *)&v126 + 1;
+      v24 = 6;
+      v126 = 0x1110000001ELL;
+      v25 = *(unsigned __int16 *)(v112 + 56);
+LABEL_39:
+      while ( *v23 != 70 )
+      {
+        while ( 1 )
+        {
+          v26 = *v23;
+          if ( *v23 == 261 )
+          {
+            v23 = &dword_44 + 2;
+            goto LABEL_39;
+          }
+          if ( v26 == 273 )
+          {
+            LODWORD(v126) = 30;
+            *v23 = 70;
+            goto LABEL_39;
+          }
+          if ( v26 != 21 )
+            goto LABEL_39;
+          *v23 = 20 * *v23 + 116;
+          if ( *v23 <= 3 )
+            break;
+          *v23 = 214;
+          if ( *v23 == 70 )
+            goto LABEL_45;
+        }
+        LODWORD(v126) = 6;
+      }
+LABEL_45:
+      if ( !v25 )
+        goto LABEL_132;
+      v27 = 0;
+      v28 = 0;
+      v29 = v14 + 4;
+LABEL_48:
+      while ( 2 )
+      {
+        if ( *(_DWORD *)(v29 - 4) == 1 )
+        {
+          ++v28;
+          v31 = dword_15040 + *(_QWORD *)(v29 + 4);
+          v32 = *(_QWORD *)(v29 + 12);
+          v33 = v31 & 0xFFFFF000;
+          v34 = v31 + *(_QWORD *)(v29 + 28);
+          LODWORD(v111) = v33;
+          v35 = v34 - v33;
+          if ( v35 )
+          {
+            v36 = v35;
+            v115 = v35;
+            v37 = (unsigned __int8 *)((__int64 (__fastcall *)(unsigned __int64, _QWORD, __int64, __int64, _QWORD, _QWORD, __int64))sub_29E0)(
+                                       (v32 + v114) & 0xFFFFFFFFFFFFF000LL,
+                                       v35,
+                                       3,
+                                       50,
+                                       0,
+                                       0,
+                                       v24);
+            v38 = v37;
+            if ( v37 == (unsigned __int8 *)-1LL )
+              break;
+            v39 = HIDWORD(v117);
+            if ( ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))sub_29D0)(
+                   HIDWORD(v117),
+                   (unsigned int)v111 & 0xFFFFF000,
+                   0) == -1 )
+              break;
+            v116 = ((__int64 (__fastcall *)(_QWORD, unsigned __int8 *, __int64))sub_2A20)(v39, v37, v36);
+            if ( (_DWORD)v116 == -1 )
+              break;
+            if ( v28 != 1 )
+            {
+              ((void (__fastcall *)(unsigned __int8 *, _QWORD, _QWORD))sub_2B1C)(v37, 0, (unsigned int)v116);
+              goto LABEL_125;
+            }
+            v40 = v137;
+            v135 = 0;
+            v136 = 30;
+            v137[0] = 273;
+LABEL_55:
+            while ( *v40 != 70 )
+            {
+              while ( 1 )
+              {
+                v41 = *v40;
+                if ( *v40 == 261 )
+                {
+                  v40 = &dword_44 + 2;
+                  goto LABEL_55;
+                }
+                if ( v41 == 273 )
+                {
+                  v136 = 30;
+                  *v40 = 70;
+                  goto LABEL_55;
+                }
+                if ( v41 != 21 )
+                  goto LABEL_55;
+                *v40 = 20 * *v40 + 116;
+                if ( *v40 <= 3 )
+                  break;
+                *v40 = 214;
+                if ( *v40 == 70 )
+                  goto LABEL_61;
+              }
+              v136 = 6;
+            }
+LABEL_61:
+            v42 = 1;
+            v43 = v37;
+            ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+              v151,
+              0,
+              1024,
+              70,
+              30,
+              214,
+              6);
+            v44 = 0;
+            sub_2AB0(v151, "%08X:", 0);
+            ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+            while ( 1 )
+            {
+              ++v44;
+              sub_2AB0(v151, "%s %02X", v151, *v43);
+              v120 = *v43;
+              if ( (unsigned int)((__int64 (__fastcall *)(_QWORD))sub_2A90)((unsigned int)v120) )
+                v45 = (unsigned int)v120;
+              else
+                v45 = 32;
+              sub_2AB0(v150, "%s%c", v150, v45);
+              if ( (v44 & 3) != 0 )
+              {
+                if ( v44 != 16 )
+                  goto LABEL_63;
+LABEL_69:
+                v44 = 0;
+                ++v43;
+                ((void (__fastcall *)(char *))sub_2A70)(v151);
+                v46 = v42++;
+                sub_2AB0(v151, "%08X:", v46);
+                ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+                if ( v42 == 65 )
+                {
+LABEL_70:
+                  v47 = v44;
+                  if ( v44 && v44 <= 15 )
+                  {
+                    while ( 1 )
+                    {
+                      ++v47;
+                      *(_DWORD *)&v151[((__int64 (__fastcall *)(char *))sub_2AD0)(v151)] = *(_DWORD *)"   ";
+                      if ( v47 == 16 )
+                        break;
+                      while ( v44 != v47 && (v47 & 3) == 0 )
+                      {
+                        ++v47;
+                        sub_2AB0(v151, "%s |", v151);
+                        *(_DWORD *)&v151[((__int64 (__fastcall *)(char *))sub_2AD0)(v151)] = *(_DWORD *)"   ";
+                        if ( v47 == 16 )
+                          goto LABEL_76;
+                      }
+                    }
+                  }
+LABEL_76:
+                  ((void (__fastcall *)(unsigned __int8 *, _QWORD))sub_3184)(v37, v118);
+                  v139 = 0;
+                  v48 = (int *)&v140 + 1;
+                  v140 = 0x1110000001ELL;
+LABEL_77:
+                  while ( *v48 != 70 )
+                  {
+                    while ( 1 )
+                    {
+                      v49 = *v48;
+                      if ( *v48 == 261 )
+                      {
+                        v48 = &dword_44 + 2;
+                        goto LABEL_77;
+                      }
+                      if ( v49 == 273 )
+                      {
+                        LODWORD(v140) = 30;
+                        *v48 = 70;
+                        goto LABEL_77;
+                      }
+                      if ( v49 != 21 )
+                        goto LABEL_77;
+                      *v48 = 20 * *v48 + 116;
+                      if ( *v48 <= 3 )
+                        break;
+                      *v48 = 214;
+                      if ( *v48 == 70 )
+                        goto LABEL_83;
+                    }
+                    LODWORD(v140) = 6;
+                  }
+LABEL_83:
+                  v50 = 0;
+                  v51 = v37;
+                  v52 = 1;
+                  ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+                    v151,
+                    0,
+                    1024,
+                    70,
+                    30,
+                    214,
+                    6);
+                  sub_2AB0(v151, "%08X:", 0);
+                  ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+                  while ( 2 )
+                  {
+                    while ( 2 )
+                    {
+                      ++v50;
+                      sub_2AB0(v151, "%s %02X", v151, *v51);
+                      v124 = (_DWORD *)*v51;
+                      if ( (unsigned int)((__int64 (__fastcall *)(_QWORD))sub_2A90)((unsigned int)v124) )
+                        v53 = (unsigned int)v124;
+                      else
+                        v53 = 32;
+                      sub_2AB0(v150, "%s%c", v150, v53);
+                      if ( (v50 & 3) != 0 )
+                      {
+                        if ( v50 == 16 )
+                          goto LABEL_91;
+LABEL_85:
+                        ++v52;
+                        ++v51;
+                        if ( v52 == 65 )
+                          goto LABEL_92;
+                        continue;
+                      }
+                      break;
+                    }
+                    sub_2AB0(v151, "%s |", v151);
+                    if ( v50 != 16 )
+                      goto LABEL_85;
+LABEL_91:
+                    v50 = 0;
+                    ++v51;
+                    ((void (__fastcall *)(char *))sub_2A70)(v151);
+                    v54 = v52++;
+                    sub_2AB0(v151, "%08X:", v54);
+                    ((void (__fastcall *)(char *, _QWORD, __int64))sub_2A70)(v150, 0, 512);
+                    if ( v52 != 65 )
+                      continue;
+                    break;
+                  }
+LABEL_92:
+                  v55 = (unsigned int)v50;
+                  if ( v50 && v50 <= 15 )
+                  {
+                    while ( 1 )
+                    {
+                      v123 = (unsigned int)(v55 + 1);
+                      v124 = (_DWORD *)v123;
+                      v56 = ((__int64 (__fastcall *)(char *))sub_2AD0)(v151);
+                      v55 = v123;
+                      strcpy(&v151[v56], "   ");
+                      if ( (_DWORD)v55 == 16 )
+                        break;
+                      if ( (_DWORD)v55 != v50 && (v55 & 3) == 0 )
+                      {
+                        v124 = (_DWORD *)v55;
+                        sub_2AB0(v151, "%s |", v151);
+                        LODWORD(v55) = (_DWORD)v124;
+                      }
+                    }
+                  }
+                  ((void (__fastcall *)(unsigned __int8 *, __int64, _QWORD, unsigned __int64))sub_2B1C)(
+                    v37,
+                    64,
+                    (unsigned int)(v127 - 64),
+                    v55);
+                  v143 = 0x1E00000000LL;
+                  v82 = (int *)&v144;
+                  LODWORD(v144) = 273;
+LABEL_152:
+                  while ( *v82 != 70 )
+                  {
+                    while ( 1 )
+                    {
+                      v83 = *v82;
+                      if ( *v82 == 261 )
+                      {
+                        v82 = &dword_44 + 2;
+                        goto LABEL_152;
+                      }
+                      if ( v83 == 273 )
+                      {
+                        HIDWORD(v143) = 30;
+                        *v82 = 70;
+                        goto LABEL_152;
+                      }
+                      if ( v83 != 21 )
+                        goto LABEL_152;
+                      *v82 = 20 * *v82 + 116;
+                      if ( *v82 <= 3 )
+                        break;
+                      *v82 = 214;
+                      if ( *v82 == 70 )
+                        goto LABEL_158;
+                    }
+                    HIDWORD(v143) = 6;
+                  }
+LABEL_158:
+                  v84 = 0;
+                  v85 = 1;
+                  ((void (__fastcall *)(char *, _QWORD, __int64, __int64, __int64, __int64, __int64))sub_2A70)(
+                    v151,
+                    0,
+                    1024,
+34e8: MOV MOV             W5, #6
+34ec: MOV MOV             W3, W0
+34f0: MOV MOV             W4, #0xD6
+34f4: STR STR             W0, [X2]
+34f8: MOV MOV             W0, #0x111
+34fc: STR STR             W0, [X1]
+3500: LDR LDR             W0, [X1]
+3504: CMP CMP             W0, #0x46 ; 'F'
+3508: B.EQ B.EQ            loc_355C
+350c: LDR LDR             W0, [X1]
+3510: CMP CMP             W0, #0x105
+3514: B.EQ B.EQ            loc_3EB0
+3518: CMP CMP             W0, #0x111
+351c: B.EQ B.EQ            loc_3EA4
+3520: CMP CMP             W0, #0x15
+3524: B.NE B.NE            loc_3500
+3528: LDR LDR             W0, [X1]
+352c: ADD ADD             W0, W0, W0,LSL#2
+3530: LSL LSL             W0, W0, #2
+3534: ADD ADD             W0, W0, #0x74 ; 't'
+3538: STR STR             W0, [X1]
+353c: ADD ADD             SP, SP, #0x40 ; '@'
+3540: LDR LDR             W0, [X1]
+3544: CMP CMP             W0, #3
+3548: B.LE B.LE            loc_3EBC
+354c: STR STR             W4, [X1]
+3550: LDR LDR             W0, [X1]
+3554: CMP CMP             W0, #0x46 ; 'F'
+3558: B.NE B.NE            loc_350C
+355c: ADRP ADRP            X1, #aR@PAGE; "r"
+3560: ADRP ADRP            X0, #aProcSelfMaps@PAGE; "/proc/self/maps"
+3564: ADD ADD             X1, X1, #aR@PAGEOFF; "r"
+3568: ADD ADD             X0, X0, #aProcSelfMaps@PAGEOFF; "/proc/self/maps"
+356c: ADD ADD             X19, SP, #0xCA0+var_388
+3570: ADD ADD             X26, SP, #0xCA0+var_AD0
+3574: BL BL              sub_2A60
+3578: MOV MOV             X23, X0
+357c: ADD ADD             X3, SP, #0xCA0+var_AC8
+3580: MOV MOV             W1, #0
+3584: MOV MOV             X22, X3
+3588: MOV MOV             X2, #0x400
+358c: FMOV FMOV            D11, X3
+3590: MOV MOV             X0, X19
+3594: ADD ADD             X20, SP, #0xCA0+var_588
+3598: ADRP ADRP            X25, #off_15038@PAGE
+359c: ADRP ADRP            X24, #qword_15048@PAGE
+35a0: BL BL              sub_2A70
+35a4: STR STR             XZR, [X22]
+35a8: ADRP ADRP            X22, #aLxLxSSSSS@PAGE; "%lx-%lx %s %s %s %s %s"
+35ac: MOV MOV             X0, X20
+35b0: MOV MOV             W1, #0
+35b4: MOV MOV             X2, #0x100
+35b8: ADD ADD             X22, X22, #aLxLxSSSSS@PAGEOFF; "%lx-%lx %s %s %s %s %s"
+35bc: STR STR             XZR, [X26]
+35c0: BL BL              sub_2A70
+35c4: MOV MOV             X0, X19
+35c8: MOV MOV             W1, #0x400
+35cc: MOV MOV             X2, X23
+35d0: BL BL              sub_29A0
+35d4: CBZ CBZ             X0, loc_3624
+35d8: FMOV FMOV            X3, D11
+35dc: LDR LDR             X8, [X25,#off_15038@PAGEOFF]
+35e0: MOV MOV             X1, X22
+35e4: MOV MOV             X0, X19
+35e8: STR STR             X21, [SP,#0xCA0+var_CA0]
+35ec: MOV MOV             X2, X26
+35f0: MOV MOV             X4, X20
+35f4: MOV MOV             X5, X20
+35f8: MOV MOV             X6, X20
+35fc: MOV MOV             X7, X20
+3600: BLR BLR             X8
+3604: LDR LDR             X0, [X24,#qword_15048@PAGEOFF]
+3608: LDR LDR             X1, [X26]
+360c: CMP CMP             X1, X0
+3610: B.GT B.GT            loc_35C4
+3614: FMOV FMOV            X1, D11
+3618: LDR LDR             X1, [X1]
+361c: CMP CMP             X0, X1
+3620: B.GE B.GE            loc_35C4
+3624: MOV MOV             X0, X23
+3628: BL BL              sub_2A80
+362c: ADD ADD             X5, SP, #0xCA0+var_6C8
+3630: MOV MOV             W1, #0x80000
+3634: MOV MOV             X0, X21
+3638: MOV MOV             X22, X5
+363c: STR STR             X5, [SP,#0xCA0+var_BA8]
+3640: ADRP ADRP            X21, #qword_15050@PAGE
+3644: BL BL              sub_2AE0
+3648: ADD ADD             X21, X21, #qword_15050@PAGEOFF
+364c: ADRP ADRP            X3, #dword_1507C@PAGE
+3650: MOV MOV             X1, X21
+3654: MOV MOV             X2, #0x14
+3658: MOV MOV             W24, W0
+365c: STR STR             W0, [SP,#0xCA0+var_BBC]
+3660: MOV MOV             X23, X22
+3664: LDR LDR             W3, [X3,#dword_1507C@PAGEOFF]
+3668: BL BL              sub_2AC0
+366c: ADRP ADRP            X4, #dword_15080@PAGE
+3670: LDR LDR             W5, [X21,#(dword_15060 - 0x15050)]
+3674: ADRP ADRP            X0, #dword_15040@PAGE
+3678: MOV MOV             X2, #0x40 ; '@'
+367c: LDP LDP             X6, X7, [X21]
+3680: STR STR             W5, [X4,#dword_15080@PAGEOFF]
+3684: ADRL ADRL            X4, qword_15068
+368c: LDR LDR             W3, [X0,#dword_15040@PAGEOFF]
+3690: MOV MOV             X1, X22
+3694: MOV MOV             W0, W24
+3698: STP STP             XZR, XZR, [X22]
+369c: STP STP             X6, X7, [X4]
+36a0: STP STP             XZR, XZR, [X22,#0x10]
+36a4: STP STP             XZR, XZR, [X22,#0x20]
+36a8: STP STP             XZR, XZR, [X22,#0x30]
+36ac: BL BL              sub_2AC0
+36b0: ADRP ADRP            X1, #dword_15040@PAGE
+36b4: MOV MOV             X0, X22
+36b8: LDR LDR             W1, [X1,#dword_15040@PAGEOFF]
+36bc: BL BL              sub_3184
+36c0: LDR LDR             X21, [X22,#0x20]
+36c4: LDRH LDRH            W1, [X22,#0x38]
+36c8: ADRP ADRP            X2, #dword_15040@PAGE
+36cc: ADD ADD             W6, W21, #0xFFF
+36d0: AND AND             W22, W21, #0xFFFFF000
+36d4: LSL LSL             W7, W1, #6
+36d8: MOV MOV             W4, W24
+36dc: SUB SUB             W1, W7, W1,LSL#3
+36e0: LDR LDR             W5, [X2,#dword_15040@PAGEOFF]
+36e4: ADD ADD             W1, W6, W1
+
+=== xref 0x30dc ===
+function=0x303c
+name=sub_303C
+// positive sp value has been detected, the output may be wrong!
+__int64 __fastcall sub_303C(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+{
+  unsigned int v8; // w19
+  __int64 v9; // x20
+  int i; // [xsp+1Ch] [xbp-44h]
+
+  for ( i = 273; i != 70; i = 70 )
+    ;
+  v8 = *(_DWORD *)(a4
+                 + 4LL
+                 * ((unsigned int)((__int64 (__fastcall *)(const char *, __int64, __int64, __int64, __int64, __int64, __int64, __int64))sub_2BF8)(
+                                    "JNI_OnLoad",
+                                    30,
+                                    a3,
+                                    a4,
+                                    70,
+                                    70,
+                                    214,
+                                    6)
+                  % (unsigned int)a3));
+  if ( !v8 )
+    return 0;
+  while ( 1 )
+  {
+    v9 = a1 + 24LL * v8;
+    if ( *(_WORD *)(v9 + 6) )
+    {
+      if ( !(unsigned int)((__int64 (__fastcall *)(__int64, const char *))sub_2AA0)(
+                            a2 + *(unsigned int *)(a1 + 24LL * v8),
+                            "JNI_OnLoad") )
+        break;
+    }
+    v8 = *(_DWORD *)(a5 + 4LL * v8);
+    if ( !v8 )
+      return 0;
+  }
+  return *(_QWORD *)(v9 + 8);
+}
+
+305c: MOV MOV             X23, X1
+3060: MOV MOV             X21, X0
+3064: MOV MOV             X24, X4
+3068: MOV MOV             W0, #0x111
+306c: STP STP             X19, X20, [SP,#0x60+var_60]
+3070: STR STR             X30, [SP,#0x60+var_30]
+3074: MOV MOV             W1, W5
+3078: STR STR             W0, [SP,#0x60+var_4]
+307c: MOV MOV             W4, #0x46 ; 'F'
+3080: LDR LDR             W5, [SP,#0x60+var_4]
+3084: CMP CMP             W5, #0x46 ; 'F'
+3088: B.EQ B.EQ            loc_30DC
+308c: LDR LDR             W5, [SP,#0x60+var_4]
+3090: CMP CMP             W5, #0x105
+3094: B.EQ B.EQ            loc_3168
+3098: CMP CMP             W5, #0x111
+309c: B.EQ B.EQ            loc_315C
+30a0: CMP CMP             W5, #0x15
+30a4: B.NE B.NE            loc_3080
+30a8: LDR LDR             W5, [SP,#0x60+var_4]
+30ac: ADD ADD             W5, W5, W5,LSL#2
+30b0: LSL LSL             W5, W5, #2
+30b4: ADD ADD             W5, W5, #0x74 ; 't'
+30b8: STR STR             W5, [SP,#0x60+var_4]
+30bc: ADD ADD             SP, SP, #0x40 ; '@'
+30c0: LDR LDR             W5, [SP,#0x20+arg_3C]
+30c4: CMP CMP             W5, #3
+30c8: B.LE B.LE            loc_3174
+30cc: STR STR             W6, [SP,#0x20+arg_3C]
+30d0: LDR LDR             W5, [SP,#0x20+arg_3C]
+30d4: CMP CMP             W5, #0x46 ; 'F'
+30d8: B.NE B.NE            loc_308C
+30dc: ADRP ADRP            X22, #aJniOnload@PAGE; "JNI_OnLoad"
+30e0: STR STR             X3, [SP,#0x20+arg_28]
+30e4: ADD ADD             X22, X22, #aJniOnload@PAGEOFF; "JNI_OnLoad"
+30e8: STR STR             X2, [SP,#0x20+arg_20]
+30ec: MOV MOV             X0, X22
+30f0: BL BL              sub_2BF8
+30f4: LDR LDR             X2, [SP,#0x20+arg_20]
+30f8: LDR LDR             X3, [SP,#0x20+arg_28]
+30fc: UDIV UDIV            W1, W0, W2
+3100: MSUB MSUB            W0, W1, W2, W0
+3104: LDR LDR             W19, [X3,X0,LSL#2]
+3108: CBZ CBZ             W19, loc_3140
+310c: MOV MOV             W19, W19
+3110: MOV MOV             X1, X22
+3114: ADD ADD             X2, X19, X19,LSL#1
+3118: LSL LSL             X2, X2, #3
+311c: ADD ADD             X20, X21, X2
+3120: LDRH LDRH            W3, [X20,#6]
+3124: CBZ CBZ             W3, loc_3138
+3128: LDR LDR             W0, [X21,X2]
+312c: ADD ADD             X0, X23, X0
+3130: BL BL              sub_2AA0
+3134: CBZ CBZ             W0, loc_317C
+3138: LDR LDR             W19, [X24,X19,LSL#2]
+313c: CBNZ CBNZ            W19, loc_310C
+3140: MOV MOV             X0, #0
+3144: LDP LDP             X19, X20, [SP,#0x20+var_20]
+3148: LDP LDP             X21, X22, [SP,#0x10]
+314c: LDP LDP             X23, X24, [SP,#0x20+arg_0]
+3150: LDR LDR             X30, [SP,#0x20+arg_10]
+3154: ADD ADD             SP, SP, #0x60 ; '`'
+3158: RET RET
+315c: STR STR             W1, [SP,#0x60+var_8]
+3160: STR STR             W4, [SP,#0x60+var_4]
+3164: B B               loc_3080
+3168: MOV MOV             SP, X2
+316c: MOV MOV             W1, W3
+3170: B B               loc_3080
+3174: STR STR             W7, [SP,#0x20+arg_38]
+3178: B B               loc_3080
+317c: LDR LDR             X0, [X20,#8]
+3180: B B               loc_3144
+3184: ADRP ADRP            X11, #off_14FF8@PAGE
+3188: SUB SUB             SP, SP, #0x130
+318c: ADD ADD             X4, SP, #0x130+var_110
+3190: ADD ADD             X3, SP, #0x130+var_10C
+3194: MOV MOV             W2, #0x1E
+3198: MOV MOV             W5, #0x46 ; 'F'
+319c: LDR LDR             X7, [X11,#off_14FF8@PAGEOFF]
+31a0: MOV MOV             W6, W2
+31a4: STR STR             X30, [SP,#0x130+var_130]
+31a8: MOV MOV             W8, #6
+31ac: LDR LDR             X9, [X7]
+31b0: MOV MOV             W7, #0xD6
+31b4: STR STR             X9, [SP,#0x130+var_8]
+31b8: STR STR             WZR, [SP,#0x130+var_114]
+31bc: STR STR             W2, [X4]
+31c0: MOV MOV             W2, #0x111
+31c4: STR STR             W2, [X3]
+31c8: LDR LDR             W2, [X3]
+31cc: CMP CMP             W2, #0x46 ; 'F'
+31d0: B.EQ B.EQ            loc_3224
+31d4: LDR LDR             W2, [X3]
+31d8: CMP CMP             W2, #0x105
+31dc: B.EQ B.EQ            loc_3274
+31e0: CMP CMP             W2, #0x111
+31e4: B.EQ B.EQ            loc_3268
+31e8: CMP CMP             W2, #0x15
+31ec: B.NE B.NE            loc_31C8
+31f0: LDR LDR             W2, [X3]
+31f4: ADD ADD             W2, W2, W2,LSL#2
+31f8: LSL LSL             W2, W2, #2
+31fc: ADD ADD             W2, W2, #0x74 ; 't'
+3200: STR STR             W2, [X3]
+3204: ADD ADD             SP, SP, #0x40 ; '@'
+3208: LDR LDR             W2, [X3]
+320c: CMP CMP             W2, #3
+3210: B.LE B.LE            loc_3280
+3214: STR STR             W7, [X3]
+3218: LDR LDR             W2, [X3]
+321c: CMP CMP             W2, #0x46 ; 'F'
+3220: B.NE B.NE            loc_31D4
+3224: ADRP ADRP            X2, #dword_15040@PAGE
+3228: LDR LDR             W3, [X2,#dword_15040@PAGEOFF]
+322c: ADRP ADRP            X2, #dword_1507C@PAGE
+3230: CMP CMP             W3, W1
+3234: LDR LDR             W2, [X2,#dword_1507C@PAGEOFF]
+3238: B.LE B.LE            loc_3288
+323c: ADD ADD             W10, W1, #0x40 ; '@'
+3240: CMP CMP             W3, W10
+3244: B.LT B.LT            loc_33D0
+3248: LDR LDR             X11, [X11,#off_14FF8@PAGEOFF]
+324c: LDR LDR             X1, [SP,#0xF0+arg_38]
+3250: LDR LDR             X0, [X11]
+3254: CMP CMP             X1, X0
+3258: B.NE B.NE            loc_33F4
+
+=== xref 0x30e4 ===
+function=0x303c
+name=sub_303C
+// positive sp value has been detected, the output may be wrong!
+__int64 __fastcall sub_303C(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+{
+  unsigned int v8; // w19
+  __int64 v9; // x20
+  int i; // [xsp+1Ch] [xbp-44h]
+
+  for ( i = 273; i != 70; i = 70 )
+    ;
+  v8 = *(_DWORD *)(a4
+                 + 4LL
+                 * ((unsigned int)((__int64 (__fastcall *)(const char *, __int64, __int64, __int64, __int64, __int64, __int64, __int64))sub_2BF8)(
+                                    "JNI_OnLoad",
+                                    30,
+                                    a3,
+                                    a4,
+                                    70,
+                                    70,
+                                    214,
+                                    6)
+                  % (unsigned int)a3));
+  if ( !v8 )
+    return 0;
+  while ( 1 )
+  {
+    v9 = a1 + 24LL * v8;
+    if ( *(_WORD *)(v9 + 6) )
+    {
+      if ( !(unsigned int)((__int64 (__fastcall *)(__int64, const char *))sub_2AA0)(
+                            a2 + *(unsigned int *)(a1 + 24LL * v8),
+                            "JNI_OnLoad") )
+        break;
+    }
+    v8 = *(_DWORD *)(a5 + 4LL * v8);
+    if ( !v8 )
+      return 0;
+  }
+  return *(_QWORD *)(v9 + 8);
+}
+
+3064: MOV MOV             X24, X4
+3068: MOV MOV             W0, #0x111
+306c: STP STP             X19, X20, [SP,#0x60+var_60]
+3070: STR STR             X30, [SP,#0x60+var_30]
+3074: MOV MOV             W1, W5
+3078: STR STR             W0, [SP,#0x60+var_4]
+307c: MOV MOV             W4, #0x46 ; 'F'
+3080: LDR LDR             W5, [SP,#0x60+var_4]
+3084: CMP CMP             W5, #0x46 ; 'F'
+3088: B.EQ B.EQ            loc_30DC
+308c: LDR LDR             W5, [SP,#0x60+var_4]
+3090: CMP CMP             W5, #0x105
+3094: B.EQ B.EQ            loc_3168
+3098: CMP CMP             W5, #0x111
+309c: B.EQ B.EQ            loc_315C
+30a0: CMP CMP             W5, #0x15
+30a4: B.NE B.NE            loc_3080
+30a8: LDR LDR             W5, [SP,#0x60+var_4]
+30ac: ADD ADD             W5, W5, W5,LSL#2
+30b0: LSL LSL             W5, W5, #2
+30b4: ADD ADD             W5, W5, #0x74 ; 't'
+30b8: STR STR             W5, [SP,#0x60+var_4]
+30bc: ADD ADD             SP, SP, #0x40 ; '@'
+30c0: LDR LDR             W5, [SP,#0x20+arg_3C]
+30c4: CMP CMP             W5, #3
+30c8: B.LE B.LE            loc_3174
+30cc: STR STR             W6, [SP,#0x20+arg_3C]
+30d0: LDR LDR             W5, [SP,#0x20+arg_3C]
+30d4: CMP CMP             W5, #0x46 ; 'F'
+30d8: B.NE B.NE            loc_308C
+30dc: ADRP ADRP            X22, #aJniOnload@PAGE; "JNI_OnLoad"
+30e0: STR STR             X3, [SP,#0x20+arg_28]
+30e4: ADD ADD             X22, X22, #aJniOnload@PAGEOFF; "JNI_OnLoad"
+30e8: STR STR             X2, [SP,#0x20+arg_20]
+30ec: MOV MOV             X0, X22
+30f0: BL BL              sub_2BF8
+30f4: LDR LDR             X2, [SP,#0x20+arg_20]
+30f8: LDR LDR             X3, [SP,#0x20+arg_28]
+30fc: UDIV UDIV            W1, W0, W2
+3100: MSUB MSUB            W0, W1, W2, W0
+3104: LDR LDR             W19, [X3,X0,LSL#2]
+3108: CBZ CBZ             W19, loc_3140
+310c: MOV MOV             W19, W19
+3110: MOV MOV             X1, X22
+3114: ADD ADD             X2, X19, X19,LSL#1
+3118: LSL LSL             X2, X2, #3
+311c: ADD ADD             X20, X21, X2
+3120: LDRH LDRH            W3, [X20,#6]
+3124: CBZ CBZ             W3, loc_3138
+3128: LDR LDR             W0, [X21,X2]
+312c: ADD ADD             X0, X23, X0
+3130: BL BL              sub_2AA0
+3134: CBZ CBZ             W0, loc_317C
+3138: LDR LDR             W19, [X24,X19,LSL#2]
+313c: CBNZ CBNZ            W19, loc_310C
+3140: MOV MOV             X0, #0
+3144: LDP LDP             X19, X20, [SP,#0x20+var_20]
+3148: LDP LDP             X21, X22, [SP,#0x10]
+314c: LDP LDP             X23, X24, [SP,#0x20+arg_0]
+3150: LDR LDR             X30, [SP,#0x20+arg_10]
+3154: ADD ADD             SP, SP, #0x60 ; '`'
+3158: RET RET
+315c: STR STR             W1, [SP,#0x60+var_8]
+3160: STR STR             W4, [SP,#0x60+var_4]
+3164: B B               loc_3080
+3168: MOV MOV             SP, X2
+316c: MOV MOV             W1, W3
+3170: B B               loc_3080
+3174: STR STR             W7, [SP,#0x20+arg_38]
+3178: B B               loc_3080
+317c: LDR LDR             X0, [X20,#8]
+3180: B B               loc_3144
+3184: ADRP ADRP            X11, #off_14FF8@PAGE
+3188: SUB SUB             SP, SP, #0x130
+318c: ADD ADD             X4, SP, #0x130+var_110
+3190: ADD ADD             X3, SP, #0x130+var_10C
+3194: MOV MOV             W2, #0x1E
+3198: MOV MOV             W5, #0x46 ; 'F'
+319c: LDR LDR             X7, [X11,#off_14FF8@PAGEOFF]
+31a0: MOV MOV             W6, W2
+31a4: STR STR             X30, [SP,#0x130+var_130]
+31a8: MOV MOV             W8, #6
+31ac: LDR LDR             X9, [X7]
+31b0: MOV MOV             W7, #0xD6
+31b4: STR STR             X9, [SP,#0x130+var_8]
+31b8: STR STR             WZR, [SP,#0x130+var_114]
+31bc: STR STR             W2, [X4]
+31c0: MOV MOV             W2, #0x111
+31c4: STR STR             W2, [X3]
+31c8: LDR LDR             W2, [X3]
+31cc: CMP CMP             W2, #0x46 ; 'F'
+31d0: B.EQ B.EQ            loc_3224
+31d4: LDR LDR             W2, [X3]
+31d8: CMP CMP             W2, #0x105
+31dc: B.EQ B.EQ            loc_3274
+31e0: CMP CMP             W2, #0x111
+31e4: B.EQ B.EQ            loc_3268
+31e8: CMP CMP             W2, #0x15
+31ec: B.NE B.NE            loc_31C8
+31f0: LDR LDR             W2, [X3]
+31f4: ADD ADD             W2, W2, W2,LSL#2
+31f8: LSL LSL             W2, W2, #2
+31fc: ADD ADD             W2, W2, #0x74 ; 't'
+3200: STR STR             W2, [X3]
+3204: ADD ADD             SP, SP, #0x40 ; '@'
+3208: LDR LDR             W2, [X3]
+320c: CMP CMP             W2, #3
+3210: B.LE B.LE            loc_3280
+3214: STR STR             W7, [X3]
+3218: LDR LDR             W2, [X3]
+321c: CMP CMP             W2, #0x46 ; 'F'
+3220: B.NE B.NE            loc_31D4
+3224: ADRP ADRP            X2, #dword_15040@PAGE
+3228: LDR LDR             W3, [X2,#dword_15040@PAGEOFF]
+322c: ADRP ADRP            X2, #dword_1507C@PAGE
+3230: CMP CMP             W3, W1
+3234: LDR LDR             W2, [X2,#dword_1507C@PAGEOFF]
+3238: B.LE B.LE            loc_3288
+323c: ADD ADD             W10, W1, #0x40 ; '@'
+3240: CMP CMP             W3, W10
+3244: B.LT B.LT            loc_33D0
+3248: LDR LDR             X11, [X11,#off_14FF8@PAGEOFF]
+324c: LDR LDR             X1, [SP,#0xF0+arg_38]
+3250: LDR LDR             X0, [X11]
+3254: CMP CMP             X1, X0
+3258: B.NE B.NE            loc_33F4
+325c: LDR LDR             X30, [SP,#0xF0+var_F0]
+3260: ADD ADD             SP, SP, #0x130
+
+=== all xrefs to /proc/self/maps string ===
+0x3560
+0x3568

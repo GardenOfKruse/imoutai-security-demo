@@ -1,0 +1,3 @@
+INFO  - loading ...
+INFO  - processing ...
+INFO  - progress: 0 of 2678 (0%)INFO  - progress: 346 of 2678 (12%)INFO  - progress: 932 of 2678 (34%)INFO  - progress: 1625 of 2678 (60%)INFO  - progress: 2321 of 2678 (86%)INFO  - progress: 2477 of 2678 (92%)INFO  - progress: 2477 of 2678 (92%)INFO  - progress: 2478 of 2678 (92%)INFO  - progress: 2499 of 2678 (93%)INFO  - progress: 2526 of 2678 (94%)INFO  - progress: 2562 of 2678 (95%)INFO  - progress: 2593 of 2678 (96%)INFO  - progress: 2669 of 2678 (99%)                                                             INFO  - done

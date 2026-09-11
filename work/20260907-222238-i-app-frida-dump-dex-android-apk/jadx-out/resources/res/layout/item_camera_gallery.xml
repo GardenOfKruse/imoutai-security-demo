@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clipChildren="false"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_gravity="center_vertical"
+        android:clipChildren="false"
+        android:layout_width="@dimen/camera_gallery_photo_size"
+        android:layout_height="@dimen/camera_gallery_photo_size"
+        android:layout_marginRight="@dimen/camera_gallery_photo_margin_r">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/photo_mark"
+            android:background="@drawable/shape_pia_gallary_forground"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:layout_gravity="top|right"
+            android:id="@+id/btn_delete"
+            android:paddingLeft="@dimen/size_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/camera_gallery_photo_cancel_btn_size"
+            android:layout_marginTop="@dimen/camera_gallery_photo_cancel_btn_offset"
+            android:layout_marginRight="@dimen/camera_gallery_photo_cancel_btn_offset"
+            android:src="@mipmap/orderform_smallclose_ic"/>
+    </FrameLayout>
+</FrameLayout>

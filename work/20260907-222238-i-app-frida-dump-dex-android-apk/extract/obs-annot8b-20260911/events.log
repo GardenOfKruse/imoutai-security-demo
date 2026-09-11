@@ -1,0 +1,14 @@
+[*] attaching pid=24863
+[*] script loaded; waiting 2s for install
+[agent-send] {"type": "log", "msg": "annot8 entered"}
+[agent-send] {"type": "log", "msg": "hooks installed"}
+[agent-send] {"type": "crypto-probe", "data": {"field:a": "(instance:class [B)", "field:b": "com.netease.libs.yxsecurity.encrypt.CryptoUtil@b376f6e", "field:c": "[C@7a2260f", "field:d": "[C@63cf69c", "fn:j()": "com.netease.libs.yxsecurity.encrypt.CryptoUtil@b376f6e", "fn:getSeed": "(needs args)", "fn:getPrivateKey()": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDHpyKBkBkoRStJ                              8bFuQ/06gM+FQ77ssy4v7Te2g6Xi8AJNbcrt9s05wktZU6N9jILza8pWLkemIbLO                              6rOHhBtaUiaw", "fn:a": "(needs args)", "fn:b": "(needs args)", "fn:d": "(needs args)", "fn:e": "(needs args)", "fn:f": "(needs args)", "fn:g": "(needs args)", "fn:h": "(needs args)", "fn:i": "(needs args)", "fn:k": "(needs args)", "fn:m": "(needs args)", "fn:n": "(needs args)"}}
+[+] crypto probe: {"field:a": "(instance:class [B)", "field:b": "com.netease.libs.yxsecurity.encrypt.CryptoUtil@b376f6e", "field:c": "[C@7a2260f", "field:d": "[C@63cf69c", "fn:j()": "com.netease.libs.yxsecurity.encrypt.CryptoUtil@b376f6e", "fn:getSeed": "(needs args)", "fn:getPrivateKey()": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDHpyKBkBkoRStJ                              8bFuQ/06gM+FQ77ssy4v7Te2g6Xi8AJNbcrt9s05wktZU6N9jILza8pWLkemIbLO                              6rOHhBtaUiaw", "fn:a": "(needs args)", "fn:b": "(needs args)", "fn:d": "(needs args)", "fn:e": "(needs args)", "fn:f": "(needs args)", "fn:g": "(needs args)", "fn:h": "(needs args)", "fn:i": "(needs args)", "fn:k": "(needs args)", "fn:m": "(needs args)", "fn:n": "(needs args)"}
+[!] sampleStaticHeaders failed: unable to find method 'sampleStaticHeaders'
+[!] sampleVcode(13000000001) failed: script has been destroyed
+[!] sampleVcode(13000000002) failed: script has been destroyed
+[!] sampleVcode(15888888888) failed: script has been destroyed
+[!] sampleVcode(19912345678) failed: script has been destroyed
+[!] sampleVcode(10086) failed: script has been destroyed
+[*] saved samples.json vcode=0
+[*] post-wait 18.0s for organic requests...

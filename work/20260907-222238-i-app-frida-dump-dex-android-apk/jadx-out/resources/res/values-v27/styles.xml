@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="splash_theme" parent="@style/AppTheme.Fullscreen">
+        <item name="android:windowBackground">@mipmap/bg_default_splash</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">1</item>
+        <item name="alertDialogStyle">@style/AlertDialog.Moutaimall</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.Moutaimall.Dialog.Alert</item>
+    </style>
+</resources>

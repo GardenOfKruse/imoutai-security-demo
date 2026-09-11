@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "9222": {
+      "pthread_total": 2,
+      "pthread_suppressed": 0,
+      "modules": {
+        "libutils.so": 2
+      },
+      "dex_captured": 0,
+      "exit_blocked": 1
+    }
+  },
+  "events": [],
+  "ts": "2026-09-08 12:58:37",
+  "count": 0
+}

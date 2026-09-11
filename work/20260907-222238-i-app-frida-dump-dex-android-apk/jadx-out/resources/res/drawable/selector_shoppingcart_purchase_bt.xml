@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_pressed="true"
+        android:drawable="@drawable/shape_radius_18_all_round_red_ba2822_bg"/>
+    <item
+        android:state_enabled="false"
+        android:drawable="@drawable/shape_radius_18_all_round_gray_cccccc_bg"/>
+    <item android:drawable="@drawable/shape_radius_18_all_round_red_bg"/>
+</selector>

@@ -1,0 +1,50 @@
+{
+  "input": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\memdump2-28343\\memdump2",
+  "sites": [
+    {
+      "file": "000.bin.gz",
+      "file_bytes": 1073741824,
+      "reported_offset": 3353026,
+      "reported_offset_hex": "0x3329c2",
+      "magic_hex": "76646578",
+      "magic_ascii": "vdex",
+      "version_hex": "66696c65",
+      "version_ascii": "file",
+      "header_fields_le": {
+        "number_of_dex_files": 2053731118,
+        "verifier_deps_size": 1246756965,
+        "quickening_info_size": 28484,
+        "dex_section_size": 3224371200
+      },
+      "header_like": false,
+      "classification": "string_hit_not_vdex_header",
+      "window_start": 3352962,
+      "window_end": 3353218,
+      "prefix_hex": "7664657866696c652e73697a6500504a446f0000000030c001130000000058c00113374d46588877436f00000000120000000000000031303438353736303000",
+      "prefix_ascii": "vdexfile.size.PJDo....0.......X...7MFX.wCo............104857600."
+    },
+    {
+      "file": "005.bin.gz",
+      "file_bytes": 12746752,
+      "reported_offset": 4124965,
+      "reported_offset_hex": "0x3ef125",
+      "magic_hex": "76646578",
+      "magic_ascii": "vdex",
+      "version_hex": "00000000",
+      "version_ascii": "\u0000\u0000\u0000\u0000",
+      "header_fields_le": {
+        "number_of_dex_files": 2281701376,
+        "verifier_deps_size": 7291767,
+        "quickening_info_size": 236978176,
+        "dex_section_size": 33554432
+      },
+      "header_like": false,
+      "classification": "string_hit_not_vdex_header",
+      "window_start": 4124901,
+      "window_end": 4125157,
+      "prefix_hex": "76646578000000000000008877436f000000200e00000002f7a7f62e4170704a4954008877436f000000201200000083ce09202e426f6f742061727400000000",
+      "prefix_ascii": "vdex........wCo... .........AppJIT..wCo... ....... .Boot art...."
+    }
+  ],
+  "valid_vdex_header_candidates": 0
+}

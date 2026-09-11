@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/bg_nearby"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/includeLocationSelector"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/location_selector_height"
+        layout="@layout/include_location_selector"/>
+    <com.drake.statelayout.StateLayout
+        android:id="@+id/slRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.drake.statelayout.StateLayout>
+</LinearLayout>

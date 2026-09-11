@@ -1,0 +1,139 @@
+{
+  "input": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\lib\\arm64-v8a\\libDexHelper.so",
+  "input_size": 1234026,
+  "input_sha256": "3854eda3d11b1c308eb0ff32594bf4e418efe950df6175909e33e15f5e405caa",
+  "encrypted_range": {
+    "start": 32768,
+    "end_exclusive": 1212909,
+    "size": 1180141,
+    "sha256": "0a8287d7b745b045656c3d6f5c8f74bd996899437bba55aad1457f712e1b578b"
+  },
+  "trailer": {
+    "offset": 1212909,
+    "size": 20,
+    "key_length": 16,
+    "key_sha256": "da98aee33eee5ff6b503663a3afd963a77817cecb91046e02d3d989c4365c9f4",
+    "xor_mask": 22,
+    "trailing_dword_hex": "16000000"
+  },
+  "reconstruction": {
+    "body_transform": "single-byte XOR",
+    "body_xor_mask": 22,
+    "rc4_header_size": 64,
+    "rc4_header_sha256": "d1fc811a8cb680706f774af7d842e88f9a7f2333a8428deb35405b438c403138"
+  },
+  "decrypted_stage": {
+    "actual_size": 1180141,
+    "sha256": "865dfaec693dce5207b61b6ab58a0c84c9102dcdeb0458eb147b4f983d66479f",
+    "magic": "7f454c46",
+    "is_elf64_le": true,
+    "header": {
+      "type": 3,
+      "machine": 183,
+      "version": 1,
+      "entry": 63664,
+      "phoff": 64,
+      "shoff": 1177344,
+      "flags": 0,
+      "ehsize": 64,
+      "phentsize": 56,
+      "phnum": 8,
+      "shentsize": 64,
+      "shnum": 26,
+      "shstrndx": 25
+    },
+    "program_headers_within_output": true,
+    "program_headers": [
+      {
+        "index": 0,
+        "type": 1,
+        "flags": 5,
+        "offset": 0,
+        "vaddr": 0,
+        "filesz": 1134700,
+        "memsz": 1134700,
+        "align": 16384,
+        "file_range_within_output": true
+      },
+      {
+        "index": 1,
+        "type": 1,
+        "flags": 6,
+        "offset": 1145144,
+        "vaddr": 1161528,
+        "filesz": 31728,
+        "memsz": 164904,
+        "align": 16384,
+        "file_range_within_output": true
+      },
+      {
+        "index": 2,
+        "type": 2,
+        "flags": 6,
+        "offset": 1159712,
+        "vaddr": 1176096,
+        "filesz": 560,
+        "memsz": 560,
+        "align": 8,
+        "file_range_within_output": true
+      },
+      {
+        "index": 3,
+        "type": 4,
+        "flags": 4,
+        "offset": 512,
+        "vaddr": 512,
+        "filesz": 36,
+        "memsz": 36,
+        "align": 4,
+        "file_range_within_output": true
+      },
+      {
+        "index": 4,
+        "type": 4,
+        "flags": 4,
+        "offset": 1134548,
+        "vaddr": 1134548,
+        "filesz": 152,
+        "memsz": 152,
+        "align": 4,
+        "file_range_within_output": true
+      },
+      {
+        "index": 5,
+        "type": 1685382480,
+        "flags": 4,
+        "offset": 1042308,
+        "vaddr": 1042308,
+        "filesz": 15540,
+        "memsz": 15540,
+        "align": 4,
+        "file_range_within_output": true
+      },
+      {
+        "index": 6,
+        "type": 1685382481,
+        "flags": 6,
+        "offset": 0,
+        "vaddr": 0,
+        "filesz": 0,
+        "memsz": 0,
+        "align": 16,
+        "file_range_within_output": true
+      },
+      {
+        "index": 7,
+        "type": 1685382482,
+        "flags": 4,
+        "offset": 1145144,
+        "vaddr": 1161528,
+        "filesz": 18120,
+        "memsz": 18120,
+        "align": 1,
+        "file_range_within_output": true
+      }
+    ],
+    "all_file_ranges_within_output": true
+  },
+  "output": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\libDexHelper-stage-decrypted-20260909.elf"
+}

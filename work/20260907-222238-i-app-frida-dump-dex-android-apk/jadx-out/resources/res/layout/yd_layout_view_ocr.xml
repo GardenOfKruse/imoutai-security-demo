@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/iv_mask"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/pic_rect"
+        android:scaleType="fitXY"/>
+    <view
+        android:id="@+id/yd_camera_view"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.netease.nis.ocr.CameraView"/>
+    <com.netease.nis.ocr.view.MaskRectView
+        android:id="@+id/view_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

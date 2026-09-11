@@ -1,0 +1,8 @@
+[*] attaching already-running pid=17672
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[+] NEW process pid=17695 @ 2.4s
+[+] NEW process pid=17979 @ 2.4s
+[*] stats: {"pthread_total": 0, "pthread_suppressed": 0, "modules": {}, "dex_captured": 0, "exit_blocked": 0, "native_signal_blocked": 0, "regnat_count": 0, "jni_onload_observed": 0, "jni_findclass_calls": 0, "jni_findclass_null": 0, "findclass_fix": {"calls": 0, "nulls": 0, "fixed": 0, "cleared": 0}}
+[*] app classes captured=253 -> E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\obs-mp34-reflect-20260910\loaded-classes-17672.txt
+[!] script destroyed @ 16.1s
+[!] session detached @ 16.1s reason=application-requested (None,)

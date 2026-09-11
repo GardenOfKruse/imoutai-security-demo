@@ -1,0 +1,9 @@
+input=E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\lib\arm64-v8a\libDexHelper.so
+entry_qty=1
+entry ordinal=11024 ea=0x2b10 name=start
+segments:
+  0x0-0x4ca0 LOAD perm=5
+  0x14d08-0x15028 LOAD perm=6
+  0x15028-0x15090 .bss perm=6
+  0x26000-0x27000 LOAD perm=6
+  0x47000-0x16c6d0 LOAD perm=6

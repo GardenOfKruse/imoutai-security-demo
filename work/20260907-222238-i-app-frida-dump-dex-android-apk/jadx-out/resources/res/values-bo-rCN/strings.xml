@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_cancel">འདོར་བ།</string>
+    <string name="dialog_go_setting">སྒྲིག་བཀོད་དུ་ཕེབས།</string>
+    <string name="hms_apk_not_installed_hints">ཁྱེད་ཀྱིས་སྒྲིག་ཆས་ལ་པར་གཞི་གསར་ཤོས་ཀྱི་ HMS Core སྒྲིག་འཇུག་བྱས་མེད། %1$sརྒྱུན་ལྡན་ལྟར་འཁོར་སྐྱོད་བྱེད་ཐབས་བྲལ།</string>
+    <string name="hms_bindfaildlg_message">%1$s ཡིས་HMS Coreདག་བེད་སྤྱོད་བྱེད་ཐུབ་ཀྱི་མིན་འདུག ཁ་པར་གྱི་དོ་དམ་པ་འགོ་འཛུགས་བྱེད་པའམ། ཡང་ན། སྒྲིག་བཀོད་སྟེང་བསྐྱོད། %2$s ཆེད་ཆོག་མཆན་ཆ་ཚང་ནུས་ལྡན་བཟོ་ (རང་འགུལ་འགོ་འཛུགས་དང་འགོ་འཛུགས་ཕལ་པ་འཚུད་པ་ཡིན།) བ་དང་། ཡང་བསྐྱར་འབད་རྩོལ་བྱ།</string>
+    <string name="hms_confirm">ཆོག</string>
+    <string name="hms_is_spoof">སྒྲིག་ཆས་འདིར་སྒྲིག་འཇུག་བྱས་པའི་ (%1$s) ནི་ཁྲིམས་མིན་གྱི་ HMS Core པར་གཞི་ཡིན། སྔོན་ལ་རྒྱུད་ཁོངས་ཀྱི་སྒྲིག་བཀོད་ཁྲོད་ཀྱི་ཉེར་སྤྱོད་དོ་དམ་དུ་ཕེབས་ནས་པར་གཞི་འདི་བཤིག་ཕབ་བྱས་ནས། ཉེར་སྤྱོད་འདི་ཕྱིར་ལོག་ནས་ཁྲིམས་མཐུན་གྱི་ HMS Core པར་གཞི་སྒྲིག་འཇུག་བྱེད་རོགས།</string>
+    <string name="hms_push_channel">ཐོག་མ།</string>
+    <string name="hms_spoof_hints">དྲན་སྐུལ།</string>
+    <string name="permission_dialog_info">རྩོལ་ནུས་འདི་རྟགས་རིས་བཤེར་འབེབས་ཞབས་ཞུ་མཁོ་འདོན་བྱ་བར་བེད་སྤྱོད་བྱེད།</string>
+    <string name="permission_dialog_title">༼སྒྲིག་འགོད་༽&gt;༼ཉེར་སྤྱོད་༽ཀྱི་༼དབང་ཚད་དོ་དམ་༽ཁྲོད་ནས་༼ པར་ཆས་༽ཀྱི་དབང་ཚད་ཁ་འབྱེད་རོགས།</string>
+    <string name="scankit_confirm">གཏན་འཁེལ།</string>
+    <string name="scankit_light">རྡེབ་ནས་འོད་གསལ།</string>
+    <string name="scankit_light_off">རྡེབ་ནས་ཁ་རྒྱག</string>
+    <string name="scankit_no_code_tip">པར་རིས་ཀྱི་ཁྲོད་ནས་བཤེར་ཨང་མ་རྙེད།</string>
+    <string name="scankit_scan_tip">བཤེར་ཨང་ལྗོངས་ལེན་སྒྲོམ་གྱི་ནང་དུ་བཞག་ཚེ། རང་འགུལ་གྱིས་བཤར་འབེབས་བྱེད།</string>
+    <string name="scankit_talkback_back">Back</string>
+    <string name="scankit_talkback_photo">Gallery</string>
+    <string name="scankit_title">བཤེར་ཨང་བཤེར་བ།</string>
+    <string name="scankit_title_all">རྩ་གཉིས་རྟགས་རིས་ཡང་ན་ཐིག་རིས་གསང་རྟགས་བཤེར་འབེབས།</string>
+    <string name="scankit_title_all_level_two">རྩ་གཉིས་རྟགས་རིས་ཡང་ན་ཐིག་རིས་གསང་རྟགས་ལ་ཁ་གཏད་ན། རང་འགུལ་གྱིས་བཤེར་འབེབས་ཐུབ།</string>
+    <string name="scankit_title_qr">རྩ་གཉིས་རྟགས་རིས་བཤེར་འབེབས།</string>
+    <string name="scankit_title_qr_level_two">རྩ་གཉིས་རྟགས་རིས་ལ་ཁ་གཏད་ན། རང་འགུལ་གྱིས་བཤེར་འབེབས་ཐུབ།</string>
+    <string name="system_default_channel">རྒྱུད་ཁོངས་ཀྱི་སོར་བཞག་གི་བརྒྱུད་ལམ།</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/transparent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/picker_photo_grid_item_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null"/>
+    <RelativeLayout
+        android:layout_gravity="bottom|right"
+        android:id="@+id/picker_photo_grid_item_select_hotpot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.moutai.mall.image.pick.view.CheckboxImageView
+            android:id="@+id/picker_photo_grid_item_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ysf_ic_selected"
+            android:scaleType="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="@null"/>
+    </RelativeLayout>
+</FrameLayout>

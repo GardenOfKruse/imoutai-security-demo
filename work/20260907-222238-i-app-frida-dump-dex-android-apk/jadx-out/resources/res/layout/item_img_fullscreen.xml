@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_gravity="center"
+        android:id="@+id/img_gif_fullscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.moutai.mall.view.progressdialog.ArcProgressbar
+        android:layout_gravity="center"
+        android:id="@+id/progress_fullscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:arcColor="@color/yx_red"
+        app:radius="20dp"
+        app:trokeWidth="2dp"/>
+    <com.moutai.mall.image.preview.view.PreviewPhotoView
+        android:layout_gravity="start"
+        android:id="@+id/img_fullscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

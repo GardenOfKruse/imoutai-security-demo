@@ -1,0 +1,16 @@
+{
+  "input": "extract\\libDexHelper-stage-decrypted-20260909.elf",
+  "input_size": 1180141,
+  "count": 1,
+  "dexes": [
+    {
+      "file": "embedded_000_284.dex",
+      "offset": "0x11c090",
+      "size": 284,
+      "map_off": 208,
+      "string_ids_size": 3,
+      "string_ids_off": 112,
+      "sha256": "9f8898ce35a47aeafced99ea0d17c33e73037bb2307c7688e50819966f4ae939"
+    }
+  ]
+}

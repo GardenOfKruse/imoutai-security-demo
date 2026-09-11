@@ -1,0 +1,38 @@
+{
+    "mtshops": {
+        "version": 0,
+        "md5": "8e60251d8d4a842c1a5bd9b0d7326a5a"
+    },
+    "myserviceshops_zip": {
+        "version": 0,
+        "md5": "0577f5ed7a87d3e98eb2b8d7b21855cb"
+    },
+    "mttracking": {
+        "version": 2,
+        "md5": "277be3e622a0b55c897802edef196e0a"
+    },
+    "addressConfig": {
+        "version": 0,
+        "md5": ""
+    },
+    "addressConfig_4": {
+        "version": 0,
+        "md5": "7539cbed29d9c7b88ecaa64b10f0f586"
+    },
+    "mtappconfig": {
+        "version": 0,
+        "md5": "9b585934b08330e4d286afd6f9116730"
+    },
+    "mtpolyphonicAddress": {
+        "version": 0,
+        "md5": "c46ebe37999f081312353b03ccde0367"
+    },
+    "mtpopupview": {
+        "version": 0,
+        "md5": "07730dc1e8911156376278d2099a85b7"
+    },
+    "splash_video": {
+        "version": 0,
+        "md5": ""
+    }
+}

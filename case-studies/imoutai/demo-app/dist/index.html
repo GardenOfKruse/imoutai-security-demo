@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>i茅台安全培训演示 · 客户端签名可复刻性还原</title>
+  <script type="module" crossorigin src="./assets/index-CoSiZ5zd.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-kypTDQnd.css">
+</head>
+<body>
+  <script>
+    // 全局错误可见化：React 崩溃时把栈打到页面上（演示现场排障用）
+    window.addEventListener('error', function (e) {
+      var d = document.createElement('pre');
+      d.style.cssText = 'color:#f87171;background:#0b1326;white-space:pre-wrap;padding:16px;font-size:12px;position:relative;z-index:9999';
+      d.textContent = 'JS ERROR: ' + ((e.error && e.error.stack) || e.message);
+      document.body.appendChild(d);
+    });
+    window.addEventListener('unhandledrejection', function (e) {
+      var d = document.createElement('pre');
+      d.style.cssText = 'color:#fbbf24;background:#0b1326;white-space:pre-wrap;padding:16px;font-size:12px;position:relative;z-index:9999';
+      d.textContent = 'PROMISE REJECTION: ' + ((e.reason && (e.reason.stack || e.reason.message)) || e.reason);
+      document.body.appendChild(d);
+    });
+  </script>
+  <div id="root"></div>
+</body>
+</html>

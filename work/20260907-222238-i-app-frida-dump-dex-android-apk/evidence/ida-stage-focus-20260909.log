@@ -1,0 +1,53 @@
+C:\Users\76327\AppData\Roaming\Hex-Rays\IDA Pro\plugins\mcp-plugin.py: PLUGIN_ENTRY was not defined or the class name 'MCP' was already used in 'ida_mcp.py'
+
+  bytes   pages size description
+--------- ----- ---- --------------------------------------------
+  5177344   632 8192 allocating memory for b-tree...
+  4677632   571 8192 allocating memory for virtual array...
+   262144    32 8192 allocating memory for name pointers...
+-----------------------------------------------------------------
+ 10117120            total memory allocated
+
+Loading processor module E:\Program Files\IDA Professional 9.3\procs\arm.dll for ARM...OK
+Loading type libraries...
+Autoanalysis subsystem has been initialized.
+C:\Users\76327\AppData\Roaming\Hex-Rays\IDA Pro\plugins\mcp-plugin.py: PLUGIN_ENTRY was not defined or the class name 'MCP' was already used in 'ida_mcp.py'
+stalker_trace_so plugin has been loaded.
+Database for file 'libDexHelper-stage-decrypted-20260909.elf' has been loaded.
+Hex-Rays Decompiler plugin has been loaded (v9.3.0.251224)
+  The hotkeys are F5: decompile, Ctrl-F5: decompile all.
+
+  Please check the Edit/Plugins menu for more information.
+Hex-rays version 9.3.0.251224 has been detected, gooMBA plugin ready to use
+[MCP] Plugin loaded (idalib mode, server managed externally)
+C:\Users\76327\AppData\Roaming\Hex-Rays\IDA Pro\plugins\mcp-plugin.py: PLUGIN_ENTRY was not defined or the class name 'MCP' was already used in 'ida_mcp.py'
+Using type parser: legacy
+The decompiler assumes that the segment '.rodata' is read-only because of its NAME.
+All data references to the segment will be replaced by constant values.
+This may lead to drastic changes in the decompiler output.
+If the segment is not read-only, please change the segment NAME.
+
+In general, the decompiler checks the segment permissions, class, and name
+to determine if it is read-only.
+ -> OK
+The decompiler assumes that the segment '.got' is read-only because of its NAME.
+All data references to the segment will be replaced by constant values.
+This may lead to drastic changes in the decompiler output.
+If the segment is not read-only, please change the segment NAME.
+
+In general, the decompiler checks the segment permissions, class, and name
+to determine if it is read-only.
+ -> OK
+The decompiler assumes that the segment '.text' is read-only because of its NAME.
+All data references to the segment will be replaced by constant values.
+This may lead to drastic changes in the decompiler output.
+If the segment is not read-only, please change the segment NAME.
+
+In general, the decompiler checks the segment permissions, class, and name
+to determine if it is read-only.
+ -> OK
+IDA_STAGE_FOCUS_OUT=E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\evidence\ida-stage-focus-20260909.txt
+IDA_STAGE_FOCUS_STRINGS=12
+IDA_STAGE_FOCUS_FUNCTIONS=13
+Flushing buffers, please wait...ok
+Unloading IDP module E:\Program Files\IDA Professional 9.3\procs\arm.dll...

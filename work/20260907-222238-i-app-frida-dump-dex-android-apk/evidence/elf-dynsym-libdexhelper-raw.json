@@ -1,0 +1,1912 @@
+{
+  "path": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\lib\\arm64-v8a\\libDexHelper.so",
+  "dynamic_tags": {
+    "1": "0x3e",
+    "14": "0x862",
+    "16": "0x0",
+    "25": "0x14d08",
+    "27": "0x10",
+    "26": "0x14d18",
+    "28": "0x10",
+    "4": "0x16c000",
+    "5": "0x16b000",
+    "6": "0x169000",
+    "10": "0x877",
+    "11": "0x18",
+    "3": "0x14f18",
+    "2": "0x240",
+    "20": "0x7",
+    "23": "0x2730",
+    "7": "0x26e8",
+    "8": "0x48",
+    "9": "0x18",
+    "24": "0x0",
+    "1879048187": "0x1",
+    "1879048185": "0x2"
+  },
+  "dynsym_count": 235,
+  "undefined_count": 226,
+  "symbols_of_interest": [],
+  "all_symbols": [
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x2b10",
+      "size": 0,
+      "info": 3,
+      "shndx": 7,
+      "undefined": false
+    },
+    {
+      "name": "",
+      "value": "0x15000",
+      "size": 0,
+      "info": 3,
+      "shndx": 15,
+      "undefined": false
+    },
+    {
+      "name": "dlerror",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__stack_chk_guard",
+      "value": "0x0",
+      "size": 0,
+      "info": 17,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "_bss_end__",
+      "value": "0x15090",
+      "size": 0,
+      "info": 16,
+      "shndx": 16,
+      "undefined": false
+    },
+    {
+      "name": "fgets",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "memcpy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__cxa_finalize",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__bss_start__",
+      "value": "0x15028",
+      "size": 0,
+      "info": 16,
+      "shndx": 16,
+      "undefined": false
+    },
+    {
+      "name": "lseek",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "mmap",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "abort",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__stack_chk_fail",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__bss_end__",
+      "value": "0x15090",
+      "size": 0,
+      "info": 16,
+      "shndx": 16,
+      "undefined": false
+    },
+    {
+      "name": "strstr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "read",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dlopen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__cxa_atexit",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dlsym",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fopen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__bss_start",
+      "value": "0x15028",
+      "size": 0,
+      "info": 16,
+      "shndx": 16,
+      "undefined": false
+    },
+    {
+      "name": "memset",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fclose",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__end__",
+      "value": "0x15090",
+      "size": 0,
+      "info": 16,
+      "shndx": 16,
+      "undefined": false
+    },
+    {
+      "name": "isprint",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strcmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sprintf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pread",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "_edata",
+      "value": "0x15028",
+      "size": 0,
+      "info": 16,
+      "shndx": 15,
+      "undefined": false
+    },
+    {
+      "name": "_end",
+      "value": "0x15090",
+      "size": 0,
+      "info": 16,
+      "shndx": 16,
+      "undefined": false
+    },
+    {
+      "name": "strlen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "open",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "mprotect",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "close",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    }
+  ]
+}

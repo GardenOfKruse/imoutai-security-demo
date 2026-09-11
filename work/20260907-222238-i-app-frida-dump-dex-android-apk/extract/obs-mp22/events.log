@@ -1,0 +1,7 @@
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] resumed pid=23708
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[*] stats: {"pthread_total": 4, "pthread_suppressed": 0, "modules": {"libutils.so": 1, "libart.so": 3}, "dex_captured": 0, "exit_blocked": 2, "native_signal_blocked": 0, "regnat_count": 0}
+[*] app classes captured=0 -> E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\obs-mp22\loaded-classes-23708.txt
+[!] script destroyed @ 25.5s
+[!] session detached @ 25.5s reason=application-requested (None,)

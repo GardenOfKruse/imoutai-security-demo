@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/selector_list_item_white_press_bg"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+    <TextView
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/yx_text_common"
+        android:gravity="left"
+        android:id="@+id/item_name"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/app_basic_info"
+        android:includeFontPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/gray_33_alpha50"
+        android:gravity="left"
+        android:id="@+id/item_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/item_name"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:id="@+id/item_line"
+        android:background="@drawable/divider_marginleft_15dp_grey"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] resumed pid=17582
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[!] script destroyed @ 1.7s
+[!] session detached @ 1.7s reason=process-terminated (None,)
+[+] NEW process pid=17649 @ 2.2s
+[+] NEW process pid=17665 @ 2.2s
+[+] NEW process pid=17670 @ 2.2s
+[+] NEW process pid=18060 @ 6.3s
+[+] NEW process pid=18259 @ 8.9s
+[!] rpc get_stats failed: script has been destroyed
+[*] stats: null
+[!] rpc list_loaded_classes failed: script has been destroyed

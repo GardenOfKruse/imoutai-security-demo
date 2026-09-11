@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true">
+        <bitmap android:src="@mipmap/camera_take_photo_ic"/>
+    </item>
+    <item>
+        <bitmap android:src="@mipmap/camera_take_photo_disable_ic"/>
+    </item>
+</selector>

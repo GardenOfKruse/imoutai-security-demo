@@ -1,0 +1,82 @@
+[dexhook] X: native exception observer installed
+[dexhook] X: mmap protection observer installed
+[dexhook] X: mprotect protection observer installed
+[dexhook] A: pthread_create 观察 + 壳线程入口压制已装
+[dexhook] A5b: libart FindClass 直呼入口已挂 @0x7a50265e60 head=0xd503233f
+[dexhook] A5: module observer installed
+[dexhook] A5: dlsym JNI_OnLoad observer installed
+[dexhook] A2/A3: native exit/signal 观察 + shell 来源 pc-redirect 拦截已装
+[dexhook] A4: android_dlopen_ext 观察已装
+[dexhook] B+C: scheduling Java.performNow/perform, available=true
+[dexhook] B+C: Java.perform entered
+[dexhook] B3: MiuiForceDark native hooks installed (2 overloads)
+[dexhook] B4: UEH observer installed
+[dexhook] E1: RegisterNatives 观察已装
+[dexhook] E2: 类加载时间线已装 (3s)
+[dexhook] C1: InMemoryDexClassLoader hooks installed (3 overloads)
+[dexhook] C2: DexFile.openInMemoryDexFiles hooked (1 overloads)
+[dexhook] C2: DexFile.loadDex hooked (2 overloads)
+[dexhook] C2: DexFile.openDexFile hooked (1 overloads)
+[dexhook] C3: DexClassLoader hooks installed
+[dexhook] v5 script loaded, hooks ready
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[dexhook] A2: raise(19) caller=boot-framework.oat @boot-framework.oat+0x18aa70
+[*] resumed pid=17582
+[dexhook] A2: tgkill(19) caller=unknown @unmapped@0x7b0010b410
+[dexhook] B2: System.loadLibrary(miui_runtime)
+[dexhook] B2: Runtime.nativeLoad(libmiui_runtime.so)
+[dexhook] B2: Runtime.nativeLoad result=success(null)
+[dexhook] X: mmap PROT_NONE len=0xfe000 caller=0x7aea509728
+[dexhook] X: mmap PROT_NONE ret=0x79c5a06000
+[dexhook] X: mprotect PROT_NONE addr=0x7aeb9dc000 len=0x1000 caller=0x7aea509410
+[dexhook] X: mprotect PROT_NONE ret=0x0
+[dexhook] X: mmap PROT_NONE len=0x1000000 caller=0x7aea509488
+[dexhook] X: mmap PROT_NONE ret=0x79c4a06000
+[dexhook] X: mprotect PROT_NONE addr=0x79c5a07000 len=0x1000 caller=0x7a5047ea10
+[dexhook] X: mprotect PROT_NONE ret=0x0
+[dexhook] C2: DexFile.openDexFile called args=[str[len=44,tail=org.apache.http.legacy.jar], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(org.apache.http.legacy.odex) caller=libart.so ret=ok
+[dexhook] C2: DexFile.openDexFile called args=[str[len=86,tail=base.apk], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(base.odex) caller=libart.so ret=ok
+[dexhook] B2: System.loadLibrary(DexHelper)
+[dexhook] B2: Runtime.nativeLoad(libDexHelper.so)
+[dexhook] B2: rewrite nativeLoad arg "libDexHelper.so" -> /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[dexhook] B2: app loader(verified) = dalvik.system.PathClassLoader probes=5
+[dexhook] B2: nativeLoad loader arg[1] -> app PathClassLoader
+[dexhook] X: sub_1E33C observer installed @0x79c028633c
+[dexhook] A4: dlopen_ext(libDexHelper.so) caller=libnativeloader.so ret=ok
+[dexhook] X: actual sub_1E33C observer installed @0x79c001433c source=dlsym
+[dexhook] A5: JNI_OnLoad observer attached @0x79c000a884 source=dlsym
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[dexhook] X: JavaVM GetEnv observer installed @0x7a5025f298
+[dexhook] A5: JNI_OnLoad enter(gate=ON) vm=0xb400007a53421540 reserved=0x0
+[dexhook] E1: RegisterNatives #1 count=3 caller=? bs(Landroid/content/Context;I)Ljava/lang/Object;@0x79c00243fc | is(I)Z@0x79c0024f48 | us(Landroid/content/Context;)V@0x79c0024f68
+[dexhook] X: mmap PROT_NONE len=0xfe000 caller=0x7aea509728
+[dexhook] X: mmap PROT_NONE ret=0x79bfef8000
+[dexhook] X: mmap PROT_NONE len=0xfe000 caller=0x7aea509728
+[dexhook] X: mmap PROT_NONE ret=0x79bfdfa000
+[dexhook] X: mprotect PROT_NONE addr=0x7aeb95e000 len=0x1000 caller=0x7aea509410
+[dexhook] X: mprotect PROT_NONE addr=0x7aeb8f2000 len=0x1000 caller=0x7aea509410
+[dexhook] X: mprotect PROT_NONE ret=0x0
+[dexhook] X: mmap PROT_NONE len=0x1000000 caller=0x7aea509488
+[dexhook] X: mmap PROT_NONE ret=0x79bedfa000
+[dexhook] E1: RegisterNatives #2 count=1 caller=? hn(Landroid/content/Context;Landroid/app/Application;)V@0x79c002af84
+[dexhook] E1: RegisterNatives #3 count=1 caller=? pn()V@0x79c002c018
+[dexhook] E1: RegisterNatives #4 count=1 caller=? d(Ljava/lang/String;)Ljava/lang/String;@0x79c002cd8c
+[dexhook] E1: RegisterNatives #5 count=6 caller=? gha(Ljava/lang/String;)I@0x79c002ed38 | ghc(Ljava/lang/String;)J@0x79c002eda8 | gah()[Ljava/lang/Object;@0x79c002ee10 | sha(Ljava/lang/String;I)V@0x79c002f4a8 | he(I)V@0x79c002f4e0 | gv()I@0x79c002fb68
+[dexhook] E1: RegisterNatives #6 count=7 caller=? bli(Ljava/lang/String;)Z@0x79c002d02c | bla(Ljava/lang/String;)V@0x79c002d1cc | blr(Ljava/lang/String;)V@0x79c002d2d4 | blq(Ljava/lang/String;)Z@0x79c002d3dc | blc()V@0x79c002d408 | bls(J)Z@0x79c002d42c | blv()J@0x79c002d470
+[dexhook] X: actual sub_1E33C enter env=0xb400007a35428400 envRange=none
+[dexhook] X: mprotect PROT_NONE ret=0x0
+[dexhook] X: mmap PROT_NONE len=0x1000000 caller=0x7aea509488
+[dexhook] X: mmap PROT_NONE ret=0x79bddfa000
+[!] script destroyed @ 1.7s
+[!] session detached @ 1.7s reason=process-terminated (None,)
+[+] NEW process pid=17649 @ 2.2s
+[+] NEW process pid=17665 @ 2.2s
+[+] NEW process pid=17670 @ 2.2s
+[+] NEW process pid=18060 @ 6.3s
+[+] NEW process pid=18259 @ 8.9s
+[!] rpc get_stats failed: script has been destroyed
+[*] stats: null
+[!] rpc list_loaded_classes failed: script has been destroyed
+[*] done rs_seen=False dex=0 regnat_msgs=6

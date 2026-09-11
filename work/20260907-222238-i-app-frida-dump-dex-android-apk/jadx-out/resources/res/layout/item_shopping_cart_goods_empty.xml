@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/rlGroup"
+        android:paddingTop="70dp"
+        android:paddingBottom="94dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:textColor="@color/gray_7f"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="挑点喜欢的装进购物车"
+            android:drawableTop="@mipmap/empty_icon_shopping_cart"
+            android:drawablePadding="31dp"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</FrameLayout>

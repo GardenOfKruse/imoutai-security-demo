@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:id="@+id/ivArrow"
+        android:background="@mipmap/ic_community_reload_arrow"
+        android:layout_width="@dimen/community_reload_tip_arrow_width"
+        android:layout_height="6dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/gray_0c_alpha60"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDesc"
+        app:layout_constraintLeft_toLeftOf="@+id/tvDesc"
+        app:layout_constraintRight_toRightOf="@+id/tvDesc"
+        app:layout_constraintTop_toTopOf="@+id/tvDesc"/>
+    <TextView
+        android:textSize="14dp"
+        android:textColor="@color/white"
+        android:id="@+id/tvDesc"
+        android:paddingLeft="27dp"
+        android:paddingTop="12dp"
+        android:paddingRight="27dp"
+        android:paddingBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="31dp"
+        android:layout_marginRight="31dp"
+        android:text="社区内容支持下拉刷新和点击菜单刷新哦~"
+        android:layout_marginHorizontal="31dp"
+        android:paddingHorizontal="27dp"
+        android:paddingVertical="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivArrow"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

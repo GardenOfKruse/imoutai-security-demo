@@ -1,0 +1,7 @@
+[*] normal start before attach com.moutai.mall/.module.splash.SplashActivity
+[*] attaching existing pid=28885
+[agent:info] [dexhook] mp34 minimal mode enabled
+[agent:info] [dexhook] B+C: scheduling Java.performNow/perform, available=true
+[agent:info] [dexhook] B+C: Java.perform entered
+[!] script destroyed @ 1.8s
+[!] session detached @ 1.8s reason=process-terminated (Crash(pid=28885, process_name="com.moutai.mall", summary="Bad access due to invalid address", report=<11839 bytes>, parameters={}),)

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="84dp">
+    <com.moutai.mall.module.personal.MyOrderItemView
+        android:id="@+id/ready_pay"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:orderIcon="@mipmap/user_page_order_ready_pay"
+        app:orderName="@string/userpage_ready_pay"/>
+    <com.moutai.mall.module.personal.MyOrderItemView
+        android:id="@+id/ready_get_goods"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:orderIcon="@mipmap/user_page_order_ready_get_goods"
+        app:orderName="@string/userpage_ready_get_goods"/>
+    <com.moutai.mall.module.personal.MyOrderItemView
+        android:id="@+id/ready_arrive"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:orderIcon="@mipmap/user_page_order_ready_arrive"
+        app:orderName="@string/userpage_ready_arrive"/>
+    <com.moutai.mall.module.personal.MyOrderItemView
+        android:id="@+id/ready_comment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:orderIcon="@mipmap/user_page_order_ready_comment"
+        app:orderName="@string/userpage_ready_comment"/>
+    <View
+        android:layout_gravity="center_vertical"
+        android:background="@color/gray_d9"
+        android:layout_width="@dimen/one_px"
+        android:layout_height="@dimen/size_50dp"/>
+    <com.moutai.mall.module.personal.MyOrderItemView
+        android:id="@+id/order_all"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:orderIcon="@mipmap/user_page_order_all"
+        app:orderName="@string/userpage_all_order"/>
+</LinearLayout>

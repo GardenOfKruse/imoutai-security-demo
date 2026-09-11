@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/shape_radius_8_top_round_bg"
+    android:paddingLeft="@dimen/yx_margin"
+    android:layout_width="match_parent"
+    android:layout_height="53dp">
+    <TextView
+        android:textSize="@dimen/yx_text_size_m"
+        android:textStyle="bold"
+        android:textColor="@color/gray_33"
+        android:gravity="center_vertical"
+        android:id="@+id/left_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:text="提货商品"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/one_px"
+        android:layout_weight="1"/>
+    <TextView
+        android:textSize="@dimen/yx_text_size_m"
+        android:textColor="@color/mt_red"
+        android:gravity="center_vertical"
+        android:id="@+id/order_status"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginRight="@dimen/size_25dp"/>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lv_privacy_agree"
+    android:paddingLeft="20dp"
+    android:paddingTop="16dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <CheckBox
+        android:id="@+id/check_box"
+        android:background="@drawable/select_certificate_check"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginRight="@dimen/size_6dp"
+        android:checked="false"
+        android:button="@null"/>
+    <TextView
+        android:textSize="@dimen/text_size_12"
+        android:textColor="@color/gray_33"
+        android:textColorHighlight="@color/transparent"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/btn_onestep_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

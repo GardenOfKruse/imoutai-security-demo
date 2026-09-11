@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.netease.hearttouch.htrefreshrecyclerview.HTRefreshRecyclerView
+        android:id="@+id/rv_photo_pick_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <FrameLayout
+        android:id="@+id/pick_image_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pia_btn_complete_height">
+        <include layout="@layout/view_horizontal_line_1px_black_alpha15"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textSize="@dimen/yx_text_size_xm"
+                android:textColor="@color/yx_text_desc"
+                android:gravity="center"
+                android:id="@+id/tv_count_pick_image"
+                android:paddingLeft="@dimen/yx_content_padding"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <Button
+                android:textSize="@dimen/yx_text_size_xm"
+                android:textColor="@color/white"
+                android:id="@+id/btn_complete_pick_image"
+                android:background="@drawable/selector_bg_red_pred_gray_noc"
+                android:layout_width="@dimen/pia_btn_complete_width"
+                android:layout_height="match_parent"
+                android:text="@string/confirm"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

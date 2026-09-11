@@ -1,0 +1,3860 @@
+input=E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\libDexHelper-stage-decrypted-20260909.elf
+names=sub_3E544,sub_3E114,sub_3EF28,sub_3E02C,sub_3D8AC,sub_3F07C,sub_3F1FC,sub_3F39C,sub_3F578,sub_3F6FC,sub_3F894
+
+=== REQUESTED sub_3E544 ea=0x3e544 ===
+range=0x3e544-0x3ef28 actual_name=sub_3E544
+_DWORD *__fastcall sub_3E544(_DWORD *result, int *a2)
+{
+  int v2; // w8
+  int v3; // w9
+  int v4; // w10
+  int v5; // w5
+  int v6; // w13
+  unsigned __int64 v7; // t2
+  int v8; // w3
+  int v9; // w12
+  int v10; // w17
+  int v11; // w6
+  int v12; // w7
+  int v13; // w4
+  int v14; // w14
+  int v15; // w20
+  int v16; // w21
+  int v17; // w15
+  int v18; // w19
+  int v19; // w6
+  int v20; // w22
+  int v21; // w2
+  int v22; // w16
+  int v23; // w23
+  int v24; // w21
+  int v25; // w3
+  int v26; // w7
+  int v27; // w27
+  int v28; // w22
+  int v29; // w6
+  int v30; // w20
+  int v31; // w23
+  int v32; // w24
+  int v33; // w25
+  int v34; // w1
+  int v35; // w21
+  int v36; // w22
+  int v37; // w23
+  int v38; // w24
+  int v39; // w25
+  int v40; // w22
+  int v41; // w23
+  int v42; // w24
+  int v43; // w25
+  int v44; // w22
+  int v45; // w23
+  int v46; // w24
+  int v47; // w25
+  int v48; // w22
+  int v49; // w23
+  int v50; // w24
+  int v51; // w25
+  int v52; // w22
+  int v53; // w23
+  int v54; // w24
+  int v55; // w25
+  int v56; // w22
+  int v57; // w23
+  int v58; // w24
+  int v59; // w25
+  int v60; // w22
+  int v61; // w23
+  int v62; // w24
+  int v63; // w25
+  int v64; // w22
+  int v65; // w23
+  int v66; // w24
+  int v67; // w25
+  int v68; // w22
+  int v69; // w23
+  int v70; // w28
+  int v71; // w21
+  int v72; // w22
+  int v73; // w21
+  int v74; // w24
+  int v75; // w20
+  int v76; // w17
+  int v77; // w5
+  int v78; // w13
+  int v79; // w1
+  int v80; // w17
+  int v81; // w1
+  int v82; // w4
+  int v83; // w13
+  int v84; // w15
+  int v85; // w14
+  int v86; // w12
+  int v87; // w13
+  int v88; // w12
+
+  v2 = result[1];
+  v3 = result[2];
+  v4 = result[3];
+  v5 = *a2;
+  v6 = a2[1];
+  HIDWORD(v7) = *result + *a2 + (v4 & ~v2 | v3 & v2) - 680876936;
+  LODWORD(v7) = HIDWORD(v7);
+  v8 = (v7 >> 25) + v2;
+  v9 = a2[2];
+  v10 = a2[3];
+  HIDWORD(v7) = v4 + v6 + (v8 & v2 | v3 & ~v8) - 389564586;
+  LODWORD(v7) = HIDWORD(v7);
+  v11 = (v7 >> 20) + v8;
+  HIDWORD(v7) = v3 + v9 + (v11 & v8 | v2 & ~v11) + 606105819;
+  LODWORD(v7) = HIDWORD(v7);
+  v12 = (v7 >> 15) + v11;
+  v14 = a2[4];
+  v13 = a2[5];
+  HIDWORD(v7) = v2 + v10 + (v12 & v11 | v8 & ~v12) - 1044525330;
+  LODWORD(v7) = HIDWORD(v7);
+  v15 = (v7 >> 10) + v12;
+  HIDWORD(v7) = v14 + v8 + (v15 & v12 | v11 & ~v15) - 176418897;
+  LODWORD(v7) = HIDWORD(v7);
+  v16 = (v7 >> 25) + v15;
+  v17 = a2[6];
+  v18 = a2[7];
+  HIDWORD(v7) = v13 + v11 + (v16 & v15 | v12 & ~v16) + 1200080426;
+  LODWORD(v7) = HIDWORD(v7);
+  v19 = (v7 >> 20) + v16;
+  HIDWORD(v7) = v17 + v12 + (v19 & v16 | v15 & ~v19) - 1473231341;
+  LODWORD(v7) = HIDWORD(v7);
+  v20 = (v7 >> 15) + v19;
+  v21 = a2[8];
+  v22 = a2[9];
+  HIDWORD(v7) = v18 + v15 + (v20 & v19 | v16 & ~v20) - 45705983;
+  LODWORD(v7) = HIDWORD(v7);
+  v23 = (v7 >> 10) + v20;
+  HIDWORD(v7) = v21 + v16 + (v23 & v20 | v19 & ~v23) + 1770035416;
+  LODWORD(v7) = HIDWORD(v7);
+  v24 = (v7 >> 25) + v23;
+  v26 = a2[10];
+  v25 = a2[11];
+  HIDWORD(v7) = v22 + v19 + (v24 & v23 | v20 & ~v24) - 1958414417;
+  LODWORD(v7) = HIDWORD(v7);
+  v27 = (v7 >> 20) + v24;
+  HIDWORD(v7) = v26 + v20 + (v27 & v24 | v23 & ~v27) - 42063;
+  LODWORD(v7) = HIDWORD(v7);
+  v28 = (v7 >> 15) + v27;
+  v30 = a2[12];
+  v29 = a2[13];
+  HIDWORD(v7) = v25 + v23 + (v28 & v27 | v24 & ~v28) - 1990404162;
+  LODWORD(v7) = HIDWORD(v7);
+  v31 = (v7 >> 10) + v28;
+  HIDWORD(v7) = v30 + v24 + (v31 & v28 | v27 & ~v31) + 1804603682;
+  LODWORD(v7) = HIDWORD(v7);
+  v32 = (v7 >> 25) + v31;
+  HIDWORD(v7) = v29 + v27 + (v32 & v31 | v28 & ~v32) - 40341101;
+  LODWORD(v7) = HIDWORD(v7);
+  v33 = (v7 >> 20) + v32;
+  v35 = a2[14];
+  v34 = a2[15];
+  HIDWORD(v7) = v35 + v28 + (v33 & v32 | v31 & ~v33) - 1502002290;
+  LODWORD(v7) = HIDWORD(v7);
+  v36 = (v7 >> 15) + v33;
+  HIDWORD(v7) = v34 + v31 + (v36 & v33 | v32 & ~v36) + 1236535329;
+  LODWORD(v7) = HIDWORD(v7);
+  v37 = (v7 >> 10) + v36;
+  HIDWORD(v7) = v6 + v32 + (v37 & v33 | v36 & ~v33) - 165796510;
+  LODWORD(v7) = HIDWORD(v7);
+  v38 = (v7 >> 27) + v37;
+  HIDWORD(v7) = v17 + v33 + (v38 & v36 | v37 & ~v36) - 1069501632;
+  LODWORD(v7) = HIDWORD(v7);
+  v39 = (v7 >> 23) + v38;
+  HIDWORD(v7) = v25 + v36 + (v39 & v37 | v38 & ~v37) + 643717713;
+  LODWORD(v7) = HIDWORD(v7);
+  v40 = (v7 >> 18) + v39;
+  HIDWORD(v7) = v5 + v37 + (v40 & v38 | v39 & ~v38) - 373897302;
+  LODWORD(v7) = HIDWORD(v7);
+  v41 = (v7 >> 12) + v40;
+  HIDWORD(v7) = v13 + v38 + (v41 & v39 | v40 & ~v39) - 701558691;
+  LODWORD(v7) = HIDWORD(v7);
+  v42 = (v7 >> 27) + v41;
+  HIDWORD(v7) = v26 + v39 + (v42 & v40 | v41 & ~v40) + 38016083;
+  LODWORD(v7) = HIDWORD(v7);
+  v43 = (v7 >> 23) + v42;
+  HIDWORD(v7) = v34 + v40 + (v43 & v41 | v42 & ~v41) - 660478335;
+  LODWORD(v7) = HIDWORD(v7);
+  v44 = (v7 >> 18) + v43;
+  HIDWORD(v7) = v14 + v41 + (v44 & v42 | v43 & ~v42) - 405537848;
+  LODWORD(v7) = HIDWORD(v7);
+  v45 = (v7 >> 12) + v44;
+  HIDWORD(v7) = v22 + v42 + (v45 & v43 | v44 & ~v43) + 568446438;
+  LODWORD(v7) = HIDWORD(v7);
+  v46 = (v7 >> 27) + v45;
+  HIDWORD(v7) = v35 + v43 + (v46 & v44 | v45 & ~v44) - 1019803690;
+  LODWORD(v7) = HIDWORD(v7);
+  v47 = (v7 >> 23) + v46;
+  HIDWORD(v7) = v10 + v44 + (v47 & v45 | v46 & ~v45) - 187363961;
+  LODWORD(v7) = HIDWORD(v7);
+  v48 = (v7 >> 18) + v47;
+  HIDWORD(v7) = v21 + v45 + (v48 & v46 | v47 & ~v46) + 1163531501;
+  LODWORD(v7) = HIDWORD(v7);
+  v49 = (v7 >> 12) + v48;
+  HIDWORD(v7) = v29 + v46 + (v49 & v47 | v48 & ~v47) - 1444681467;
+  LODWORD(v7) = HIDWORD(v7);
+  v50 = (v7 >> 27) + v49;
+  HIDWORD(v7) = v9 + v47 + (v50 & v48 | v49 & ~v48) - 51403784;
+  LODWORD(v7) = HIDWORD(v7);
+  v51 = (v7 >> 23) + v50;
+  HIDWORD(v7) = v18 + v48 + (v51 & v49 | v50 & ~v49) + 1735328473;
+  LODWORD(v7) = HIDWORD(v7);
+  v52 = (v7 >> 18) + v51;
+  HIDWORD(v7) = v30 + v49 + (v52 & v50 | v51 & ~v50) - 1926607734;
+  LODWORD(v7) = HIDWORD(v7);
+  v53 = (v7 >> 12) + v52;
+  HIDWORD(v7) = v13 + v50 + (v53 ^ v52 ^ v51) - 378558;
+  LODWORD(v7) = HIDWORD(v7);
+  v54 = (v7 >> 28) + v53;
+  HIDWORD(v7) = v21 + v51 + (v53 ^ v52 ^ v54) - 2022574463;
+  LODWORD(v7) = HIDWORD(v7);
+  v55 = (v7 >> 21) + v54;
+  HIDWORD(v7) = v25 + v52 + (v54 ^ v53 ^ v55) + 1839030562;
+  LODWORD(v7) = HIDWORD(v7);
+  v56 = (v7 >> 16) + v55;
+  HIDWORD(v7) = v35 + v53 + (v55 ^ v54 ^ v56) - 35309556;
+  LODWORD(v7) = HIDWORD(v7);
+  v57 = (v7 >> 9) + v56;
+  HIDWORD(v7) = v6 + v54 + (v56 ^ v55 ^ v57) - 1530992060;
+  LODWORD(v7) = HIDWORD(v7);
+  v58 = (v7 >> 28) + v57;
+  HIDWORD(v7) = v14 + v55 + (v57 ^ v56 ^ v58) + 1272893353;
+  LODWORD(v7) = HIDWORD(v7);
+  v59 = (v7 >> 21) + v58;
+  HIDWORD(v7) = v18 + v56 + (v58 ^ v57 ^ v59) - 155497632;
+  LODWORD(v7) = HIDWORD(v7);
+  v60 = (v7 >> 16) + v59;
+  HIDWORD(v7) = v26 + v57 + (v59 ^ v58 ^ v60) - 1094730640;
+  LODWORD(v7) = HIDWORD(v7);
+  v61 = (v7 >> 9) + v60;
+  HIDWORD(v7) = v29 + v58 + (v60 ^ v59 ^ v61) + 681279174;
+  LODWORD(v7) = HIDWORD(v7);
+  v62 = (v7 >> 28) + v61;
+  HIDWORD(v7) = v5 + v59 + (v61 ^ v60 ^ v62) - 358537222;
+  LODWORD(v7) = HIDWORD(v7);
+  v63 = (v7 >> 21) + v62;
+  HIDWORD(v7) = v10 + v60 + (v62 ^ v61 ^ v63) - 722521979;
+  LODWORD(v7) = HIDWORD(v7);
+  v64 = (v7 >> 16) + v63;
+  HIDWORD(v7) = v17 + v61 + (v63 ^ v62 ^ v64) + 76029189;
+  LODWORD(v7) = HIDWORD(v7);
+  v65 = (v7 >> 9) + v64;
+  HIDWORD(v7) = v22 + v62 + (v64 ^ v63 ^ v65) - 640364487;
+  LODWORD(v7) = HIDWORD(v7);
+  v66 = (v7 >> 28) + v65;
+  HIDWORD(v7) = v30 + v63 + (v65 ^ v64 ^ v66) - 421815835;
+  LODWORD(v7) = HIDWORD(v7);
+  v67 = (v7 >> 21) + v66;
+  HIDWORD(v7) = v34 + v64 + (v66 ^ v65 ^ v67) + 530742520;
+  LODWORD(v7) = HIDWORD(v7);
+  v68 = (v7 >> 16) + v67;
+  HIDWORD(v7) = v9 + v65 + (v67 ^ v66 ^ v68) - 995338651;
+  LODWORD(v7) = HIDWORD(v7);
+  v69 = (v7 >> 9) + v68;
+  HIDWORD(v7) = v5 + v66 + ((v69 | ~v67) ^ v68) - 198630844;
+  LODWORD(v7) = HIDWORD(v7);
+  v70 = (v7 >> 26) + v69;
+  v71 = v35 + v68;
+  HIDWORD(v7) = v18 + v67 + ((v70 | ~v68) ^ v69) + 1126891415;
+  LODWORD(v7) = HIDWORD(v7);
+  v72 = (v7 >> 22) + v70;
+  HIDWORD(v7) = v71 + ((v72 | ~v69) ^ v70) - 1416354905;
+  LODWORD(v7) = HIDWORD(v7);
+  v73 = (v7 >> 17) + v72;
+  HIDWORD(v7) = v13 + v69 + ((v73 | ~v70) ^ v72) - 57434055;
+  LODWORD(v7) = HIDWORD(v7);
+  v74 = (v7 >> 11) + v73;
+  HIDWORD(v7) = v30 + v70 + ((v74 | ~v72) ^ v73) + 1700485571;
+  LODWORD(v7) = HIDWORD(v7);
+  v75 = (v7 >> 26) + v74;
+  HIDWORD(v7) = v10 + v72 + ((v75 | ~v73) ^ v74) - 1894986606;
+  LODWORD(v7) = HIDWORD(v7);
+  v76 = (v7 >> 22) + v75;
+  HIDWORD(v7) = v26 + v73 + ((v76 | ~v74) ^ v75) - 1051523;
+  LODWORD(v7) = HIDWORD(v7);
+  v77 = (v7 >> 17) + v76;
+  HIDWORD(v7) = v6 + v74 + ((v77 | ~v75) ^ v76) - 2054922799;
+  LODWORD(v7) = HIDWORD(v7);
+  v78 = (v7 >> 11) + v77;
+  v79 = v34 + v76;
+  HIDWORD(v7) = v21 + v75 + ((v78 | ~v76) ^ v77) + 1873313359;
+  LODWORD(v7) = HIDWORD(v7);
+  v80 = (v7 >> 26) + v78;
+  HIDWORD(v7) = v79 + ((v80 | ~v77) ^ v78) - 30611744;
+  LODWORD(v7) = HIDWORD(v7);
+  v81 = (v7 >> 22) + v80;
+  v82 = v29 + v78;
+  HIDWORD(v7) = v17 + v77 + ((v81 | ~v78) ^ v80) - 1560198380;
+  LODWORD(v7) = HIDWORD(v7);
+  v83 = (v7 >> 17) + v81;
+  HIDWORD(v7) = v82 + ((v83 | ~v80) ^ v81) + 1309151649;
+  LODWORD(v7) = HIDWORD(v7);
+  v84 = (v7 >> 11) + v83;
+  HIDWORD(v7) = v14 + v80 + ((v84 | ~v81) ^ v83) - 145523070;
+  LODWORD(v7) = HIDWORD(v7);
+  v85 = (v7 >> 26) + v84;
+  v86 = v9 + v83;
+  HIDWORD(v7) = v25 + v81 + ((v85 | ~v83) ^ v84) - 1120210379;
+  LODWORD(v7) = HIDWORD(v7);
+  v87 = (v7 >> 22) + v85;
+  HIDWORD(v7) = v86 + ((v87 | ~v84) ^ v85) + 718787259;
+  LODWORD(v7) = HIDWORD(v7);
+  v88 = (v7 >> 17) + v87;
+  HIDWORD(v7) = v22 + v84 + ((v88 | ~v85) ^ v87) - 343485551;
+  LODWORD(v7) = HIDWORD(v7);
+  *result += v85;
+  result[1] = v88 + v2 + (v7 >> 11);
+  result[2] = v88 + v3;
+  result[3] = v87 + v4;
+  return result;
+}
+
+
+=== REQUESTED sub_3E114 ea=0x3e114 ===
+range=0x3e114-0x3e544 actual_name=sub_3E114
+long double __fastcall sub_3E114(long double *a1, __int64 a2)
+{
+  int v3; // w9
+  int v4; // w12
+  int v6; // w8
+  int v7; // w10
+  unsigned int v8; // w11
+  unsigned int v9; // w13
+  char *v10; // x24
+  int v11; // w23
+  bool v12; // cf
+  char v13; // t1
+  int v14; // w9
+  __int128 v15; // q0
+  int8x16_t v16; // q5
+  uint16x4_t v17; // d2
+  uint16x4_t v18; // d1
+  uint16x4_t v19; // d4
+  uint16x4_t v20; // d3
+  __int128 v21; // q0
+  __int128 v22; // q0
+  __int128 v23; // q0
+  __int64 i; // x8
+  __int64 v25; // x9
+  int v26; // w10
+  long double result; // q0
+  int v28[16]; // [xsp+0h] [xbp-C0h] BYREF
+  _OWORD v29[4]; // [xsp+40h] [xbp-80h] BYREF
+  __int64 v30; // [xsp+88h] [xbp-38h]
+
+  v30 = *(_QWORD *)(_ReadStatusReg(TPIDR_EL0) + 40);
+  v3 = *(_DWORD *)a2;
+  v4 = *(_DWORD *)(a2 + 4);
+  v6 = (*(_DWORD *)a2 >> 3) & 0x3F;
+  if ( (unsigned int)v6 >= 0x38 )
+    v7 = 120;
+  else
+    v7 = 56;
+  v8 = v7 - v6;
+  v9 = 8 * (v7 - v6);
+  v28[14] = *(_DWORD *)a2;
+  v28[15] = v4;
+  if ( v9 > ~v3 )
+    *(_DWORD *)(a2 + 4) = ++v4;
+  *(_DWORD *)a2 = v9 + v3;
+  *(_DWORD *)(a2 + 4) = v4 + (v8 >> 29);
+  if ( v8 )
+  {
+    v10 = (char *)&unk_120000;
+    v11 = v6 - v7;
+    do
+    {
+      v13 = *v10++;
+      v14 = v6 + 1;
+      *(_BYTE *)(a2 + v6 + 24) = v13;
+      if ( v6 == 63 )
+      {
+        v15 = *(_OWORD *)(a2 + 24);
+        v16.n128_u64[0] = 0xFF000000FFLL;
+        v16.n128_u64[1] = 0xFF000000FFLL;
+        v17.n64_u16[0] = BYTE1(v15);
+        v18.n64_u16[0] = (unsigned __int8)v15;
+        v19.n64_u16[0] = BYTE3(v15);
+        v20.n64_u16[0] = BYTE2(v15);
+        v18.n64_u16[1] = BYTE4(v15);
+        v17.n64_u16[1] = BYTE5(v15);
+        v20.n64_u16[1] = BYTE6(v15);
+        v18.n64_u16[2] = BYTE8(v15);
+        v19.n64_u16[1] = BYTE7(v15);
+        v17.n64_u16[2] = BYTE9(v15);
+        v20.n64_u16[2] = BYTE10(v15);
+        v19.n64_u16[2] = BYTE11(v15);
+        v20.n64_u16[3] = BYTE14(v15);
+        v17.n64_u16[3] = BYTE13(v15);
+        v19.n64_u16[3] = HIBYTE(v15);
+        v18.n64_u16[3] = BYTE12(v15);
+        v29[0] = vorrq_s8(
+                   vorrq_s8(
+                     vorrq_s8(vshlq_n_s32(vandq_s8(vmovl_u16(v20), v16), 0x10u), vshlq_n_s32(vmovl_u16(v19), 0x18u)),
+                     vshlq_n_s32(vandq_s8(vmovl_u16(v17), v16), 8u)),
+                   vandq_s8(vmovl_u16(v18), v16));
+        v21 = *(_OWORD *)(a2 + 40);
+        v17.n64_u16[0] = BYTE1(v21);
+        v18.n64_u16[0] = (unsigned __int8)v21;
+        v19.n64_u16[0] = BYTE3(v21);
+        v20.n64_u16[0] = BYTE2(v21);
+        v18.n64_u16[1] = BYTE4(v21);
+        v17.n64_u16[1] = BYTE5(v21);
+        v20.n64_u16[1] = BYTE6(v21);
+        v18.n64_u16[2] = BYTE8(v21);
+        v19.n64_u16[1] = BYTE7(v21);
+        v17.n64_u16[2] = BYTE9(v21);
+        v20.n64_u16[2] = BYTE10(v21);
+        v19.n64_u16[2] = BYTE11(v21);
+        v20.n64_u16[3] = BYTE14(v21);
+        v17.n64_u16[3] = BYTE13(v21);
+        v19.n64_u16[3] = HIBYTE(v21);
+        v18.n64_u16[3] = BYTE12(v21);
+        v29[1] = vorrq_s8(
+                   vorrq_s8(
+                     vorrq_s8(vshlq_n_s32(vandq_s8(vmovl_u16(v20), v16), 0x10u), vshlq_n_s32(vmovl_u16(v19), 0x18u)),
+                     vshlq_n_s32(vandq_s8(vmovl_u16(v17), v16), 8u)),
+                   vandq_s8(vmovl_u16(v18), v16));
+        v22 = *(_OWORD *)(a2 + 56);
+        v17.n64_u16[0] = BYTE1(v22);
+        v18.n64_u16[0] = (unsigned __int8)v22;
+        v19.n64_u16[0] = BYTE3(v22);
+        v20.n64_u16[0] = BYTE2(v22);
+        v18.n64_u16[1] = BYTE4(v22);
+        v17.n64_u16[1] = BYTE5(v22);
+        v20.n64_u16[1] = BYTE6(v22);
+        v18.n64_u16[2] = BYTE8(v22);
+        v19.n64_u16[1] = BYTE7(v22);
+        v17.n64_u16[2] = BYTE9(v22);
+        v20.n64_u16[2] = BYTE10(v22);
+        v19.n64_u16[2] = BYTE11(v22);
+        v20.n64_u16[3] = BYTE14(v22);
+        v17.n64_u16[3] = BYTE13(v22);
+        v19.n64_u16[3] = HIBYTE(v22);
+        v18.n64_u16[3] = BYTE12(v22);
+        v29[2] = vorrq_s8(
+                   vorrq_s8(
+                     vorrq_s8(vshlq_n_s32(vandq_s8(vmovl_u16(v20), v16), 0x10u), vshlq_n_s32(vmovl_u16(v19), 0x18u)),
+                     vshlq_n_s32(vandq_s8(vmovl_u16(v17), v16), 8u)),
+                   vandq_s8(vmovl_u16(v18), v16));
+        v23 = *(_OWORD *)(a2 + 72);
+        v18.n64_u16[0] = (unsigned __int8)v23;
+        v17.n64_u16[0] = BYTE1(v23);
+        v18.n64_u16[1] = BYTE4(v23);
+        v20.n64_u16[0] = BYTE2(v23);
+        v17.n64_u16[1] = BYTE5(v23);
+        v19.n64_u16[0] = BYTE3(v23);
+        v20.n64_u16[1] = BYTE6(v23);
+        v19.n64_u16[1] = BYTE7(v23);
+        v18.n64_u16[2] = BYTE8(v23);
+        v17.n64_u16[2] = BYTE9(v23);
+        v20.n64_u16[2] = BYTE10(v23);
+        v19.n64_u16[2] = BYTE11(v23);
+        v18.n64_u16[3] = BYTE12(v23);
+        v17.n64_u16[3] = BYTE13(v23);
+        v20.n64_u16[3] = BYTE14(v23);
+        v19.n64_u16[3] = HIBYTE(v23);
+        v29[3] = vorrq_s8(
+                   vorrq_s8(
+                     vorrq_s8(vshlq_n_s32(vandq_s8(vmovl_u16(v20), v16), 0x10u), vshlq_n_s32(vmovl_u16(v19), 0x18u)),
+                     vshlq_n_s32(vandq_s8(vmovl_u16(v17), v16), 8u)),
+                   vandq_s8(vmovl_u16(v18), v16));
+        sub_3E544((_DWORD *)(a2 + 8), (int *)v29);
+        v14 = 0;
+      }
+      v12 = __CFADD__(v11++, 1);
+      v6 = v14;
+    }
+    while ( !v12 );
+  }
+  for ( i = 0; i != 14; ++i )
+    v28[i] = *(_DWORD *)(a2 + 27 + i * 4 - 3);
+  sub_3E544((_DWORD *)(a2 + 8), v28);
+  v25 = *(_QWORD *)(a2 + 12);
+  v26 = *(_DWORD *)(a2 + 20);
+  *(_DWORD *)(a2 + 88) = *(_DWORD *)(a2 + 8);
+  *(_QWORD *)(a2 + 92) = v25;
+  *(_DWORD *)(a2 + 100) = v26;
+  result = *(long double *)(a2 + 88);
+  *a1 = result;
+  return result;
+}
+
+
+=== REQUESTED sub_3EF28 ea=0x3ef28 ===
+range=0x3ef28-0x3f07c actual_name=sub_3EF28
+void *__fastcall sub_3EF28(__int64 a1, _DWORD *a2, char *a3, __int64 a4, _DWORD *a5)
+{
+  __int64 v9; // x0
+  __int64 v10; // x19
+  void *v11; // x23
+  unsigned int v13; // w20
+  size_t v14; // x0
+  _QWORD v15[7]; // [xsp+0h] [xbp-C0h] BYREF
+  size_t size; // [xsp+38h] [xbp-88h]
+  __int64 v17; // [xsp+88h] [xbp-38h]
+
+  v17 = *(_QWORD *)(_ReadStatusReg(TPIDR_EL0) + 40);
+  v9 = sub_7DAC8(a1);
+  if ( !v9 )
+    return 0;
+  v10 = v9;
+  if ( !a3 || (unsigned int)sub_7E5B0(v9, a3) )
+  {
+    sub_7DAD0(v10);
+    return 0;
+  }
+  v11 = 0;
+  if ( !(unsigned int)sub_7DC08(v10, v15, 0, 0, 0, 0, 0, 0) )
+  {
+    v11 = 0;
+    if ( !(unsigned int)sub_7F090(v10, 0) )
+    {
+      if ( a4 && v15[5] == a4 )
+      {
+        v11 = 0;
+        *a5 = 1;
+      }
+      else
+      {
+        v13 = size;
+        v14 = size;
+        *a2 = size;
+        v11 = malloc(v14);
+        if ( !v11 )
+        {
+          usleep(0x186A0u);
+          v13 = size;
+          v11 = malloc(size);
+        }
+        if ( (sub_7F0AC(v10, v11, v13) & 0x80000000) != 0 )
+        {
+          free(v11);
+          v11 = 0;
+        }
+      }
+    }
+  }
+  sub_7DAD0(v10);
+  return v11;
+}
+
+
+=== REQUESTED sub_3E02C ea=0x3e02c ===
+range=0x3e02c-0x3e114 actual_name=sub_3E02C
+DIR *__fastcall sub_3E02C(const char *a1)
+{
+  DIR *result; // x0
+  DIR *v3; // x20
+  struct dirent *i; // x0
+  const char *d_name; // x24
+  char name[512]; // [xsp+8h] [xbp-248h] BYREF
+  __int64 v7; // [xsp+208h] [xbp-48h]
+
+  v7 = *(_QWORD *)(_ReadStatusReg(TPIDR_EL0) + 40);
+  result = opendir(a1);
+  if ( result )
+  {
+    v3 = result;
+    for ( i = readdir(result); i; i = readdir(v3) )
+    {
+      d_name = i->d_name;
+      if ( strcmp(i->d_name, ".") )
+      {
+        if ( strcmp(d_name, "..") )
+        {
+          sub_102CC(name, 512, "%s/%s", a1, d_name);
+          unlink(name);
+        }
+      }
+    }
+    return (DIR *)closedir(v3);
+  }
+  return result;
+}
+
+
+=== REQUESTED sub_3D8AC ea=0x3d8ac ===
+range=0x3d8ac-0x3e02c actual_name=sub_3D8AC
+long double sub_3D8AC()
+{
+  size_t v0; // x0
+  int v1; // w21
+  size_t v2; // x0
+  unsigned int v3; // w0
+  __int64 i; // x20
+  int v5; // w24
+  int v6; // w25
+  int v7; // w8
+  int v8; // w8
+  int v9; // w20
+  __int64 v10; // x20
+  char *v11; // x22
+  size_t v12; // x0
+  unsigned __int8 *v13; // x9
+  size_t v14; // x8
+  char *v15; // x0
+  int v16; // w10
+  FILE *v17; // x0
+  long double result; // q0
+  FILE *v19; // x20
+  size_t v20; // x21
+  size_t v21; // x0
+  __int64 v22; // x8
+  char *v23; // x9
+  int v24; // w10
+  int v25; // w8
+  char v26; // t1
+  int v27; // w9
+  uint16x4_t v28; // d0
+  uint16x4_t v29; // d7
+  uint16x4_t v30; // d6
+  uint16x4_t v31; // d5
+  uint16x4_t v32; // d4
+  uint16x4_t v33; // d1
+  uint16x4_t v34; // d16
+  uint16x4_t v35; // d17
+  uint16x4_t v36; // d18
+  int32x4_t v37; // q2
+  int8x16_t v38; // q7
+  int8x16_t v39; // q0
+  int8x16_t v40; // q2
+  uint16x4_t v41; // d3
+  int8x16_t v42; // q1
+  int8x16_t v43; // q0
+  int8x16_t v44; // q2
+  int8x16_t v45; // q1
+  FILE *v46; // x0
+  FILE *v47; // x20
+  _QWORD v48[2]; // [xsp+0h] [xbp-3B0h] BYREF
+  unsigned __int64 StatusReg; // [xsp+10h] [xbp-3A0h]
+  _DWORD *v50; // [xsp+18h] [xbp-398h]
+  int v51; // [xsp+20h] [xbp-390h]
+  int v52; // [xsp+24h] [xbp-38Ch]
+  int v53; // [xsp+28h] [xbp-388h]
+  int v54; // [xsp+2Ch] [xbp-384h]
+  _BYTE v55[24]; // [xsp+30h] [xbp-380h] BYREF
+  unsigned __int8 v56; // [xsp+48h] [xbp-368h]
+  unsigned __int8 v57; // [xsp+49h] [xbp-367h]
+  unsigned __int8 v58; // [xsp+4Ah] [xbp-366h]
+  unsigned __int8 v59; // [xsp+4Bh] [xbp-365h]
+  unsigned __int8 v60; // [xsp+4Ch] [xbp-364h]
+  unsigned __int8 v61; // [xsp+4Dh] [xbp-363h]
+  unsigned __int8 v62; // [xsp+4Eh] [xbp-362h]
+  unsigned __int8 v63; // [xsp+4Fh] [xbp-361h]
+  unsigned __int8 v64; // [xsp+50h] [xbp-360h]
+  unsigned __int8 v65; // [xsp+51h] [xbp-35Fh]
+  unsigned __int8 v66; // [xsp+52h] [xbp-35Eh]
+  unsigned __int8 v67; // [xsp+53h] [xbp-35Dh]
+  unsigned __int8 v68; // [xsp+54h] [xbp-35Ch]
+  unsigned __int8 v69; // [xsp+55h] [xbp-35Bh]
+  unsigned __int8 v70; // [xsp+56h] [xbp-35Ah]
+  unsigned __int8 v71; // [xsp+57h] [xbp-359h]
+  unsigned __int8 v72; // [xsp+58h] [xbp-358h]
+  unsigned __int8 v73; // [xsp+59h] [xbp-357h]
+  unsigned __int8 v74; // [xsp+5Ah] [xbp-356h]
+  unsigned __int8 v75; // [xsp+5Bh] [xbp-355h]
+  unsigned __int8 v76; // [xsp+5Ch] [xbp-354h]
+  unsigned __int8 v77; // [xsp+5Dh] [xbp-353h]
+  unsigned __int8 v78; // [xsp+5Eh] [xbp-352h]
+  unsigned __int8 v79; // [xsp+5Fh] [xbp-351h]
+  unsigned __int8 v80; // [xsp+60h] [xbp-350h]
+  unsigned __int8 v81; // [xsp+61h] [xbp-34Fh]
+  unsigned __int8 v82; // [xsp+62h] [xbp-34Eh]
+  unsigned __int8 v83; // [xsp+63h] [xbp-34Dh]
+  unsigned __int8 v84; // [xsp+64h] [xbp-34Ch]
+  unsigned __int8 v85; // [xsp+65h] [xbp-34Bh]
+  unsigned __int8 v86; // [xsp+66h] [xbp-34Ah]
+  unsigned __int8 v87; // [xsp+67h] [xbp-349h]
+  unsigned __int8 v88; // [xsp+68h] [xbp-348h]
+  unsigned __int8 v89; // [xsp+69h] [xbp-347h]
+  unsigned __int8 v90; // [xsp+6Ah] [xbp-346h]
+  unsigned __int8 v91; // [xsp+6Bh] [xbp-345h]
+  unsigned __int8 v92; // [xsp+6Ch] [xbp-344h]
+  unsigned __int8 v93; // [xsp+6Dh] [xbp-343h]
+  unsigned __int8 v94; // [xsp+6Eh] [xbp-342h]
+  unsigned __int8 v95; // [xsp+6Fh] [xbp-341h]
+  unsigned __int8 v96; // [xsp+70h] [xbp-340h]
+  unsigned __int8 v97; // [xsp+71h] [xbp-33Fh]
+  unsigned __int8 v98; // [xsp+72h] [xbp-33Eh]
+  unsigned __int8 v99; // [xsp+73h] [xbp-33Dh]
+  unsigned __int8 v100; // [xsp+74h] [xbp-33Ch]
+  unsigned __int8 v101; // [xsp+75h] [xbp-33Bh]
+  unsigned __int8 v102; // [xsp+76h] [xbp-33Ah]
+  unsigned __int8 v103; // [xsp+77h] [xbp-339h]
+  unsigned __int8 v104; // [xsp+78h] [xbp-338h]
+  unsigned __int8 v105; // [xsp+79h] [xbp-337h]
+  unsigned __int8 v106; // [xsp+7Ah] [xbp-336h]
+  unsigned __int8 v107; // [xsp+7Bh] [xbp-335h]
+  unsigned __int8 v108; // [xsp+7Ch] [xbp-334h]
+  unsigned __int8 v109; // [xsp+7Dh] [xbp-333h]
+  unsigned __int8 v110; // [xsp+7Eh] [xbp-332h]
+  unsigned __int8 v111; // [xsp+7Fh] [xbp-331h]
+  unsigned __int8 v112; // [xsp+80h] [xbp-330h]
+  unsigned __int8 v113; // [xsp+81h] [xbp-32Fh]
+  unsigned __int8 v114; // [xsp+82h] [xbp-32Eh]
+  unsigned __int8 v115; // [xsp+83h] [xbp-32Dh]
+  unsigned __int8 v116; // [xsp+84h] [xbp-32Ch]
+  unsigned __int8 v117; // [xsp+85h] [xbp-32Bh]
+  unsigned __int8 v118; // [xsp+86h] [xbp-32Ah]
+  unsigned __int8 v119; // [xsp+87h] [xbp-329h]
+  _QWORD v120[2]; // [xsp+98h] [xbp-318h] BYREF
+  char v121; // [xsp+A8h] [xbp-308h]
+  _OWORD v122[6]; // [xsp+B0h] [xbp-300h] BYREF
+  _OWORD v123[32]; // [xsp+110h] [xbp-2A0h] BYREF
+  long double ptr[4]; // [xsp+310h] [xbp-A0h] BYREF
+  __int64 v125; // [xsp+350h] [xbp-60h]
+
+  StatusReg = _ReadStatusReg(TPIDR_EL0);
+  v125 = *(_QWORD *)(StatusReg + 40);
+  memset(v123, 0, sizeof(v123));
+  sub_102CC(v123, 512, "%s%s/%s", &byte_124010, (const char *)(qword_1263E8 + 720), ".aid");
+  if ( !access((const char *)v123, 0) )
+  {
+    *(_QWORD *)v55 = 0;
+    *(_QWORD *)&v55[8] = 0;
+    v17 = fopen((const char *)v123, "r");
+    if ( v17 )
+    {
+      v19 = v17;
+      fread(v55, 1u, 0x10u, v17);
+      fclose(v19);
+      xmmword_1201F8 = *(_OWORD *)v55;
+      return *(long double *)v55;
+    }
+    return result;
+  }
+  memset(v122, 0, 92);
+  if ( (int)__system_property_get("ro.build.fingerprint", v122) <= 0 )
+  {
+    v0 = __strlen_chk("0", 2u);
+    v1 = v0;
+    __memcpy_chk(v122, "0", (__int64)((v0 << 32) + 0x100000000LL) >> 32, 92);
+    if ( v1 <= 0 && (int)__system_property_get("ro.product.build.fingerprint", v122) <= 0 )
+    {
+      v2 = __strlen_chk("0", 2u);
+      __memcpy_chk(v122, "0", (__int64)((v2 << 32) + 0x100000000LL) >> 32, 92);
+    }
+  }
+  v120[0] = 0;
+  v120[1] = 0;
+  v121 = 0;
+  v3 = time(0);
+  srand(v3);
+  for ( i = 0; i != 16; ++i )
+  {
+    v8 = rand() % 3;
+    switch ( v8 )
+    {
+      case 0:
+        v5 = 65;
+        v6 = 26;
+        goto LABEL_8;
+      case 2:
+        v5 = 48;
+        v6 = 10;
+LABEL_8:
+        v7 = v5 + rand() % v6;
+        goto LABEL_9;
+      case 1:
+        v5 = 97;
+        v6 = 26;
+        goto LABEL_8;
+    }
+    LOBYTE(v7) = 120;
+LABEL_9:
+    *((_BYTE *)v120 + i) = v7;
+  }
+  v9 = __strlen_chk((const char *)v122, 0x5Cu);
+  v48[1] = v48;
+  v10 = (unsigned int)__strlen_chk((const char *)v120, 0x11u) + v9 + 1;
+  v11 = (char *)v48 - ((v10 + 15) & 0x1FFFFFFF0LL);
+  memset(v11, 0, (int)v10);
+  v12 = __strlen_chk((const char *)v122, 0x5Cu);
+  if ( v12 )
+  {
+    v13 = (unsigned __int8 *)v122;
+    v14 = 1 - v12;
+    v15 = v11 + 1;
+    while ( 1 )
+    {
+      v16 = *v13;
+      *(v15 - 1) = v16;
+      if ( !v16 )
+        break;
+      ++v14;
+      ++v13;
+      ++v15;
+      if ( v14 == 1 )
+        goto LABEL_25;
+    }
+    if ( v14 )
+      memset(v15, 0, -(__int64)v14);
+  }
+LABEL_25:
+  v20 = __strlen_chk((const char *)v122, 0x5Cu);
+  v21 = __strlen_chk((const char *)v120, 0x11u);
+  if ( v21 )
+  {
+    v22 = 0;
+    v23 = &v11[v20];
+    while ( 1 )
+    {
+      v24 = *((unsigned __int8 *)v120 + v22);
+      v23[v22] = v24;
+      if ( !v24 )
+        break;
+      if ( v21 == ++v22 )
+        goto LABEL_32;
+    }
+    if ( v21 - 1 != v22 )
+      memset(&v23[v22 + 1], 0, ~v22 + v21);
+  }
+LABEL_32:
+  *(_DWORD *)v55 = 8 * v10;
+  *(_DWORD *)&v55[4] = (unsigned int)v10 >> 29;
+  *(_OWORD *)&v55[8] = xmmword_EC3D0;
+  if ( (_DWORD)v10 )
+  {
+    v25 = 0;
+    v50 = &v55[8];
+    do
+    {
+      v26 = *v11++;
+      v27 = v25 + 1;
+      LODWORD(v10) = v10 - 1;
+      v55[v25 + 24] = v26;
+      if ( v25 == 63 )
+      {
+        v51 = v56;
+        v54 = v60;
+        v53 = v64;
+        v28.n64_u16[0] = v57;
+        v29.n64_u16[0] = v59;
+        v30.n64_u16[0] = v75;
+        v52 = v68;
+        v31.n64_u16[0] = v58;
+        v32.n64_u16[0] = v74;
+        v33.n64_u16[0] = v90;
+        v30.n64_u16[1] = v79;
+        v34.n64_u16[0] = v91;
+        v32.n64_u16[1] = v78;
+        v33.n64_u16[1] = v94;
+        v35.n64_u16[0] = v106;
+        v34.n64_u16[1] = v95;
+        v32.n64_u16[2] = v82;
+        v36.n64_u16[0] = v107;
+        v28.n64_u16[1] = v61;
+        v31.n64_u16[1] = v62;
+        v29.n64_u16[1] = v63;
+        v35.n64_u16[1] = v110;
+        v30.n64_u16[2] = v83;
+        v34.n64_u16[2] = v99;
+        v36.n64_u16[1] = v111;
+        v28.n64_u16[2] = v65;
+        v31.n64_u16[2] = v66;
+        v29.n64_u16[2] = v67;
+        v35.n64_u16[2] = v114;
+        v34.n64_u16[3] = v103;
+        v33.n64_u16[2] = v98;
+        v36.n64_u16[2] = v115;
+        v31.n64_u16[3] = v70;
+        v29.n64_u16[3] = v71;
+        v35.n64_u16[3] = v118;
+        v32.n64_u16[3] = v86;
+        v30.n64_u16[3] = v87;
+        v33.n64_u16[3] = v102;
+        v36.n64_u16[3] = v119;
+        v37 = vmovl_u16(v29);
+        v38.n128_u64[0] = 0xFF000000FFLL;
+        v38.n128_u64[1] = 0xFF000000FFLL;
+        v28.n64_u16[3] = v69;
+        v39 = vorrq_s8(
+                vorrq_s8(vshlq_n_s32(vandq_s8(vmovl_u16(v31), v38), 0x10u), vshlq_n_s32(v37, 0x18u)),
+                vshlq_n_s32(vandq_s8(vmovl_u16(v28), v38), 8u));
+        v37.n128_u16[0] = v73;
+        v37.n128_u16[1] = v77;
+        v37.n128_u16[2] = v81;
+        v37.n128_u16[3] = v85;
+        v40 = vorrq_s8(
+                vorrq_s8(vshlq_n_s32(vandq_s8(vmovl_u16(v32), v38), 0x10u), vshlq_n_s32(vmovl_u16(v30), 0x18u)),
+                vshlq_n_s32(vandq_s8(vmovl_u16((uint16x4_t)v37.n128_u64[0]), v38), 8u));
+        v41.n64_u16[0] = v89;
+        v41.n64_u16[1] = v93;
+        v41.n64_u16[2] = v97;
+        v41.n64_u16[3] = v101;
+        v42 = vorrq_s8(
+                vorrq_s8(vshlq_n_s32(vandq_s8(vmovl_u16(v33), v38), 0x10u), vshlq_n_s32(vmovl_u16(v34), 0x18u)),
+                vshlq_n_s32(vandq_s8(vmovl_u16(v41), v38), 8u));
+        v41.n64_u16[0] = v105;
+        v41.n64_u16[1] = v109;
+        v41.n64_u16[2] = v113;
+        v41.n64_u16[3] = v117;
+        v32.n64_u16[0] = v56;
+        v32.n64_u16[1] = v60;
+        v32.n64_u16[2] = v64;
+        v32.n64_u16[3] = v68;
+        v43 = vorrq_s8(v39, vandq_s8(vmovl_u16(v32), v38));
+        v32.n64_u16[0] = v72;
+        v32.n64_u16[1] = v76;
+        v32.n64_u16[2] = v80;
+        v32.n64_u16[3] = v84;
+        v44 = vorrq_s8(v40, vandq_s8(vmovl_u16(v32), v38));
+        v32.n64_u16[0] = v88;
+        v32.n64_u16[1] = v92;
+        v32.n64_u16[2] = v96;
+        v32.n64_u16[3] = v100;
+        v45 = vorrq_s8(v42, vandq_s8(vmovl_u16(v32), v38));
+        v32.n64_u16[0] = v104;
+        v32.n64_u16[1] = v108;
+        v32.n64_u16[2] = v112;
+        v32.n64_u16[3] = v116;
+        ptr[0] = *(long double *)&v43;
+        ptr[1] = *(long double *)&v44;
+        ptr[2] = *(long double *)&v45;
+        *(int8x16_t *)&ptr[3] = vorrq_s8(
+                                  vorrq_s8(
+                                    vorrq_s8(
+                                      vshlq_n_s32(vandq_s8(vmovl_u16(v35), v38), 0x10u),
+                                      vshlq_n_s32(vmovl_u16(v36), 0x18u)),
+                                    vshlq_n_s32(vandq_s8(vmovl_u16(v41), v38), 8u)),
+                                  vandq_s8(vmovl_u16(v32), v38));
+        sub_3E544(v50, (int *)ptr);
+        v27 = 0;
+      }
+      v25 = v27;
+    }
+    while ( (_DWORD)v10 );
+  }
+  sub_3E114(ptr, (__int64)v55);
+  v46 = fopen((const char *)v123, "w");
+  if ( v46 )
+  {
+    v47 = v46;
+    fwrite(ptr, 1u, 0x10u, v46);
+    fflush(v47);
+    fclose(v47);
+    xmmword_1201F8 = *(_OWORD *)ptr;
+    return ptr[0];
+  }
+  return result;
+}
+
+
+=== REQUESTED sub_3F07C ea=0x3f07c ===
+range=0x3f07c-0x3f1fc actual_name=sub_3F07C
+__int64 __fastcall sub_3F07C(__int64 result, _OWORD *a2, _OWORD *a3)
+{
+  __int64 v3; // x22
+  __int64 *v5; // x27
+  __int64 v6; // x0
+  _OWORD *v7; // x3
+  __int64 v8; // t1
+  int v9; // w20
+
+  *a2 = 0u;
+  a2[1] = 0u;
+  *a3 = 0u;
+  a3[1] = 0u;
+  v3 = *(_QWORD *)result;
+  if ( *(_QWORD *)result )
+  {
+    v5 = (__int64 *)(result + 8);
+    do
+    {
+      if ( !strncmp((const char *)v3, "/**/", 4u) )
+      {
+        sub_82944(v3 + 4, "", 0, a3, 5);
+        v9 = 1;
+      }
+      else
+      {
+        v9 = 0;
+      }
+      if ( !strncmp((const char *)v3, "/sdcard/", 8u) )
+      {
+        sub_82944(v3 + 8, "", 0, a3, 5);
+        v9 = 1;
+      }
+      if ( !strncmp((const char *)v3, "!/**/", 5u) )
+      {
+        *(_BYTE *)(v3 + 4) = 33;
+        sub_82944(v3 + 4, "", 0, a3, 5);
+        v9 = 1;
+      }
+      result = strncmp((const char *)v3, "!/sdcard/", 9u);
+      if ( (_DWORD)result )
+      {
+        if ( v9 )
+          goto LABEL_5;
+        v7 = a2;
+        v6 = v3;
+      }
+      else
+      {
+        *(_BYTE *)(v3 + 8) = 33;
+        v6 = v3 + 8;
+        v7 = a3;
+      }
+      result = sub_82944(v6, "", 0, v7, 5);
+LABEL_5:
+      v8 = *v5++;
+      v3 = v8;
+    }
+    while ( v8 );
+  }
+  return result;
+}
+
+
+=== REQUESTED sub_3F1FC ea=0x3f1fc ===
+range=0x3f1fc-0x3f39c actual_name=sub_3F1FC
+char *__fastcall sub_3F1FC(char *result, _BYTE **a2)
+{
+  const char *v2; // x27
+  char *v3; // x19
+  __int64 v5; // x25
+  const char *v6; // x26
+  const char *v7; // x27
+  _BYTE *v8; // x9
+  _QWORD *v9; // x8
+  _BYTE *v10; // t1
+  _QWORD *v11; // [xsp+8h] [xbp-168h]
+  _BYTE v12[256]; // [xsp+10h] [xbp-160h] BYREF
+  __int64 v13; // [xsp+110h] [xbp-60h]
+
+  v13 = *(_QWORD *)(_ReadStatusReg(TPIDR_EL0) + 40);
+  v2 = *(const char **)result;
+  if ( *(_QWORD *)result )
+  {
+    v3 = result;
+    v5 = 0;
+    v11 = a2 + 1;
+    do
+    {
+      if ( *v2 != 33 )
+      {
+        if ( !strncmp(v2, "/**/", 4u) )
+          v6 = v2 + 4;
+        else
+          v6 = 0;
+        if ( !strncmp(v2, "/sdcard/", 8u) )
+          v6 = v2 + 8;
+        if ( !strncmp(v2, "!/**/", 5u) )
+          v6 = v2 + 5;
+        result = (char *)strncmp(v2, "!/sdcard/", 8u);
+        v7 = (_DWORD)result ? v6 : v2 + 9;
+        if ( v7 )
+        {
+          result = strchr(v7, 42);
+          if ( !result )
+          {
+            result = strchr(v7, 47);
+            if ( !result )
+            {
+              v8 = *a2;
+              if ( *a2 )
+              {
+                v9 = v11;
+                while ( *v8 == 33 )
+                {
+                  v10 = (_BYTE *)*v9++;
+                  v8 = v10;
+                  if ( !v10 )
+                    goto LABEL_3;
+                }
+              }
+              else
+              {
+LABEL_3:
+                sub_102CC(v12, 256, "%s%s", (const char *)&qword_124090, v7);
+                result = (char *)sub_42C78(v12, (unsigned int)dword_1266D4);
+              }
+            }
+          }
+        }
+      }
+      ++v5;
+      v2 = *(const char **)&v3[8 * v5];
+    }
+    while ( v2 );
+  }
+  return result;
+}
+
+
+=== REQUESTED sub_3F39C ea=0x3f39c ===
+range=0x3f39c-0x3f578 actual_name=sub_3F39C
+size_t __fastcall sub_3F39C(size_t result, const char **a2)
+{
+  const char *v2; // x21
+  const char **v4; // x20
+  const char **v5; // x22
+  const char *v6; // t1
+  __int64 v7; // x8
+  const char *v8; // x25
+  __int64 v9; // x28
+  unsigned __int64 v10; // x27
+  _BYTE *v11; // x0
+  size_t v12; // x27
+  _BYTE *v13; // x26
+  const char *v14; // x22
+  const char *v15; // x25
+  unsigned int v16; // w0
+  const char *v17; // x27
+  unsigned int v18; // w26
+  const char **v19; // x22
+  __int64 v20; // x22
+  size_t v21; // x0
+  int v22; // w8
+
+  v2 = *a2;
+  v4 = (const char **)result;
+  if ( *a2 )
+  {
+    v5 = a2 + 1;
+    do
+    {
+      result = strlen(v2);
+      v7 = (__int64)((result << 32) - 0x100000000LL) >> 32;
+      if ( v2[v7] == 47 )
+        v2[v7] = 0;
+      v6 = *v5++;
+      v2 = v6;
+    }
+    while ( v6 );
+  }
+  v8 = *v4;
+  if ( *v4 )
+  {
+    v9 = 0;
+    do
+    {
+      if ( !strncmp(v8, "/**/", 4u) )
+        v14 = v8 + 4;
+      else
+        v14 = 0;
+      if ( !strncmp(v8, "/sdcard/", 8u) )
+        v14 = v8 + 8;
+      if ( !strncmp(v8, "!/**/", 5u) )
+        v14 = v8 + 5;
+      result = strncmp(v8, "!/sdcard/", 8u);
+      if ( (_DWORD)result )
+        v15 = v14;
+      else
+        v15 = v8 + 9;
+      if ( v15 )
+      {
+        if ( strchr(v15, 42) || (result = (size_t)strchr(v15, 47)) != 0 )
+        {
+          v16 = (unsigned int)strchr(v15, 47);
+          v17 = *a2;
+          v18 = v16;
+          v19 = a2;
+          if ( *a2 )
+          {
+            v20 = 0;
+            while ( 1 )
+            {
+              v21 = strlen(v17);
+              result = strncmp(v17, v15, v21);
+              if ( !(_DWORD)result )
+                break;
+              v17 = a2[v20 + 1];
+              v22 = ++v20;
+              if ( !v17 )
+              {
+                v19 = &a2[v22];
+                goto LABEL_8;
+              }
+            }
+          }
+          else
+          {
+LABEL_8:
+            v10 = (unsigned __int64)(v18 - (unsigned int)v15) << 32;
+            v11 = malloc((__int64)(v10 + 0x200000000LL) >> 32);
+            v12 = (__int64)(v10 + 0x100000000LL) >> 32;
+            v13 = v11;
+            *v19 = v11;
+            result = (size_t)memcpy(v11, v15, v12);
+            v13[v12] = 0;
+          }
+        }
+      }
+      v8 = v4[++v9];
+    }
+    while ( v8 );
+  }
+  return result;
+}
+
+
+=== REQUESTED sub_3F578 ea=0x3f578 ===
+range=0x3f578-0x3f6fc actual_name=sub_3F578
+DIR *__fastcall sub_3F578(const char *a1, unsigned int a2, __int64 a3)
+{
+  DIR *result; // x0
+  DIR *v7; // x22
+  struct dirent *i; // x0
+  const char *d_name; // x27
+  int v10; // w8
+  int v11; // w27
+  _WORD v12[64]; // [xsp+0h] [xbp-2E0h] BYREF
+  char file[512]; // [xsp+80h] [xbp-260h] BYREF
+  __int64 v14; // [xsp+280h] [xbp-60h]
+
+  v14 = *(_QWORD *)(_ReadStatusReg(TPIDR_EL0) + 40);
+  result = opendir(a1);
+  if ( result )
+  {
+    v7 = result;
+    for ( i = readdir(result); i; i = readdir(v7) )
+    {
+      d_name = i->d_name;
+      if ( strcmp(i->d_name, ".") )
+      {
+        if ( strcmp(d_name, "..") )
+        {
+          sub_102CC(file, 512, "%s/%s", a1, d_name);
+          if ( !lstat(file, (struct stat *)v12) )
+          {
+            v10 = v12[8] & 0xF000;
+            if ( v10 == 0x8000 )
+            {
+              v11 = sub_43114(file);
+              if ( (unsigned int)sub_82B44((unsigned __int8)byte_1266D0, &file[a2]) == 1 )
+                sub_42C78(file, (unsigned int)dword_126C20);
+              if ( v11 )
+                sub_42C78(file, (unsigned int)dword_1266D4);
+            }
+            else if ( v10 == 0x4000 )
+            {
+              sub_3F578(file, a2, a3);
+            }
+          }
+        }
+      }
+    }
+    return (DIR *)closedir(v7);
+  }
+  return result;
+}
+
+
+=== REQUESTED sub_3F6FC ea=0x3f6fc ===
+range=0x3f6fc-0x3f894 actual_name=sub_3F6FC
+DIR *__fastcall sub_3F6FC(const char *a1, unsigned int a2, __int64 a3)
+{
+  DIR *result; // x0
+  DIR *v7; // x22
+  struct dirent *i; // x0
+  const char *d_name; // x27
+  int v10; // w8
+  int v11; // w27
+  int v12; // w28
+  _BYTE v13[16]; // [xsp+10h] [xbp-2E0h] BYREF
+  int v14; // [xsp+20h] [xbp-2D0h]
+  char file[512]; // [xsp+90h] [xbp-260h] BYREF
+  __int64 v16; // [xsp+290h] [xbp-60h]
+
+  v16 = *(_QWORD *)(_ReadStatusReg(TPIDR_EL0) + 40);
+  result = opendir(a1);
+  if ( result )
+  {
+    v7 = result;
+    for ( i = readdir(result); i; i = readdir(v7) )
+    {
+      d_name = i->d_name;
+      if ( strcmp(i->d_name, ".") )
+      {
+        if ( strcmp(d_name, "..") )
+        {
+          sub_102CC(file, 512, "%s/%s", a1, d_name);
+          if ( !lstat(file, (struct stat *)v13) )
+          {
+            v10 = v14 & 0xF000;
+            if ( v10 == 0x8000 )
+            {
+              v11 = sub_43114(file);
+              v12 = sub_82B44((unsigned __int8)byte_1266D0, &file[a2]);
+              if ( v11 && v12 != 1 )
+                sub_42C78(file, (unsigned int)dword_1266D4);
+              if ( !v11 && v12 == 1 )
+                sub_42C78(file, (unsigned int)dword_1266D4);
+            }
+            else if ( v10 == 0x4000 )
+            {
+              sub_3F6FC(file, a2, a3);
+            }
+          }
+        }
+      }
+    }
+    return (DIR *)closedir(v7);
+  }
+  return result;
+}
+
+
+=== REQUESTED sub_3F894 ea=0x3f894 ===
+range=0x3f894-0x42774 actual_name=sub_3F894
+__int64 __fastcall sub_3F894(__int64 a1)
+{
+  char v1; // w19
+  int v2; // w22
+  __int64 v3; // x8
+  FILE *v4; // x0
+  unsigned int v5; // w21
+  unsigned int v6; // w22
+  _DWORD *v7; // x20
+  unsigned int v8; // w0
+  _BYTE *i; // x8
+  unsigned int v10; // w0
+  _BYTE *j; // x8
+  unsigned int v12; // w26
+  int v13; // w23
+  size_t v14; // x0
+  int v15; // w21
+  bool v16; // w8
+  char v17; // w8
+  _QWORD *v18; // x0
+  _QWORD *v19; // x20
+  char *v20; // x0
+  __int128 v21; // q0
+  __int128 v22; // q1
+  __int64 *v23; // x8
+  void *v24; // x20
+  void *v25; // x0
+  int v26; // w21
+  size_t v27; // x0
+  size_t v28; // x0
+  regex_t *p_preg; // x8
+  size_t v30; // x9
+  char *v31; // x0
+  int buffer_low; // w10
+  size_t v33; // x0
+  int v34; // w0
+  __pid_t v35; // w0
+  FILE *v36; // x0
+  FILE *v37; // x19
+  __int64 v38; // x24
+  FILE *v39; // x0
+  FILE *v40; // x21
+  size_t re_nsub; // x22
+  unsigned __int16 *v42; // x19
+  __int64 v43; // x10
+  __int64 v44; // x9
+  __int64 v45; // x8
+  __int64 v46; // x11
+  int v47; // w12
+  __int64 v48; // x27
+  char *v49; // x28
+  _QWORD *k; // x26
+  const char *v51; // x23
+  __int64 v52; // x21
+  size_t v53; // x0
+  int v54; // w21
+  __pid_t v55; // w19
+  DIR *v56; // x0
+  DIR *v57; // x21
+  unsigned int v58; // w27
+  struct dirent *v59; // x0
+  const char *d_name; // x25
+  int v61; // w25
+  size_t v62; // x0
+  size_t v63; // x0
+  void *v64; // x21
+  __int64 result; // x0
+  _QWORD *v66; // x0
+  _QWORD *v67; // x20
+  char *v68; // x0
+  __int128 v69; // q0
+  __int128 v70; // q1
+  __int64 *v71; // x8
+  _QWORD *v72; // x0
+  _QWORD *v73; // x20
+  char *v74; // x0
+  __int128 v75; // q0
+  __int128 v76; // q1
+  __int64 *v77; // x8
+  _QWORD *v78; // x0
+  _QWORD *v79; // x20
+  char *v80; // x0
+  __int128 v81; // q0
+  __int128 v82; // q1
+  __int64 *v83; // x8
+  _QWORD *v84; // x0
+  _QWORD *v85; // x20
+  char *v86; // x0
+  __int128 v87; // q0
+  __int128 v88; // q1
+  __int64 *v89; // x8
+  _QWORD *v90; // x0
+  _QWORD *v91; // x20
+  char *v92; // x0
+  __int128 v93; // q0
+  __int128 v94; // q1
+  __int64 *v95; // x8
+  _QWORD *v96; // x0
+  _QWORD *v97; // x20
+  char *v98; // x0
+  __int128 v99; // q0
+  __int64 *v100; // x8
+  _QWORD *v101; // x0
+  _QWORD *v102; // x20
+  char *v103; // x0
+  __int128 v104; // q0
+  __int128 v105; // q1
+  __int64 *v106; // x8
+  _QWORD *v107; // x0
+  _QWORD *v108; // x20
+  char *v109; // x0
+  __int128 v110; // q0
+  __int128 v111; // q1
+  __int64 *v112; // x8
+  _QWORD *v113; // x0
+  _QWORD *v114; // x20
+  char *v115; // x0
+  __int128 v116; // q0
+  __int128 v117; // q1
+  __int64 *v118; // x8
+  _QWORD *v119; // x0
+  _QWORD *v120; // x20
+  char *v121; // x0
+  __int128 v122; // q0
+  __int128 v123; // q1
+  __int64 *v124; // x8
+  _QWORD *v125; // x0
+  _QWORD *v126; // x20
+  char *v127; // x0
+  __int128 v128; // q0
+  __int128 v129; // q1
+  __int64 *v130; // x8
+  _QWORD *v131; // x0
+  _QWORD *v132; // x20
+  char *v133; // x0
+  __int128 v134; // q0
+  __int64 *v135; // x8
+  _QWORD *v136; // x0
+  _QWORD *v137; // x20
+  char *v138; // x0
+  __int128 v139; // q0
+  __int128 v140; // q1
+  __int64 *v141; // x8
+  _QWORD *v142; // x0
+  _QWORD *v143; // x20
+  char *v144; // x0
+  __int128 v145; // q0
+  __int128 v146; // q1
+  __int64 *v147; // x8
+  _QWORD *v148; // x0
+  _QWORD *v149; // x20
+  char *v150; // x0
+  __int128 v151; // q0
+  __int128 v152; // q1
+  __int64 *v153; // x8
+  _QWORD *v154; // x0
+  _QWORD *v155; // x20
+  char *v156; // x0
+  __int128 v157; // q0
+  __int128 v158; // q1
+  __int64 *v159; // x8
+  _QWORD *v160; // x0
+  _QWORD *v161; // x20
+  char *v162; // x0
+  __int128 v163; // q0
+  __int128 v164; // q1
+  __int64 *v165; // x8
+  _QWORD *v166; // x0
+  _QWORD *v167; // x20
+  char *v168; // x0
+  __int128 v169; // q0
+  __int64 *v170; // x8
+  _QWORD *v171; // x0
+  _QWORD *v172; // x20
+  char *v173; // x0
+  __int128 v174; // q0
+  __int128 v175; // q1
+  __int64 *v176; // x8
+  _QWORD *v177; // x0
+  _QWORD *v178; // x20
+  char *v179; // x0
+  __int128 v180; // q0
+  __int128 v181; // q1
+  __int64 *v182; // x8
+  _QWORD *v183; // x0
+  _QWORD *v184; // x20
+  char *v185; // x0
+  __int128 v186; // q0
+  __int128 v187; // q1
+  __int64 *v188; // x8
+  _QWORD *v189; // x0
+  _QWORD *v190; // x20
+  char *v191; // x0
+  __int128 v192; // q0
+  __int128 v193; // q1
+  __int64 *v194; // x8
+  _QWORD *v195; // x0
+  _QWORD *v196; // x20
+  char *v197; // x0
+  __int128 v198; // q0
+  __int128 v199; // q1
+  __int64 *v200; // x8
+  _QWORD *v201; // x0
+  _QWORD *v202; // x20
+  char *v203; // x0
+  __int128 v204; // q0
+  __int128 v205; // q1
+  __int64 *v206; // x8
+  _QWORD *v207; // x0
+  _QWORD *v208; // x20
+  char *v209; // x0
+  __int128 v210; // q0
+  __int128 v211; // q1
+  __int64 *v212; // x8
+  _QWORD *v213; // x0
+  _QWORD *v214; // x20
+  char *v215; // x0
+  __int128 v216; // q0
+  __int64 *v217; // x8
+  _QWORD *v218; // x0
+  _QWORD *v219; // x20
+  char *v220; // x0
+  __int128 v221; // q0
+  __int128 v222; // q1
+  __int64 *v223; // x8
+  _QWORD *v224; // x0
+  _QWORD *v225; // x20
+  char *v226; // x0
+  __int128 v227; // q0
+  __int128 v228; // q1
+  __int64 *v229; // x8
+  _QWORD *v230; // x0
+  _QWORD *v231; // x20
+  char *v232; // x0
+  __int128 v233; // q0
+  __int128 v234; // q1
+  __int64 *v235; // x8
+  _QWORD *v236; // x0
+  _QWORD *v237; // x20
+  char *v238; // x0
+  __int128 v239; // q0
+  __int128 v240; // q1
+  __int64 *v241; // x8
+  _QWORD *v242; // x0
+  _QWORD *v243; // x20
+  char *v244; // x0
+  __int128 v245; // q0
+  __int128 v246; // q1
+  __int64 *v247; // x8
+  _QWORD *v248; // x0
+  _QWORD *v249; // x20
+  char *v250; // x0
+  __int128 v251; // q0
+  __int128 v252; // q1
+  __int64 *v253; // x8
+  _QWORD *v254; // x0
+  _QWORD *v255; // x20
+  char *v256; // x0
+  __int128 v257; // q0
+  __int128 v258; // q1
+  __int64 *v259; // x8
+  _QWORD *v260; // x0
+  _QWORD *v261; // x20
+  char *v262; // x0
+  __int128 v263; // q0
+  __int128 v264; // q1
+  __int64 *v265; // x8
+  _QWORD *v266; // x0
+  _QWORD *v267; // x20
+  char *v268; // x0
+  __int128 v269; // q0
+  __int128 v270; // q1
+  __int64 *v271; // x8
+  _QWORD *v272; // x0
+  _QWORD *v273; // x20
+  char *v274; // x0
+  __int128 v275; // q0
+  __int128 v276; // q1
+  __int64 *v277; // x8
+  _QWORD *v278; // x0
+  _QWORD *v279; // x20
+  char *v280; // x0
+  __int128 v281; // q0
+  __int64 *v282; // x8
+  _QWORD *v283; // x0
+  _QWORD *v284; // x20
+  char *v285; // x0
+  __int128 v286; // q0
+  __int128 v287; // q1
+  __int64 *v288; // x8
+  _QWORD *v289; // x0
+  _QWORD *v290; // x20
+  char *v291; // x0
+  __int128 v292; // q0
+  __int128 v293; // q1
+  __int64 *v294; // x8
+  _QWORD *v295; // x0
+  _QWORD *v296; // x20
+  char *v297; // x0
+  __int128 v298; // q0
+  __int128 v299; // q1
+  __int64 *v300; // x8
+  _QWORD *v301; // x0
+  _QWORD *v302; // x20
+  char *v303; // x0
+  __int128 v304; // q0
+  __int128 v305; // q1
+  __int64 *v306; // x8
+  _QWORD *v307; // x0
+  _QWORD *v308; // x20
+  char *v309; // x0
+  __int128 v310; // q0
+  __int128 v311; // q1
+  __int64 *v312; // x8
+  _QWORD *v313; // x0
+  _QWORD *v314; // x20
+  char *v315; // x0
+  __int128 v316; // q0
+  __int128 v317; // q1
+  __int64 *v318; // x8
+  _QWORD *v319; // x0
+  _QWORD *v320; // x23
+  char *v321; // x0
+  __int128 v322; // q0
+  __int64 *v323; // x8
+  char file[2]; // [xsp+8h] [xbp-AE8h] BYREF
+  __int16 v325; // [xsp+Ah] [xbp-AE6h]
+  char v326; // [xsp+Ch] [xbp-AE4h]
+  char v327; // [xsp+Dh] [xbp-AE3h]
+  char v328; // [xsp+Eh] [xbp-AE2h]
+  char v329; // [xsp+Fh] [xbp-AE1h]
+  _BYTE v330[5]; // [xsp+10h] [xbp-AE0h] BYREF
+  char v331[8]; // [xsp+15h] [xbp-ADBh] BYREF
+  char v332[2]; // [xsp+1Dh] [xbp-AD3h] BYREF
+  _OWORD s[64]; // [xsp+20h] [xbp-AD0h] BYREF
+  regex_t preg; // [xsp+420h] [xbp-6D0h] BYREF
+  _OWORD v335[4]; // [xsp+460h] [xbp-690h] BYREF
+  __int128 needle; // [xsp+820h] [xbp-2D0h] BYREF
+  __int128 v337; // [xsp+830h] [xbp-2C0h]
+  __int128 v338; // [xsp+840h] [xbp-2B0h]
+  __int128 v339; // [xsp+850h] [xbp-2A0h]
+  __int128 v340; // [xsp+860h] [xbp-290h]
+  __int128 v341; // [xsp+870h] [xbp-280h]
+  __int128 v342; // [xsp+880h] [xbp-270h]
+  __int128 v343; // [xsp+890h] [xbp-260h]
+  __int128 v344; // [xsp+8A0h] [xbp-250h]
+  __int128 v345; // [xsp+8B0h] [xbp-240h]
+  __int128 v346; // [xsp+8C0h] [xbp-230h]
+  __int128 v347; // [xsp+8D0h] [xbp-220h]
+  __int128 v348; // [xsp+8E0h] [xbp-210h]
+  __int128 v349; // [xsp+8F0h] [xbp-200h]
+  __int128 v350; // [xsp+900h] [xbp-1F0h]
+  __int128 v351; // [xsp+910h] [xbp-1E0h]
+  _BYTE v352[2]; // [xsp+92Ch] [xbp-1C4h] BYREF
+  __int16 v353; // [xsp+92Eh] [xbp-1C2h]
+  char v354[8]; // [xsp+930h] [xbp-1C0h] BYREF
+  __int16 v355; // [xsp+938h] [xbp-1B8h] BYREF
+  char v356; // [xsp+93Ah] [xbp-1B6h]
+  char v357; // [xsp+93Bh] [xbp-1B5h]
+  char v358; // [xsp+93Ch] [xbp-1B4h]
+  char v359; // [xsp+93Dh] [xbp-1B3h]
+  char v360; // [xsp+93Eh] [xbp-1B2h]
+  char v361; // [xsp+93Fh] [xbp-1B1h]
+  char v362; // [xsp+940h] [xbp-1B0h]
+  _BYTE v363[2]; // [xsp+944h] [xbp-1ACh] BYREF
+  __int16 v364; // [xsp+946h] [xbp-1AAh]
+  char v365[8]; // [xsp+948h] [xbp-1A8h] BYREF
+  _DWORD src[8]; // [xsp+950h] [xbp-1A0h] BYREF
+  __int64 v367; // [xsp+970h] [xbp-180h]
+  char name[16]; // [xsp+980h] [xbp-170h] BYREF
+  __int128 v369; // [xsp+990h] [xbp-160h]
+  __int128 v370; // [xsp+9A0h] [xbp-150h]
+  __int128 v371; // [xsp+9B0h] [xbp-140h]
+  __int128 v372; // [xsp+9C0h] [xbp-130h]
+  __int128 v373; // [xsp+9D0h] [xbp-120h]
+  __int128 v374; // [xsp+9E0h] [xbp-110h]
+  __int128 v375; // [xsp+9F0h] [xbp-100h]
+  __int128 v376; // [xsp+A00h] [xbp-F0h]
+  __int128 v377; // [xsp+A10h] [xbp-E0h]
+  __int128 v378; // [xsp+A20h] [xbp-D0h]
+  __int128 v379; // [xsp+A30h] [xbp-C0h]
+  __int128 v380; // [xsp+A40h] [xbp-B0h]
+  __int128 v381; // [xsp+A50h] [xbp-A0h]
+  __int128 v382; // [xsp+A60h] [xbp-90h]
+  __int128 v383; // [xsp+A70h] [xbp-80h]
+  __int64 v384; // [xsp+A88h] [xbp-68h]
+
+  v1 = a1;
+  v384 = *(_QWORD *)(_ReadStatusReg(TPIDR_EL0) + 40);
+  v2 = *(_DWORD *)(qword_1263E8 + 4);
+  if ( v2 >= 30 )
+  {
+    *(_OWORD *)name = xmmword_ED556;
+    v369 = xmmword_ED566;
+    *(_QWORD *)&v370 = 0x255344463F4550LL;
+    v3 = 1;
+    name[0] = byte_120253;
+    do
+    {
+      name[v3] = byte_120214[(unsigned __int8)name[v3]];
+      ++v3;
+    }
+    while ( v3 != 39 );
+    BYTE7(v370) = 0;
+    v4 = sub_43228("/lib64/libperfetto_hprof.so", 0);
+    a1 = sub_283D4(v4, name, 1);
+    if ( a1 )
+    {
+      v6 = *(_DWORD *)a1;
+      v5 = *(_DWORD *)(a1 + 4);
+      v7 = (_DWORD *)a1;
+      dword_126FB0 = v6;
+      if ( v6 )
+      {
+        ((void (*)(void))sub_43398)();
+        if ( !dword_127028 && !regcomp(&preg, "^/apex/.*/libperfetto_hprof.so$", 4) )
+        {
+          v319 = malloc(0x48u);
+          if ( v319 )
+          {
+            v320 = v319;
+            v321 = strdup("close");
+            v320[4] = v321;
+            if ( v321 )
+            {
+              v322 = *(_OWORD *)&preg.used;
+              *(_OWORD *)v320 = *(_OWORD *)&preg.buffer;
+              *((_OWORD *)v320 + 1) = v322;
+              v320[5] = sub_4358C;
+              v320[6] = &off_126FB8;
+              pthread_mutex_lock(&stru_126FC4);
+              v323 = off_121288;
+              v320[7] = 0;
+              v320[8] = v323;
+              *v323 = (__int64)v320;
+              off_121288 = v320 + 7;
+              pthread_mutex_unlock(&stru_126FC4);
+            }
+            else
+            {
+              free(v320);
+            }
+          }
+        }
+        sub_43604();
+      }
+      LOBYTE(needle) = byte_120223;
+      BYTE1(needle) = HIBYTE(word_120263);
+      BYTE2(needle) = byte_120266;
+      BYTE3(needle) = word_120263;
+      BYTE4(needle) = HIBYTE(word_120256);
+      BYTE5(needle) = byte_120223;
+      BYTE6(needle) = byte_120219;
+      BYTE7(needle) = word_120258;
+      BYTE8(needle) = byte_120223;
+      BYTE9(needle) = byte_12025A;
+      strcpy((char *)&needle + 10, "kz*k");
+      memset(&preg, 0, 0x400u);
+      a1 = (__int64)memset(s, 0, sizeof(s));
+      if ( v6 )
+      {
+        v8 = getpid();
+        sub_102CC(&preg, 1024, (const char *)&needle, v8, v6);
+        a1 = access((const char *)&preg, 0);
+        if ( !(_DWORD)a1 )
+        {
+          a1 = readlink((const char *)&preg, (char *)s, 0x3FFu);
+          for ( i = (char *)s + 3; ; ++i )
+          {
+            if ( *(i - 3) == 112 )
+            {
+              if ( *(i - 2) == 105 && *(i - 1) == 112 && *i == 101 )
+              {
+                a1 = close(v6);
+                break;
+              }
+            }
+            else if ( !*(i - 3) )
+            {
+              break;
+            }
+          }
+        }
+      }
+      if ( v5 )
+      {
+        memset(&preg, 0, 0x400u);
+        memset(s, 0, sizeof(s));
+        v10 = getpid();
+        sub_102CC(&preg, 1024, (const char *)&needle, v10, v5);
+        a1 = access((const char *)&preg, 0);
+        if ( !(_DWORD)a1 )
+        {
+          a1 = readlink((const char *)&preg, (char *)s, 0x3FFu);
+          for ( j = (char *)s + 3; ; ++j )
+          {
+            if ( *(j - 3) == 112 )
+            {
+              if ( *(j - 2) == 105 && *(j - 1) == 112 && *j == 101 )
+              {
+                a1 = close(v5);
+                break;
+              }
+            }
+            else if ( !*(j - 3) )
+            {
+              break;
+            }
+          }
+        }
+      }
+      if ( dword_126FB0 )
+      {
+        if ( (byte_127060 & 1) == 0 )
+        {
+          v12 = 0;
+          do
+          {
+            a1 = usleep(0x3E8u);
+            if ( v12 > 0xC6 )
+              break;
+            ++v12;
+          }
+          while ( !byte_127060 );
+        }
+        a1 = sub_43398(a1);
+      }
+      if ( v6 )
+        *v7 = -1;
+      if ( v5 )
+        v7[1] = -1;
+    }
+    v2 = *(_DWORD *)(qword_1263E8 + 4);
+  }
+  if ( (unsigned int)(v2 - 24) >= 5 )
+  {
+    if ( v2 < 29 )
+    {
+      dword_127064 = 0;
+      goto LABEL_154;
+    }
+    memset(v335, 0, 28);
+    memset(&preg, 0, sizeof(preg));
+    a1 = __system_property_get("ro.product.manufacturer", &preg);
+    if ( (int)a1 > 0
+      || (v13 = 1,
+          v14 = __strlen_chk("", 1u),
+          v15 = v14,
+          a1 = __memcpy_chk(&preg, "", (__int64)((v14 << 32) + 0x100000000LL) >> 32, 92),
+          v15 >= 1) )
+    {
+      v16 = LOBYTE(preg.buffer) == 88
+         && BYTE1(preg.buffer) == 105
+         && BYTE2(preg.buffer) == 97
+         && BYTE3(preg.buffer) == 111
+         && BYTE4(preg.buffer) == 109
+         && BYTE5(preg.buffer) == 105
+         && BYTE6(preg.buffer) == 0;
+      if ( v2 > 33 && v16 )
+        v13 = 3;
+      else
+        v13 = 1;
+    }
+  }
+  else
+  {
+    v13 = 4;
+  }
+  dword_127064 = v13;
+  byte_127068 = 0;
+  sub_43398(a1);
+  v17 = dword_127064;
+  if ( (dword_127064 & 4) == 0 )
+  {
+    if ( (dword_127064 & 1) == 0 )
+      goto LABEL_59;
+LABEL_90:
+    if ( dword_127028 || regcomp(&preg, "^/system/.*/libbinder.so$", 4) || (v136 = malloc(0x48u)) == 0 )
+    {
+      if ( dword_127028 )
+        goto LABEL_94;
+    }
+    else
+    {
+      v137 = v136;
+      v138 = strdup("read");
+      v137[4] = v138;
+      if ( v138 )
+      {
+        v140 = *(_OWORD *)&preg.buffer;
+        v139 = *(_OWORD *)&preg.used;
+        v137[5] = sub_45078;
+        *(_OWORD *)v137 = v140;
+        *((_OWORD *)v137 + 1) = v139;
+        v137[6] = &off_127070;
+        pthread_mutex_lock(&stru_126FC4);
+        v141 = off_121288;
+        v137[7] = 0;
+        v137[8] = v141;
+        *v141 = (__int64)v137;
+        off_121288 = v137 + 7;
+        pthread_mutex_unlock(&stru_126FC4);
+        if ( dword_127028 )
+          goto LABEL_94;
+      }
+      else
+      {
+        free(v137);
+        if ( dword_127028 )
+          goto LABEL_94;
+      }
+    }
+    if ( !regcomp(&preg, "^/system/.*/libbinder.so$", 4) )
+    {
+      v142 = malloc(0x48u);
+      if ( v142 )
+      {
+        v143 = v142;
+        v144 = strdup("__read_chk");
+        v143[4] = v144;
+        if ( v144 )
+        {
+          v146 = *(_OWORD *)&preg.buffer;
+          v145 = *(_OWORD *)&preg.used;
+          v143[5] = sub_450FC;
+          *(_OWORD *)v143 = v146;
+          *((_OWORD *)v143 + 1) = v145;
+          v143[6] = &off_127078;
+          pthread_mutex_lock(&stru_126FC4);
+          v147 = off_121288;
+          v143[7] = 0;
+          v143[8] = v147;
+          *v147 = (__int64)v143;
+          off_121288 = v143 + 7;
+          pthread_mutex_unlock(&stru_126FC4);
+          if ( dword_127028 )
+            goto LABEL_96;
+        }
+        else
+        {
+          free(v143);
+          if ( dword_127028 )
+            goto LABEL_96;
+        }
+LABEL_95:
+        if ( !regcomp(&preg, "^/system/.*/libbinder.so$", 4) )
+        {
+          v148 = malloc(0x48u);
+          if ( v148 )
+          {
+            v149 = v148;
+            v150 = strdup("pread");
+            v149[4] = v150;
+            if ( v150 )
+            {
+              v152 = *(_OWORD *)&preg.buffer;
+              v151 = *(_OWORD *)&preg.used;
+              v149[5] = sub_45188;
+              *(_OWORD *)v149 = v152;
+              *((_OWORD *)v149 + 1) = v151;
+              v149[6] = &off_127080;
+              pthread_mutex_lock(&stru_126FC4);
+              v153 = off_121288;
+              v149[7] = 0;
+              v149[8] = v153;
+              *v153 = (__int64)v149;
+              off_121288 = v149 + 7;
+              pthread_mutex_unlock(&stru_126FC4);
+              if ( dword_127028 )
+                goto LABEL_98;
+            }
+            else
+            {
+              free(v149);
+              if ( dword_127028 )
+                goto LABEL_98;
+            }
+LABEL_97:
+            if ( !regcomp(&preg, "^/system/.*/libbinder.so$", 4) )
+            {
+              v154 = malloc(0x48u);
+              if ( v154 )
+              {
+                v155 = v154;
+                v156 = strdup("pread64");
+                v155[4] = v156;
+                if ( v156 )
+                {
+                  v158 = *(_OWORD *)&preg.buffer;
+                  v157 = *(_OWORD *)&preg.used;
+                  v155[5] = sub_45214;
+                  *(_OWORD *)v155 = v158;
+                  *((_OWORD *)v155 + 1) = v157;
+                  v155[6] = &off_127088;
+                  pthread_mutex_lock(&stru_126FC4);
+                  v159 = off_121288;
+                  v155[7] = 0;
+                  v155[8] = v159;
+                  *v159 = (__int64)v155;
+                  off_121288 = v155 + 7;
+                  pthread_mutex_unlock(&stru_126FC4);
+                  if ( dword_127028 )
+                    goto LABEL_100;
+                }
+                else
+                {
+                  free(v155);
+                  if ( dword_127028 )
+                    goto LABEL_100;
+                }
+LABEL_99:
+                if ( !regcomp(&preg, "^/system/.*/libbinder.so$", 4) )
+                {
+                  v160 = malloc(0x48u);
+                  if ( v160 )
+                  {
+                    v161 = v160;
+                    v162 = strdup("__pread_chk");
+                    v161[4] = v162;
+                    if ( v162 )
+                    {
+                      v164 = *(_OWORD *)&preg.buffer;
+                      v163 = *(_OWORD *)&preg.used;
+                      v161[5] = sub_452A0;
+                      *(_OWORD *)v161 = v164;
+                      *((_OWORD *)v161 + 1) = v163;
+                      v161[6] = &off_127090;
+                      pthread_mutex_lock(&stru_126FC4);
+                      v165 = off_121288;
+                      v161[7] = 0;
+                      v161[8] = v165;
+                      *v165 = (__int64)v161;
+                      off_121288 = v161 + 7;
+                      pthread_mutex_unlock(&stru_126FC4);
+                      if ( dword_127028 )
+                        goto LABEL_102;
+                    }
+                    else
+                    {
+                      free(v161);
+                      if ( dword_127028 )
+                        goto LABEL_102;
+                    }
+LABEL_101:
+                    if ( !regcomp(&preg, "^/system/.*/libbinder.so$", 4) )
+                    {
+                      v166 = malloc(0x48u);
+                      if ( v166 )
+                      {
+                        v167 = v166;
+                        v168 = strdup("__pread64_chk");
+                        v167[4] = v168;
+                        if ( v168 )
+                        {
+                          v169 = *(_OWORD *)&preg.used;
+                          *(_OWORD *)v167 = *(_OWORD *)&preg.buffer;
+                          *((_OWORD *)v167 + 1) = v169;
+                          v167[5] = sub_4533C;
+                          v167[6] = &off_127098;
+                          pthread_mutex_lock(&stru_126FC4);
+                          v170 = off_121288;
+                          v167[7] = 0;
+                          v167[8] = v170;
+                          *v170 = (__int64)v167;
+                          off_121288 = v167 + 7;
+                          pthread_mutex_unlock(&stru_126FC4);
+                          if ( dword_127028 )
+                            goto LABEL_104;
+                        }
+                        else
+                        {
+                          free(v167);
+                          if ( dword_127028 )
+                            goto LABEL_104;
+                        }
+LABEL_103:
+                        if ( !regcomp(&preg, "^/system/.*/libbinder.so$", 4) )
+                        {
+                          v171 = malloc(0x48u);
+                          if ( v171 )
+                          {
+                            v172 = v171;
+                            v173 = strdup("mmap");
+                            v172[4] = v173;
+                            if ( v173 )
+                            {
+                              v175 = *(_OWORD *)&preg.buffer;
+                              v174 = *(_OWORD *)&preg.used;
+                              v172[5] = sub_453D8;
+                              *(_OWORD *)v172 = v175;
+                              *((_OWORD *)v172 + 1) = v174;
+                              v172[6] = &off_1270A0;
+                              pthread_mutex_lock(&stru_126FC4);
+                              v176 = off_121288;
+                              v172[7] = 0;
+                              v172[8] = v176;
+                              *v176 = (__int64)v172;
+                              off_121288 = v172 + 7;
+                              pthread_mutex_unlock(&stru_126FC4);
+                              if ( dword_127028 )
+                                goto LABEL_106;
+                            }
+                            else
+                            {
+                              free(v172);
+                              if ( dword_127028 )
+                                goto LABEL_106;
+                            }
+LABEL_105:
+                            if ( !regcomp(&preg, "^/system/.*/libbinder.so$", 4) )
+                            {
+                              v177 = malloc(0x48u);
+                              if ( v177 )
+                              {
+                                v178 = v177;
+                                v179 = strdup("mmap64");
+                                v178[4] = v179;
+                                if ( v179 )
+                                {
+                                  v181 = *(_OWORD *)&preg.buffer;
+                                  v180 = *(_OWORD *)&preg.used;
+                                  v178[5] = sub_4547C;
+                                  *(_OWORD *)v178 = v181;
+                                  *((_OWORD *)v178 + 1) = v180;
+                                  v178[6] = &off_1270A8;
+                                  pthread_mutex_lock(&stru_126FC4);
+                                  v182 = off_121288;
+                                  v178[7] = 0;
+                                  v178[8] = v182;
+                                  *v182 = (__int64)v178;
+                                  off_121288 = v178 + 7;
+                                  pthread_mutex_unlock(&stru_126FC4);
+                                  if ( dword_127028 )
+                                    goto LABEL_108;
+                                }
+                                else
+                                {
+                                  free(v178);
+                                  if ( dword_127028 )
+                                    goto LABEL_108;
+                                }
+LABEL_107:
+                                if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                {
+                                  v183 = malloc(0x48u);
+                                  if ( v183 )
+                                  {
+                                    v184 = v183;
+                                    v185 = strdup("read");
+                                    v184[4] = v185;
+                                    if ( v185 )
+                                    {
+                                      v187 = *(_OWORD *)&preg.buffer;
+                                      v186 = *(_OWORD *)&preg.used;
+                                      v184[5] = sub_45078;
+                                      *(_OWORD *)v184 = v187;
+                                      *((_OWORD *)v184 + 1) = v186;
+                                      v184[6] = &off_127070;
+                                      pthread_mutex_lock(&stru_126FC4);
+                                      v188 = off_121288;
+                                      v184[7] = 0;
+                                      v184[8] = v188;
+                                      *v188 = (__int64)v184;
+                                      off_121288 = v184 + 7;
+                                      pthread_mutex_unlock(&stru_126FC4);
+                                      if ( dword_127028 )
+                                        goto LABEL_110;
+                                    }
+                                    else
+                                    {
+                                      free(v184);
+                                      if ( dword_127028 )
+                                        goto LABEL_110;
+                                    }
+LABEL_109:
+                                    if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                    {
+                                      v189 = malloc(0x48u);
+                                      if ( v189 )
+                                      {
+                                        v190 = v189;
+                                        v191 = strdup("__read_chk");
+                                        v190[4] = v191;
+                                        if ( v191 )
+                                        {
+                                          v193 = *(_OWORD *)&preg.buffer;
+                                          v192 = *(_OWORD *)&preg.used;
+                                          v190[5] = sub_450FC;
+                                          *(_OWORD *)v190 = v193;
+                                          *((_OWORD *)v190 + 1) = v192;
+                                          v190[6] = &off_127078;
+                                          pthread_mutex_lock(&stru_126FC4);
+                                          v194 = off_121288;
+                                          v190[7] = 0;
+                                          v190[8] = v194;
+                                          *v194 = (__int64)v190;
+                                          off_121288 = v190 + 7;
+                                          pthread_mutex_unlock(&stru_126FC4);
+                                          if ( dword_127028 )
+                                            goto LABEL_112;
+                                        }
+                                        else
+                                        {
+                                          free(v190);
+                                          if ( dword_127028 )
+                                            goto LABEL_112;
+                                        }
+LABEL_111:
+                                        if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                        {
+                                          v195 = malloc(0x48u);
+                                          if ( v195 )
+                                          {
+                                            v196 = v195;
+                                            v197 = strdup("pread");
+                                            v196[4] = v197;
+                                            if ( v197 )
+                                            {
+                                              v199 = *(_OWORD *)&preg.buffer;
+                                              v198 = *(_OWORD *)&preg.used;
+                                              v196[5] = sub_45188;
+                                              *(_OWORD *)v196 = v199;
+                                              *((_OWORD *)v196 + 1) = v198;
+                                              v196[6] = &off_127080;
+                                              pthread_mutex_lock(&stru_126FC4);
+                                              v200 = off_121288;
+                                              v196[7] = 0;
+                                              v196[8] = v200;
+                                              *v200 = (__int64)v196;
+                                              off_121288 = v196 + 7;
+                                              pthread_mutex_unlock(&stru_126FC4);
+                                              if ( dword_127028 )
+                                                goto LABEL_114;
+                                            }
+                                            else
+                                            {
+                                              free(v196);
+                                              if ( dword_127028 )
+                                                goto LABEL_114;
+                                            }
+LABEL_113:
+                                            if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                            {
+                                              v201 = malloc(0x48u);
+                                              if ( v201 )
+                                              {
+                                                v202 = v201;
+                                                v203 = strdup("pread64");
+                                                v202[4] = v203;
+                                                if ( v203 )
+                                                {
+                                                  v205 = *(_OWORD *)&preg.buffer;
+                                                  v204 = *(_OWORD *)&preg.used;
+                                                  v202[5] = sub_45214;
+                                                  *(_OWORD *)v202 = v205;
+                                                  *((_OWORD *)v202 + 1) = v204;
+                                                  v202[6] = &off_127088;
+                                                  pthread_mutex_lock(&stru_126FC4);
+                                                  v206 = off_121288;
+                                                  v202[7] = 0;
+                                                  v202[8] = v206;
+                                                  *v206 = (__int64)v202;
+                                                  off_121288 = v202 + 7;
+                                                  pthread_mutex_unlock(&stru_126FC4);
+                                                  if ( dword_127028 )
+                                                    goto LABEL_116;
+                                                }
+                                                else
+                                                {
+                                                  free(v202);
+                                                  if ( dword_127028 )
+                                                    goto LABEL_116;
+                                                }
+LABEL_115:
+                                                if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                                {
+                                                  v207 = malloc(0x48u);
+                                                  if ( v207 )
+                                                  {
+                                                    v208 = v207;
+                                                    v209 = strdup("__pread_chk");
+                                                    v208[4] = v209;
+                                                    if ( v209 )
+                                                    {
+                                                      v211 = *(_OWORD *)&preg.buffer;
+                                                      v210 = *(_OWORD *)&preg.used;
+                                                      v208[5] = sub_452A0;
+                                                      *(_OWORD *)v208 = v211;
+                                                      *((_OWORD *)v208 + 1) = v210;
+                                                      v208[6] = &off_127090;
+                                                      pthread_mutex_lock(&stru_126FC4);
+                                                      v212 = off_121288;
+                                                      v208[7] = 0;
+                                                      v208[8] = v212;
+                                                      *v212 = (__int64)v208;
+                                                      off_121288 = v208 + 7;
+                                                      pthread_mutex_unlock(&stru_126FC4);
+                                                      if ( dword_127028 )
+                                                        goto LABEL_118;
+                                                    }
+                                                    else
+                                                    {
+                                                      free(v208);
+                                                      if ( dword_127028 )
+                                                        goto LABEL_118;
+                                                    }
+LABEL_117:
+                                                    if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                                    {
+                                                      v213 = malloc(0x48u);
+                                                      if ( v213 )
+                                                      {
+                                                        v214 = v213;
+                                                        v215 = strdup("__pread64_chk");
+                                                        v214[4] = v215;
+                                                        if ( v215 )
+                                                        {
+                                                          v216 = *(_OWORD *)&preg.used;
+                                                          *(_OWORD *)v214 = *(_OWORD *)&preg.buffer;
+                                                          *((_OWORD *)v214 + 1) = v216;
+                                                          v214[5] = sub_4533C;
+                                                          v214[6] = &off_127098;
+                                                          pthread_mutex_lock(&stru_126FC4);
+                                                          v217 = off_121288;
+                                                          v214[7] = 0;
+                                                          v214[8] = v217;
+                                                          *v217 = (__int64)v214;
+                                                          off_121288 = v214 + 7;
+                                                          pthread_mutex_unlock(&stru_126FC4);
+                                                          if ( dword_127028 )
+                                                            goto LABEL_120;
+                                                        }
+                                                        else
+                                                        {
+                                                          free(v214);
+                                                          if ( dword_127028 )
+                                                            goto LABEL_120;
+                                                        }
+LABEL_119:
+                                                        if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                                        {
+                                                          v218 = malloc(0x48u);
+                                                          if ( v218 )
+                                                          {
+                                                            v219 = v218;
+                                                            v220 = strdup("mmap");
+                                                            v219[4] = v220;
+                                                            if ( v220 )
+                                                            {
+                                                              v222 = *(_OWORD *)&preg.buffer;
+                                                              v221 = *(_OWORD *)&preg.used;
+                                                              v219[5] = sub_453D8;
+                                                              *(_OWORD *)v219 = v222;
+                                                              *((_OWORD *)v219 + 1) = v221;
+                                                              v219[6] = &off_1270A0;
+                                                              pthread_mutex_lock(&stru_126FC4);
+                                                              v223 = off_121288;
+                                                              v219[7] = 0;
+                                                              v219[8] = v223;
+                                                              *v223 = (__int64)v219;
+                                                              off_121288 = v219 + 7;
+                                                              pthread_mutex_unlock(&stru_126FC4);
+                                                              if ( dword_127028 )
+                                                                goto LABEL_122;
+                                                            }
+                                                            else
+                                                            {
+                                                              free(v219);
+                                                              if ( dword_127028 )
+                                                                goto LABEL_122;
+                                                            }
+LABEL_121:
+                                                            if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                                            {
+                                                              v224 = malloc(0x48u);
+                                                              if ( v224 )
+                                                              {
+                                                                v225 = v224;
+                                                                v226 = strdup("mmap64");
+                                                                v225[4] = v226;
+                                                                if ( v226 )
+                                                                {
+                                                                  v228 = *(_OWORD *)&preg.buffer;
+                                                                  v227 = *(_OWORD *)&preg.used;
+                                                                  v225[5] = sub_4547C;
+                                                                  *(_OWORD *)v225 = v228;
+                                                                  *((_OWORD *)v225 + 1) = v227;
+                                                                  v225[6] = &off_1270A8;
+                                                                  pthread_mutex_lock(&stru_126FC4);
+                                                                  v229 = off_121288;
+                                                                  v225[7] = 0;
+                                                                  v225[8] = v229;
+                                                                  *v229 = (__int64)v225;
+                                                                  off_121288 = v225 + 7;
+                                                                  pthread_mutex_unlock(&stru_126FC4);
+                                                                  if ( dword_127028 )
+                                                                    goto LABEL_124;
+                                                                }
+                                                                else
+                                                                {
+                                                                  free(v225);
+                                                                  if ( dword_127028 )
+                                                                    goto LABEL_124;
+                                                                }
+LABEL_123:
+                                                                if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                                                {
+                                                                  v230 = malloc(0x48u);
+                                                                  if ( v230 )
+                                                                  {
+                                                                    v231 = v230;
+                                                                    v232 = strdup("write");
+                                                                    v231[4] = v232;
+                                                                    if ( v232 )
+                                                                    {
+                                                                      v234 = *(_OWORD *)&preg.buffer;
+                                                                      v233 = *(_OWORD *)&preg.used;
+                                                                      v231[5] = sub_45520;
+                                                                      *(_OWORD *)v231 = v234;
+                                                                      *((_OWORD *)v231 + 1) = v233;
+                                                                      v231[6] = &off_1270B0;
+                                                                      pthread_mutex_lock(&stru_126FC4);
+                                                                      v235 = off_121288;
+                                                                      v231[7] = 0;
+                                                                      v231[8] = v235;
+                                                                      *v235 = (__int64)v231;
+                                                                      off_121288 = v231 + 7;
+                                                                      pthread_mutex_unlock(&stru_126FC4);
+                                                                      if ( dword_127028 )
+                                                                        goto LABEL_126;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                      free(v231);
+                                                                      if ( dword_127028 )
+                                                                        goto LABEL_126;
+                                                                    }
+LABEL_125:
+                                                                    if ( !regcomp(&preg, "^/system/.*/libutils.so$", 4) )
+                                                                    {
+                                                                      v236 = malloc(0x48u);
+                                                                      if ( v236 )
+                                                                      {
+                                                                        v237 = v236;
+                                                                        v238 = strdup("__write_chk");
+                                                                        v237[4] = v238;
+                                                                        if ( v238 )
+                                                                        {
+                                                                          v240 = *(_OWORD *)&preg.buffer;
+                                                                          v239 = *(_OWORD *)&preg.used;
+                                                                          v237[5] = sub_455A4;
+                                                                          *(_OWORD *)v237 = v240;
+                                                                          *((_OWORD *)v237 + 1) = v239;
+                                                                          v237[6] = &off_1270B8;
+                                                                          pthread_mutex_lock(&stru_126FC4);
+                                                                          v241 = off_121288;
+                                                                          v237[7] = 0;
+                                                                          v237[8] = v241;
+                                                                          *v241 = (__int64)v237;
+                                                                          off_121288 = v237 + 7;
+                                                                          pthread_mutex_unlock(&stru_126FC4);
+                                                                          if ( dword_127028 )
+                                                                            goto LABEL_128;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                          free(v237);
+                                                                          if ( dword_127028 )
+                                                                            goto LABEL_128;
+                                                                        }
+LABEL_127:
+                                                                        if ( !regcomp(
+                                                                                &preg,
+                                                                                "^/system/.*/libutils.so$",
+                                                                                4) )
+                                                                        {
+                                                                          v242 = malloc(0x48u);
+                                                                          if ( v242 )
+                                                                          {
+                                                                            v243 = v242;
+                                                                            v244 = strdup("pthread_create");
+                                                                            v243[4] = v244;
+                                                                            if ( v244 )
+                                                                            {
+                                                                              v246 = *(_OWORD *)&preg.buffer;
+                                                                              v245 = *(_OWORD *)&preg.used;
+                                                                              v243[5] = sub_45630;
+                                                                              *(_OWORD *)v243 = v246;
+                                                                              *((_OWORD *)v243 + 1) = v245;
+                                                                              v243[6] = &off_1270C0;
+                                                                              pthread_mutex_lock(&stru_126FC4);
+                                                                              v247 = off_121288;
+                                                                              v243[7] = 0;
+                                                                              v243[8] = v247;
+                                                                              *v247 = (__int64)v243;
+                                                                              off_121288 = v243 + 7;
+                                                                              pthread_mutex_unlock(&stru_126FC4);
+                                                                              if ( dword_127028 )
+                                                                                goto LABEL_130;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                              free(v243);
+                                                                              if ( dword_127028 )
+                                                                                goto LABEL_130;
+                                                                            }
+LABEL_129:
+                                                                            if ( !regcomp(
+                                                                                    &preg,
+                                                                                    "^/system/.*/libcutils.so$",
+                                                                                    4) )
+                                                                            {
+                                                                              v248 = malloc(0x48u);
+                                                                              if ( v248 )
+                                                                              {
+                                                                                v249 = v248;
+                                                                                v250 = strdup("read");
+                                                                                v249[4] = v250;
+                                                                                if ( v250 )
+                                                                                {
+                                                                                  v252 = *(_OWORD *)&preg.buffer;
+                                                                                  v251 = *(_OWORD *)&preg.used;
+                                                                                  v249[5] = sub_45078;
+                                                                                  *(_OWORD *)v249 = v252;
+                                                                                  *((_OWORD *)v249 + 1) = v251;
+                                                                                  v249[6] = &off_127070;
+                                                                                  pthread_mutex_lock(&stru_126FC4);
+                                                                                  v253 = off_121288;
+                                                                                  v249[7] = 0;
+                                                                                  v249[8] = v253;
+                                                                                  *v253 = (__int64)v249;
+                                                                                  off_121288 = v249 + 7;
+                                                                                  pthread_mutex_unlock(&stru_126FC4);
+                                                                                  if ( dword_127028 )
+                                                                                    goto LABEL_132;
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                  free(v249);
+                                                                                  if ( dword_127028 )
+                                                                                    goto LABEL_132;
+                                                                                }
+LABEL_131:
+                                                                                if ( !regcomp(
+                                                                                        &preg,
+                                                                                        "^/system/.*/libcutils.so$",
+                                                                                        4) )
+                                                                                {
+                                                                                  v254 = malloc(0x48u);
+                                                                                  if ( v254 )
+                                                                                  {
+                                                                                    v255 = v254;
+                                                                                    v256 = strdup("__read_chk");
+                                                                                    v255[4] = v256;
+                                                                                    if ( v256 )
+                                                                                    {
+                                                                                      v258 = *(_OWORD *)&preg.buffer;
+                                                                                      v257 = *(_OWORD *)&preg.used;
+                                                                                      v255[5] = sub_450FC;
+                                                                                      *(_OWORD *)v255 = v258;
+                                                                                      *((_OWORD *)v255 + 1) = v257;
+                                                                                      v255[6] = &off_127078;
+                                                                                      pthread_mutex_lock(&stru_126FC4);
+                                                                                      v259 = off_121288;
+                                                                                      v255[7] = 0;
+                                                                                      v255[8] = v259;
+                                                                                      *v259 = (__int64)v255;
+                                                                                      off_121288 = v255 + 7;
+                                                                                      pthread_mutex_unlock(&stru_126FC4);
+                                                                                      if ( dword_127028 )
+                                                                                        goto LABEL_134;
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                      free(v255);
+                                                                                      if ( dword_127028 )
+                                                                                        goto LABEL_134;
+                                                                                    }
+LABEL_133:
+                                                                                    if ( !regcomp(
+                                                                                            &preg,
+                                                                                            "^/system/.*/libcutils.so$",
+                                                                                            4) )
+                                                                                    {
+                                                                                      v260 = malloc(0x48u);
+                                                                                      if ( v260 )
+                                                                                      {
+                                                                                        v261 = v260;
+                                                                                        v262 = strdup("pread");
+                                                                                        v261[4] = v262;
+                                                                                        if ( v262 )
+                                                                                        {
+                                                                                          v264 = *(_OWORD *)&preg.buffer;
+                                                                                          v263 = *(_OWORD *)&preg.used;
+                                                                                          v261[5] = sub_45188;
+                                                                                          *(_OWORD *)v261 = v264;
+                                                                                          *((_OWORD *)v261 + 1) = v263;
+                                                                                          v261[6] = &off_127080;
+                                                                                          pthread_mutex_lock(&stru_126FC4);
+                                                                                          v265 = off_121288;
+                                                                                          v261[7] = 0;
+                                                                                          v261[8] = v265;
+                                                                                          *v265 = (__int64)v261;
+                                                                                          off_121288 = v261 + 7;
+                                                                                          pthread_mutex_unlock(&stru_126FC4);
+                                                                                          if ( dword_127028 )
+                                                                                            goto LABEL_136;
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                          free(v261);
+                                                                                          if ( dword_127028 )
+                                                                                            goto LABEL_136;
+                                                                                        }
+LABEL_135:
+                                                                                        if ( !regcomp(
+                                                                                                &preg,
+                                                                                                "^/system/.*/libcutils.so$",
+                                                                                                4) )
+                                                                                        {
+                                                                                          v266 = malloc(0x48u);
+                                                                                          if ( v266 )
+                                                                                          {
+                                                                                            v267 = v266;
+                                                                                            v268 = strdup("pread64");
+                                                                                            v267[4] = v268;
+                                                                                            if ( v268 )
+                                                                                            {
+                                                                                              v270 = *(_OWORD *)&preg.buffer;
+                                                                                              v269 = *(_OWORD *)&preg.used;
+                                                                                              v267[5] = sub_45214;
+                                                                                              *(_OWORD *)v267 = v270;
+                                                                                              *((_OWORD *)v267 + 1) = v269;
+                                                                                              v267[6] = &off_127088;
+                                                                                              pthread_mutex_lock(&stru_126FC4);
+                                                                                              v271 = off_121288;
+                                                                                              v267[7] = 0;
+                                                                                              v267[8] = v271;
+                                                                                              *v271 = (__int64)v267;
+                                                                                              off_121288 = v267 + 7;
+                                                                                              pthread_mutex_unlock(&stru_126FC4);
+                                                                                              if ( dword_127028 )
+                                                                                                goto LABEL_138;
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                              free(v267);
+                                                                                              if ( dword_127028 )
+                                                                                                goto LABEL_138;
+                                                                                            }
+LABEL_137:
+                                                                                            if ( !regcomp(
+                                                                                                    &preg,
+                                                                                                    "^/system/.*/libcutils.so$",
+                                                                                                    4) )
+                                                                                            {
+                                                                                              v272 = malloc(0x48u);
+                                                                                              if ( v272 )
+                                                                                              {
+                                                                                                v273 = v272;
+                                                                                                v274 = strdup("__pread_chk");
+                                                                                                v273[4] = v274;
+                                                                                                if ( v274 )
+                                                                                                {
+                                                                                                  v276 = *(_OWORD *)&preg.buffer;
+                                                                                                  v275 = *(_OWORD *)&preg.used;
+                                                                                                  v273[5] = sub_452A0;
+                                                                                                  *(_OWORD *)v273 = v276;
+                                                                                                  *((_OWORD *)v273 + 1) = v275;
+                                                                                                  v273[6] = &off_127090;
+                                                                                                  pthread_mutex_lock(&stru_126FC4);
+                                                                                                  v277 = off_121288;
+                                                                                                  v273[7] = 0;
+                                                                                                  v273[8] = v277;
+                                                                                                  *v277 = (__int64)v273;
+                                                                                                  off_121288 = v273 + 7;
+                                                                                                  pthread_mutex_unlock(&stru_126FC4);
+                                                                                                  if ( dword_127028 )
+                                                                                                    goto LABEL_140;
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                  free(v273);
+                                                                                                  if ( dword_127028 )
+                                                                                                    goto LABEL_140;
+                                                                                                }
+LABEL_139:
+                                                                                                if ( !regcomp(&preg, "^/system/.*/libcutils.so$", 4) )
+                                                                                                {
+                                                                                                  v278 = malloc(0x48u);
+                                                                                                  if ( v278 )
+                                                                                                  {
+                                                                                                    v279 = v278;
+                                                                                                    v280 = strdup("__pread64_chk");
+                                                                                                    v279[4] = v280;
+                                                                                                    if ( v280 )
+                                                                                                    {
+                                                                                                      v281 = *(_OWORD *)&preg.used;
+                                                                                                      *(_OWORD *)v279 = *(_OWORD *)&preg.buffer;
+                                                                                                      *((_OWORD *)v279 + 1) = v281;
+                                                                                                      v279[5] = sub_4533C;
+                                                                                                      v279[6] = &off_127098;
+                                                                                                      pthread_mutex_lock(&stru_126FC4);
+                                                                                                      v282 = off_121288;
+                                                                                                      v279[7] = 0;
+                                                                                                      v279[8] = v282;
+                                                                                                      *v282 = (__int64)v279;
+                                                                                                      off_121288 = v279 + 7;
+                                                                                                      pthread_mutex_unlock(&stru_126FC4);
+                                                                                                      if ( dword_127028 )
+                                                                                                        goto LABEL_142;
+                                                                                                    }
+                                                                                                    else
+                                                                                                    {
+                                                                                                      free(v279);
+                                                                                                      if ( dword_127028 )
+                                                                                                        goto LABEL_142;
+                                                                                                    }
+LABEL_141:
+                                                                                                    if ( !regcomp(&preg, "^/system/.*/libcutils.so$", 4) )
+                                                                                                    {
+                                                                                                      v283 = malloc(0x48u);
+                                                                                                      if ( v283 )
+                                                                                                      {
+                                                                                                        v284 = v283;
+                                                                                                        v285 = strdup("mmap");
+                                                                                                        v284[4] = v285;
+                                                                                                        if ( v285 )
+                                                                                                        {
+                                                                                                          v287 = *(_OWORD *)&preg.buffer;
+                                                                                                          v286 = *(_OWORD *)&preg.used;
+                                                                                                          v284[5] = sub_453D8;
+                                                                                                          *(_OWORD *)v284 = v287;
+                                                                                                          *((_OWORD *)v284 + 1) = v286;
+                                                                                                          v284[6] = &off_1270A0;
+                                                                                                          pthread_mutex_lock(&stru_126FC4);
+                                                                                                          v288 = off_121288;
+                                                                                                          v284[7] = 0;
+                                                                                                          v284[8] = v288;
+                                                                                                          *v288 = (__int64)v284;
+                                                                                                          off_121288 = v284 + 7;
+                                                                                                          pthread_mutex_unlock(&stru_126FC4);
+                                                                                                          if ( dword_127028 )
+                                                                                                            goto LABEL_144;
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                          free(v284);
+                                                                                                          if ( dword_127028 )
+                                                                                                            goto LABEL_144;
+                                                                                                        }
+LABEL_143:
+                                                                                                        if ( !regcomp(&preg, "^/system/.*/libcutils.so$", 4) )
+                                                                                                        {
+                                                                                                          v289 = malloc(0x48u);
+                                                                                                          if ( v289 )
+                                                                                                          {
+                                                                                                            v290 = v289;
+                                                                                                            v291 = strdup("mmap64");
+                                                                                                            v290[4] = v291;
+                                                                                                            if ( v291 )
+                                                                                                            {
+                                                                                                              v293 = *(_OWORD *)&preg.buffer;
+                                                                                                              v292 = *(_OWORD *)&preg.used;
+                                                                                                              v290[5] = sub_4547C;
+                                                                                                              *(_OWORD *)v290 = v293;
+                                                                                                              *((_OWORD *)v290 + 1) = v292;
+                                                                                                              v290[6] = &off_1270A8;
+                                                                                                              pthread_mutex_lock(&stru_126FC4);
+                                                                                                              v294 = off_121288;
+                                                                                                              v290[7] = 0;
+                                                                                                              v290[8] = v294;
+                                                                                                              *v294 = (__int64)v290;
+                                                                                                              off_121288 = v290 + 7;
+                                                                                                              pthread_mutex_unlock(&stru_126FC4);
+                                                                                                              if ( dword_127028 )
+                                                                                                                goto LABEL_146;
+                                                                                                            }
+                                                                                                            else
+                                                                                                            {
+                                                                                                              free(v290);
+                                                                                                              if ( dword_127028 )
+                                                                                                                goto LABEL_146;
+                                                                                                            }
+LABEL_145:
+                                                                                                            if ( !regcomp(&preg, "^/system/.*/libcutils.so$", 4) )
+                                                                                                            {
+                                                                                                              v295 = malloc(0x48u);
+                                                                                                              if ( v295 )
+                                                                                                              {
+                                                                                                                v296 = v295;
+                                                                                                                v297 = strdup("write");
+                                                                                                                v296[4] = v297;
+                                                                                                                if ( v297 )
+                                                                                                                {
+                                                                                                                  v299 = *(_OWORD *)&preg.buffer;
+                                                                                                                  v298 = *(_OWORD *)&preg.used;
+                                                                                                                  v296[5] = sub_45520;
+                                                                                                                  *(_OWORD *)v296 = v299;
+                                                                                                                  *((_OWORD *)v296 + 1) = v298;
+                                                                                                                  v296[6] = &off_1270B0;
+                                                                                                                  pthread_mutex_lock(&stru_126FC4);
+                                                                                                                  v300 = off_121288;
+                                                                                                                  v296[7] = 0;
+                                                                                                                  v296[8] = v300;
+                                                                                                                  *v300 = (__int64)v296;
+                                                                                                                  off_121288 = v296 + 7;
+                                                                                                                  pthread_mutex_unlock(&stru_126FC4);
+                                                                                                                  if ( dword_127028 )
+                                                                                                                    goto LABEL_148;
+                                                                                                                }
+                                                                                                                else
+                                                                                                                {
+                                                                                                                  free(v296);
+                                                                                                                  if ( dword_127028 )
+                                                                                                                    goto LABEL_148;
+                                                                                                                }
+LABEL_147:
+                                                                                                                if ( !regcomp(&preg, "^/system/.*/libcutils.so$", 4) )
+                                                                                                                {
+                                                                                                                  v301 = malloc(0x48u);
+                                                                                                                  if ( v301 )
+                                                                                                                  {
+                                                                                                                    v302 = v301;
+                                                                                                                    v303 = strdup("__write_chk");
+                                                                                                                    v302[4] = v303;
+                                                                                                                    if ( v303 )
+                                                                                                                    {
+                                                                                                                      v305 = *(_OWORD *)&preg.buffer;
+                                                                                                                      v304 = *(_OWORD *)&preg.used;
+                                                                                                                      v302[5] = sub_455A4;
+                                                                                                                      *(_OWORD *)v302 = v305;
+                                                                                                                      *((_OWORD *)v302 + 1) = v304;
+                                                                                                                      v302[6] = &off_1270B8;
+                                                                                                                      pthread_mutex_lock(&stru_126FC4);
+                                                                                                                      v306 = off_121288;
+                                                                                                                      v302[7] = 0;
+                                                                                                                      v302[8] = v306;
+                                                                                                                      *v306 = (__int64)v302;
+                                                                                                                      off_121288 = v302 + 7;
+                                                                                                                      pthread_mutex_unlock(&stru_126FC4);
+                                                                                                                      if ( dword_127028 )
+                                                                                                                        goto LABEL_150;
+                                                                                                                    }
+                                                                                                                    else
+                                                                                                                    {
+                                                                                                                      free(v302);
+                                                                                                                      if ( dword_127028 )
+                                                                                                                        goto LABEL_150;
+                                                                                                                    }
+LABEL_149:
+                                                                                                                    if ( !regcomp(&preg, "^/apex/.*/libartbase.so$", 4) )
+                                                                                                                    {
+                                                                                                                      v307 = malloc(0x48u);
+                                                                                                                      if ( v307 )
+                                                                                                                      {
+                                                                                                                        v308 = v307;
+                                                                                                                        v309 = strdup("mmap");
+                                                                                                                        v308[4] = v309;
+                                                                                                                        if ( v309 )
+                                                                                                                        {
+                                                                                                                          v311 = *(_OWORD *)&preg.buffer;
+                                                                                                                          v310 = *(_OWORD *)&preg.used;
+                                                                                                                          v308[5] = sub_453D8;
+                                                                                                                          *(_OWORD *)v308 = v311;
+                                                                                                                          *((_OWORD *)v308 + 1) = v310;
+                                                                                                                          v308[6] = &off_1270A0;
+                                                                                                                          pthread_mutex_lock(&stru_126FC4);
+                                                                                                                          v312 = off_121288;
+                                                                                                                          v308[7] = 0;
+                                                                                                                          v308[8] = v312;
+                                                                                                                          *v312 = (__int64)v308;
+                                                                                                                          off_121288 = v308 + 7;
+                                                                                                                          pthread_mutex_unlock(&stru_126FC4);
+                                                                                                                          if ( !dword_127028 )
+                                                                                                                            goto LABEL_151;
+                                                                                                                        }
+                                                                                                                        else
+                                                                                                                        {
+                                                                                                                          free(v308);
+                                                                                                                          if ( !dword_127028 )
+                                                                                                                            goto LABEL_151;
+                                                                                                                        }
+                                                                                                                        goto LABEL_152;
+                                                                                                                      }
+                                                                                                                    }
+LABEL_150:
+                                                                                                                    if ( !dword_127028 )
+                                                                                                                    {
+LABEL_151:
+                                                                                                                      if ( !regcomp(&preg, "^/apex/.*/libartbase.so$", 4) )
+                                                                                                                      {
+                                                                                                                        v313 = malloc(0x48u);
+                                                                                                                        if ( v313 )
+                                                                                                                        {
+                                                                                                                          v314 = v313;
+                                                                                                                          v315 = strdup("mmap64");
+                                                                                                                          v314[4] = v315;
+                                                                                                                          if ( v315 )
+                                                                                                                          {
+                                                                                                                            v317 = *(_OWORD *)&preg.buffer;
+                                                                                                                            v316 = *(_OWORD *)&preg.used;
+                                                                                                                            v314[5] = sub_4547C;
+                                                                                                                            *(_OWORD *)v314 = v317;
+                                                                                                                            *((_OWORD *)v314 + 1) = v316;
+                                                                                                                            v314[6] = &off_1270A8;
+                                                                                                                            pthread_mutex_lock(&stru_126FC4);
+                                                                                                                            v318 = off_121288;
+                                                                                                                            v314[7] = 0;
+                                                                                                                            v314[8] = v318;
+                                                                                                                            *v318 = (__int64)v314;
+                                                                                                                            off_121288 = v314 + 7;
+                                                                                                                            pthread_mutex_unlock(&stru_126FC4);
+                                                                                                                            if ( (dword_127064 & 2) != 0 )
+                                                                                                                              goto LABEL_60;
+                                                                                                                          }
+                                                                                                                          else
+                                                                                                                          {
+                                                                                                                            free(v314);
+                                                                                                                            if ( (dword_127064 & 2) != 0 )
+                                                                                                                              goto LABEL_60;
+                                                                                                                          }
+                                                                                                                          goto LABEL_153;
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+LABEL_152:
+                                                                                                                    if ( (dword_127064 & 2) != 0 )
+                                                                                                                      goto LABEL_60;
+                                                                                                                    goto LABEL_153;
+                                                                                                                  }
+                                                                                                                }
+LABEL_148:
+                                                                                                                if ( dword_127028 )
+                                                                                                                  goto LABEL_150;
+                                                                                                                goto LABEL_149;
+                                                                                                              }
+                                                                                                            }
+LABEL_146:
+                                                                                                            if ( dword_127028 )
+                                                                                                              goto LABEL_148;
+                                                                                                            goto LABEL_147;
+                                                                                                          }
+                                                                                                        }
+LABEL_144:
+                                                                                                        if ( dword_127028 )
+                                                                                                          goto LABEL_146;
+                                                                                                        goto LABEL_145;
+                                                                                                      }
+                                                                                                    }
+LABEL_142:
+                                                                                                    if ( dword_127028 )
+                                                                                                      goto LABEL_144;
+                                                                                                    goto LABEL_143;
+                                                                                                  }
+                                                                                                }
+LABEL_140:
+                                                                                                if ( dword_127028 )
+                                                                                                  goto LABEL_142;
+                                                                                                goto LABEL_141;
+                                                                                              }
+                                                                                            }
+LABEL_138:
+                                                                                            if ( dword_127028 )
+                                                                                              goto LABEL_140;
+                                                                                            goto LABEL_139;
+                                                                                          }
+                                                                                        }
+LABEL_136:
+                                                                                        if ( dword_127028 )
+                                                                                          goto LABEL_138;
+                                                                                        goto LABEL_137;
+                                                                                      }
+                                                                                    }
+LABEL_134:
+                                                                                    if ( dword_127028 )
+                                                                                      goto LABEL_136;
+                                                                                    goto LABEL_135;
+                                                                                  }
+                                                                                }
+LABEL_132:
+                                                                                if ( dword_127028 )
+                                                                                  goto LABEL_134;
+                                                                                goto LABEL_133;
+                                                                              }
+                                                                            }
+LABEL_130:
+                                                                            if ( dword_127028 )
+                                                                              goto LABEL_132;
+                                                                            goto LABEL_131;
+                                                                          }
+                                                                        }
+LABEL_128:
+                                                                        if ( dword_127028 )
+                                                                          goto LABEL_130;
+                                                                        goto LABEL_129;
+                                                                      }
+                                                                    }
+LABEL_126:
+                                                                    if ( dword_127028 )
+                                                                      goto LABEL_128;
+                                                                    goto LABEL_127;
+                                                                  }
+                                                                }
+LABEL_124:
+                                                                if ( dword_127028 )
+                                                                  goto LABEL_126;
+                                                                goto LABEL_125;
+                                                              }
+                                                            }
+LABEL_122:
+                                                            if ( dword_127028 )
+                                                              goto LABEL_124;
+                                                            goto LABEL_123;
+                                                          }
+                                                        }
+LABEL_120:
+                                                        if ( dword_127028 )
+                                                          goto LABEL_122;
+                                                        goto LABEL_121;
+                                                      }
+                                                    }
+LABEL_118:
+                                                    if ( dword_127028 )
+                                                      goto LABEL_120;
+                                                    goto LABEL_119;
+                                                  }
+                                                }
+LABEL_116:
+                                                if ( dword_127028 )
+                                                  goto LABEL_118;
+                                                goto LABEL_117;
+                                              }
+                                            }
+LABEL_114:
+                                            if ( dword_127028 )
+                                              goto LABEL_116;
+                                            goto LABEL_115;
+                                          }
+                                        }
+LABEL_112:
+                                        if ( dword_127028 )
+                                          goto LABEL_114;
+                                        goto LABEL_113;
+                                      }
+                                    }
+LABEL_110:
+                                    if ( dword_127028 )
+                                      goto LABEL_112;
+                                    goto LABEL_111;
+                                  }
+                                }
+LABEL_108:
+                                if ( dword_127028 )
+                                  goto LABEL_110;
+                                goto LABEL_109;
+                              }
+                            }
+LABEL_106:
+                            if ( dword_127028 )
+                              goto LABEL_108;
+                            goto LABEL_107;
+                          }
+                        }
+LABEL_104:
+                        if ( dword_127028 )
+                          goto LABEL_106;
+                        goto LABEL_105;
+                      }
+                    }
+LABEL_102:
+                    if ( dword_127028 )
+                      goto LABEL_104;
+                    goto LABEL_103;
+                  }
+                }
+LABEL_100:
+                if ( dword_127028 )
+                  goto LABEL_102;
+                goto LABEL_101;
+              }
+            }
+LABEL_98:
+            if ( dword_127028 )
+              goto LABEL_100;
+            goto LABEL_99;
+          }
+        }
+LABEL_96:
+        if ( dword_127028 )
+          goto LABEL_98;
+        goto LABEL_97;
+      }
+    }
+LABEL_94:
+    if ( dword_127028 )
+      goto LABEL_96;
+    goto LABEL_95;
+  }
+  if ( dword_127028 || regcomp(&preg, "^/system/.*/libandroid_runtime.so$", 4) || (v66 = malloc(0x48u)) == 0 )
+  {
+    if ( dword_127028 )
+      goto LABEL_69;
+  }
+  else
+  {
+    v67 = v66;
+    v68 = strdup("read");
+    v67[4] = v68;
+    if ( v68 )
+    {
+      v70 = *(_OWORD *)&preg.buffer;
+      v69 = *(_OWORD *)&preg.used;
+      v67[5] = sub_45078;
+      *(_OWORD *)v67 = v70;
+      *((_OWORD *)v67 + 1) = v69;
+      v67[6] = &off_127070;
+      pthread_mutex_lock(&stru_126FC4);
+      v71 = off_121288;
+      v67[7] = 0;
+      v67[8] = v71;
+      *v71 = (__int64)v67;
+      off_121288 = v67 + 7;
+      pthread_mutex_unlock(&stru_126FC4);
+      if ( dword_127028 )
+        goto LABEL_69;
+    }
+    else
+    {
+      free(v67);
+      if ( dword_127028 )
+        goto LABEL_69;
+    }
+  }
+  if ( regcomp(&preg, "^/system/.*/libandroid_runtime.so$", 4) || (v72 = malloc(0x48u)) == 0 )
+  {
+LABEL_69:
+    if ( dword_127028 )
+      goto LABEL_71;
+    goto LABEL_70;
+  }
+  v73 = v72;
+  v74 = strdup("__read_chk");
+  v73[4] = v74;
+  if ( v74 )
+  {
+    v76 = *(_OWORD *)&preg.buffer;
+    v75 = *(_OWORD *)&preg.used;
+    v73[5] = sub_450FC;
+    *(_OWORD *)v73 = v76;
+    *((_OWORD *)v73 + 1) = v75;
+    v73[6] = &off_127078;
+    pthread_mutex_lock(&stru_126FC4);
+    v77 = off_121288;
+    v73[7] = 0;
+    v73[8] = v77;
+    *v77 = (__int64)v73;
+    off_121288 = v73 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_71;
+  }
+  else
+  {
+    free(v73);
+    if ( dword_127028 )
+      goto LABEL_71;
+  }
+LABEL_70:
+  if ( regcomp(&preg, "^/system/.*/libandroid_runtime.so$", 4) || (v78 = malloc(0x48u)) == 0 )
+  {
+LABEL_71:
+    if ( dword_127028 )
+      goto LABEL_73;
+    goto LABEL_72;
+  }
+  v79 = v78;
+  v80 = strdup("pread");
+  v79[4] = v80;
+  if ( v80 )
+  {
+    v82 = *(_OWORD *)&preg.buffer;
+    v81 = *(_OWORD *)&preg.used;
+    v79[5] = sub_45188;
+    *(_OWORD *)v79 = v82;
+    *((_OWORD *)v79 + 1) = v81;
+    v79[6] = &off_127080;
+    pthread_mutex_lock(&stru_126FC4);
+    v83 = off_121288;
+    v79[7] = 0;
+    v79[8] = v83;
+    *v83 = (__int64)v79;
+    off_121288 = v79 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_73;
+  }
+  else
+  {
+    free(v79);
+    if ( dword_127028 )
+      goto LABEL_73;
+  }
+LABEL_72:
+  if ( regcomp(&preg, "^/system/.*/libandroid_runtime.so$", 4) || (v84 = malloc(0x48u)) == 0 )
+  {
+LABEL_73:
+    if ( dword_127028 )
+      goto LABEL_75;
+    goto LABEL_74;
+  }
+  v85 = v84;
+  v86 = strdup("pread64");
+  v85[4] = v86;
+  if ( v86 )
+  {
+    v88 = *(_OWORD *)&preg.buffer;
+    v87 = *(_OWORD *)&preg.used;
+    v85[5] = sub_45214;
+    *(_OWORD *)v85 = v88;
+    *((_OWORD *)v85 + 1) = v87;
+    v85[6] = &off_127088;
+    pthread_mutex_lock(&stru_126FC4);
+    v89 = off_121288;
+    v85[7] = 0;
+    v85[8] = v89;
+    *v89 = (__int64)v85;
+    off_121288 = v85 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_75;
+  }
+  else
+  {
+    free(v85);
+    if ( dword_127028 )
+      goto LABEL_75;
+  }
+LABEL_74:
+  if ( regcomp(&preg, "^/system/.*/libandroid_runtime.so$", 4) || (v90 = malloc(0x48u)) == 0 )
+  {
+LABEL_75:
+    if ( dword_127028 )
+      goto LABEL_77;
+    goto LABEL_76;
+  }
+  v91 = v90;
+  v92 = strdup("__pread_chk");
+  v91[4] = v92;
+  if ( v92 )
+  {
+    v94 = *(_OWORD *)&preg.buffer;
+    v93 = *(_OWORD *)&preg.used;
+    v91[5] = sub_452A0;
+    *(_OWORD *)v91 = v94;
+    *((_OWORD *)v91 + 1) = v93;
+    v91[6] = &off_127090;
+    pthread_mutex_lock(&stru_126FC4);
+    v95 = off_121288;
+    v91[7] = 0;
+    v91[8] = v95;
+    *v95 = (__int64)v91;
+    off_121288 = v91 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_77;
+  }
+  else
+  {
+    free(v91);
+    if ( dword_127028 )
+      goto LABEL_77;
+  }
+LABEL_76:
+  if ( regcomp(&preg, "^/system/.*/libandroid_runtime.so$", 4) || (v96 = malloc(0x48u)) == 0 )
+  {
+LABEL_77:
+    if ( dword_127028 )
+      goto LABEL_79;
+    goto LABEL_78;
+  }
+  v97 = v96;
+  v98 = strdup("__pread64_chk");
+  v97[4] = v98;
+  if ( v98 )
+  {
+    v99 = *(_OWORD *)&preg.used;
+    *(_OWORD *)v97 = *(_OWORD *)&preg.buffer;
+    *((_OWORD *)v97 + 1) = v99;
+    v97[5] = sub_4533C;
+    v97[6] = &off_127098;
+    pthread_mutex_lock(&stru_126FC4);
+    v100 = off_121288;
+    v97[7] = 0;
+    v97[8] = v100;
+    *v100 = (__int64)v97;
+    off_121288 = v97 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_79;
+  }
+  else
+  {
+    free(v97);
+    if ( dword_127028 )
+      goto LABEL_79;
+  }
+LABEL_78:
+  if ( regcomp(&preg, "^/system/.*/libart.so$", 4) || (v101 = malloc(0x48u)) == 0 )
+  {
+LABEL_79:
+    if ( dword_127028 )
+      goto LABEL_81;
+    goto LABEL_80;
+  }
+  v102 = v101;
+  v103 = strdup("read");
+  v102[4] = v103;
+  if ( v103 )
+  {
+    v105 = *(_OWORD *)&preg.buffer;
+    v104 = *(_OWORD *)&preg.used;
+    v102[5] = sub_45078;
+    *(_OWORD *)v102 = v105;
+    *((_OWORD *)v102 + 1) = v104;
+    v102[6] = &off_127070;
+    pthread_mutex_lock(&stru_126FC4);
+    v106 = off_121288;
+    v102[7] = 0;
+    v102[8] = v106;
+    *v106 = (__int64)v102;
+    off_121288 = v102 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_81;
+  }
+  else
+  {
+    free(v102);
+    if ( dword_127028 )
+      goto LABEL_81;
+  }
+LABEL_80:
+  if ( regcomp(&preg, "^/system/.*/libart.so$", 4) || (v107 = malloc(0x48u)) == 0 )
+  {
+LABEL_81:
+    if ( dword_127028 )
+      goto LABEL_83;
+    goto LABEL_82;
+  }
+  v108 = v107;
+  v109 = strdup("__read_chk");
+  v108[4] = v109;
+  if ( v109 )
+  {
+    v111 = *(_OWORD *)&preg.buffer;
+    v110 = *(_OWORD *)&preg.used;
+    v108[5] = sub_450FC;
+    *(_OWORD *)v108 = v111;
+    *((_OWORD *)v108 + 1) = v110;
+    v108[6] = &off_127078;
+    pthread_mutex_lock(&stru_126FC4);
+    v112 = off_121288;
+    v108[7] = 0;
+    v108[8] = v112;
+    *v112 = (__int64)v108;
+    off_121288 = v108 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_83;
+  }
+  else
+  {
+    free(v108);
+    if ( dword_127028 )
+      goto LABEL_83;
+  }
+LABEL_82:
+  if ( regcomp(&preg, "^/system/.*/libart.so$", 4) || (v113 = malloc(0x48u)) == 0 )
+  {
+LABEL_83:
+    if ( dword_127028 )
+      goto LABEL_85;
+    goto LABEL_84;
+  }
+  v114 = v113;
+  v115 = strdup("pread");
+  v114[4] = v115;
+  if ( v115 )
+  {
+    v117 = *(_OWORD *)&preg.buffer;
+    v116 = *(_OWORD *)&preg.used;
+    v114[5] = sub_45188;
+    *(_OWORD *)v114 = v117;
+    *((_OWORD *)v114 + 1) = v116;
+    v114[6] = &off_127080;
+    pthread_mutex_lock(&stru_126FC4);
+    v118 = off_121288;
+    v114[7] = 0;
+    v114[8] = v118;
+    *v118 = (__int64)v114;
+    off_121288 = v114 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_85;
+  }
+  else
+  {
+    free(v114);
+    if ( dword_127028 )
+      goto LABEL_85;
+  }
+LABEL_84:
+  if ( regcomp(&preg, "^/system/.*/libart.so$", 4) || (v119 = malloc(0x48u)) == 0 )
+  {
+LABEL_85:
+    if ( dword_127028 )
+      goto LABEL_87;
+    goto LABEL_86;
+  }
+  v120 = v119;
+  v121 = strdup("pread64");
+  v120[4] = v121;
+  if ( v121 )
+  {
+    v123 = *(_OWORD *)&preg.buffer;
+    v122 = *(_OWORD *)&preg.used;
+    v120[5] = sub_45214;
+    *(_OWORD *)v120 = v123;
+    *((_OWORD *)v120 + 1) = v122;
+    v120[6] = &off_127088;
+    pthread_mutex_lock(&stru_126FC4);
+    v124 = off_121288;
+    v120[7] = 0;
+    v120[8] = v124;
+    *v124 = (__int64)v120;
+    off_121288 = v120 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_87;
+  }
+  else
+  {
+    free(v120);
+    if ( dword_127028 )
+      goto LABEL_87;
+  }
+LABEL_86:
+  if ( regcomp(&preg, "^/system/.*/libart.so$", 4) || (v125 = malloc(0x48u)) == 0 )
+  {
+LABEL_87:
+    if ( dword_127028 )
+      goto LABEL_89;
+    goto LABEL_88;
+  }
+  v126 = v125;
+  v127 = strdup("__pread_chk");
+  v126[4] = v127;
+  if ( v127 )
+  {
+    v129 = *(_OWORD *)&preg.buffer;
+    v128 = *(_OWORD *)&preg.used;
+    v126[5] = sub_452A0;
+    *(_OWORD *)v126 = v129;
+    *((_OWORD *)v126 + 1) = v128;
+    v126[6] = &off_127090;
+    pthread_mutex_lock(&stru_126FC4);
+    v130 = off_121288;
+    v126[7] = 0;
+    v126[8] = v130;
+    *v130 = (__int64)v126;
+    off_121288 = v126 + 7;
+    pthread_mutex_unlock(&stru_126FC4);
+    if ( dword_127028 )
+      goto LABEL_89;
+  }
+  else
+  {
+    free(v126);
+    if ( dword_127028 )
+      goto LABEL_89;
+  }
+LABEL_88:
+  if ( !regcomp(&preg, "^/system/.*/libart.so$", 4) )
+  {
+    v131 = malloc(0x48u);
+    if ( v131 )
+    {
+      v132 = v131;
+      v133 = strdup("__pread64_chk");
+      v132[4] = v133;
+      if ( v133 )
+      {
+        v134 = *(_OWORD *)&preg.used;
+        *(_OWORD *)v132 = *(_OWORD *)&preg.buffer;
+        *((_OWORD *)v132 + 1) = v134;
+        v132[5] = sub_4533C;
+        v132[6] = &off_127098;
+        pthread_mutex_lock(&stru_126FC4);
+        v135 = off_121288;
+        v132[7] = 0;
+        v132[8] = v135;
+        *v135 = (__int64)v132;
+        off_121288 = v132 + 7;
+        pthread_mutex_unlock(&stru_126FC4);
+        v17 = dword_127064;
+        if ( (dword_127064 & 1) != 0 )
+          goto LABEL_90;
+      }
+      else
+      {
+        free(v132);
+        v17 = dword_127064;
+        if ( (dword_127064 & 1) != 0 )
+          goto LABEL_90;
+      }
+      goto LABEL_59;
+    }
+  }
+LABEL_89:
+  v17 = dword_127064;
+  if ( (dword_127064 & 1) != 0 )
+    goto LABEL_90;
+LABEL_59:
+  if ( (v17 & 2) != 0 )
+  {
+LABEL_60:
+    if ( !dword_127028 && !regcomp(&preg, "^/apex/.*/libart.so$", 4) )
+    {
+      v18 = malloc(0x48u);
+      if ( v18 )
+      {
+        v19 = v18;
+        v20 = strdup("pthread_create");
+        v19[4] = v20;
+        if ( v20 )
+        {
+          v22 = *(_OWORD *)&preg.buffer;
+          v21 = *(_OWORD *)&preg.used;
+          v19[5] = sub_45630;
+          *(_OWORD *)v19 = v22;
+          *((_OWORD *)v19 + 1) = v21;
+          v19[6] = &off_1270C0;
+          pthread_mutex_lock(&stru_126FC4);
+          v23 = off_121288;
+          v19[7] = 0;
+          v19[8] = v23;
+          *v23 = (__int64)v19;
+          off_121288 = v19 + 7;
+          pthread_mutex_unlock(&stru_126FC4);
+        }
+        else
+        {
+          free(v19);
+        }
+      }
+    }
+  }
+LABEL_153:
+  sub_43604();
+  usleep(0x1388u);
+LABEL_154:
+  file[0] = byte_120260;
+  file[1] = byte_12025D;
+  v325 = word_120256;
+  v326 = byte_120222;
+  v327 = unk_120267;
+  v329 = 0;
+  v328 = word_120263;
+  v24 = dlopen(file, 2);
+  LOBYTE(preg.buffer) = byte_120266;
+  BYTE1(preg.buffer) = HIBYTE(word_120258);
+  BYTE2(preg.buffer) = byte_120255;
+  *(_WORD *)((char *)&preg.buffer + 3) = (unsigned __int8)word_120258;
+  v25 = dlsym(v24, (const char *)&preg);
+  if ( v25 )
+  {
+    if ( (v1 & 1) != 0 )
+      sub_BED38();
+    else
+      sub_BE2A4(v25, sub_46A64, &off_127110);
+  }
+  v26 = *(_DWORD *)(qword_1263E8 + 4);
+  *(_WORD *)&v331[3] = word_120263;
+  v331[5] = HIBYTE(word_120258);
+  v331[6] = byte_120262;
+  v331[7] = byte_12022A;
+  strcpy(v332, ";");
+  sub_BEE70(v24, &v331[3], sub_456BC, &off_1270C8);
+  memset(v363, 10, sizeof(v363));
+  v364 = word_120263;
+  strcpy(v365, "0;\ng");
+  sub_BEE70(v24, v363, sub_45830, &off_1270D0);
+  v355 = word_120263;
+  v356 = HIBYTE(word_120258);
+  v357 = byte_120262;
+  v358 = byte_120255;
+  v359 = word_120268;
+  v360 = byte_12022A;
+  v362 = 0;
+  v361 = byte_120228;
+  sub_BEE70(v24, &v355, sub_459A4, &off_1270D8);
+  memset(v352, 10, sizeof(v352));
+  v353 = word_120263;
+  strcpy(v354, "0;n!\ng");
+  sub_BEE70(v24, v352, sub_45B18, &unk_1270E0);
+  qmemcpy(v330, "bbn", 3);
+  v330[3] = HIBYTE(word_120263);
+  v330[4] = byte_12022A;
+  strcpy(v331, ";");
+  sub_BEE70(v24, v330, sub_45B20, &off_1270E8);
+  if ( (int)__system_property_get("ro.product.model", &preg) <= 0 )
+  {
+    v27 = __strlen_chk("", 1u);
+    __memcpy_chk(&preg, "", (__int64)((v27 << 32) + 0x100000000LL) >> 32, 30);
+  }
+  if ( strstr((const char *)&preg, "Pixelbook") )
+    goto LABEL_161;
+  if ( (int)__system_property_get("ro.product.manufacturer", s) <= 0 )
+  {
+    v33 = __strlen_chk("", 1u);
+    __memcpy_chk(s, "", (__int64)((v33 << 32) + 0x100000000LL) >> 32, 64);
+  }
+  v34 = strcmp((const char *)s, "SPRD");
+  if ( v26 > 28 || !v34 )
+  {
+LABEL_161:
+    v351 = 0u;
+    v350 = 0u;
+    v349 = 0u;
+    v348 = 0u;
+    v347 = 0u;
+    v346 = 0u;
+    v345 = 0u;
+    v344 = 0u;
+    v343 = 0u;
+    v342 = 0u;
+    v341 = 0u;
+    v340 = 0u;
+    v339 = 0u;
+    v338 = 0u;
+    v337 = 0u;
+    needle = 0u;
+    memset(v335, 0, sizeof(v335));
+    memset(&preg, 0, sizeof(preg));
+    sub_102CC(&preg, 128, "%s", "/system/lib64/libc.so");
+    if ( *(int *)(qword_1263E8 + 4) >= 29 )
+      readlink((const char *)&preg, (char *)&preg, 0x80u);
+    v28 = __strlen_chk((const char *)&preg, 0x80u);
+    if ( v28 )
+    {
+      p_preg = &preg;
+      v30 = 1 - v28;
+      v31 = (char *)&needle + 1;
+      while ( 1 )
+      {
+        buffer_low = LOBYTE(p_preg->buffer);
+        *(v31 - 1) = buffer_low;
+        if ( !buffer_low )
+          break;
+        ++v30;
+        p_preg = (regex_t *)((char *)p_preg + 1);
+        ++v31;
+        if ( v30 == 1 )
+          goto LABEL_175;
+      }
+      if ( v30 )
+        memset(v31, 0, -(__int64)v30);
+    }
+LABEL_175:
+    memset(s, 0, 64);
+    v35 = getpid();
+    sub_102CC(s, 64, "/proc/%d/maps", v35);
+    v36 = fopen((const char *)s, "r");
+    if ( v36 )
+    {
+      v37 = v36;
+      *(_QWORD *)name = 0;
+      while ( fgets((char *)&preg, 1024, v37) )
+      {
+        if ( strstr((const char *)&preg, (const char *)&needle) )
+        {
+          sscanf((const char *)&preg, "%lx %*s", name);
+          break;
+        }
+      }
+      fclose(v37);
+      v38 = *(_QWORD *)name;
+    }
+    else
+    {
+      v38 = 0;
+    }
+    v39 = fopen((const char *)&needle, "rb");
+    if ( !v39
+      || (v40 = v39,
+          stat((const char *)&needle, (struct stat *)&preg),
+          re_nsub = preg.re_nsub,
+          v42 = (unsigned __int16 *)malloc(preg.re_nsub),
+          fread(v42, 1u, re_nsub, v40) != re_nsub) )
+    {
+      abort();
+    }
+    fclose(v40);
+    v43 = v42[30];
+    if ( v42[30] )
+    {
+      v44 = 0;
+      v45 = 0;
+      v46 = (__int64)v42 + *((_QWORD *)v42 + 5) + 32;
+      do
+      {
+        v47 = *(_DWORD *)(v46 - 28);
+        if ( v47 == 3 )
+        {
+          v44 = *(_QWORD *)(v46 - 8);
+        }
+        else if ( v47 == 2 )
+        {
+          v45 = *(_QWORD *)(v46 - 8);
+        }
+        --v43;
+        v46 += 64;
+      }
+      while ( v43 );
+    }
+    else
+    {
+      v45 = 0;
+      v44 = 0;
+    }
+    v48 = 0;
+    v49 = (char *)v42 + v44;
+    for ( k = (_QWORD *)((char *)v42 + v45 + 8); ; k += 3 )
+    {
+      v51 = &v49[*((unsigned int *)k - 2)];
+      if ( (*((_BYTE *)k - 4) & 0xF) == 2
+        && (!strcmp(&v49[*((unsigned int *)k - 2)], "___close") || !strcmp(v51, "__close")) )
+      {
+        break;
+      }
+      ++v48;
+    }
+    v52 = *k;
+    free(v42);
+    sub_BE2A4(v52 + v38, sub_4615C, &off_1270F0);
+    memset(v335, 0, 28);
+    memset(&preg, 0, sizeof(preg));
+    if ( (int)__system_property_get("debug.atrace.tags.enableflags", &preg) > 0
+      || (v53 = __strlen_chk("0", 2u),
+          v54 = v53,
+          __memcpy_chk(&preg, "0", (__int64)((v53 << 32) + 0x100000000LL) >> 32, 92),
+          v54 >= 1) )
+    {
+      if ( LOWORD(preg.buffer) != 48 && LODWORD(preg.buffer) != 3176496 )
+      {
+        v55 = getpid();
+        v383 = 0u;
+        v382 = 0u;
+        v381 = 0u;
+        v380 = 0u;
+        v379 = 0u;
+        v378 = 0u;
+        v377 = 0u;
+        v376 = 0u;
+        v375 = 0u;
+        v374 = 0u;
+        v373 = 0u;
+        v372 = 0u;
+        v371 = 0u;
+        v370 = 0u;
+        v369 = 0u;
+        *(_OWORD *)name = 0u;
+        sub_102CC(name, 256, "/proc/%d/fd", v55);
+        v56 = opendir(name);
+        if ( v56 )
+        {
+          v57 = v56;
+          v367 = 0;
+          memset(src, 0, sizeof(src));
+          memset(&preg, 0, 0x400u);
+          memset(s, 0, sizeof(s));
+          v58 = 0;
+          while ( 1 )
+          {
+            v59 = readdir(v57);
+            if ( !v59 )
+              break;
+            if ( (unsigned int)(unsigned __int8)v59->d_name[0] - 48 <= 9 )
+            {
+              d_name = v59->d_name;
+              memset(&preg, 0, 0x400u);
+              memset(s, 0, sizeof(s));
+              v61 = atoi(d_name);
+              sub_102CC(&preg, 1024, "/proc/%d/fd/%d", v55, v61);
+              readlink((const char *)&preg, (char *)s, 0x400u);
+              v62 = __strlen_chk("/sys/kernel/tracing/trace_marker", 0x21u);
+              if ( !strncmp((const char *)s, "/sys/kernel/tracing/trace_marker", v62)
+                || (v63 = __strlen_chk("/sys/kernel/debug/tracing/trace_marker", 0x27u),
+                    !strncmp((const char *)s, "/sys/kernel/debug/tracing/trace_marker", v63)) )
+              {
+                if ( v58 > 9 )
+                  break;
+                src[v58++] = v61;
+              }
+            }
+          }
+          closedir(v57);
+          byte_12731C = 1;
+          dword_129898 = v58;
+          v64 = malloc(4 * v58);
+          qword_1298A0 = (__int64)v64;
+          memset(v64, 0, 4 * v58);
+          memcpy(v64, src, 4 * v58);
+        }
+      }
+    }
+  }
+  else
+  {
+    sub_BEE70(v24, "close", sub_4615C, &off_1270F0);
+  }
+  name[0] = byte_12026B;
+  name[1] = byte_120266;
+  name[2] = byte_12025D;
+  strcpy(&name[3], "!0");
+  sub_BEE70(v24, name, sub_462E0, &off_1270F8);
+  LOBYTE(s[0]) = HIBYTE(word_120263);
+  BYTE1(s[0]) = byte_120266;
+  BYTE2(s[0]) = HIBYTE(word_120258);
+  BYTE3(s[0]) = byte_120255;
+  BYTE4(s[0]) = word_120258;
+  BYTE5(s[0]) = byte_12022A;
+  WORD3(s[0]) = (unsigned __int8)byte_120228;
+  sub_BEE70(v24, s, sub_463F0, &off_127100);
+  LOBYTE(preg.buffer) = HIBYTE(word_120263);
+  BYTE1(preg.buffer) = byte_12026B;
+  BYTE2(preg.buffer) = byte_120266;
+  BYTE3(preg.buffer) = byte_12025D;
+  BYTE4(preg.buffer) = word_120268;
+  BYTE5(preg.buffer) = HIBYTE(word_120258);
+  BYTE6(preg.buffer) = byte_12022A;
+  LOBYTE(preg.allocated) = 0;
+  HIBYTE(preg.buffer) = byte_120228;
+  sub_BEE70(v24, &preg, sub_46944, &off_127108);
+  result = dlclose(v24);
+  if ( dword_127064 )
+  {
+    result = sub_43398(result);
+    byte_127068 = 1;
+  }
+  return result;
+}
+

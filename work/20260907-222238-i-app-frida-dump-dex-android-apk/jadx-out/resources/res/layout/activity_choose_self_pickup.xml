@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.drake.statelayout.StateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slRoot"
+    android:background="@color/gray_f8"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_below="@+id/llAnnouncement"/>
+        <FrameLayout
+            android:background="@color/gray_f8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="@dimen/text_size_16"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:id="@+id/confirmButton"
+                android:background="@drawable/shape_red_round_solid_bg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_44dp"
+                android:layout_marginLeft="@dimen/yx_margin"
+                android:layout_marginTop="@dimen/size_8dp"
+                android:layout_marginRight="@dimen/yx_margin"
+                android:layout_marginBottom="@dimen/size_8dp"
+                android:text="确认自提点"/>
+        </FrameLayout>
+    </LinearLayout>
+</com.drake.statelayout.StateLayout>

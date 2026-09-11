@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:background="@color/black_alpha60"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="50dp">
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:id="@+id/tv_save"
+            android:background="@color/mt_gold"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="53dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="53dp"
+            android:text="保存图片"
+            android:includeFontPadding="false"/>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/controller_play_iv"
+        android:visibility="gone"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:src="@mipmap/video_play_ic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.moutai.mall.view.progressdialog.ArcProgressbar
+        android:id="@+id/controller_loading_buffering"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:arcColor="@color/mt_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:trokeWidth="2dp"/>
+    <TextView
+        android:textSize="11dp"
+        android:textColor="@color/white"
+        android:id="@+id/controller_time_tv"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:text="00:12 / 00:45"
+        app:layout_constraintBottom_toTopOf="@+id/controller_seek_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <SeekBar
+        android:layout_gravity="bottom"
+        android:id="@+id/controller_seek_bar"
+        android:paddingTop="10dp"
+        android:paddingBottom="@dimen/size_19dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="@dimen/size_1dp"
+        android:progressDrawable="@drawable/progress_bar_video_shade"
+        android:thumb="@color/transparent"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

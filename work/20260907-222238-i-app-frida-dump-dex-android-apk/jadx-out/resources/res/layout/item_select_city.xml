@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <CheckBox
+        android:textSize="14dp"
+        android:textColor="@color/selected_cb_text_color"
+        android:gravity="center"
+        android:id="@+id/cbName"
+        android:background="@drawable/selected_cb_radius_2dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="19dp"
+        android:button="@null"/>
+</FrameLayout>

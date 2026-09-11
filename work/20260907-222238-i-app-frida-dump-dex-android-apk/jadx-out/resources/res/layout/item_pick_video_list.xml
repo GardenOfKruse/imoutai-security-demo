@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.moutai.mall.image.pick.view.SquareImageView
+        android:id="@+id/sdv_video_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:actualImageScaleType="centerCrop"
+        app:fadeDuration="300"
+        app:placeholderImage="@color/yx_gray"/>
+    <View
+        android:id="@+id/mask"
+        android:background="@color/white_alpha40"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/pia_album_video_icon_size"
+            android:layout_height="@dimen/pia_album_video_icon_size"
+            android:layout_marginLeft="@dimen/pia_album_video_icon_margin_l"
+            android:layout_marginTop="@dimen/pia_album_video_icon_margin_v"
+            android:layout_marginRight="@dimen/pia_album_video_icon_margin_r"
+            android:layout_marginBottom="@dimen/pia_album_video_icon_margin_v"
+            android:src="@mipmap/orderform_whitevideo_ic"/>
+        <com.moutai.mall.view.YxTextView
+            android:textSize="@dimen/yx_text_size_xs"
+            android:textColor="@color/white"
+            android:id="@+id/tv_video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</FrameLayout>

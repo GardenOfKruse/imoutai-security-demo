@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yd_tip_close">penutupan</string>
+    <string name="yd_tip_init_timeout">Inisialisasi wis entek, klik Coba maneh</string>
+    <string name="yd_tip_load_failed">Gagal mbukak, klik kanggo nyoba maneh</string>
+    <string name="yd_tip_loading">Deteksi cerdas</string>
+    <string name="yd_tip_no_network">Jaringan kasebut ora normal, priksa jaringan kasebut lan coba maneh</string>
+    <string name="yd_tip_validate_timeout">Otentikasi wis entek, tutup lan priksa jaringan</string>
+</resources>

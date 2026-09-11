@@ -1,0 +1,13 @@
+[*] attaching already-running pid=10716
+[agent-send] {'type': 'log', 'msg': 'annot2 agent entered Java.perform'}
+[agent-send] {'type': 'log', 'msg': 'annot2 pass done dumped=220 failed=0 seen=220'}
+[!] rpc set_live_scan failed: unable to find method 'setLiveScan'
+[!] rpc set_native_redirect failed: unable to find method 'setNativeRedirect'
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[+] NEW process pid=10737 @ 12.2s
+[+] NEW process pid=11061 @ 12.2s
+[*] stats: {"classes_dumped": 220, "classes_failed": 0, "total_seen": 220, "started_at": 1789130008283}
+[!] rpc list_loaded_classes failed: unable to find method 'listLoadedClasses'
+[!] script destroyed @ 12.3s
+[!] session detached @ 12.3s reason=application-requested (None,)
+[*] done rs_seen=False dex=0 regnat_msgs=0

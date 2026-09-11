@@ -1,0 +1,8 @@
+[*] attaching already-running pid=10893
+[!] rpc set_live_scan failed: script has been destroyed
+[!] script destroyed @ 16.5s
+[!] session detached @ 16.5s reason=process-terminated (None,)
+[!] rpc set_native_redirect failed: script has been destroyed
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] stats: null
+[*] done rs_seen=False dex=0 regnat_msgs=0

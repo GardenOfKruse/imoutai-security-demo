@@ -1,0 +1,14 @@
+[*] attaching already-running pid=12146
+Traceback (most recent call last):
+  File "E:\code\逆向\android\case-studies\imoutai\hooks\obs-driver.py", line 238, in <module>
+    main()
+  File "E:\code\逆向\android\case-studies\imoutai\hooks\obs-driver.py", line 119, in main
+    session = dev.attach(pid)
+              ^^^^^^^^^^^^^^^
+  File "E:\Programs\Python\Lib\site-packages\frida\core.py", line 94, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "E:\Programs\Python\Lib\site-packages\frida\core.py", line 1070, in attach
+    return Session(self._impl.attach(self._pid_of(target), **kwargs))  # type: ignore
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+frida.ProcessNotRespondingError: unexpectedly timed out trying to sync up with agent

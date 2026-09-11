@@ -1,0 +1,18 @@
+[*] attaching already-running pid=12146
+[agent-send] {'type': 'log', 'msg': 'annot4 entered'}
+[agent-send] {'type': 'endpoints', 'data': {'Production': 'https://app.moutai519.com.cn', 'Development': 'http://devapp.moutai519.com.cn', 'GuizhouDevelopment': 'https://testapp.moutai519.com.cn'}}
+[agent-send] {'type': 'log', 'msg': 'step1 endpoints done'}
+[agent-send] {'type': 'log', 'msg': 'step2 intercept hooked'}
+[agent-send] {'type': 'log', 'msg': 'step3 ctors hooked'}
+[agent-send] {'type': 'log', 'msg': 'step4 header sources hooked'}
+[agent-send] {'type': 'log', 'msg': 'annot4 all hooks installed'}
+[!] rpc set_live_scan failed: unable to find method 'setLiveScan'
+[!] rpc set_native_redirect failed: unable to find method 'setNativeRedirect'
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[+] NEW process pid=12167 @ 4.4s
+[+] NEW process pid=12554 @ 4.4s
+[agent-send] {'type': 'log', 'msg': 'a$b.a() = clips_fxkuFiISc0R9T3lJLRksTnZAeRh7GigYLRwpTylILU4='}
+[!] script destroyed @ 24.7s
+[!] session detached @ 24.7s reason=process-terminated (None,)
+[*] stats: null
+[*] done rs_seen=False dex=0 regnat_msgs=0

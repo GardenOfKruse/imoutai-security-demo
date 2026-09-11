@@ -1,0 +1,23 @@
+{
+  "name": "imoutai-security-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "i茅台 App 安全培训演示：客户端签名可复刻性的交互式还原（本地 mock，零真实请求）",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server/live-server.mjs",
+    "live": "npm run build && npm start"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "swagger-ui-dist": "^5.32.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

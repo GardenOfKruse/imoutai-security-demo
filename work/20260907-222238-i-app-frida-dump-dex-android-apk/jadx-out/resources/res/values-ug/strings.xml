@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_cancel">بىكار قىلىش</string>
+    <string name="dialog_go_setting">تەڭشەك</string>
+    <string name="hms_apk_not_installed_hints">ئۈسكۈنىدە HMS Core نىڭ يېڭى نەشرى يوق، %1$s نورمال ئىشلىمەيدۇ.</string>
+    <string name="hms_bindfaildlg_message">نۆۋەتتە %1$s مۇلازىمىتى HMS Core ئىشلىتەلمەيدۇ. باشقۇرغۇچ ياكى تەڭشەكتە %2$s ئۈچۈن بارلىق ئىجازەتنى ئېچىڭ («ئۆزلۈكىدىن قوزغىلىش» ۋە «باغلانما قوزغىتىش» مۇ شۇنىڭ ئىچىدە).</string>
+    <string name="hms_confirm">بىلدىم</string>
+    <string name="hms_is_spoof">بۇ ئۈسكۈنىگە قاچىلانغان (%1$s) رەسمىي نەشردىكى HMS Core ئەمەس. سىستېما تەڭشىكىدىكى ئەپ باشقۇرۇش ئورنىدىن ئۇنى ئۆچۈرۈپ، ئاندىن بۇ ئەپكە قايتىپ، ئورگان تەرەپ تارقاتقان HMS Core نى قاچىلاڭ.</string>
+    <string name="hms_push_channel">سۈكۈتتىكى</string>
+    <string name="hms_spoof_hints">ئەسكەرتىش</string>
+    <string name="permission_dialog_info">بۇ ئىقتىدار كود سايىلەش مۇلازىمىتى تەمىنلەش ئۈچۈن ئىشلىتىلىدۇ.</string>
+    <string name="permission_dialog_title">تەڭشەك &gt; ئەپ &gt; ئىجازەت باشقۇرۇش بېتىدىن كامېرا ئىجازىتى بېرىڭ</string>
+    <string name="scankit_confirm">جەزملەش</string>
+    <string name="scankit_light">چىراق ئېچىش</string>
+    <string name="scankit_light_off">چىراق ئېتىش</string>
+    <string name="scankit_no_code_tip">رەسىمدىن ئىككىلىك ياكى تاياقچە كود تېپىلمىدى</string>
+    <string name="scankit_scan_tip">ئىككىلىك ياكى تاياقچە كودنى رامكىغا توغرىلىسىڭىز سايىلىنىدۇ</string>
+    <string name="scankit_talkback_back">Back</string>
+    <string name="scankit_talkback_photo">Gallery</string>
+    <string name="scankit_title">اسکین کریں</string>
+    <string name="scankit_title_all">ئىككىلىك/تاياقچە كود سايىلەش</string>
+    <string name="scankit_title_all_level_two">كودنى تۆۋەندىكى رامكىغا توغرىلىسىڭىز سايىلەيدۇ.</string>
+    <string name="scankit_title_qr">كود سايىلەش</string>
+    <string name="scankit_title_qr_level_two">ئىككىلىك كودنى رامكىغا توغرىلىسىڭىز سايىلەيدۇ.</string>
+    <string name="yd_tip_close">تاقاش</string>
+    <string name="yd_tip_init_timeout">باشلاش ۋاقتى توشقاندىن كېيىن قايتا سىناڭ</string>
+    <string name="yd_tip_load_failed">يۈكلەش مەغلۇب بولدى ، قايتا چېكىڭ</string>
+    <string name="yd_tip_loading">ئەقلىي ئىقتىدارلىق بايقاش</string>
+    <string name="yd_tip_no_network">تور بىنورمال ، تورنى تەكشۈرۈپ قايتا سىناڭ</string>
+    <string name="yd_tip_validate_timeout">دەلىللەش ۋاقتى توشتى ، تورنى تاقاپ تەكشۈرۈپ بېقىڭ</string>
+</resources>

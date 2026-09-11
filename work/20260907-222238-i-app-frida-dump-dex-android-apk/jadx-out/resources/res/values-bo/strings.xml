@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yd_tip_close">སྒོ་རྒྱག་པ་</string>
+    <string name="yd_tip_init_timeout">འགོ་སྒྲིག་དུས་བརྒལ་དང་།ཡང་བསྐྱར་ཚོད་ལྟ་ལ་གནོན་།</string>
+    <string name="yd_tip_load_failed">ཡར་བཀྱགས་ནས་ཕམ་ཁ།མར་མནན་ནས་ཡང་བསྐྱར་ཚོད་ལྟ་བྱེད་</string>
+    <string name="yd_tip_loading">རིག་ནུས་བཤེར་འཇལ་ཁྲོད་</string>
+    <string name="yd_tip_no_network">དྲ་རྒྱ་རྒྱུན་ལྡན་མིན་པ་དང་།ཞིབ་བཤེར་བྱེད་རོགས་།དྲ་རྒྱ་རྗེས་ཡང་བསྐྱར་ཚོད་ལྟ་།</string>
+    <string name="yd_tip_validate_timeout">སྒོ་རྒྱག་པར་མ་ཟད་།ཞིབ་བཤེར་དྲ་རྒྱ་རོགས་།</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="20dp">
+    <TextView
+        android:textSize="@dimen/common_text_size_small"
+        android:textColor="@color/red_ec666d"
+        android:id="@+id/star"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="*"
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvName"/>
+    <TextView
+        android:textSize="@dimen/common_text_size_normal"
+        android:textColor="@color/common_text_color"
+        android:id="@+id/tvName"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_margin_big"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_margin_big"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/common_margin_big"
+        android:layout_marginHorizontal="@dimen/common_margin_big"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

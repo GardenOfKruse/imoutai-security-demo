@@ -1,0 +1,4 @@
+[*] attached pid=17125 (read-only audit)
+[!] session detached reason=process-terminated (None,)
+[!] audit rpc failed: script has been destroyed
+[*] pid_alive_after_attach=False exit=1

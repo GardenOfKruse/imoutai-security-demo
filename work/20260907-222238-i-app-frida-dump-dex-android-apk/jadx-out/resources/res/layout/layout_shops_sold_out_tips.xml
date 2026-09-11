@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/llAllShopSoldOut"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_gravity="right"
+        android:background="@drawable/bg_all_shop_sold_out_hint_triangle"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginRight="60dp"/>
+    <TextView
+        android:textSize="14dp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_all_shop_sold_out_hint"
+        android:paddingLeft="15dp"
+        android:paddingTop="12.5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="12.5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前城市门店均已售罄，请换个城市试试"/>
+</LinearLayout>

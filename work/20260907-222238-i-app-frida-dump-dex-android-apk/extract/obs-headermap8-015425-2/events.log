@@ -1,0 +1,8 @@
+[*] attaching already-running pid=13325
+[!] rpc set_live_scan failed: script has been destroyed
+[!] script destroyed @ 1.0s
+[!] session detached @ 1.0s reason=process-terminated (Crash(pid=13325, process_name="com.moutai.mall", summary="Bad access due to invalid address", report=<1314 bytes>, parameters={}),)
+[!] rpc set_native_redirect failed: script has been destroyed
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] stats: null
+[*] done rs_seen=False dex=0 regnat_msgs=0

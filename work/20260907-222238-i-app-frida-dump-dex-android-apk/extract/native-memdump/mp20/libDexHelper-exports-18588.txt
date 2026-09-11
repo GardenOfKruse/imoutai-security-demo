@@ -1,0 +1,1 @@
+function 0xffffffffffed0884 JNI_OnLoad

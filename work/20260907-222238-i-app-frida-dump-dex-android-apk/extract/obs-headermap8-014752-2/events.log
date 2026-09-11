@@ -1,0 +1,11 @@
+[*] attaching already-running pid=11483
+[agent-send] {'type': 'log', 'msg': 'annot4 entered'}
+[agent-send] {'type': 'endpoints', 'data': {'Production': 'https://app.moutai519.com.cn', 'Development': 'http://devapp.moutai519.com.cn', 'GuizhouDevelopment': 'https://testapp.moutai519.com.cn'}}
+[agent-send] {'type': 'log', 'msg': 'step1 endpoints done'}
+[!] script destroyed @ 0.8s
+[!] rpc set_live_scan failed: script has been destroyed
+[!] session detached @ 0.8s reason=process-terminated (Crash(pid=11483, process_name="com.moutai.mall", summary="Bad access due to invalid address", report=<1314 bytes>, parameters={}),)
+[!] rpc set_native_redirect failed: script has been destroyed
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] stats: null
+[*] done rs_seen=False dex=0 regnat_msgs=0

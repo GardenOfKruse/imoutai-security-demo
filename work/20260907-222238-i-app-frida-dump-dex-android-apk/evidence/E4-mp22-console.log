@@ -1,0 +1,99 @@
+[dexhook] A: pthread_create 观察 + 壳线程入口压制已装
+[dexhook] A2/A3: native exit/signal 观察 + shell 来源 pc-redirect 拦截已装
+[dexhook] A4: android_dlopen_ext 观察已装
+[dexhook] B+C: scheduling Java.performNow/perform, available=true
+[dexhook] B+C: Java.perform entered
+[dexhook] B3: MiuiForceDark native hooks installed (2 overloads)
+[dexhook] E1: RegisterNatives 观察已装
+[dexhook] E2: 类加载时间线已装 (3s)
+[dexhook] C1: InMemoryDexClassLoader hooks installed (3 overloads)
+[dexhook] C2: DexFile.openInMemoryDexFiles hooked (1 overloads)
+[dexhook] C2: DexFile.loadDex hooked (2 overloads)
+[dexhook] C2: DexFile.openDexFile hooked (1 overloads)
+[dexhook] C3: DexClassLoader hooks installed
+[dexhook] v5 script loaded, hooks ready
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] resumed pid=23708
+[dexhook] A2: raise(19) caller=boot-framework.oat
+[dexhook] A2: tgkill(19) caller=unknown
+[dexhook] B2: System.loadLibrary(miui_runtime)
+[dexhook] B2: Runtime.nativeLoad(libmiui_runtime.so)
+[dexhook] B2: Runtime.nativeLoad result=success(null)
+[dexhook] C2: DexFile.openDexFile called args=[str[len=44,tail=org.apache.http.legacy.jar], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(org.apache.http.legacy.odex) caller=libart.so ret=ok
+[dexhook] C2: DexFile.openDexFile called args=[str[len=86,tail=base.apk], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(base.odex) caller=libart.so ret=ok
+[dexhook] B2: System.loadLibrary(DexHelper)
+[dexhook] B2: Runtime.nativeLoad(libDexHelper.so)
+[dexhook] B2: rewrite nativeLoad arg "libDexHelper.so" -> /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[dexhook] A4: dlopen_ext(libDexHelper.so) caller=libnativeloader.so ret=NULL
+[dexhook] B2: Runtime.nativeLoad result=error[len=192,tail=d: library "libandroid.so" not found: needed by /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so in namespace com_android_art]
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[dexhook] B2: System.loadLibrary(forcedarkimpl)
+[dexhook] B2: Runtime.nativeLoad(libforcedarkimpl.so)
+[dexhook] B2: bypass missing MIUI libforcedarkimpl.so
+[dexhook] B3: MiuiForceDarkConfigManagerImpl.nativeInit bypassed
+[dexhook] B3: MiuiForceDarkConfigManagerImpl.nativeSetConfig bypassed
+[dexhook] B: Process.killProcess(23708) 已阻断
+java.lang.Exception
+	at android.os.Process.killProcess(Native Method)
+	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:178)
+	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1073)
+	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1068)
+	at java.lang.Thread.dispatchUncaughtException(Thread.java:2200)
+
+[dexhook] B: System.exit(10) 已阻断 #2
+java.lang.Exception
+	at java.lang.System.exit(Native Method)
+	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:179)
+	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1073)
+	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1068)
+	at java.lang.Thread.dispatchUncaughtException(Thread.java:2200)
+
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[*] stats: {"pthread_total": 4, "pthread_suppressed": 0, "modules": {"libutils.so": 1, "libart.so": 3}, "dex_captured": 0, "exit_blocked": 2, "native_signal_blocked": 0, "regnat_count": 0}
+[*] app classes captured=0 -> E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\obs-mp22\loaded-classes-23708.txt
+[!] script destroyed @ 25.5s
+[!] session detached @ 25.5s reason=application-requested (None,)
+[*] done rs_seen=False dex=0 regnat_msgs=0
+Traceback (most recent call last):
+  File "E:\code\逆向\android\case-studies\imoutai\hooks\obs-driver.py", line 164, in <module>
+    main()
+  File "E:\code\逆向\android\case-studies\imoutai\hooks\obs-driver.py", line 160, in main
+    rec(f"[*] done rs_seen={rs_seen} dex={len(seen_md5)} regnat_msgs={regnat_n}")
+  File "E:\code\逆向\android\case-studies\imoutai\hooks\obs-driver.py", line 59, in rec
+    events.write(line + "\n")
+ValueError: I/O operation on closed file.

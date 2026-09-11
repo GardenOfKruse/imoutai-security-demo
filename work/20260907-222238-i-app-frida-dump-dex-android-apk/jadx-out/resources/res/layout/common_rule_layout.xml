@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/dot"
+                android:visibility="gone"
+                android:layout_width="@dimen/size_6dp"
+                android:layout_height="@dimen/size_6dp"
+                android:src="@mipmap/place_order_rule_index"/>
+            <TextView
+                android:textSize="12dp"
+                android:textColor="@color/gray_33"
+                android:ellipsize="end"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/rule_logo"
+            android:layout_width="100dp"
+            android:layout_height="62dp"/>
+    </LinearLayout>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:id="@+id/rule_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:divider="@drawable/rule_divider"
+        app:showDividers="middle"/>
+</merge>

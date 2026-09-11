@@ -1,0 +1,62 @@
+[dexhook] X: native exception observer installed
+[dexhook] A: pthread_create �۲� + ���߳����ѹ����װ
+[dexhook] A5b: libart FindClass ֱ������ѹ� @0x7a50265e60 head=0xd503233f
+[dexhook] A5: module observer installed
+[dexhook] A5: dlsym JNI_OnLoad observer installed
+[dexhook] A2/A3: native exit/signal �۲� + shell ��Դ pc-redirect ������װ
+[dexhook] A4: android_dlopen_ext �۲���װ
+[dexhook] B+C: scheduling Java.performNow/perform, available=true
+[dexhook] B+C: Java.perform entered
+[dexhook] B3: MiuiForceDark native hooks installed (2 overloads)
+[dexhook] B4: UEH observer installed
+[dexhook] E1: RegisterNatives �۲���װ
+[dexhook] E2: �����ʱ������װ (3s)
+[dexhook] C1: InMemoryDexClassLoader hooks installed (3 overloads)
+[dexhook] C2: DexFile.openInMemoryDexFiles hooked (1 overloads)
+[dexhook] C2: DexFile.loadDex hooked (2 overloads)
+[dexhook] C2: DexFile.openDexFile hooked (1 overloads)
+[dexhook] C3: DexClassLoader hooks installed
+[dexhook] v5 script loaded, hooks ready
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] resumed pid=14552
+[dexhook] A2: raise(19) caller=boot-framework.oat @boot-framework.oat+0x18aa70
+[dexhook] A2: tgkill(19) caller=unknown @unmapped@0x7b0010b410
+[dexhook] B2: System.loadLibrary(miui_runtime)
+[dexhook] B2: Runtime.nativeLoad(libmiui_runtime.so)
+[dexhook] B2: Runtime.nativeLoad result=success(null)
+[dexhook] C2: DexFile.openDexFile called args=[str[len=44,tail=org.apache.http.legacy.jar], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(org.apache.http.legacy.odex) caller=libart.so ret=ok
+[dexhook] C2: DexFile.openDexFile called args=[str[len=86,tail=base.apk], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] A4: dlopen_ext(base.odex) caller=libart.so ret=ok
+[dexhook] B2: System.loadLibrary(DexHelper)
+[dexhook] B2: Runtime.nativeLoad(libDexHelper.so)
+[dexhook] B2: rewrite nativeLoad arg "libDexHelper.so" -> /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[dexhook] B2: app loader(verified) = dalvik.system.PathClassLoader probes=5
+[dexhook] B2: nativeLoad loader arg[1] -> app PathClassLoader
+[dexhook] A4: dlopen_ext(libDexHelper.so) caller=libnativeloader.so ret=ok
+[dexhook] A5: JNI_OnLoad observer attached @0x79c47a4884 source=dlsym
+[dexhook] A5: JNI_OnLoad enter(gate=ON) vm=0xb400007a53421540 reserved=0x0
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[dexhook] E1: RegisterNatives #1 count=3 caller=? bs(Landroid/content/Context;I)Ljava/lang/Object;@0x79c47be3fc | is(I)Z@0x79c47bef48 | us(Landroid/content/Context;)V@0x79c47bef68
+[dexhook] E1: RegisterNatives #2 count=1 caller=? hn(Landroid/content/Context;Landroid/app/Application;)V@0x79c47c4f84
+[dexhook] E1: RegisterNatives #3 count=1 caller=? pn()V@0x79c47c6018
+[dexhook] E1: RegisterNatives #4 count=1 caller=? d(Ljava/lang/String;)Ljava/lang/String;@0x79c47c6d8c
+[dexhook] E1: RegisterNatives #5 count=6 caller=? gha(Ljava/lang/String;)I@0x79c47c8d38 | ghc(Ljava/lang/String;)J@0x79c47c8da8 | gah()[Ljava/lang/Object;@0x79c47c8e10 | sha(Ljava/lang/String;I)V@0x79c47c94a8 | he(I)V@0x79c47c94e0 | gv()I@0x79c47c9b68
+[dexhook] E1: RegisterNatives #6 count=7 caller=? bli(Ljava/lang/String;)Z@0x79c47c702c | bla(Ljava/lang/String;)V@0x79c47c71cc | blr(Ljava/lang/String;)V@0x79c47c72d4 | blq(Ljava/lang/String;)Z@0x79c47c73dc | blc()V@0x79c47c7408 | bls(J)Z@0x79c47c742c | blv()J@0x79c47c7470
+[dexhook] E1: RegisterNatives #7 count=1 caller=? sn(Ljava/lang/String;)I@0x79c47d7558
+[dexhook] X: native exception type=access-violation address=0x79c47b3974 pc=0x79c47b3974 x0=0x79c64d3cb0 range={"base":"0x79c4790000","size":1138688,"protection":"rwx","file":null}
+[dexhook] X: backtrace
+unmapped@0x79c47b3974
+unmapped@0x79c47b3974
+[+] NEW process pid=14604 @ 2.1s
+[+] NEW process pid=14620 @ 2.1s
+[!] script destroyed @ 2.2s
+[!] session detached @ 2.2s reason=process-terminated (Crash(pid=14552, process_name="Binder:14552_2", summary="Bad access due to protection failure", report=<1368 bytes>, parameters={}),)
+[+] NEW process pid=14640 @ 3.4s
+[+] NEW process pid=14656 @ 3.4s
+[+] NEW process pid=14662 @ 3.4s
+[+] NEW process pid=14917 @ 4.8s
+[!] rpc get_stats failed: script has been destroyed
+[*] stats: null
+[!] rpc list_loaded_classes failed: script has been destroyed
+[*] done rs_seen=False dex=0 regnat_msgs=7

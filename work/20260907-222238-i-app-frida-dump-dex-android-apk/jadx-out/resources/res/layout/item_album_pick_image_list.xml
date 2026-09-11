@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/pia_album_padding_left"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/pia_album_vertical_padding"
+        android:paddingBottom="@dimen/pia_album_vertical_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdv_album_pick_image"
+            android:layout_width="@dimen/pia_album_iv_size"
+            android:layout_height="@dimen/pia_album_iv_size"
+            app:roundedCornerRadius="@dimen/radius_2dp"/>
+        <TextView
+            android:textSize="@dimen/text_size_15"
+            android:textColor="@color/yx_text_common"
+            android:layout_gravity="center"
+            android:id="@+id/tv_title_album_pick_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pia_album_pic_title_margin"
+            android:singleLine="true"
+            android:includeFontPadding="false"/>
+        <TextView
+            android:textSize="@dimen/yx_text_size_xm"
+            android:textColor="@color/yx_text_desc"
+            android:layout_gravity="center"
+            android:id="@+id/tv_album_pic_count_pick_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pia_album_title_count_margin"/>
+    </LinearLayout>
+    <include
+        android:id="@+id/view_divider_album_pick_image"
+        layout="@layout/view_horizontal_line_1px_black_alpha15"/>
+</LinearLayout>

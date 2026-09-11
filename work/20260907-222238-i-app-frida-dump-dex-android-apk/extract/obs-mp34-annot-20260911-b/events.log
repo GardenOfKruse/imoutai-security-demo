@@ -1,0 +1,5 @@
+[*] normal start before attach com.moutai.mall/.module.splash.SplashActivity
+[*] attaching existing pid=27188
+[agent:info] [dexhook] mp34 minimal mode enabled
+[agent:info] [dexhook] B+C: scheduling Java.performNow/perform, available=true
+[agent:info] [dexhook] B+C: Java.perform entered

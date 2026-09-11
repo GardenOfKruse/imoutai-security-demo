@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:background="@color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.moutai.mall.module.address.TabView
+            android:gravity="center"
+            android:id="@+id/address_tab_view"
+            android:paddingLeft="@dimen/size_10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:tab_checked_color="@color/gray_33"
+            app:tab_height="@dimen/size_52dp"
+            app:tab_horizontal_padding="@dimen/size_5dp"
+            app:tab_indicator_additional_width="@dimen/size_4dp"
+            app:tab_indicator_color="@color/yx_red"
+            app:tab_indicator_height="@dimen/size_2dp"
+            app:tab_normal_color="@color/gray_7f"
+            app:tab_text="@array/address_default_tab_text"
+            app:tab_text_size="@dimen/yx_text_size_m"/>
+        <TextView
+            android:enabled="false"
+            android:textSize="@dimen/yx_text_size_m"
+            android:textColor="@drawable/selector_bg_address_picker_confirm_gray_7f_gray_33"
+            android:gravity="center_vertical"
+            android:id="@+id/address_confirm"
+            android:background="@color/transparent"
+            android:paddingLeft="@dimen/yx_content_padding"
+            android:paddingRight="@dimen/yx_content_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_52dp"
+            android:text="@string/confirm"/>
+    </LinearLayout>
+    <FrameLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/view_horizontal_line_1px_black_alpha15"/>
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/address_list"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"/>
+</LinearLayout>

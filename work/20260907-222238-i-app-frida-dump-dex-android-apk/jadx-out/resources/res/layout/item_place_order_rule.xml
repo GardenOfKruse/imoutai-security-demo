@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/size_20dp">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/size_6dp"
+                android:layout_height="@dimen/size_6dp"
+                android:layout_marginLeft="@dimen/size_7_5dp"
+                android:src="@mipmap/place_order_rule_index"/>
+            <TextView
+                android:textSize="@dimen/yx_text_size_s"
+                android:textColor="@color/gray_33"
+                android:ellipsize="end"
+                android:id="@+id/rule_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_8dp"
+                android:maxLines="1"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="@dimen/size_100dp"
+            android:layout_height="@dimen/size_62dp"
+            android:src="@mipmap/xiaomao_indicator"/>
+    </LinearLayout>
+    <TextView
+        android:textSize="@dimen/yx_text_size_s"
+        android:textColor="@color/gray_7f"
+        android:id="@+id/rule_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_17dp"
+        android:layout_marginTop="@dimen/size_12dp"
+        android:lineSpacingExtra="@dimen/size_1dp"/>
+</LinearLayout>

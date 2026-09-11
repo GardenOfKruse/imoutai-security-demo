@@ -1,0 +1,22 @@
+[*] normal start before attach com.moutai.mall/.module.splash.SplashActivity
+[*] attaching existing pid=7665
+[agent:info] [dexhook] mp34 minimal mode enabled
+[agent:info] [dexhook] B+C: scheduling Java.performNow/perform, available=true
+[agent:info] [dexhook] B+C: Java.perform entered
+[agent:info] [dexhook] B3: MiuiForceDark native hooks installed (2 overloads)
+[agent:info] [dexhook] E1: RegisterNatives 观察已装
+[agent:info] [dexhook] E2: 类加载时间线已装 (3s)
+[agent:info] [dexhook] C1: InMemoryDexClassLoader hooks installed (3 overloads)
+[agent:info] [dexhook] C2: DexFile.openInMemoryDexFiles hooked (1 overloads)
+[agent:info] [dexhook] C2: DexFile.loadDex hooked (2 overloads)
+[agent:info] [dexhook] C2: DexFile.openDexFile hooked (1 overloads)
+[agent:info] [dexhook] C3: DexClassLoader hooks installed
+[agent:info] [dexhook] v5 script loaded, hooks ready
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[agent:info] [dexhook] B2: System.loadLibrary(property_get)
+[agent:info] [dexhook] B2: Runtime.nativeLoad(libproperty_get.so)
+[agent:info] [dexhook] B2: Runtime.nativeLoad result=error[len=53,tail=dlopen failed: library "libproperty_get.so" not found]
+[!] script destroyed @ 1.2s
+[!] session detached @ 1.2s reason=process-terminated (Crash(pid=7665, process_name="com.moutai.mall", summary="java.lang.UnsatisfiedLinkError: dlopen failed: library "libproperty_get.so" not found", report=<1382 bytes>, parameters={}),)
+[*] stats: null
+[*] done rs_seen=False dex=0 regnat_msgs=0

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:paddingLeft="@dimen/yx_margin"
+    android:paddingRight="@dimen/yx_margin"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_55dp">
+    <TextView
+        android:textSize="@dimen/size_18dp"
+        android:textColor="@color/gray_33"
+        android:gravity="center_vertical"
+        android:id="@+id/cityItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_55dp"/>
+    <View
+        android:layout_gravity="center"
+        android:id="@+id/citySelectedFlag"
+        android:background="@mipmap/order_self_pickup_city_choose"
+        android:layout_width="@dimen/size_24dp"
+        android:layout_height="@dimen/size_24dp"/>
+</FrameLayout>

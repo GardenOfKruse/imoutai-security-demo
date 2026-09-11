@@ -1,0 +1,14 @@
+[*] nativeLoad rewrite target: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] resumed pid=18725
+[*] am start com.moutai.mall/.module.splash.SplashActivity
+[+] NEW process pid=18760 @ 2.1s
+[+] NEW process pid=18765 @ 2.1s
+[!] script destroyed @ 2.1s
+[!] session detached @ 2.1s reason=process-terminated (Crash(pid=18725, process_name="Binder:18725_2", summary="Bad access due to protection failure", report=<1368 bytes>, parameters={}),)
+[+] NEW process pid=18794 @ 3.4s
+[+] NEW process pid=18810 @ 3.4s
+[+] NEW process pid=18817 @ 3.4s
+[+] NEW process pid=19068 @ 8.7s
+[!] rpc get_stats failed: script has been destroyed
+[*] stats: null
+[!] rpc list_loaded_classes failed: script has been destroyed

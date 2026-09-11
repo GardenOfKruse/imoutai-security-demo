@@ -1,0 +1,56 @@
+[dexhook] A: pthread_create 观察 + 壳线程入口压制已装
+[dexhook] B+C: scheduling Java.performNow/perform, available=true
+[dexhook] B+C: Java.perform entered
+[dexhook] B3: MiuiForceDark native hooks installed (2 overloads)
+[dexhook] C1: InMemoryDexClassLoader hooks installed (3 overloads)
+[dexhook] C2: DexFile.openInMemoryDexFiles hooked (1 overloads)
+[dexhook] C2: DexFile.loadDex hooked (2 overloads)
+[dexhook] C2: DexFile.openDexFile hooked (1 overloads)
+[dexhook] C3: DexClassLoader hooks installed
+[dexhook] v5 script loaded, hooks ready
+[*] live DEX scan paused before resume
+[*] native load redirect configured for /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[*] direct dlopen path=/data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[dexhook] A2: raise(19) caller=boot-framework.oat
+[dexhook] A2: tgkill(19) caller=unknown
+[dexhook] B2: System.loadLibrary(miui_runtime)
+[dexhook] B2: Runtime.nativeLoad(libmiui_runtime.so)
+[dexhook] B2: Runtime.nativeLoad result=success(null)
+[*] direct dlopen result={'handle': '0x191eb0c829885bbd', 'error': None, 'module': {'name': 'libDexHelper.so', 'base': '0x79c3469000', 'size': 1495040}}
+[dexhook] C2: DexFile.openDexFile called args=[str[len=44,tail=org.apache.http.legacy.jar], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] C2: DexFile.openDexFile called args=[str[len=86,tail=base.apk], null, num=0, dalvik.system.PathClassLoader, object]
+[dexhook] B2: System.loadLibrary(DexHelper)
+[dexhook] B2: Runtime.nativeLoad(libDexHelper.so)
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: tgkill(33) caller=libbacktrace.so
+[dexhook] A2: abort caller=libart.so
+[dexhook] B2: redirect libDexHelper -> error jni=Error: abort was called
+[dexhook] B2: Runtime.nativeLoad result=error[len=50,tail=dlopen failed: library "libDexHelper.so" not found]
+Traceback (most recent call last):
+  File "E:\code\逆向\android\case-studies\imoutai\hooks\dump-native-driver.py", line 124, in <module>
+    main()
+  File "E:\code\逆向\android\case-studies\imoutai\hooks\dump-native-driver.py", line 78, in main
+    classes = exports.list_loaded_classes("com.moutai.mall")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Programs\Python\Lib\site-packages\frida\core.py", line 188, in method
+    return script._rpc_request(request, data, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Programs\Python\Lib\site-packages\frida\core.py", line 94, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "E:\Programs\Python\Lib\site-packages\frida\core.py", line 499, in _rpc_request
+    raise result.error
+frida.InvalidOperationError: script has been destroyed

@@ -1,0 +1,21 @@
+[*] connect 127.0.0.1:8899
+[*] spawn com.moutai.mall
+[dump-dex-mem] pthread_create 压制已装 (shell so: libDexHelper.so, libdexvmp.so, libSecShell, libbangcle_risk.so, libRiskStub.so)
+[dump-dex-mem] script loaded, rpc ready
+[+] resumed pid=17003, wait 30s for app init
+[dump-dex-mem] dlopen: /data/app/~~ijH4u6xWQUI5QD1pMdtdsg==/com.moutai.mall-3XzH1chtKcKYO0mGTiWweQ==/lib/arm64/libDexHelper.so
+[dump-dex-mem] anonymous scan ranges: 572
+[dump-dex-mem] dex candidates: 2
+[round 1] candidates=2
+  [-] pull fail 0x79c7567090_284: TypeError: not a function
+    at readDex (/script1.js:143)
+    at call (native)
+    at handleRpcMessage (/frida/runtime/message-dispatcher.js:39)
+    at handleMessage (/frida/runtime/message-dispatcher.js:25)
+  [-] pull fail 0x79c75682a8_284: TypeError: not a function
+    at readDex (/script1.js:143)
+    at call (native)
+    at handleRpcMessage (/frida/runtime/message-dispatcher.js:39)
+    at handleMessage (/frida/runtime/message-dispatcher.js:25)
+[-] round 2: rpc failed: script has been destroyed
+[+] done: 0 unique dexes -> E:\code\逆向\android\work\20260907-222238-i-app-frida-dump-dex-android-apk\extract\dexes

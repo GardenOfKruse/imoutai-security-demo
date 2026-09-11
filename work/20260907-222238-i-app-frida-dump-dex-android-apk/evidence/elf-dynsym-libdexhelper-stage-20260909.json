@@ -1,0 +1,1923 @@
+{
+  "path": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\libDexHelper-stage-decrypted-20260909.elf",
+  "dynamic_tags": {
+    "1": "0x85a",
+    "14": "0x862",
+    "25": "0x11b938",
+    "27": "0x8",
+    "26": "0x11b940",
+    "28": "0x10",
+    "4": "0x228",
+    "1879047925": "0x8f0",
+    "5": "0x1f20",
+    "6": "0x918",
+    "10": "0x877",
+    "11": "0x18",
+    "3": "0x11f450",
+    "2": "0x1578",
+    "20": "0x7",
+    "23": "0xd4c8",
+    "7": "0x29b0",
+    "8": "0xab18",
+    "9": "0x18",
+    "30": "0x8",
+    "1879048187": "0x1",
+    "1879048190": "0x2970",
+    "1879048191": "0x2",
+    "1879048176": "0x2798",
+    "1879048185": "0x716"
+  },
+  "dynsym_count": 235,
+  "undefined_count": 232,
+  "symbols_of_interest": [
+    {
+      "name": "JNI_OnLoad",
+      "value": "0x14884",
+      "size": 9548,
+      "info": 18,
+      "shndx": 11
+    }
+  ],
+  "all_symbols": [
+    {
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "",
+      "value": "0xf8b0",
+      "size": 0,
+      "info": 3,
+      "shndx": 11,
+      "undefined": false
+    },
+    {
+      "name": "",
+      "value": "0x11b950",
+      "size": 0,
+      "info": 3,
+      "shndx": 19,
+      "undefined": false
+    },
+    {
+      "name": "sleep",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "mprotect",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_detach",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sem_wait",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__strrchr_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "deflateEnd",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutex_destroy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pipe",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "atoi",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_create",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wait",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strnlen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_join",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtoull",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "realloc",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "gettid",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "open",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_key_create",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "printf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__vsnprintf_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__strlcpy_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sem_post",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "inflate",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutex_trylock",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_once",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__cxa_finalize",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "ftell",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "regcomp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "ptrace",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "siglongjmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "mkdir",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "calloc",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcstof",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fread",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "syslog",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_cond_destroy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "inflateInit2_",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strncmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "posix_memalign",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "read",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__strlen_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtoul",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fstat",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strncasecmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutex_init",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "atof",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtoll",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_equal",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "signal",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "bind",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "abort",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "vsnprintf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "swprintf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "closedir",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strerror",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "lstat",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "lstat64",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "qsort",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "_exit",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__errno",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dirfd",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "_ctype_",
+      "value": "0x0",
+      "size": 0,
+      "info": 17,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "srand",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "snprintf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "getpid",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__memcpy_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dl_iterate_phdr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sscanf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutexattr_settype",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "android_set_abort_message",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sem_close",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "deflate",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sched_getaffinity",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "islower",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "endmntent",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "isupper",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "write",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "toupper",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcstoull",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "getenv",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__memmove_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strcasecmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strrchr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "access",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "time",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcstol",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wmemcpy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "rand",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__read_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__sF",
+      "value": "0x0",
+      "size": 0,
+      "info": 17,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "regfree",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "memcmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_cond_timedwait",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fclose",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "lseek",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "madvise",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fputs",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fflush",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "recvfrom",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fputc",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__stack_chk_fail",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fgets",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcslen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "getc",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fork",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "gettimeofday",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dlclose",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fileno",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutexattr_init",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_key_delete",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_cond_wait",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strftime",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtok_r",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "nanosleep",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "memchr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "prctl",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "ioctl",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strcasestr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_setspecific",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "opendir",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sendto",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fstatat64",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dlsym",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "openlog",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__android_log_print",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dlerror",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "unlink",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "inflateEnd",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wmemmove",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "setenv",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sysconf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strchr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "tolower",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__strchr_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "uname",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fseek",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strcmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__open_2",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "flock",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutexattr_destroy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "syscall",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "regexec",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strerror_r",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "puts",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sigaction",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutex_lock",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "setjmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "mmap",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "poll",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "closelog",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_getspecific",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "difftime",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "memmove",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "inet_aton",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "ferror",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "longjmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sem_init",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "isxdigit",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "putchar",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "getuid",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sched_yield",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcstod",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__vsprintf_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "readlink",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strstr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strdup",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__memset_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "clearerr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sched_setaffinity",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "usleep",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dladdr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "kill",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wmemcmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "readdir",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fdopen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strlen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "crc32",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "exit",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "close",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wmemchr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "vasprintf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtold",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "remove",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "dlopen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "stat",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "localtime",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtod",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strndup",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "rename",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "munmap",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "get_crc_table",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcstoll",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__strcat_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "getppid",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fprintf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "malloc",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "isprint",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wmemset",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "setsockopt",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "execl",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "memcpy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "isalnum",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "waitpid",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "deflateInit2_",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "connect",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "memset",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fopen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "socket",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fwrite",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__strcpy_chk",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_cond_broadcast",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sigsetjmp",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtol",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fcntl",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "free",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_self",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "getmntent",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcstold",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "wcstoul",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "fscanf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strcpy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__system_property_get",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "setmntent",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_cond_signal",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "strtof",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "sigfillset",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "vfprintf",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "pthread_mutex_unlock",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "clock_gettime",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "__cxa_atexit",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "isspace",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "name": "JNI_OnLoad",
+      "value": "0x14884",
+      "size": 9548,
+      "info": 18,
+      "shndx": 11,
+      "undefined": false
+    }
+  ]
+}

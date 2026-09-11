@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="20dp">
+    <TextView
+        android:textSize="@dimen/common_text_size_small"
+        android:textColor="@color/red_ec666d"
+        android:id="@+id/star"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="*"
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvName"/>
+    <TextView
+        android:textSize="@dimen/common_text_size_normal"
+        android:textColor="@color/common_text_color"
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+        android:gravity="top"
+        android:id="@+id/etInput"
+        android:background="@drawable/shape_rectangle_round_line_2dp_gray"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="@dimen/common_margin_normal"
+        android:layout_marginRight="20dp"
+        android:lines="3"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,131 @@
+{
+  "files": [
+    {
+      "path": "extract\\runtime-app-files-25103-20260909-raw\\classes.dve",
+      "size": 24,
+      "sha256": "9c5286f9dd36cc275e4863a88d3f123c3e02ce1370bbbff2294383e7956be2a3",
+      "head_hex": "081ff53a14a0f5dc86dafeabe3883e3b78579f6a00000000",
+      "entropy_bits_per_byte": 4.168296,
+      "zero_bytes": 4,
+      "unique_byte_values": 20,
+      "markers": {
+        "dex": [],
+        "cdex": [],
+        "vdex": [],
+        "elf": [],
+        "zip_local": [],
+        "zip_central": [],
+        "zip_end": [],
+        "dexdata": [],
+        "fdex": []
+      },
+      "keywords": {
+        "com/moutai/mall": [],
+        "login": [],
+        "signature": [],
+        "classes.dve": [],
+        "KEY_RES_ENC": [],
+        "InMemoryDexClassLoader": []
+      },
+      "zip": {
+        "valid": false,
+        "error": "BadZipFile"
+      }
+    },
+    {
+      "path": "extract\\runtime-app-files-25103-20260909-raw\\classes.jar",
+      "size": 23505324,
+      "sha256": "66598e881fd7860a8091e61aafc45f3cc127ac67626da11f2edd32121542839f",
+      "head_hex": "6465780a30333700478f47eef55bd6203bf4b699c5a05a763edc81aff74dc19baca9660170000000785634120000000000000000bc5800005901000070000000",
+      "entropy_bits_per_byte": 6.440492,
+      "zero_bytes": 6625430,
+      "unique_byte_values": 256,
+      "markers": {
+        "dex": [
+          0
+        ],
+        "cdex": [],
+        "vdex": [],
+        "elf": [],
+        "zip_local": [
+          5649292
+        ],
+        "zip_central": [],
+        "zip_end": [],
+        "dexdata": [
+          22936
+        ],
+        "fdex": [
+          15326862,
+          18423339,
+          21989782,
+          23505320
+        ]
+      },
+      "keywords": {
+        "com/moutai/mall": [
+          7019,
+          7051,
+          9964269,
+          9964326
+        ],
+        "login": [
+          9323413,
+          9401239,
+          9401291,
+          9401342,
+          9401395,
+          9401444,
+          9401506
+        ],
+        "signature": [
+          7433,
+          9199900,
+          9200715,
+          9201897,
+          9255313,
+          9381173,
+          9390300,
+          9402481,
+          9964854,
+          9974075,
+          10019634,
+          10019651,
+          10027056,
+          10028175,
+          10041469,
+          10044101,
+          10058097,
+          10145026,
+          10162953,
+          10162971,
+          10162994,
+          10163014,
+          10176129,
+          10209859,
+          10229231,
+          10414222,
+          10415235,
+          10471385,
+          10502015,
+          10502029,
+          10502102,
+          10533783,
+          10633189,
+          10652892,
+          10756076,
+          10818703,
+          10818714,
+          10862562
+        ],
+        "classes.dve": [],
+        "KEY_RES_ENC": [],
+        "InMemoryDexClassLoader": []
+      },
+      "zip": {
+        "valid": false,
+        "error": "BadZipFile"
+      }
+    }
+  ]
+}

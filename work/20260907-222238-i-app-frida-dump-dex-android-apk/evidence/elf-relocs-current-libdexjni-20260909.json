@@ -1,0 +1,467 @@
+{
+  "path": "E:\\code\\逆向\\android\\work\\20260907-222238-i-app-frida-dump-dex-android-apk\\extract\\lib2\\libdexjni.so",
+  "dynamic_tags": {
+    "1": "0x28",
+    "14": "0x116",
+    "16": "0x0",
+    "25": "0x12d08",
+    "27": "0x10",
+    "26": "0x12d18",
+    "28": "0x10",
+    "4": "0x1f4000",
+    "5": "0x1f3000",
+    "6": "0x1f2000",
+    "10": "0x136",
+    "11": "0x18",
+    "3": "0x12f18",
+    "2": "0x240",
+    "20": "0x7",
+    "23": "0x730",
+    "7": "0x6e8",
+    "8": "0x48",
+    "9": "0x18",
+    "24": "0x0",
+    "1879048187": "0x1",
+    "1879048185": "0x2"
+  },
+  "dynsym_count_reported": 26,
+  "dynsym_count": 26,
+  "dynsym_truncated_to_file": false,
+  "undefined_symbols": [
+    {
+      "index": 0,
+      "name": "",
+      "value": "0x0",
+      "size": 0,
+      "info": 0,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 3,
+      "name": "dlerror",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 4,
+      "name": "__stack_chk_guard",
+      "value": "0x0",
+      "size": 0,
+      "info": 17,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 6,
+      "name": "fgets",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 7,
+      "name": "memcpy",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 8,
+      "name": "__cxa_finalize",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 10,
+      "name": "lseek",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 11,
+      "name": "mmap",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 12,
+      "name": "abort",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 13,
+      "name": "__stack_chk_fail",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 15,
+      "name": "strstr",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 16,
+      "name": "read",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 17,
+      "name": "dlopen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 18,
+      "name": "__cxa_atexit",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 19,
+      "name": "dlsym",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 20,
+      "name": "fopen",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 22,
+      "name": "memset",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 23,
+      "name": "fclose",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    },
+    {
+      "index": 25,
+      "name": "isprint",
+      "value": "0x0",
+      "size": 0,
+      "info": 18,
+      "other": 0,
+      "shndx": 0,
+      "undefined": true
+    }
+  ],
+  "relocations": [
+    {
+      "table": "jmprel",
+      "index": 0,
+      "offset": "0x12f30",
+      "type": 1026,
+      "symbol_index": 3,
+      "symbol": "dlerror",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 1,
+      "offset": "0x12f38",
+      "type": 1026,
+      "symbol_index": 6,
+      "symbol": "fgets",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 2,
+      "offset": "0x12f40",
+      "type": 1026,
+      "symbol_index": 7,
+      "symbol": "memcpy",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 3,
+      "offset": "0x12f48",
+      "type": 1026,
+      "symbol_index": 8,
+      "symbol": "__cxa_finalize",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 4,
+      "offset": "0x12f50",
+      "type": 1026,
+      "symbol_index": 10,
+      "symbol": "lseek",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 5,
+      "offset": "0x12f58",
+      "type": 1026,
+      "symbol_index": 11,
+      "symbol": "mmap",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 6,
+      "offset": "0x12f60",
+      "type": 1026,
+      "symbol_index": 12,
+      "symbol": "abort",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 7,
+      "offset": "0x12f68",
+      "type": 1026,
+      "symbol_index": 13,
+      "symbol": "__stack_chk_fail",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 8,
+      "offset": "0x12f70",
+      "type": 1026,
+      "symbol_index": 15,
+      "symbol": "strstr",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 9,
+      "offset": "0x12f78",
+      "type": 1026,
+      "symbol_index": 16,
+      "symbol": "read",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 10,
+      "offset": "0x12f80",
+      "type": 1026,
+      "symbol_index": 17,
+      "symbol": "dlopen",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 11,
+      "offset": "0x12f88",
+      "type": 1026,
+      "symbol_index": 18,
+      "symbol": "__cxa_atexit",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 12,
+      "offset": "0x12f90",
+      "type": 1026,
+      "symbol_index": 19,
+      "symbol": "dlsym",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 13,
+      "offset": "0x12f98",
+      "type": 1026,
+      "symbol_index": 20,
+      "symbol": "fopen",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 14,
+      "offset": "0x12fa0",
+      "type": 1026,
+      "symbol_index": 22,
+      "symbol": "memset",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 15,
+      "offset": "0x12fa8",
+      "type": 1026,
+      "symbol_index": 23,
+      "symbol": "fclose",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 16,
+      "offset": "0x12fb0",
+      "type": 1026,
+      "symbol_index": 25,
+      "symbol": "isprint",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 17,
+      "offset": "0x12fb8",
+      "type": 1026,
+      "symbol_index": 26,
+      "symbol": "",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 18,
+      "offset": "0x12fc0",
+      "type": 1026,
+      "symbol_index": 27,
+      "symbol": "",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 19,
+      "offset": "0x12fc8",
+      "type": 1026,
+      "symbol_index": 28,
+      "symbol": "",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 20,
+      "offset": "0x12fd0",
+      "type": 1026,
+      "symbol_index": 31,
+      "symbol": "",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 21,
+      "offset": "0x12fd8",
+      "type": 1026,
+      "symbol_index": 32,
+      "symbol": "",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 22,
+      "offset": "0x12fe0",
+      "type": 1026,
+      "symbol_index": 33,
+      "symbol": "",
+      "addend": 0
+    },
+    {
+      "table": "jmprel",
+      "index": 23,
+      "offset": "0x12fe8",
+      "type": 1026,
+      "symbol_index": 34,
+      "symbol": "",
+      "addend": 0
+    },
+    {
+      "table": "rela",
+      "index": 0,
+      "offset": "0x12d08",
+      "type": 1027,
+      "symbol_index": 0,
+      "symbol": "",
+      "addend": 10112
+    },
+    {
+      "table": "rela",
+      "index": 1,
+      "offset": "0x12d18",
+      "type": 1027,
+      "symbol_index": 0,
+      "symbol": "",
+      "addend": 2832
+    },
+    {
+      "table": "rela",
+      "index": 2,
+      "offset": "0x12ff8",
+      "type": 1025,
+      "symbol_index": 4,
+      "symbol": "__stack_chk_guard",
+      "addend": 0
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_imagepick"
+        android:layout_width="@dimen/size_50dp"
+        android:layout_height="@dimen/size_50dp"
+        android:layout_marginTop="@dimen/size_40dp"/>
+    <TextView
+        android:textSize="14dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/tv_imagepick"
+        android:background="@color/bg_transparent_grey"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+        android:text="imagepick"/>
+    <TextView
+        android:textSize="14dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/tv_image_multi_pick"
+        android:background="@color/bg_transparent_grey"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+        android:text="imageMutlipick"/>
+</LinearLayout>

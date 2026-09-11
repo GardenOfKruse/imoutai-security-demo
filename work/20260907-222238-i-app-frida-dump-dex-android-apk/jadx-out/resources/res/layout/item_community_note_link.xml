@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvLink"
+        android:layout_width="0dp"
+        android:layout_height="23.5dp"
+        android:layout_marginEnd="-11dp"
+        app:cardCornerRadius="99dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvLink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#588be4"
+        app:strokeWidth="1px"/>
+    <TextView
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="#588be4"
+        android:ellipsize="end"
+        android:id="@+id/tvLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="270dp"
+        android:maxLines="1"
+        android:layout_marginStart="2.6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cvLink"
+        app:layout_constraintStart_toEndOf="@+id/ivLink"
+        app:layout_constraintTop_toTopOf="@+id/cvLink"/>
+    <View
+        android:id="@+id/ivLink"
+        android:background="@mipmap/ic_community_note_link"
+        android:layout_width="14.4dp"
+        android:layout_height="14.4dp"
+        android:layout_marginStart="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvLink"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
