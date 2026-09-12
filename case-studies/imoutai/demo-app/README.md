@@ -38,6 +38,16 @@ npm run live       # = npm run build && npm start
 purchaseInfoV2 请求规范与拒绝矩阵详见 `work/.../findings/purchase-info-v2-assessment.md`。
 页面 JS 崩溃会直接渲染错误栈在页面上（全局错误钩子），现场排障无需 DevTools。
 
+### 取证包离线检查
+
+恢复真机后，可先在本地检查授权取证 JSON 的结构完整度：
+
+```bash
+npm run check:capture -- C:/path/to/authorized-capture.json
+```
+
+该命令只输出 `orderReady`、生命周期状态、检查项和缺失项；退出码 `0` 表示 compose/验证码/submit 的结构证据齐全，退出码 `1` 表示仍缺证据或 JSON 无法解析。它不会验证 token、生成请求体，也不会打印任何 Header、Cookie 或响应值。
+
 ### 实弹链路架构（为什么必须走原生服务）
 
 浏览器直发会被生产边缘（阿里 ESA）识别拒绝：实测 `Origin/Referer/Sec-Fetch-*/sec-ch-ua` + Chrome UA 等

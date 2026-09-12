@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "test:offline": "node scripts/offline-smoke.mjs",
+    "check:capture": "node scripts/check-capture-evidence.mjs",
     "preview": "vite preview",
     "start": "node server/live-server.mjs",
     "live": "npm run build && npm start"

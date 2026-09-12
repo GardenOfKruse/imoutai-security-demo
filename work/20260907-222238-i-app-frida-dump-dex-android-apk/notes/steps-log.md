@@ -1183,3 +1183,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 新增 `isVerifiedCaptureProfile`：必须显式 `verifiedCapture=true`、非 synthetic、存在 `deviceKey` 且 HeaderMap 非空；`realApi.js`、`ModeGate.jsx` 统一使用该规则。
 - `offline-smoke.mjs` 覆盖离线档案、redacted-template 和显式真实取证结构三种边界；仍不把结构校验当作 token/订单授权。
 - 验证命令：`npm run test:offline`、`npm run build`、`node --check server/live-server.mjs`、`git diff --check`；均通过。构建仅有既有 chunk 大小警告。
+
+### S6-60. 固化真机回归前的取证包只读检查（2026-09-12）
+
+- 盘点现有 `extract`、JADX、反射 JSONL 和 findings：没有 compose/submit 运行态 body 或验证码回调样本，只有接口/字段和 `CaptchaWebView` 组件证据；因此未拼接实弹请求。
+- 新增 `demo-app/scripts/check-capture-evidence.mjs` 与 `npm run check:capture`，恢复真机后可对本地授权 JSON 输出结构检查结果和缺失项；脚本只输出字段状态，不回显 Header、Cookie、token、请求体或响应值。
+- 不完整取证包退出码为 1；只有 compose、验证码和 submit 结构证据齐全时才返回 0；该命令仍是结构检查，不等价于服务端授权或订单成功。
