@@ -1124,3 +1124,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 新增 `demo-app/public/offline-headermap.json`，内容与默认 seed 的离线生成器一致，便于无真机、无浏览器操作时直接获取培训 fixture。
 - 该文件与 `real-headermap.json` 分离，固定 `verifiedCapture=false`，所有会话字段为占位值；不作为真实取证档案使用。
+
+### S6-50. 构建产物静态读取验证（2026-09-12）
+
+- `dist/offline-headermap.json`（2527 bytes）和 `dist/real-headermap.json`（976 bytes）均存在；本地静态服务读取两者均返回 HTTP 200。
+- 解析结果分别为 `offline-algorithm-research/false` 与 `redacted-template/false`；未访问 `/api/live`，未连接外部目标。
