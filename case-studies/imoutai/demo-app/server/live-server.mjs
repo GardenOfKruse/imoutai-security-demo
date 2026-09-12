@@ -26,6 +26,15 @@ const TARGETS = {
   app: 'app.moutai519.com.cn',
   h5: 'h5.moutai519.com.cn',
 }
+const ALLOWED_APIS = {
+  app: new Set([
+    '/xhr/front/user/register/vcode',
+    '/xhr/front/user/register/login',
+    '/xhr/front/trade/order/standard/compose/v2',
+    '/xhr/front/trade/order/standard/submit/v2',
+  ]),
+  h5: new Set(['/xhr/front/mall/item/purchaseInfoV2']),
+}
 const BUDGET = { maxRequests: 300 }
 const MIN_INTERVAL_MS = 2000
 
@@ -168,6 +177,7 @@ async function handleLive(req, res, raw) {
     return json(res, 403, { error: '仅允许授权测试设备真实取证档案；占位或离线研究档案已阻断' })
   }
   if (!api || !api.startsWith('/')) return json(res, 400, { error: 'bad api path' })
+  if (!ALLOWED_APIS[host]?.has(api)) return json(res, 403, { error: 'API 不在当前演示授权白名单内' })
   if (/(^|\/)pay(\/|$)/i.test(api) || /(^|\/)order\/pay(\/|$)/i.test(api)) {
     return json(res, 403, { error: '支付接口永久禁止调用' })
   }
