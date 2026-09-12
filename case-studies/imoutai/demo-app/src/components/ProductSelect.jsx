@@ -5,6 +5,7 @@ import { PRODUCTS } from '../lib/mockApi.js'
 export default function ProductSelect({ clean, cart, setCart, api, isLive, onSubmit }) {
   const [liveResp, setLiveResp] = useState(null)
   const [liveErr, setLiveErr] = useState('')
+  const [composing, setComposing] = useState(false)
   useEffect(() => {
     if (!isLive) return
     api.purchaseInfo({}).then((r) => {
@@ -21,12 +22,24 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
     setCart((c) => c.map((x) => (x.product.id === id ? { ...x, qty: Math.max(1, Math.min(6, x.qty + d)) } : x)))
   const total = cart.reduce((s, x) => s + x.product.price * x.qty, 0)
 
-  const submit = () => {
+  const submit = async () => {
     if (!cart.length) { setErr('请先勾选商品'); return }
     const total2 = cart.reduce((s, x) => s + x.product.price * x.qty, 0)
-    const orderId = isLive ? 'LIVE_PENDING' : 'MO' + Date.now()
-    const order = { orderId, amount: (total2 / 100).toFixed(2), subject: cart.map((x) => x.product.name).join(' / ') }
-    onSubmit(order, cart)
+    setErr('')
+    setComposing(true)
+    try {
+      if (isLive) {
+        // 真实 compose body 尚未有运行态证据；只建立 UI 草稿，不发送猜测请求。
+        onSubmit({ orderId: 'LIVE_PENDING', amount: (total2 / 100).toFixed(2), subject: cart.map((x) => x.product.name).join(' / ') }, cart, null)
+        return
+      }
+      const composeResult = await api.composeOrder(cart)
+      onSubmit(composeResult.order, cart, composeResult)
+    } catch (e) {
+      setErr(String(e.message || e))
+    } finally {
+      setComposing(false)
+    }
   }
 
   return (
@@ -63,7 +76,7 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
       )}
       <div className="cartbar">
         <span>合计：<b>¥{(total / 100).toFixed(2)}</b></span>
-        <button className="btn primary" disabled={isLive && (!liveResp || liveResp.status !== 200)} onClick={submit}>进入验证码</button>
+        <button className="btn primary" disabled={composing || (isLive && (!liveResp || liveResp.status !== 200))} onClick={submit}>{composing ? '准备订单草稿…' : '进入验证码'}</button>
       </div>
       {err && <div className="errmsg">{err}</div>}
     </div>

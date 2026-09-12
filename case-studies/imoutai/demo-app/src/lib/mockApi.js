@@ -53,10 +53,44 @@ export function mockLogin(mobile) {
   })
 }
 
+function buildMockOrder(items) {
+  const now = Date.now()
+  const orderId = 'MO' + now
+  const transactionId = 'MTX' + now
+  const amount = (items.reduce((s, x) => s + x.product.price * x.qty, 0) / 100).toFixed(2)
+  return {
+    order: {
+      orderId,
+      amount,
+      subject: items.map((x) => x.product.name).join(' / '),
+    },
+    transactionId,
+    composeBody: {
+      actParam: { fixture: true },
+      addressInfo: null,
+      deliverMethod: 'mock',
+      itemList: items.map((x) => ({ sku: x.product.id, qty: x.qty })),
+      selfPickUpSite: null,
+      shopSelfPickUpInventoryInfo: null,
+    },
+  }
+}
+
+/** 本地 Mock 的 compose 阶段；字段名仅对应静态反射模型，值全部为 synthetic fixture。 */
+export function mockComposeOrder(items) {
+  const draft = buildMockOrder(items)
+  recordApi({
+    api: '/xhr/front/trade/order/standard/compose/v2',
+    note: '本地 Mock compose 阶段；字段名来自静态模型，值为 synthetic fixture，未向生产发送',
+    body: draft.composeBody,
+  })
+  return draft
+}
+
 export function mockSubmitOrder(order) {
   return recordApi({
     api: '/xhr/front/trade/order/standard/submit/v2',
-    note: '下单接口（App 端 V0/T0 方法）；客户端拼接支付参数的风险见 payLinks.js',
+    note: '本地 Mock submit 阶段；仅在验证码 fixture 通过后记录，未向生产发送',
     body: order,
   })
 }

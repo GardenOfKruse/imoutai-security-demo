@@ -1098,3 +1098,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 为无真机算法研究台增加确定性 HeadMap JSON 导出；输入为 fixture seed、Android 参数和已确认的 RiskStub 因子，输出包含 synthetic deviceKey、设备 ID、clips_* 演示值和占位请求头。
 - 导出档案固定标记 `profileType=offline-algorithm-research`、`verifiedCapture=false`，不含真实 Cookie/JWT/MT-Token，不能解锁 Live；前端与本地代理继续拒绝该档案进入生产请求。
 - `npm run build`、`node --check server/live-server.mjs`、`git diff --check` 通过；同一 seed 的导出结果已用 Node 断言字节级确定性。
+
+### S6-45. Mock 订单两阶段时序（2026-09-12）
+
+- 将 Mock 订单从一次性 submit 改为 `compose/v2（本地合成）→ 本地验证码 → submit/v2（本地合成）`，请求日志可观察 transactionId 和两阶段顺序。
+- compose 字段名沿用反射得到的模型字段，但所有值都标记为 synthetic fixture；Live 分支只建立 UI 草稿，不发送未经验证的 compose body。
+- 本地函数断言确认 compose 记录先于 submit 记录；验证码组件仍是 submit 的唯一前置条件，支付路径不变。

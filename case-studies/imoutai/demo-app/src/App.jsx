@@ -12,7 +12,7 @@ import RequestLog from './components/RequestLog.jsx'
 import SwaggerPage from './components/SwaggerPage.jsx'
 import { deriveDeviceKey, deriveClipsToken } from './lib/deviceKey.js'
 import { selfTest, buildVcodeSign, VERIFIED_DEVICE_KEY } from './lib/signature.js'
-import { mockSendSmsCode, mockLogin, mockSubmitOrder, recordApi } from './lib/mockApi.js'
+import { mockComposeOrder, mockSendSmsCode, mockLogin, mockSubmitOrder } from './lib/mockApi.js'
 import { live, budgetLeft, resetBudget, setProfile, liveStats, windowLabel } from './lib/realApi.js'
 
 export const STEPS = ['验证码登录', '选购商品', '提交 · 验证码', '填写地址', '选择支付', '生成支付链接']
@@ -138,14 +138,23 @@ export default function App() {
       if (isLive) return live.purchaseInfo(body || {})
       return null
     },
+    async composeOrder(items) {
+      if (isLive) throw new Error('实弹 compose body 尚未按真实 App 抓包验证，已阻止发送')
+      return { ...mockComposeOrder(items), simulated: true }
+    },
     async submitOrder(items, draft) {
       if (isLive) {
         if (!draft?.submitBody) throw new Error('实弹订单 body 尚未按真实 App 抓包验证，已阻止发送')
         return live.submitOrder(draft.submitBody)
       }
-      const orderId = draft?.orderId || 'MO' + Date.now()
-      const o = { orderId, amount: (items.reduce((s, x) => s + x.product.price * x.qty, 0) / 100).toFixed(2), subject: items.map((x) => x.product.name).join(' / ') }
-      mockSubmitOrder({ orderId, items: items.map((x) => ({ sku: x.product.id, qty: x.qty })) })
+      if (!draft?.composeResult?.transactionId) throw new Error('本地订单缺少 compose 阶段结果，已阻止 submit')
+      const orderId = draft.orderId
+      const o = { orderId, amount: draft.amount, subject: draft.subject }
+      mockSubmitOrder({
+        transactionId: draft.composeResult.transactionId,
+        orderId,
+        items: items.map((x) => ({ sku: x.product.id, qty: x.qty })),
+      })
       return { order: o, resp: { status: 200, json: { code: 2000, message: '模拟下单成功', data: { orderId } }, simulated: true } }
     },
   }), [mode, profile, deviceKey, demoDeviceKey, address])
@@ -275,7 +284,7 @@ export default function App() {
               )}
               {step === 1 && (
                 <ProductSelect clean={clean} cart={cart} setCart={setCart} api={api} isLive={isLive}
-                  onSubmit={(o, selectedItems) => { setOrder(o); setPendingItems(selectedItems); setStep(2) }} />
+                  onSubmit={(o, selectedItems, composeResult) => { setOrder({ ...o, composeResult }); setPendingItems(selectedItems); setStep(2) }} />
               )}
               {step === 2 && (
                 <CaptchaVerify
