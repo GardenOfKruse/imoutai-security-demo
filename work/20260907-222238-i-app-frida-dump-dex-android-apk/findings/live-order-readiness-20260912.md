@@ -28,6 +28,8 @@
 
 对 `jadx-out` 源码/资源、APK 容器目录和 APK 二进制字符串做了交叉核对：当前可见证据包括 `yd_dialog_captcha*.xml` 中的 `CaptchaWebView` 和 `yd_captcha_*` 资源名；没有发现 `com.netease.nis.captcha` SDK 类体、challenge URL/参数或回调方法名。该“未发现”不能证明 SDK 未被拆分/动态加载，但足以说明当前静态材料不能推出订单验证码协议，仍需运行态记录 WebView 初始化、回调与刷新事件。
 
+对原始 APK 归档目录再次核对：归档中只有一个 `classes.dex`，另有 `assets/RiskStub.dex`，未见独立 `classes2.dex`、`.jar` 或 `.aar` 验证码 SDK 文件；对已提取 dex/native 文件做字符串扫描也未得到订单验证码回调协议。该结果只能收紧静态证据范围，不能把外部/动态加载的 `CaptchaWebView` 依赖判定为不存在。
+
 ## 回机后的最小取证动作
 
 只需要补一轮低频、单进程、授权测试账号的运行态证据，不需要重新做全量逆向：

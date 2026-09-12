@@ -1195,3 +1195,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 只读解析 `obs-mp34-reflect-20260910/reflection.jsonl`：compose 的 `addressInfo` 类型为 `ComposeAddressUpload`，submit 的 `addressInfo` 类型为 `ShipAddressResult`；`actParam/source/sourceId/transactionId` 为 `String`，`payChannel` 为 `int`，`deliverMethod` 为 `DeliverMethod`。
 - 该差异说明两阶段不能直接复用同一个地址对象或把静态 OpenAPI 的 object 当作具体 JSON；Demo 继续只用 null/synthetic fixture，Live 仍不发送猜测 body。
 - 未读取或输出任何运行态请求值，未发起网络请求；详细边界加入 `findings/live-flow-host-and-auth-audit-20260912.md` §F7。
+
+### S6-62. 核对 APK 内验证码依赖的静态边界（2026-09-12）
+
+- 只读检查原始 APK 归档：仅有 `classes.dex` 和 `assets/RiskStub.dex`，没有独立 `classes2.dex`、`.jar` 或 `.aar` 验证码 SDK 文件；对已提取 dex/native 文件做字符串扫描未发现订单验证码回调协议。
+- 结合 JADX 资源中已确认的 `CaptchaWebView` 承载 XML，结论收敛为“组件使用有证据，SDK 内部/动态协议没有静态证据”，不据此猜测 challenge、callback 或 refresh。
+- 未发起网络请求，未修改 APK 或提取物；详情补入 `findings/live-order-readiness-20260912.md` 静态覆盖边界。
