@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import { buildOfflineHeadmap, deriveOfflineResearchProfile, deriveRiskStubClientToken } from '../src/lib/offlineIdentity.js'
-import { validateCaptureEvidence } from '../src/lib/captureEvidence.js'
+import { isVerifiedCaptureProfile, validateCaptureEvidence } from '../src/lib/captureEvidence.js'
 import { logStore, mockComposeOrder, mockSubmitOrder } from '../src/lib/mockApi.js'
 
 function assert(condition, message) {
@@ -31,6 +31,9 @@ const evidenceStatus = validateCaptureEvidence({ ...headmapA, orderEvidence: {} 
 assert(evidenceStatus.orderReady === false, 'offline HeadMap must not appear order-ready')
 assert(evidenceStatus.structuralOnly === true, 'capture evidence check must remain structural-only')
 assert(evidenceStatus.missing.includes('compose/v2 请求体'), 'missing compose evidence must be reported')
+assert(isVerifiedCaptureProfile({ ...headmapA, verifiedCapture: false }) === false, 'offline HeadMap must fail the Live profile gate')
+assert(isVerifiedCaptureProfile({ ...headmapA, profileType: 'redacted-template', verifiedCapture: true }) === false, 'redacted template must fail the Live profile gate')
+assert(isVerifiedCaptureProfile({ ...headmapA, profileType: 'authorized-runtime-capture', verifiedCapture: true }) === true, 'explicit real capture marker must pass the structural profile gate')
 
 const items = [{ product: { id: 'fly53', name: 'fixture product', price: 1499 }, qty: 1 }]
 const before = logStore.getAll().length

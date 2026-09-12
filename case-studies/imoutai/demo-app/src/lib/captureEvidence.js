@@ -27,6 +27,18 @@ function check(id, label, ok) {
 }
 
 /**
+ * Live 的基础档案门禁：只接受操作者明确标记为真实取证的非 synthetic 档案。
+ * 这不是订单授权，也不验证 token；订单链路仍需 validateCaptureEvidence 的独立证据。
+ */
+export function isVerifiedCaptureProfile(profile) {
+  const p = objectLike(profile) ? profile : {}
+  return p.verifiedCapture === true
+    && !SYNTHETIC_PROFILE_TYPES.has(p.profileType)
+    && hasValue(p.deviceKey)
+    && nonEmptyObject(p.appHeaders || p.headers)
+}
+
+/**
  * 检查 HeaderMap + 订单运行态证据的结构完整度。
  * 返回值只适合 UI/离线 smoke test 使用，不能作为真实授权判断。
  */
@@ -40,7 +52,7 @@ export function validateCaptureEvidence(profile) {
   const submitResponse = objectLike(submit.response) ? submit.response : {}
   const transactionId = compose.transactionId || composeResponse.transactionId || composeResponse.data?.transactionId
   const checks = [
-    check('profile', '授权取证档案标记', p.verifiedCapture === true && !SYNTHETIC_PROFILE_TYPES.has(p.profileType)),
+    check('profile', '授权取证档案标记', isVerifiedCaptureProfile(p)),
     check('appHeaders', 'App HeaderMap', nonEmptyObject(p.appHeaders || p.headers)),
     check('composeBody', 'compose/v2 请求体', nonEmptyObject(compose.requestBody)),
     check('composeResponse', 'compose/v2 响应', nonEmptyObject(compose.response)),
@@ -66,4 +78,3 @@ export function validateCaptureEvidence(profile) {
     structuralOnly: true,
   }
 }
-

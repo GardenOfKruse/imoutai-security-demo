@@ -103,3 +103,4 @@
 | 2026-09-12 | 将 HeaderMap 访问层证据边界加入离线研究台，培训界面可直接区分稳定字段形态与未还原生成算法 | steps-log S6-56 |
 | 2026-09-12 | 从既有 H5 取证片段确认 WASM/JS 签名边界，进一步将 H5 device-id/BS-DVID 与 App clips_*、RiskStub 设备码分层 | steps-log S6-57 |
 | 2026-09-12 | 增加只读的真实订单取证结构校验器；离线/脱敏 HeadMap 明确不能通过 orderReady，Live 请求门禁保持不变 | steps-log S6-58 |
+| 2026-09-12 | 修复 Live 档案门禁将缺失 verifiedCapture 默认放行的缺口；必须显式真实取证标记且非 synthetic 才能进入基础 Live 请求层 | steps-log S6-59；findings/device-identity-chain-assessment-20260912.md §G |

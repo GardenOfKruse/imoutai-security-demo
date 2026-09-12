@@ -1176,3 +1176,10 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 校验器明确排除 `generated-skeleton`、`redacted-template`、`offline-algorithm-research` 等 synthetic profile；返回 `structuralOnly`，不生成授权、不验证 token、不构造请求体，也不改变 Live 发送门禁。
 - ModeGate 现在显示“尚未具备真实下单证据”及缺失项；离线 smoke 断言默认 HeadMap 不能通过 `orderReady`。
 - 验证命令：`npm run test:offline`、`npm run build`、`node --check server/live-server.mjs`、`git diff --check`；均通过。构建仅有既有 chunk 大小警告。
+
+### S6-59. 收紧 Live 档案显式取证门禁（2026-09-12）
+
+- 代码审查发现文件导入会把缺失的 `verifiedCapture` 默认为 true，且 Live 只排除单一 synthetic profile；这会让格式正确但证据不足的 JSON 进入基础 Live 门禁。
+- 新增 `isVerifiedCaptureProfile`：必须显式 `verifiedCapture=true`、非 synthetic、存在 `deviceKey` 且 HeaderMap 非空；`realApi.js`、`ModeGate.jsx` 统一使用该规则。
+- `offline-smoke.mjs` 覆盖离线档案、redacted-template 和显式真实取证结构三种边界；仍不把结构校验当作 token/订单授权。
+- 验证命令：`npm run test:offline`、`npm run build`、`node --check server/live-server.mjs`、`git diff --check`；均通过。构建仅有既有 chunk 大小警告。

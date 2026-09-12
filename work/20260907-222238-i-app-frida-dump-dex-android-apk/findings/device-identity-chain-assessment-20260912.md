@@ -112,3 +112,12 @@ client_token = U[0] + S[0:3] + U[1] + S[3:5] + U[2] + S[5:8] + U[3] + S[8:] + U[
 - 可见二进制片段包含 `env`、`memory` 和 `js_invoke_for_sign` 等导入/运行时字符串，说明 H5 风控签名至少存在“WASM/运行时 → JS 回调”的边界。
 - 因此 H5 请求头中的 `device-id`、`BS-DVID`、`Content-Info-Bb` 与 App `clips_*` / `MT-Device-ID` 不能凭字段外观合并为同一个算法；当前 H5 签名实现也只能标记为 **UNVERIFIED**。
 - 下一步需要完整资源响应或浏览器运行态调用参数；不应使用当前截断片段生成生产请求，也不应把它加入离线 HeadMap 的“已确认算法”区。
+
+## G. Live 档案门禁审计修复（2026-09-12）
+
+离线代码审查发现两个容易造成误解锁的边界：
+
+- 文件导入曾将缺失的 `verifiedCapture` 当作 `true`；现改为必须显式为 `true`。
+- Live 请求曾只排除 `offline-algorithm-research`；现统一要求非 synthetic profile、显式真实取证标记、`deviceKey` 和非空 HeaderMap。
+
+修复位于 `demo-app/src/lib/captureEvidence.js`、`realApi.js`、`ModeGate.jsx`，并由 `offline-smoke.mjs` 覆盖默认 HeadMap、脱敏模板和显式真实取证三种边界。该校验仍不验证 token 真伪、不构造订单 body；真实 compose/验证码/submit 证据仍需真机采集。

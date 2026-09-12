@@ -2,7 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import { windowStatus } from '../lib/realApi.js'
 import { deriveDeviceKey } from '../lib/deviceKey.js'
 import { md5 } from '../lib/signature.js'
-import { validateCaptureEvidence } from '../lib/captureEvidence.js'
+import { isVerifiedCaptureProfile, validateCaptureEvidence } from '../lib/captureEvidence.js'
 
 /**
  * Live 默认文本只用于解释档案结构，不能解锁 Live：
@@ -77,7 +77,8 @@ export default function ModeGate({ onConfirm, onFallbackMock }) {
         appHeaders,
         h5Headers: h5.headers,
         profileType: 'paired app-domain + h5-webview real profiles',
-        verifiedCapture: h5.verifiedCapture !== false,
+        // 必须由取证流程显式写入 true；缺失字段不能自动升级为真实档案。
+        verifiedCapture: h5.verifiedCapture === true,
         _meta: {
           source: 'operator-selected local authorized capture',
           app: 'derived from the same captured device profile',
@@ -97,6 +98,7 @@ export default function ModeGate({ onConfirm, onFallbackMock }) {
       profile = JSON.parse(profileText)
       if (!profile.headers || typeof profile.headers !== 'object') throw new Error('缺少 headers 字段')
       if (!profile.deviceKey) throw new Error('缺少 deviceKey 字段')
+      if (!isVerifiedCaptureProfile(profile)) throw new Error('缺少 verifiedCapture=true 或真实 HeaderMap 标记')
       const appHeaders = profile.appHeaders || profile.headers
       for (const key of ['MT-Device-ID', 'Cookie', 'Origin', 'Referer', 'X-Requested-With']) {
         if (!appHeaders[key]) throw new Error('App 登录档案缺少 ' + key + '（不能使用默认档案或 H5 档案）')

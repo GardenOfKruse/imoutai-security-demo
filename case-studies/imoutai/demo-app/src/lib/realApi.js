@@ -10,6 +10,7 @@
 // 单进程保证：本 SPA 单线程顺序执行，天然单进程；请求计数器强制预算上限。
 
 import { logStore } from './mockApi.js'
+import { isVerifiedCaptureProfile } from './captureEvidence.js'
 
 // 实弹请求不再由浏览器直发（浏览器会带 Origin/Referer/Sec-Fetch-*/sec-ch-ua 等指纹，
 // 实测被阿里 ESA 边缘 480/4010 拒绝）。改走本地原生代理服务 live-server.mjs：
@@ -83,7 +84,7 @@ export class LiveModeError extends Error {}
  */
 export async function liveRequest({ api, method = 'POST', body = {}, host = 'h5', note = '' }) {
   if (!state.profile) throw new LiveModeError('未加载设备 HeaderMap 档案（测试设备取证导出）')
-  if (state.profile.profileType === 'offline-algorithm-research' || state.profile.verifiedCapture !== true) {
+  if (!isVerifiedCaptureProfile(state.profile)) {
     throw new LiveModeError('离线算法研究档案不能进入 Live；必须使用授权测试设备取证档案')
   }
   const ws = windowStatus()
