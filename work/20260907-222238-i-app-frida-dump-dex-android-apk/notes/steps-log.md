@@ -1163,3 +1163,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 将 S6-55 的 `api.a`/`a$b` 访问层关系加入离线研究台，展示拦截器、懒加载字段、别名关系和稳定形态。
 - 页面继续把 `clips_*`、`MT-Device-ID`、`MT-R` 归入未还原区，不把稳定输出或 synthetic 值称为生成算法；Live 门禁与请求行为未改变。
 - `npm run test:offline`、`npm run build`、`git diff --check` 通过；未发起网络请求。
+
+### S6-57. H5 风控签名与 App 设备码分层（2026-09-12）
+
+- 对既有 H5 资源流做离线只读检查：`1.1.6.5_wasm.zip` 响应在日志中被截断，但可见片段包含 `env`、`memory`、`js_invoke_for_sign` 运行时导入名。
+- 该结果只证明 H5 签名存在 WASM/JS 回调边界，不证明 H5 `device-id`、`BS-DVID`、`Content-Info-Bb` 与 App `clips_*` 或 RiskStub udid 相同；完整 H5 算法继续标记未验证。
+- 未发起 H5/API 请求，未把截断载荷或任何原始头值写入 demo fixture。

@@ -103,3 +103,12 @@ client_token = U[0] + S[0:3] + U[1] + S[3:5] + U[2] + S[5:8] + U[3] + S[8:] + U[
 - `libCryptoSeed.so` 的 `getSeed/getPrivateKey` 仍只有 JNI 导出/字符串证据，未形成“业务调用点 → native 输入输出 → HeaderMap 字段”的连续静态链路；不能把它们直接当作设备码生成器。
 
 无真机时可继续做的低风险工作是：按字段 getter、`api.a.intercept`、`CryptoUtil.getSeed/getPrivateKey` 三个锚点整理调用关联和输入输出类型；恢复真机后再在同一进程窗口采集参数与返回值，不能用合成 HeadMap 补齐这条证据链。
+
+## F. H5 风控签名与 App 设备码的额外分层（2026-09-12）
+
+对既有 `evidence/mitm-flows-20260912.jsonl` 中 H5 资源响应做离线只读检查：
+
+- `/bangcle/api/v1/1/1` 返回的 `1.1.6.5_wasm.zip` 载荷在现有日志中只有截断片段，不能作为完整 WASM 算法输入。
+- 可见二进制片段包含 `env`、`memory` 和 `js_invoke_for_sign` 等导入/运行时字符串，说明 H5 风控签名至少存在“WASM/运行时 → JS 回调”的边界。
+- 因此 H5 请求头中的 `device-id`、`BS-DVID`、`Content-Info-Bb` 与 App `clips_*` / `MT-Device-ID` 不能凭字段外观合并为同一个算法；当前 H5 签名实现也只能标记为 **UNVERIFIED**。
+- 下一步需要完整资源响应或浏览器运行态调用参数；不应使用当前截断片段生成生产请求，也不应把它加入离线 HeadMap 的“已确认算法”区。
