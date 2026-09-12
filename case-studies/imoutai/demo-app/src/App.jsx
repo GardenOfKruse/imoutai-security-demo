@@ -10,11 +10,33 @@ import PayLinkResult from './components/PayLinkResult.jsx'
 import RequestLog from './components/RequestLog.jsx'
 import SwaggerPage from './components/SwaggerPage.jsx'
 import { deriveDeviceKey, deriveClipsToken } from './lib/deviceKey.js'
-import { selfTest, buildVcodeSign } from './lib/signature.js'
+import { selfTest, buildVcodeSign, VERIFIED_DEVICE_KEY } from './lib/signature.js'
 import { mockSendSmsCode, mockLogin, mockSubmitOrder, recordApi } from './lib/mockApi.js'
 import { live, budgetLeft, resetBudget, setProfile, liveStats, windowLabel } from './lib/realApi.js'
 
 export const STEPS = ['验证码登录', '选购商品', '提交 · 验证码', '填写地址', '选择支付', '生成支付链接']
+
+const TOKEN_KEYS = ['token', 'mtToken', 'accessToken', 'authToken', 'access_token', 'mt_token', 'jwt', 'sessionToken']
+const TOKEN_ENVELOPES = ['', 'data', 'result', 'payload', 'data.data', 'data.result', 'result.data']
+
+function valueAt(obj, path) {
+  return path.split('.').filter(Boolean).reduce((v, key) => v && typeof v === 'object' ? v[key] : undefined, obj)
+}
+
+function extractLoginToken(json) {
+  if (!json || typeof json !== 'object') return ''
+  for (const envelope of TOKEN_ENVELOPES) {
+    const value = valueAt(json, envelope)
+    for (const key of TOKEN_KEYS) {
+      if (typeof value?.[key] === 'string' && value[key].trim()) return value[key].trim()
+    }
+  }
+  return ''
+}
+
+function usableSession(s) {
+  return Boolean(s?.token && (s.mode !== 'live' || (s.authenticated === true && !String(s.token).startsWith('LIVE_'))))
+}
 
 export default function App() {
   // mode: 'select' 未选 | 'mock' 演示模式 | 'gate' 实弹授权门 | 'live' 实弹执行 | 'swagger' API 文档
@@ -43,7 +65,9 @@ export default function App() {
     mode,
     async sendSms(mob) {
       const ts = String(Date.now())
-      const sign = buildVcodeSign(isLive ? profile.deviceKey : deviceKey, mob, ts)
+      // real-app-profile 的 deviceKey 是 clips_* 头部标识；vcode MD5 使用独立的
+      // native 32-hex 签名 key（findings F1），两者不能混用。
+      const sign = buildVcodeSign(isLive ? (profile.signingDeviceKey || VERIFIED_DEVICE_KEY) : deviceKey, mob, ts)
       if (isLive) {
         const resp = await live.sendSms({ mobile: mob, timestamp: ts, md5: sign.md5 })
         return { ts, sign, resp }
@@ -55,9 +79,12 @@ export default function App() {
       if (isLive) {
         const resp = await live.login({ mobile: mob, vCode: code, ydLogId: '', ydToken: '' })
         // 尽力捕获服务端下发的 token，自动注入后续请求头（登录态保持）
-        const tk = resp?.json?.data?.token || resp?.json?.data?.mtToken || resp?.json?.token || resp?.json?.data?.accessToken
-        if (tk) { profile.headers['MT-Token'] = String(tk); setProfile(profile) }
-        return { token: tk ? 'LIVE_' + String(tk).slice(0, 24) : 'LIVE_HTTP_' + (resp?.status ?? '??'), resp }
+        const tk = extractLoginToken(resp?.json)
+        if (tk) {
+          const nextProfile = { ...profile, headers: { ...profile.headers, 'MT-Token': tk } }
+          setProfile(nextProfile)
+        }
+        return { token: tk, authenticated: Boolean(tk), resp }
       }
       mockLogin(mob)
       return { token: 'Token_' + Math.random().toString(36).slice(2, 12).padEnd(12, 'x'), resp: null }
@@ -81,8 +108,8 @@ export default function App() {
   const startLive = (p) => {
     setProfileState(p); setProfile(p); resetBudget()
     // 恢复缓存的实弹登录态（避免重复短信验证）
-    if (session?.mode === 'live' && session?.token) p.headers['MT-Token'] = session.token
-    setMode('live'); setStep(session?.token ? 1 : 0)
+    if (usableSession(session) && session.mode === 'live') p.headers['MT-Token'] = session.token
+    setMode('live'); setStep(usableSession(session) ? 1 : 0)
   }
   const logout = () => {
     localStorage.removeItem('mt_session')
@@ -106,7 +133,7 @@ export default function App() {
           {!clean && (<p className="hero-sub">
             客户端签名可复刻性还原 ——
             {isLive
-              ? <> <b className="tred">实弹模式：向生产发送真实请求（授权窗口内 · 单轮 · 止步支付）</b>，支付链接仅拼接展示<b>绝不调用</b></>
+              ? <> <b className="tred">实弹模式：向生产发送真实请求（维护窗口外 · 低频 · 止步支付）</b>，支付链接仅拼接展示<b>绝不调用</b></>
               : <> 全流程本地模拟，<b>不向真实服务发送任何请求</b>，支付链接仅拼接展示（<b>禁止真实调用</b>）</>}
           </p>)}
           {!clean && (
@@ -137,12 +164,12 @@ export default function App() {
           </div>
           <div className="card modecard" onClick={() => { setClean(true); setMode('gate') }}>
             <h3>🎬 纯净版流程（开场真实下单 · 无说明）</h3>
-            <p>界面无任何讲解标记，观感与正常购买流程一致。开场用它真实下单 → 请后台查证订单存在且无异常；随后切回「演示模式」逐环节讲解原理。同样受实弹硬门禁约束（窗口/预算/止步支付）。</p>
+            <p>界面无任何讲解标记，观感与正常购买流程一致。开场用它真实下单 → 请后台查证订单存在且无异常；随后切回「演示模式」逐环节讲解原理。同样受实弹硬门禁约束（维护窗口/低频/预算/止步支付）。</p>
             <span className="btn danger">授权门 → 纯净版下单</span>
           </div>
           <div className="card modecard live" onClick={() => { setClean(false); setMode('gate') }}>
             <h3>🔴 实弹模式（Live · 仅授权执行时）</h3>
-            <p>同样的流程，但请求真实发往生产（真实登录、真实下单止步支付）。需要：客户授权三确认 + 允许窗口 + 测试设备 HeaderMap 档案。这是 runbook F 组用例的现场执行。</p>
+            <p>同样的流程，但请求真实发往生产（真实登录、真实下单止步支付）。需要：客户授权三确认 + 非维护窗口 + 测试设备 HeaderMap 档案。这是低频 runbook F 组用例的现场执行。</p>
             <span className="btn danger">通过授权门进入</span>
           </div>
         </div>

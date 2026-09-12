@@ -38,17 +38,44 @@ export default function ModeGate({ onConfirm }) {
   const [c3, setC3] = useState(false)
   const [profileText, setProfileText] = useState(initial)
   const [err, setErr] = useState('')
+  const [loadingReal, setLoadingReal] = useState(false)
   const ws = windowStatus()
 
-  const regenerate = () => setProfileText(JSON.stringify(generateDefaultProfile(), null, 2))
+  const regenerate = () => {
+    setErr('')
+    setProfileText(JSON.stringify(generateDefaultProfile(), null, 2))
+  }
   const loadReal = async () => {
+    setLoadingReal(true)
+    setErr('')
     try {
-      const r = await fetch('./real-headermap.json')
-      if (!r.ok) throw new Error('HTTP ' + r.status)
-      const j = await r.json()
-      setProfileText(JSON.stringify(j, null, 2))
-      setErr('')
-    } catch (e) { setErr('真实档案加载失败：' + e.message + '（确认 real-headermap.json 随包部署）') }
+      const read = async (name) => {
+        const r = await fetch('./' + name)
+        if (!r.ok) throw new Error(name + ' HTTP ' + r.status)
+        return r.json()
+      }
+      const h5 = await read('real-headermap.json')
+      // 部署包只携带一份本地真实档案，避免把含 Cookie 的 App 档案再复制一份。
+      // GLM 的成功样本表明 App 验证码请求相对 H5 只需补齐 MT-Device-ID 和
+      // WebView 的 Accept-* 头；Cookie、Origin、Referer 等沿用同一份抓包档案。
+      const appHeaders = {
+        ...h5.headers,
+        'MT-Device-ID': h5.deviceKey,
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+      }
+      setProfileText(JSON.stringify({
+        ...h5,
+        // App 登录与 H5 业务请求使用各自真实抓包头，避免把 H5 档案误用于验证码接口。
+        headers: appHeaders,
+        appHeaders,
+        h5Headers: h5.headers,
+        profileType: 'paired app-domain + h5-webview real profiles',
+        _meta: { source: 'local authorized mitm capture', app: 'derived from the same captured device profile', h5: h5._meta },
+      }, null, 2))
+    } catch (e) {
+      setErr('真实档案加载失败：' + e.message + '（确认 real-headermap.json 随包部署）')
+    } finally { setLoadingReal(false) }
   }
 
   const confirm = () => {
@@ -59,6 +86,10 @@ export default function ModeGate({ onConfirm }) {
       profile = JSON.parse(profileText)
       if (!profile.headers || typeof profile.headers !== 'object') throw new Error('缺少 headers 字段')
       if (!profile.deviceKey) throw new Error('缺少 deviceKey 字段')
+      const appHeaders = profile.appHeaders || profile.headers
+      for (const key of ['MT-Device-ID', 'Cookie', 'Origin', 'Referer', 'X-Requested-With']) {
+        if (!appHeaders[key]) throw new Error('App 登录档案缺少 ' + key + '（不能使用默认档案或 H5 档案）')
+      }
     } catch (e) {
       setErr('档案解析失败：' + e.message + '（可点击"重新生成默认档案"恢复）')
       return
@@ -69,13 +100,13 @@ export default function ModeGate({ onConfirm }) {
   return (
     <div className="card stepcard">
       <h2>🔴 实弹模式 · 授权门</h2>
-      <p className="hint">实弹模式会向生产系统发送<b>真实请求</b>（真实登录、真实下单，止步支付）。仅限本次授权测试的单轮 runbook 执行时使用；日常演示请用「演示模式」。</p>
+      <p className="hint">实弹模式会向生产系统发送<b>真实请求</b>（真实登录、真实下单，止步支付）。仅用于授权的低频 runbook 执行；日常演示请用「演示模式」，禁止大并发和高频调用。</p>
 
-      <div className={'gate-window' + (ws.level === 'peak' ? ' bad' : ws.level === 'buffer' ? ' warn' : '')}>{ws.label}<span className="gate-window-sub">允许窗口：20:00–次日01:00 / 07:00–18:00 · 高峰禁发：06:00–06:15（系统申购高峰）· 缓冲时段需对接人知情</span></div>
+      <div className={'gate-window' + (ws.level === 'peak' ? ' bad' : '')}>{ws.label}<span className="gate-window-sub">除 06:00–06:15 客户维护窗口外均可执行 · 维护窗口内禁止生产请求</span></div>
 
       <div className="gchecks">
         <label><input type="checkbox" checked={c1} onChange={(e) => setC1(e.target.checked)} />
-          确认当前为<b>客户授权的本次单轮测试执行</b>（仅此一轮，不重跑）</label>
+          确认当前为<b>客户授权的低频测试执行</b>（禁止大并发和高频调用）</label>
         <label><input type="checkbox" checked={c2} onChange={(e) => setC2(e.target.checked)} />
           确认使用<b>客户提供的测试账号</b>，验证码由测试手机人工接收；下单<b>止步支付页</b></label>
         <label><input type="checkbox" checked={c3} onChange={(e) => setC3(e.target.checked)} />
@@ -89,7 +120,7 @@ export default function ModeGate({ onConfirm }) {
         <textarea className="ipt area" rows={10} value={profileText} onChange={(e) => setProfileText(e.target.value)} />
         <div style={{ display: 'flex', gap: 10 }}>
           <button className="btn ghost" style={{ alignSelf: 'flex-start' }} onClick={regenerate}>↺ 重新生成默认档案</button>
-          <button className="btn primary" style={{ alignSelf: 'flex-start' }} onClick={loadReal}>📂 加载真实档案（mitm 抓包）</button>
+          <button className="btn primary" style={{ alignSelf: 'flex-start' }} onClick={loadReal} disabled={loadingReal}>{loadingReal ? '⏳ 加载中…' : '📂 加载真实档案（App + H5 抓包）'}</button>
         </div>
       </div>
 
@@ -98,7 +129,7 @@ export default function ModeGate({ onConfirm }) {
         下方 <code>_meta</code> 块仅存在客户端，绝不随请求发出。</div>
 
       {err && <div className="errmsg">{err}</div>}
-      <button className="btn danger wide" onClick={confirm}>🔓 解锁实弹模式</button>
+      <button className="btn danger wide" onClick={confirm} disabled={loadingReal}>🔓 解锁实弹模式</button>
     </div>
   )
 }

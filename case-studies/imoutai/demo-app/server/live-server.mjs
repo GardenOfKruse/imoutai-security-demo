@@ -15,6 +15,7 @@ import https from 'node:https'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { decodeResponseBody } from './response-codec.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const DIST = path.join(__dirname, '..', 'dist')
@@ -35,11 +36,7 @@ function windowStatus(d = new Date()) {
   if (m >= 6 * 60 && m < 6 * 60 + 15) {
     return { ok: false, level: 'peak', label: '⛔ 高峰时段（06:00–06:15 系统申购高峰）：禁止任何生产请求' }
   }
-  const night = m >= 20 * 60 || m < 1 * 60
-  const day = m >= 7 * 60 && m < 18 * 60
-  if (night) return { ok: true, level: 'allowed', label: '✅ 夜间允许窗口（20:00–01:00）' }
-  if (day) return { ok: true, level: 'allowed', label: '✅ 日间允许窗口（07:00–18:00）' }
-  return { ok: true, level: 'buffer', label: '🟡 缓冲时段：生产请求需客户对接人当场知情' }
+  return { ok: true, level: 'allowed', label: '✅ 客户允许时段（除 06:00–06:15 维护窗口外）' }
 }
 
 // ---------- cookie jar（跨请求保存 set-cookie） ----------
@@ -60,11 +57,12 @@ function cookieHeader() {
 }
 
 // ---------- 头构造：按真实 App 形态，剔除浏览器痕迹与空值 ----------
-function buildHeaders(profile, bodyStr, hasBody) {
+function buildHeaders(profile, bodyStr, hasBody, hostKey = 'app') {
   // 全真实原则：profile 头按真实抓包原样转发（含 Origin/Referer/Sec-Fetch/空 csrf）。
   // 仅剔除传输层自动管理的头；空值头保留 x-csrf-token（真实请求中存在且为空）。
   const h = {}
-  for (const [k, v] of Object.entries(profile?.headers || {})) {
+  const sourceHeaders = hostKey === 'h5' ? (profile?.h5Headers || profile?.headers) : (profile?.appHeaders || profile?.headers)
+  for (const [k, v] of Object.entries(sourceHeaders || {})) {
     if (v === null || v === undefined) continue
     if (v === '' && !/csrf/i.test(k)) continue
     if (/^(connection|content-length|host)$/i.test(k)) continue
@@ -101,7 +99,7 @@ function realRequest({ host: hostKey, api, method = 'POST', body = {}, profile }
     const hostname = TARGETS[hostKey]
     if (!hostname) return reject(new Error('unknown host key: ' + hostKey))
     const bodyStr = method === 'GET' ? undefined : JSON.stringify(body ?? {})
-    const headers = buildHeaders(profile, bodyStr, !!bodyStr)
+    const headers = buildHeaders(profile, bodyStr, !!bodyStr, hostKey)
     if (bodyStr) headers['Content-Length'] = Buffer.byteLength(bodyStr)
 
     const req = https.request({
@@ -111,7 +109,14 @@ function realRequest({ host: hostKey, api, method = 'POST', body = {}, profile }
       saveCookies(res.headers)
       let chunks = []
       res.on('data', (c) => { chunks.push(c) })
-      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, text: Buffer.concat(chunks).toString('utf8'), setCookie: res.headers['set-cookie'] || [] }))
+      res.on('end', () => {
+        try {
+          const text = decodeResponseBody(Buffer.concat(chunks), res.headers['content-encoding'])
+          resolve({ status: res.statusCode, headers: res.headers, text, setCookie: res.headers['set-cookie'] || [] })
+        } catch (e) {
+          reject(new Error(`响应解压失败：${e.message || e}`))
+        }
+      })
     })
     req.on('timeout', () => req.destroy(new Error('timeout 15s')))
     req.on('error', reject)
@@ -129,7 +134,7 @@ async function handleLive(req, res, raw) {
   let payload
   try { payload = JSON.parse(raw) } catch { return json(res, 400, { error: 'bad json' }) }
   const { host, api, method = 'POST', body = {}, profile } = payload
-  if (!profile?.headers) return json(res, 400, { error: '缺少 profile.headers（授权门生成）' })
+  if (!profile?.headers && !profile?.appHeaders) return json(res, 400, { error: '缺少 profile.headers（授权门生成）' })
   if (!api || !api.startsWith('/')) return json(res, 400, { error: 'bad api path' })
 
   count++
@@ -149,8 +154,12 @@ async function handleLive(req, res, raw) {
     ts: new Date().toISOString(), windowLevel: ws.level, host: TARGETS[host], api, method,
     reqHeaders: out.headers ? payload.profile?.headers : null,
     reqBody: redact(body), status: out.status, ms,
-    respHeaders: { server: out.headers?.server, via: out.headers?.via, 'content-type': out.headers?.['content-type'] },
-    respBody: out.text,
+    respHeaders: {
+      server: out.headers?.server, via: out.headers?.via,
+      'content-type': out.headers?.['content-type'],
+      'content-encoding': out.headers?.['content-encoding'],
+    },
+    respBody: redact(out.text),
   })
 
   return json(res, 200, {
@@ -162,6 +171,7 @@ async function handleLive(req, res, raw) {
     respHeaders: {
       server: out.headers?.server, via: out.headers?.via,
       'content-type': out.headers?.['content-type'],
+      'content-encoding': out.headers?.['content-encoding'],
       'x-site-cache-status': out.headers?.['x-site-cache-status'],
     },
     budget: { used: count, left: BUDGET.maxRequests - count },
@@ -171,7 +181,7 @@ async function handleLive(req, res, raw) {
 
 // 构造"实际发送的头"视图（教学/取证展示）
 function headersSentShim(payload, out) {
-  const h = buildHeaders(payload.profile, '{}', payload.method !== 'GET')
+  const h = buildHeaders(payload.profile, '{}', payload.method !== 'GET', payload.host)
   return { ...h, Host: TARGETS[payload.host] }
 }
 

@@ -2,7 +2,7 @@
 //
 // ⚠️ 使用条件（全部满足才允许发请求，缺一即拒绝）：
 //   1. 操作者已完成授权三确认（见 ModeGate）
-//   2. 当前时间落在客户允许窗口内：20:00–次日01:00 或 07:00–18:00（高峰 01:00–07:00、18:00–20:00 禁发）
+//   2. 当前不在客户维护窗口：06:00–06:15 禁止生产请求，其余时间允许
 //   3. 操作者在界面中粘贴了从测试设备（授权取证）采集的 HeaderMap 档案
 //   4. 请求总量 ≤ runbook 预算
 //   5. 止步支付页：本文件绝不实现 order/pay 的调用（支付链接仅拼接展示）
@@ -32,23 +32,13 @@ function minutesOfDay(d) {
   return d.getHours() * 60 + d.getMinutes()
 }
 
-/**
- * 时段三态（2026-09-12 客户更正：真实高峰为 06:00–06:15 系统申购高峰）
- * - peak：06:00–06:15 —— 绝对禁发（会直接影响真实用户）
- * - allowed：20:00–次日01:00 / 07:00–18:00 —— 客户原定允许窗口
- * - buffer：其余时段（01:00–06:00、06:15–07:00、18:00–20:00）—— 非原定窗口、非高峰；
- *   技术上放行，但需客户对接人当场知情（界面黄牌提示）
- */
+/** 客户最新时间规则：仅 06:00–06:15 维护窗口禁发，其余时间允许。 */
 export function windowStatus(d = new Date()) {
   const m = minutesOfDay(d)
   if (m >= 6 * 60 && m < 6 * 60 + 15) {
     return { ok: false, level: 'peak', label: '⛔ 高峰时段（06:00–06:15 系统申购高峰）：禁止任何生产请求' }
   }
-  const night = m >= 20 * 60 || m < 1 * 60
-  const day = m >= 7 * 60 && m < 18 * 60
-  if (night) return { ok: true, level: 'allowed', label: '✅ 夜间允许窗口（20:00–01:00）' }
-  if (day) return { ok: true, level: 'allowed', label: '✅ 日间允许窗口（07:00–18:00）' }
-  return { ok: true, level: 'buffer', label: '🟡 缓冲时段（非客户原定窗口）：生产请求需客户对接人当场知情' }
+  return { ok: true, level: 'allowed', label: '✅ 客户允许时段（除 06:00–06:15 维护窗口外）' }
 }
 
 export function inAllowedWindow(d = new Date()) {

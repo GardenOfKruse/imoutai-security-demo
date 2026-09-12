@@ -95,6 +95,10 @@ export function buildVcodeSign(deviceKey, mobile, timestamp) {
   return { plain, md5: md5(plain) }
 }
 
+// 当前授权测试设备的 native 32-hex 签名 key；不要与 HeaderMap 中的 clips_* 设备标识混用。
+// 来源：findings/login-signature.md F1，已用 15/15 脱敏样本逐字节验证。
+export const VERIFIED_DEVICE_KEY = '2af72f100c356273d46284f6fd1dfc08'
+
 /** 自校验：签名实现与真实抓取样本必须逐字节一致 */
 export function selfTest() {
   const expect = '9a654aa5fbf4afe210aadc14f71254a6'

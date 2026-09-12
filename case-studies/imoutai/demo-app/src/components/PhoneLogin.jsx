@@ -27,9 +27,15 @@ export default function PhoneLogin({ clean, mobile, setMobile, deviceKey, api, i
     try {
       const r = await api.login(mobile, smsCode)
       if (r.resp) setServerMsg({ status: r.resp.status, msg: r.resp.json?.message || r.resp.text?.slice(0, 80), simulated: r.resp.simulated })
-      const authed = !r.resp || r.resp.status === 200
-      if (!authed) setErr(`登录被服务端拒绝（HTTP ${r.resp.status}）——流程排练继续，未缓存未验证的登录态`)
-      onLogin(authed ? r.token : '')   // 被拒时不产生 token：后续请求照发（真实 429/401 展示），绝不缓存假登录态
+      const authed = isLive ? Boolean(r.authenticated && r.token) : true
+      if (!authed) {
+        const status = r.resp?.status
+        setErr(status === 200
+          ? '服务端返回 HTTP 200，但响应中未找到登录令牌；未进入登录态，也未缓存假 token'
+          : `登录被服务端拒绝（HTTP ${status ?? '未知'}）；未缓存未验证的登录态`)
+        return
+      }
+      onLogin(r.token)
     } catch (e) { setErr(String(e.message || e)) }
   }
 

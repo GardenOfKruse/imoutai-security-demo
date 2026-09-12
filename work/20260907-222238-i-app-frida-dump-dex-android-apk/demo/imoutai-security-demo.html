@@ -81,7 +81,7 @@ td code{white-space:normal}
   <div class="badges">
     <span class="badge ok">✓ 客户盖章授权</span>
     <span class="badge ok">✓ 线下备案</span>
-    <span class="badge warn">单进程 · 单轮 · 允许窗口内执行</span>
+    <span class="badge warn">单进程 · 低频 · 维护窗口外执行</span>
     <span class="badge">数据已脱敏 · 不含真实凭据</span>
   </div>
 </header>
@@ -164,7 +164,7 @@ td code{white-space:normal}
     <tr><td>支付</td><td><code>POST /xhr/front/trade/order/pay · payResult</code></td><td><span class="tag t-red">仅整理，不调用</span></td></tr>
     <tr><td>提交后弹窗验证码</td><td>组件类型待识别（疑网易系风控验证码，与 com.netease.* 同源）</td><td><span class="tag t-wip">运行时取证中</span></td></tr>
   </table>
-  <div class="warnbox">🔒 <b>执行纪律（已写入项目 AGENTS.md 硬门禁）：</b>生产交互仅限客户允许窗口（20:00–次日01:00 / 07:00–18:00，高峰 01:00–07:00、18:00–20:00 禁发）、单轮、单进程、请求总量 ≤300、止步支付页；已通过校验的步骤固化为自动化以避免重复验证，自动化产物仅在授权窗口内使用。</div>
+  <div class="warnbox">🔒 <b>执行纪律（已写入项目 AGENTS.md 硬门禁）：</b>生产交互仅限维护窗口外（06:00–06:15 禁发），允许多次低频执行；单进程串行、请求间隔与总量 ≤300、止步支付页；已通过校验的步骤固化为自动化以避免大并发和高频调用。</div>
 </div>
 
 <!-- STAGE 5 -->
