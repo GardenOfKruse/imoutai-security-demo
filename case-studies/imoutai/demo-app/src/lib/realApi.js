@@ -51,11 +51,11 @@ export function windowLabel(d = new Date()) {
 
 // ---------- 预算与状态 ----------
 
-const state = { count: 0, startedAt: null, profile: null }
+const state = { count: 0, startedAt: null, profile: null, lastRequestAt: 0 }
 
 export function setProfile(p) { state.profile = p }
 export function budgetLeft() { return BUDGET.maxRequests - state.count }
-export function resetBudget() { state.count = 0; state.startedAt = null }
+export function resetBudget() { state.count = 0; state.startedAt = null; state.lastRequestAt = 0 }
 export function liveStats() {
   return { count: state.count, left: budgetLeft(), startedAt: state.startedAt, profile: !!state.profile }
 }
@@ -65,6 +65,12 @@ function redact(obj) {
     const s = JSON.stringify(obj)
     return s.replace(/("(?:token|Token|md5|sign|password|vCode|mt_r|mt_k)"\s*:\s*")([^"]{6})[^"]*(")/g, '$1$2***$3')
   } catch { return String(obj) }
+}
+
+function redactText(value) {
+  return String(value ?? '')
+    .replace(/(\"(?:token|Token|md5|sign|password|vCode|mt_r|mt_k|Authorization)\"\s*:\s*\")([^\"]*)(\")/gi, '$1<redacted>$3')
+    .replace(/(MT-Token(?:-Wap)?=)[^;,\s\"]+/gi, '$1<redacted>')
 }
 
 // ---------- 真实请求 ----------
@@ -80,10 +86,14 @@ export async function liveRequest({ api, method = 'POST', body = {}, host = 'h5'
   const ws = windowStatus()
   if (ws.level === 'peak') throw new LiveModeError(ws.label + ' —— 请求已被硬门禁拦截')
   if (state.count >= BUDGET.maxRequests) throw new LiveModeError(`请求预算耗尽（≤${BUDGET.maxRequests}），硬门禁拦截`)
+  const waitMs = state.lastRequestAt ? Math.max(0, 2000 - (performance.now() - state.lastRequestAt)) : 0
+  if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs + 25))
+  const now = performance.now()
   if (!state.startedAt) state.startedAt = new Date().toISOString()
 
   state.count++
-  const t0 = performance.now()
+  state.lastRequestAt = now
+  const t0 = now
   let status = 0, respText = '', errMsg = null, jsonBody = null, reqHeaders = null, respHeaders = null
   try {
     // 浏览器 → 本地原生服务（同源）；真实请求由 live-server.mjs 用 Node https 原生客户端发出
@@ -112,7 +122,7 @@ export async function liveRequest({ api, method = 'POST', body = {}, host = 'h5'
     body: JSON.parse(redact(body) || '{}'),
     live: true, windowLevel: ws.level, status, ms,
     reqHeaders, respHeaders,
-    respPreview: (errMsg ? errMsg : respText.slice(0, 220)),
+    respPreview: (errMsg ? errMsg : redactText(respText).slice(0, 220)),
     note: note + ` [预算剩余 ${budgetLeft()}]`,
   })
 

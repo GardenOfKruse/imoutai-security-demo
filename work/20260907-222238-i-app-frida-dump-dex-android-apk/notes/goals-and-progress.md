@@ -32,10 +32,10 @@
 | 里程碑 | 内容 | 状态 | 证据 |
 |---|---|---|---|
 | M3.1 | vcode 签名构造器（离线复现，15/15 PASS） | ✅ | findings/reproduce_sign.py |
-| M3.2 | 登录态请求模板（HeaderMap 构造 + token 注入，仅授权窗口内可用） | ⬜ | 依赖 M1.6 |
+| M3.2 | 登录态请求模板（HeaderMap 构造 + App/H5 双会话注入，仅授权窗口内可用） | ✅（有效账号登录→H5 purchaseInfo 及缓存重载均 200） | findings/live-flow-host-and-auth-audit-20260912.md；steps-log S6-32 |
 | M3.3 | 测试用例自动执行器（内置单进程/窗口校验/计数/中止条件） | 🔄 | demo-app realApi.js（窗口/预算硬门禁已内置） |
 | M3.4 | 已通过用例回归清单（一键重跑已 PASS 用例，窗口内） | ⬜ | — |
-| M3.5 | 实弹模式（授权门 + 真实下单止步支付）进入 demo | 🔄（异常账号登录路径已验证） | demo-app ModeGate.jsx + realApi.js；steps-log S6-27~S6-29 |
+| M3.5 | 实弹模式（授权门 + 真实下单止步支付）进入 demo | 🔄（已验证到 purchaseInfo；订单写接口未接通） | demo-app ModeGate.jsx + realApi.js；steps-log S6-27~S6-32 |
 
 ## G4. 支付链接拼接算法（🚫 只做静态还原，禁止真实调用）
 
@@ -80,3 +80,5 @@
 | 2026-09-12 | 登录响应 / Token 提取链路只读排查：HTTP 200 已见，但 gzip 解压、Token 提取和登录态持久化仍有缺口 | steps-log S6-24、evidence/login-token-extraction-triage-20260912.md |
 | 2026-09-12 | 修复 UI 请求档案与签名 key；Live UI 短信返回 HTTP 200/code=2000，异常账号登录正确解析 HTTP 480/用户已注销 | steps-log S6-27~S6-29 |
 | 2026-09-12 | 客户时间规则更新：仅 06:00–06:15 维护窗口禁发，其余时间允许 | steps-log S6-25 |
+| 2026-09-12 | 全流程主机映射与登录态审计；修复 Token/Cookie 传播，阻断未验证订单 body，统一 2 秒间隔与日志脱敏 | steps-log S6-30；findings/live-flow-host-and-auth-audit-20260912.md |
+| 2026-09-12 | 有效账号取得 App/H5 双会话；登录后及缓存重载后的 H5 purchaseInfoV2 均 HTTP 200/code=2000 | steps-log S6-32 |

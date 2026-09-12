@@ -400,7 +400,7 @@
    "post": {
     "operationId": "h5_purchaseInfoV2",
     "summary": "★ 测试目标：商品购买信息（H5 域专用，App 端 api.f 中不存在）",
-    "description": "**本次测试指定目标接口**（客户指定，域：h5.moutai519.com.cn）。\n\n- 注意：该接口不在 App 端 api.f 的 105 个还原接口中——它是 H5 前端专用调用，App 端 `api.f` 仅含 `popular/shopList` 等商品查询。\n- 请求结构、签名头与设备号参数：待 H5 前端 JS 逆向（Phase 0 P0-1）补全。\n- 风控测试用例设计见 runbook（F1 组：purchaseInfoV2 行为基线）。",
+    "description": "**本次测试指定目标接口**（客户指定，域：h5.moutai519.com.cn）。\n\n- 注意：该接口不在 App 端 api.f 的 105 个还原接口中——它是 H5 前端专用调用，App 端 `api.f` 仅含 `popular/shopList` 等商品查询。\n- 请求结构与鉴权已由 H5 WebView 抓包还原：POST JSON body，Cookie `MT-Token-Wap`，无 MT-R 类应用层签名；真实 HTTP 200/code 2000 已复现。\n- 风控测试用例设计见 runbook（F1 组：purchaseInfoV2 行为基线）。",
     "tags": [
      "商城 · 商品"
     ],

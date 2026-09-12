@@ -35,16 +35,16 @@ export default function PhoneLogin({ clean, mobile, setMobile, deviceKey, api, i
           : `登录被服务端拒绝（HTTP ${status ?? '未知'}）；未缓存未验证的登录态`)
         return
       }
-      onLogin(r.token)
+      onLogin(r.token, r.h5Token)
     } catch (e) { setErr(String(e.message || e)) }
   }
 
   return (
     <div className="card stepcard">
       <h2>📱 短信验证码登录</h2>
-      {isLive && cachedSession?.token && (
+      {isLive && cachedSession?.token && cachedSession?.h5Token && (
         <div className="servermsg cached">
-          🔑 检测到本地缓存的实弹登录态（{String(cachedSession.token).slice(0, 26)}…）——本次无需短信验证，已自动保持登录。
+          🔑 检测到本地缓存的实弹双会话（已脱敏）——本次无需短信验证，已自动保持登录。
         </div>
       )}
       <div className="form">

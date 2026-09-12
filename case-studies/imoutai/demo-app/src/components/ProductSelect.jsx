@@ -7,8 +7,11 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
   const [liveErr, setLiveErr] = useState('')
   useEffect(() => {
     if (!isLive) return
-    api.purchaseInfo({}).then((r) => setLiveResp(r)).catch((e) => setLiveErr(String(e.message || e)))
-  }, [isLive])
+    api.purchaseInfo({}).then((r) => {
+      setLiveResp(r)
+      if (r.status !== 200) setLiveErr(`purchaseInfoV2 返回 HTTP ${r.status}`)
+    }).catch((e) => setLiveErr(String(e.message || e)))
+  }, [isLive, api])
   const [err, setErr] = useState('')
   const [serverMsg, setServerMsg] = useState(null)
   const toggle = (p) => {
@@ -27,8 +30,9 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
       if (r.resp) setServerMsg({ status: r.resp.status, msg: r.resp.json?.message || '', simulated: r.resp.simulated })
       order = r.order
     } catch (e) {
-      // 深夜/系统关单时实弹下单可能被业务侧拒绝——流程继续（支付链接为本地拼接，不依赖下单成功）
-      setServerMsg({ status: 'ERR', msg: String(e.message || e), simulated: true })
+      setServerMsg({ status: 'ERR', msg: String(e.message || e), simulated: !isLive })
+      // 实弹订单 body 尚未有真实抓包基准时必须停在这里，不能用演示订单掩盖未验证请求。
+      if (isLive) return
       order = null
     }
     if (!order) {
@@ -79,7 +83,7 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
       )}
       <div className="cartbar">
         <span>合计：<b>¥{(total / 100).toFixed(2)}</b></span>
-        <button className="btn primary" onClick={submit}>提交订单</button>
+        <button className="btn primary" disabled={isLive && (!liveResp || liveResp.status !== 200)} onClick={submit}>提交订单</button>
       </div>
       {err && <div className="errmsg">{err}</div>}
     </div>

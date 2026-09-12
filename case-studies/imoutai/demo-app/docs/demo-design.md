@@ -61,13 +61,13 @@
 - 底层复刻：点"发送"瞬间，`signature.buildVcodeSign(deviceKey, mobile, ts)` 用**页面内 1:1 还原的 md5 算法**计算签名——和真实 App 内计算结果逐字节一致（自带 15/15 样本自校验）。
 - 展示"协议层实况"：POST body 原文 + 签名明文拼接串。
 - 教学击点：**客户端可算 = 攻击者可算**，签名挡不住客户端外的复刻。
-- Live 差异：真实发请求；登录响应下发 token 自动捕获注入 `MT-Token` 头（登录态保持）。
+- Live 差异：真实发请求；登录响应分别提取 App Token 与 H5 会话 Cookie，分别写入 `MT-Token` 和 `MT-Token-Wap`（登录态保持）。
 
 ### Step 2 选购商品（`ProductSelect.jsx`）
 - 用户操作：勾选商品（虚构条目）→ 调数量 → 提交订单。
 - 底层复刻：接口参数结构来自注解 dump；Live 模式挂载时真实调用 `purchaseInfoV2` 并展示原始响应（脱敏预览）。
 - 教学击点：接口元数据一次反射 dump 全部暴露；117 个接口见 Swagger。
-- 容错设计：深夜实弹下单被业务侧拒绝（系统关单属预期）→ 提示后**流程继续**（支付链接本地拼接不依赖下单成功）。
+- Live 边界：`purchaseInfoV2` 已有真实抓包基准；订单 compose/submit 的真实 body 尚未完成运行时取证，因此 Live 不发送猜测订单请求并停在这里。Mock 模式仍可继续演示后续本地步骤。
 
 ### Step 3 提交订单 + 验证码（`CaptchaVerify.jsx`）
 - 用户操作：提交订单触发验证码 → 观看自动通过 → 可"刷新再来一张"循环 → 直达支付。
@@ -209,5 +209,12 @@ Swagger 文档再生成（取证数据更新时）：`python hooks/gen_openapi.p
 - 关键结论：**H5 域无应用层签名，鉴权仅 JWT Cookie（30 天）**；demo 管线已实测 200 复现
 - UI 内 `purchaseInfo` 调用自动使用真实 body 模板 `{hot:true,spuId,jt:anonymous}`
 
-### 11.4 全局错误可见化
+### 11.4 App 与 H5 主机边界
+
+- App 原生认证：`app.moutai519.com.cn`（验证码、短信登录）。
+- App 原生订单接口：`app.moutai519.com.cn`（compose/submit，当前仅有接口注解和模型字段证据）。
+- 嵌入 H5 WebView 商品信息：`h5.moutai519.com.cn`（`purchaseInfoV2`，Cookie 鉴权，真实 HTTP 200 已复现）。
+- 因此“App 原路径使用 H5 API”应理解为 App 内嵌 H5 模块的局部路径，不是全局 API 基址。
+
+### 11.5 全局错误可见化
 `index.html` 注入 window error/unhandledrejection 钩子——JS 崩溃栈直接渲染在页面上，演示现场排障不用开 DevTools。

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 const CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
 const WORDS = ['强', '安', '全', '酒', '香', '茅', '台']
@@ -178,7 +178,7 @@ export default function CaptchaVerify({ clean, order, isLive, onPass }) {
       </div>)}
 
       <button className="btn primary wide" disabled={!solved} onClick={onPass}>
-        {solved ? (clean ? '验证通过，继续 →' : `验证码已自动通过 ×${solvedCount}，直达：选择支付 → 生成支付链接`) : '验证码自动处理中…'}
+        {solved ? (clean ? '验证通过，继续 →' : `验证码已自动通过 ×${solvedCount}，继续填写地址 →`) : '验证码自动处理中…'}
       </button>
     </div>
   )

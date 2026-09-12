@@ -991,3 +991,36 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 上游返回 **HTTP 480**，业务结果为“用户已注销”，与该测试账号预期状态一致。
 - 本地代理确认登录响应为 JSON（`application/json;charset=UTF-8`），响应链路已正常完成解码与 JSON 解析；响应中没有 Token，前端按设计未缓存、未注入未验证登录态。
 - 本次 Live UI 流程结论：**真实请求档案修复有效；短信发送成功；异常账号登录请求可达并能正确解析“已注销”结果。** 本轮代理计数为 `3/300`，未触发并发、频率、预算或支付边界。
+
+### S6-31. 有效账号缓存恢复后的 H5 会话分离发现（2026-09-12）
+
+- 使用新提供的有效测试账号完成一次真实短信请求和一次真实登录；登录返回 HTTP 200/code=2000，页面进入选购页，说明 App 域登录成功。
+- 登录后的 App Token 已写入本地缓存，重载并重新加载真实档案后无需再次输入验证码即可恢复到选购页，缓存机制本身生效。
+- 缓存恢复后自动调用 H5 `purchaseInfoV2`，返回 HTTP 401/code=4011，消息为 `invalid signature`；本次未触发 compose/submit、地址或支付接口。
+- 根因修正：登录响应同时存在 App `data.token` 与独立的 H5 `data.cookie`，不能把 App Token 直接替换成 H5 `MT-Token-Wap`。代码现分别提取、分别缓存；缺少 H5 会话的旧 Live 缓存不再视为可用。
+- 当前请求计数为本轮重启后的 1 次 H5 查询；未产生订单写入或支付副作用。后续需重新登录一次以生成新的两类缓存，之后各轮可复用。
+
+### S6-30. Live 全流程接口主机与登录态一致性审计（2026-09-12）
+
+- 对 demo 当前所有 Live 调用点、App `api.f` 注解、OpenAPI 模型和历史流量做静态/证据交叉核对；本轮未新增验证码、登录或订单生产请求。
+- 主机结论：App 原生验证码/登录及原生订单接口使用 `app.moutai519.com.cn`；嵌入 App 的 H5 WebView 商品购买信息 `purchaseInfoV2` 使用 `h5.moutai519.com.cn`。GLM 所说“App 原路径用 H5 API”是局部 H5 模块结论，不是全局基址。
+- 发现并修复登录态传播缺口：登录 Token 现在同时更新 React profile、realApi profile、App `MT-Token` 和 H5 `MT-Token-Wap`；动态 Set-Cookie 覆盖静态档案中的同名 Cookie。
+- 发现并修复后续流程误判：purchaseInfoV2 非 200 时不再允许提交；订单旧版猜测 body 与真实 `ComposeOrderRequestWrapper`/`SubmitOrderRequestV2Wrapper` 不一致，Live 订单请求已阻断，未有真实抓包基准前不再伪造成功；Mock 后续步骤不受影响。
+- 另修复字符验证码组件缺失 `useRef` 导入导致的运行时崩溃；客户端与代理均保证相邻真实请求至少 2 秒间隔（客户端自动串行等待，避免登录后自动 purchaseInfo 静默失败）；新增证据/UI 请求头和响应预览脱敏。
+- 详细报告：`findings/live-flow-host-and-auth-audit-20260912.md`。
+
+### S6-32. 有效账号双会话登录与缓存重载复验（2026-09-12）
+
+- 在 Live UI 通过客户提供的有效测试账号人工输入验证码；真实 App 登录返回 HTTP 200/code=2000，页面进入选购步骤。
+- 登录响应分别提取 App 登录 Token 与 H5 Cookie 会话，写入 React/realApi 请求态及本地 `mt_session`；未在日志、页面提示或本步骤记录中保存原始值。
+- 登录后自动请求 H5 `purchaseInfoV2`，返回 HTTP 200/code=2000；返回商品信息正常展示，代理计数为 3/300。
+- 重载页面、重新载入本地真实档案并通过授权门后，未再次发送短信或登录请求，直接复用缓存双会话；自动再次请求 H5 `purchaseInfoV2` 返回 HTTP 200/code=2000，代理计数为 1/300（服务重启后重新计数）。
+- 本轮未点击 Live“提交订单”，未调用 compose/submit、地址或支付接口；真实链路已验证到 H5 商品信息，订单写入仍按未取得真实请求基准保持阻断。
+
+### S6-33. Mock 六步流程补强（2026-09-12）
+
+- Mock `submitOrder` 现在返回明确的 HTTP 200/code=2000 模拟响应和脱敏演示订单数据；不调用真实 `submit`。
+- 验证码通过后改为进入地址页，避免跳过“填写地址”；刷新按钮继续生成新一轮本地验证码。
+- 支付链接继续只执行本地参数拼接和文本复制，不打开 scheme、不请求支付网关。
+- `npm run build`、`git diff --check` 和 Mock API/支付链接模块级检查通过。
+- 当前浏览器自动化会话在 UI 回归前失效，未宣称已完成点击级 UI 回归；线上订单验证码没有真实抓包 fixture，本步骤未调用线上验证码接口。

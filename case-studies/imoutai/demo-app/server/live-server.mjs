@@ -27,9 +27,11 @@ const TARGETS = {
   h5: 'h5.moutai519.com.cn',
 }
 const BUDGET = { maxRequests: 300 }
+const MIN_INTERVAL_MS = 2000
 
 // ---------- 服务端硬门禁（与 realApi.js 同规则） ----------
 let count = 0
+let lastSentAt = 0
 
 function windowStatus(d = new Date()) {
   const m = d.getHours() * 60 + d.getMinutes()
@@ -52,8 +54,15 @@ function saveCookies(resHeaders) {
   }
 }
 
-function cookieHeader() {
-  return [...jar.entries()].map(([k, v]) => `${k}=${v}`).join('; ')
+function cookieHeader(profileCookie = '') {
+  const merged = new Map()
+  for (const part of String(profileCookie || '').split(';')) {
+    const i = part.indexOf('=')
+    if (i > 0) merged.set(part.slice(0, i).trim(), part.slice(i + 1).trim())
+  }
+  // 登录响应的动态 Set-Cookie 必须覆盖静态抓包档案中的旧值。
+  for (const [k, v] of jar.entries()) merged.set(k, v)
+  return [...merged.entries()].map(([k, v]) => `${k}=${v}`).join('; ')
 }
 
 // ---------- 头构造：按真实 App 形态，剔除浏览器痕迹与空值 ----------
@@ -72,8 +81,8 @@ function buildHeaders(profile, bodyStr, hasBody, hostKey = 'app') {
   h['Accept'] = h['Accept'] || 'application/json'
   h['Connection'] = h['Connection'] || 'keep-alive'
   if (hasBody) h['Content-Type'] = h['Content-Type'] || 'application/json'
-  const ck = cookieHeader()
-  if (ck && !h['Cookie']) h['Cookie'] = ck   // profile 自带 Cookie（真实登录态）时优先
+  const ck = cookieHeader(h['Cookie'] || h.cookie)
+  if (ck) { h['Cookie'] = ck; delete h.cookie }
   return h
 }
 
@@ -85,11 +94,27 @@ function redact(obj) {
   } catch { return String(obj) }
 }
 
+function redactText(value) {
+  return String(value ?? '')
+    .replace(/(\"(?:token|Token|md5|sign|password|vCode|mt_r|mt_k|Authorization)\"\s*:\s*\")([^\"]*)(\")/gi, '$1<redacted>$3')
+    .replace(/(MT-Token(?:-Wap)?=)[^;,\s\"]+/gi, '$1<redacted>')
+}
+
+function redactHeaders(headers) {
+  const out = {}
+  for (const [key, value] of Object.entries(headers || {})) {
+    out[key] = /(authorization|cookie|token|password|secret|md5|sign|device[-_]?id|clips|bs-dvid|_d_u)/i.test(key)
+      ? '<redacted>'
+      : String(value)
+  }
+  return out
+}
+
 function appendEvidence(entry) {
   try {
     fs.mkdirSync(LOG_DIR, { recursive: true })
     fs.appendFileSync(path.join(LOG_DIR, 'live-requests.jsonl'),
-      JSON.stringify({ ...entry, reqHeaders: entry.reqHeaders, respBody: String(entry.respBody).slice(0, 2000) }) + '\n')
+    JSON.stringify({ ...entry, reqHeaders: entry.reqHeaders, respBody: redactText(entry.respBody).slice(0, 2000) }) + '\n')
   } catch { /* 留痕失败不阻塞演示 */ }
 }
 
@@ -130,6 +155,10 @@ async function handleLive(req, res, raw) {
   const ws = windowStatus()
   if (ws.level === 'peak') return json(res, 451, { error: ws.label })
   if (count >= BUDGET.maxRequests) return json(res, 429, { error: `请求预算耗尽（≤${BUDGET.maxRequests}）` })
+  const now = Date.now()
+  if (lastSentAt && now - lastSentAt < MIN_INTERVAL_MS) {
+    return json(res, 429, { error: `请求间隔不足，需至少 ${MIN_INTERVAL_MS / 1000} 秒` })
+  }
 
   let payload
   try { payload = JSON.parse(raw) } catch { return json(res, 400, { error: 'bad json' }) }
@@ -138,6 +167,7 @@ async function handleLive(req, res, raw) {
   if (!api || !api.startsWith('/')) return json(res, 400, { error: 'bad api path' })
 
   count++
+  lastSentAt = now
   const t0 = Date.now()
   let out
   try {
@@ -152,14 +182,14 @@ async function handleLive(req, res, raw) {
 
   appendEvidence({
     ts: new Date().toISOString(), windowLevel: ws.level, host: TARGETS[host], api, method,
-    reqHeaders: out.headers ? payload.profile?.headers : null,
+    reqHeaders: out.headers ? redactHeaders(headersSentShim(payload, out)) : null,
     reqBody: redact(body), status: out.status, ms,
     respHeaders: {
       server: out.headers?.server, via: out.headers?.via,
       'content-type': out.headers?.['content-type'],
       'content-encoding': out.headers?.['content-encoding'],
     },
-    respBody: redact(out.text),
+    respBody: redactText(out.text),
   })
 
   return json(res, 200, {
@@ -167,7 +197,7 @@ async function handleLive(req, res, raw) {
     text: String(out.text).slice(0, 8000),
     json: jsonBody,
     setCookie: out.setCookie || [],
-    reqHeaders: headersSentShim(payload, out),
+    reqHeaders: redactHeaders(headersSentShim(payload, out)),
     respHeaders: {
       server: out.headers?.server, via: out.headers?.via,
       'content-type': out.headers?.['content-type'],

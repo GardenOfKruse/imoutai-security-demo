@@ -34,8 +34,47 @@ function extractLoginToken(json) {
   return ''
 }
 
+function extractCookieToken(setCookie) {
+  for (const line of Array.isArray(setCookie) ? setCookie : [setCookie]) {
+    const match = String(line || '').match(/(?:^|;\s*)MT-Token-Wap=([^;]+)/i)
+    if (match?.[1]) return match[1].trim()
+  }
+  return ''
+}
+
+function extractH5Token(json) {
+  const raw = valueAt(json, 'data.cookie') || valueAt(json, 'cookie')
+  if (typeof raw !== 'string' || !raw.trim()) return ''
+  const match = raw.match(/(?:^|;\s*)MT-Token-Wap=([^;]+)/i)
+  return (match?.[1] || raw).trim()
+}
+
+function upsertCookie(header, name, value) {
+  const values = new Map()
+  for (const part of String(header || '').split(';')) {
+    const i = part.indexOf('=')
+    if (i > 0) values.set(part.slice(0, i).trim(), part.slice(i + 1).trim())
+  }
+  values.set(name, value)
+  return [...values.entries()].map(([k, v]) => `${k}=${v}`).join('; ')
+}
+
+function applySessionToken(p, token, h5Token = '') {
+  const appHeaders = { ...(p.appHeaders || p.headers), 'MT-Token': token }
+  const h5Headers = { ...(p.h5Headers || p.headers) }
+  const cookie = h5Headers.Cookie || h5Headers.cookie
+  h5Headers.Cookie = upsertCookie(cookie, 'MT-Token-Wap', h5Token)
+  delete h5Headers.cookie
+  return {
+    ...p,
+    headers: { ...(p.headers || {}), 'MT-Token': token },
+    appHeaders,
+    h5Headers,
+  }
+}
+
 function usableSession(s) {
-  return Boolean(s?.token && (s.mode !== 'live' || (s.authenticated === true && !String(s.token).startsWith('LIVE_'))))
+  return Boolean(s?.token && (s.mode !== 'live' || (s.authenticated === true && s.h5Token && !String(s.token).startsWith('LIVE_'))))
 }
 
 export default function App() {
@@ -79,12 +118,14 @@ export default function App() {
       if (isLive) {
         const resp = await live.login({ mobile: mob, vCode: code, ydLogId: '', ydToken: '' })
         // 尽力捕获服务端下发的 token，自动注入后续请求头（登录态保持）
-        const tk = extractLoginToken(resp?.json)
+        const tk = extractLoginToken(resp?.json) || extractCookieToken(resp?.setCookie)
+        const h5Token = extractH5Token(resp?.json) || extractCookieToken(resp?.setCookie)
         if (tk) {
-          const nextProfile = { ...profile, headers: { ...profile.headers, 'MT-Token': tk } }
+          const nextProfile = applySessionToken(profile, tk, h5Token)
+          setProfileState(nextProfile)
           setProfile(nextProfile)
         }
-        return { token: tk, authenticated: Boolean(tk), resp }
+        return { token: tk, h5Token, authenticated: Boolean(tk && h5Token), resp }
       }
       mockLogin(mob)
       return { token: 'Token_' + Math.random().toString(36).slice(2, 12).padEnd(12, 'x'), resp: null }
@@ -94,21 +135,18 @@ export default function App() {
       return null
     },
     async submitOrder(items) {
+      if (isLive) throw new Error('实弹订单提交模板尚未按真实 App 抓包验证，已阻止发送')
       const orderId = 'MO' + Date.now()
       const o = { orderId, amount: (items.reduce((s, x) => s + x.product.price * x.qty, 0) / 100).toFixed(2), subject: items.map((x) => x.product.name).join(' / ') }
-      if (isLive) {
-        const resp = await live.submitOrder({ orderId, items: items.map((x) => ({ sku: x.product.id, qty: x.qty })), addressToken: address?.token || 'ADDR_INPUT_AT_RUNTIME' })
-        return { order: o, resp }
-      }
       mockSubmitOrder({ orderId, items: items.map((x) => ({ sku: x.product.id, qty: x.qty })) })
-      return { order: o, resp: null }
+      return { order: o, resp: { status: 200, json: { code: 2000, message: '模拟下单成功', data: { orderId } }, simulated: true } }
     },
   }), [mode, profile, deviceKey, address])
 
   const startLive = (p) => {
-    setProfileState(p); setProfile(p); resetBudget()
+    const nextProfile = usableSession(session) && session.mode === 'live' ? applySessionToken(p, session.token, session.h5Token) : p
+    setProfileState(nextProfile); setProfile(nextProfile); resetBudget()
     // 恢复缓存的实弹登录态（避免重复短信验证）
-    if (usableSession(session) && session.mode === 'live') p.headers['MT-Token'] = session.token
     setMode('live'); setStep(usableSession(session) ? 1 : 0)
   }
   const logout = () => {
@@ -204,9 +242,9 @@ export default function App() {
               {step === 0 && (
                 <PhoneLogin clean={clean} mobile={mobile} setMobile={setMobile} deviceKey={effDeviceKey} api={api} isLive={isLive}
                   cachedSession={session}
-                  onLogin={(tk) => {
+                  onLogin={(tk, h5Token) => {
                     if (tk) {
-                      const s = { token: tk, mode, mobile, ts: Date.now() }
+                      const s = { token: tk, h5Token, authenticated: true, mode, mobile, ts: Date.now() }
                       setSession(s); localStorage.setItem('mt_session', JSON.stringify(s))
                     }
                     localStorage.setItem('mt_mobile', mobile)
@@ -218,7 +256,7 @@ export default function App() {
                   onSubmit={(o) => { setOrder(o); setStep(2) }} />
               )}
               {step === 2 && (
-                <CaptchaVerify clean={clean} order={order} isLive={isLive} onPass={() => setStep(4)} />
+                <CaptchaVerify clean={clean} order={order} isLive={isLive} onPass={() => setStep(3)} />
               )}
               {step === 3 && (
                 <AddressForm address={address} setAddress={setAddress} onNext={() => setStep(4)} />
@@ -236,7 +274,7 @@ export default function App() {
                 <div className="kv"><span>deviceKey</span><code>{isLive ? profile?.deviceKey : deviceKey}</code></div>
                 <div className="kv"><span>clips_token</span><code>{isLive ? '(档案 headers 内)…' : clipsToken}</code></div>
                 <div className="kv"><span>MT-Token（登录态）</span><code>{token ? String(token).slice(0, 30) + '…' : '未登录'}</code></div>
-                <div className="kv"><span>网关</span><code>{isLive ? 'h5/app.moutai519.com.cn（真实）' : 'app.moutai519.com.cn（仅展示）'}</code></div>
+                <div className="kv"><span>接口网关</span><code>{isLive ? '认证/订单：app · purchaseInfo：h5' : 'app（仅展示）'}</code></div>
                 {isLive && <div className="kv"><span>请求预算</span><code>{liveStats().count} 已用 / 剩余 {budgetLeft()}</code></div>}
               </div>
               {step === 0 && <AttackNotes type="login" isLive={isLive} />}
