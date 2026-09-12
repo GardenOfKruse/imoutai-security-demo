@@ -83,6 +83,9 @@ export class LiveModeError extends Error {}
  */
 export async function liveRequest({ api, method = 'POST', body = {}, host = 'h5', note = '' }) {
   if (!state.profile) throw new LiveModeError('未加载设备 HeaderMap 档案（测试设备取证导出）')
+  if (state.profile.profileType === 'offline-algorithm-research' || state.profile.verifiedCapture !== true) {
+    throw new LiveModeError('离线算法研究档案不能进入 Live；必须使用授权测试设备取证档案')
+  }
   const ws = windowStatus()
   if (ws.level === 'peak') throw new LiveModeError(ws.label + ' —— 请求已被硬门禁拦截')
   if (state.count >= BUDGET.maxRequests) throw new LiveModeError(`请求预算耗尽（≤${BUDGET.maxRequests}），硬门禁拦截`)

@@ -23,7 +23,7 @@
 
 | 里程碑 | 内容 | 状态 | 证据 |
 |---|---|---|---|
-| M2.1 | 识别验证码组件类型（疑网易系/自研滑块；220 类快照未含订单流程类） | ⬜ | 待订单流程运行时取证 |
+| M2.1 | 识别验证码承载组件：APK 资源确认 `com.netease.nis.captcha.CaptchaWebView`；具体 challenge 形态仍未确认 | 🔄（组件已确认） | `jadx-out/resources/res/layout/yd_dialog_captcha*.xml`；S6-36 |
 | M2.2 | 验证码校验协议还原（参数、签名、服务端校验点） | ⬜ | — |
 | M2.3 | "通过逻辑"分析报告（机制 + 防御建议；不产出绕过工具） | ⬜ | — |
 
@@ -54,7 +54,7 @@
 | M5.1 | 单文件演示页（攻击链路可视化 + 交互式签名计算器 + 防御建议） | ✅ | `demo/imoutai-security-demo.html` |
 | M5.2 | **Vite+React 交互式演示应用**（双模式：Mock 演示 + 实弹授权门；六步全流程；协议请求日志；口述稿） | ✅ | `case-studies/imoutai/demo-app/`（build PASS + dev server 冒烟 PASS） |
 | M5.2.1 | **API 全景 Swagger 文档**（105 接口 + 42 模型 schema + 基础设施节，内嵌 Swagger UI 离线可用） | ✅ | `demo-app/docs/imoutai-openapi.json` + `hooks/gen_openapi.py` |
-| M5.3 | 演示页/应用随 G2/G4 进度补全（验证码取证、支付渠道还原） | ⬜ | — |
+| M5.3 | 演示页/应用随 G2/G4 进度补全（验证码证据边界、Mock 状态机、支付渠道还原） | 🔄（验证码 Mock 与无真机算法研究入口已补强，原生协议未验证） | `demo-app/src/components/CaptchaVerify.jsx`、`src/components/OfflineIdentityLab.jsx`；S6-36~S6-37 |
 
 ## G6. 《风控能力评估报告》终稿
 
@@ -82,3 +82,5 @@
 | 2026-09-12 | 客户时间规则更新：仅 06:00–06:15 维护窗口禁发，其余时间允许 | steps-log S6-25 |
 | 2026-09-12 | 全流程主机映射与登录态审计；修复 Token/Cookie 传播，阻断未验证订单 body，统一 2 秒间隔与日志脱敏 | steps-log S6-30；findings/live-flow-host-and-auth-audit-20260912.md |
 | 2026-09-12 | 有效账号取得 App/H5 双会话；登录后及缓存重载后的 H5 purchaseInfoV2 均 HTTP 200/code=2000 | steps-log S6-32 |
+| 2026-09-12 | 验证码证据边界收敛；Mock 三类 fixture 改为可重复失败/成功/刷新状态机，订单提交延后到验证码之后 | steps-log S6-36 |
+| 2026-09-12 | 新增无真机算法研究台；合成 ID 与真实 HeaderMap 解耦，Live 层拒绝 synthetic 档案 | steps-log S6-37 |

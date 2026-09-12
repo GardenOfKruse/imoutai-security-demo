@@ -1,6 +1,6 @@
 # i茅台 App 安全培训演示（Vite + React）
 
-> 面向 APP 开发者的安全培训交互演示：Mock 模式完整演示「短信登录 → 选购 → 提交订单（验证码自动识别）→ 填地址 → 选支付 → 生成支付链接」；Live 模式已验证真实验证码请求、登录结果解析与 H5 商品信息，订单写接口在真实抓包完成前止步。
+> 面向 APP 开发者的安全培训交互演示：Mock 模式完整演示「短信登录 → 选购 → 提交订单（本地验证码 fixture 状态机）→ 填地址 → 选支付 → 生成支付链接」；Live 模式已验证真实验证码请求、登录结果解析与 H5 商品信息，订单写接口在真实抓包完成前止步。
 > **⚠️ 红线**：支付链接只做拼接展示，禁止真实调用；实弹模式仅在维护窗口之外的低频 runbook 执行。
 
 ## 两种模式
@@ -8,13 +8,14 @@
 | 模式 | 网络行为 | 用途 |
 |---|---|---|
 | 🟢 演示模式（Mock） | 零生产交互，全部本地模拟 | 日常培训演示，随时可放 |
+| 🧪 离线算法研究 | 零网络；生成可重复的 synthetic fixture | 无真机时研究已确认公式，并明确设备 ID 算法边界 |
 | 🔴 实弹模式（Live） | **已验证部分走真实环境**：真实验证码/登录与 H5 商品信息请求；订单 compose/submit 未完成真实抓包前不发送，支付永久止步 | 仅限授权 runbook F 组用例的低频执行 |
 
-实弹模式有四重硬门禁（`src/lib/realApi.js`）：授权三确认 → 时段校验（除 **06:00–06:15** 客户维护窗口外均可执行）→ 设备 HeaderMap 档案（自动生成，真实 App 形态无模拟标记）→ 单进程低频与请求预算 ≤300。任一不满足即拒绝发请求。
+实弹模式有四重硬门禁（`src/lib/realApi.js`）：授权三确认 → 时段校验（除 **06:00–06:15** 客户维护窗口外均可执行）→ **授权测试设备真实取证 HeaderMap** → 单进程低频与请求预算 ≤300。默认生成内容和离线研究 fixture 都不能解锁 Live，任一不满足即拒绝发请求。
 
 **跨域（CORS）说明**：浏览器直连生产域名会被 CORS 拦截。本 demo 通过 vite 本地代理解决（`/mt-app` → `app.moutai519.com.cn`、`/mt-h5` → `h5.moutai519.com.cn`，dev 与 preview 均已配置），浏览器视角同源。教学点：CORS 只是浏览器内防线，真实攻击者用自定义客户端根本不受它约束——别把 CORS 当安全方案。
 
-**实弹全真实原则（客户明确要求，2026-09-12）**：实弹模式下禁止任何模拟标记/测试痕迹进入真实请求（UA、头、参数全部按真实 App 形态构造）。本次培训的核心结论——"协议级复刻的请求与正常用户订单无法区分、后台无异常可查"——依赖于此。验证码自动识别动画只存在于 Mock 模式；实弹流程中真实验证码由操作者现场交互完成，验证码机制逆向分析结论见 findings（M2.x）。
+**证据边界（2026-09-12）**：短信验证码签名 `MD5(deviceKey + mobile + timestamp)` 已运行态 15/15 验证；native `deviceKey` 来源、`clips_*`/`MT-Device-ID` 派生算法和 `MT-R` 仍未验证。离线研究台只生成稳定的 synthetic 值用于教学，不能声称符合真机，也不代表 OCR、目标检测、轨迹仿真或原生算法还原。
 
 ## 启动
 
@@ -59,7 +60,8 @@ src/
   lib/
     signature.js           # ★ 真实还原的客户端签名算法 md5(deviceKey+mobile+timestamp)
                            #   与真实抓包样本 15/15 逐字节一致（含自校验）
-    deviceKey.js           # 设备指纹"可复刻性"演示（模拟 native 派生）
+    deviceKey.js           # 浏览器指纹演示（明确为 synthetic，非 native 算法）
+    offlineIdentity.js      # 无真机算法研究 fixture + 证据/未验证边界
     payLinks.js            # 支付链接拼接算法还原（🚫 仅拼接展示，禁止调用）
     mockApi.js             # 演示模式 mock 网络层 + 协议请求日志
     realApi.js             # 实弹模式：授权门禁 + 真实协议调用（止步支付）
@@ -67,11 +69,12 @@ src/
     FlowHeader.jsx         # 步骤指示器 + AttackNotes（攻击者视角/开发者注意）
     PhoneLogin.jsx         # Step1 验证码登录（签名实时复刻演示）
     ProductSelect.jsx      # Step2 选购商品（实弹模式拉真实 purchaseInfoV2）
-    CaptchaVerify.jsx      # Step3 提交订单 + 三类验证码（文字/点选图片/滑块）自动通过演示
+    CaptchaVerify.jsx      # Step3 提交订单 + 三类验证码本地 fixture 状态机
     AddressForm.jsx        # Step4 填写地址
     PaymentSelect.jsx      # Step5 选择支付渠道
     PayLinkResult.jsx      # Step6 生成支付链接（拼接展示 + 红线声明）
     ModeGate.jsx           # 实弹模式授权门（三确认 + 档案粘贴 + 窗口校验）
+    OfflineIdentityLab.jsx  # 无真机研究台（不读取 real-headermap.json）
     RequestLog.jsx         # 底部协议请求日志（每步协议形态实时展示）
 docs/
   narration.md             # 演示口述稿（操作者专用，含每步原理与质询应对）

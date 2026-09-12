@@ -4,6 +4,7 @@ import ModeGate from './components/ModeGate.jsx'
 import PhoneLogin from './components/PhoneLogin.jsx'
 import ProductSelect from './components/ProductSelect.jsx'
 import CaptchaVerify from './components/CaptchaVerify.jsx'
+import OfflineIdentityLab from './components/OfflineIdentityLab.jsx'
 import AddressForm from './components/AddressForm.jsx'
 import PaymentSelect from './components/PaymentSelect.jsx'
 import PayLinkResult from './components/PayLinkResult.jsx'
@@ -89,6 +90,7 @@ export default function App() {
   const [step, setStep] = useState(() => (session?.token ? 1 : 0))
   const token = session?.token || null
   const [cart, setCart] = useState([])
+  const [pendingItems, setPendingItems] = useState([])
   const [order, setOrder] = useState(null)
   const [address, setAddress] = useState(null)
   const [profile, setProfileState] = useState(null)
@@ -97,7 +99,9 @@ export default function App() {
   const clipsToken = useMemo(() => deriveClipsToken('device'), [])
   const signCheck = useMemo(() => selfTest(), [])
   const isLive = mode === 'live'
-  const effDeviceKey = isLive ? profile?.deviceKey : deviceKey
+  const researchOnly = profile?.profileType === 'offline-algorithm-research'
+  const demoDeviceKey = researchOnly ? profile.signingDeviceKey : deviceKey
+  const effDeviceKey = isLive ? (profile?.signingDeviceKey || profile?.deviceKey) : demoDeviceKey
 
   // —— 协议适配器：组件不感知 mock/live，按模式路由 ——
   const api = useMemo(() => ({
@@ -106,7 +110,7 @@ export default function App() {
       const ts = String(Date.now())
       // real-app-profile 的 deviceKey 是 clips_* 头部标识；vcode MD5 使用独立的
       // native 32-hex 签名 key（findings F1），两者不能混用。
-      const sign = buildVcodeSign(isLive ? (profile.signingDeviceKey || VERIFIED_DEVICE_KEY) : deviceKey, mob, ts)
+      const sign = buildVcodeSign(isLive ? (profile.signingDeviceKey || VERIFIED_DEVICE_KEY) : demoDeviceKey, mob, ts)
       if (isLive) {
         const resp = await live.sendSms({ mobile: mob, timestamp: ts, md5: sign.md5 })
         return { ts, sign, resp }
@@ -134,14 +138,17 @@ export default function App() {
       if (isLive) return live.purchaseInfo(body || {})
       return null
     },
-    async submitOrder(items) {
-      if (isLive) throw new Error('实弹订单提交模板尚未按真实 App 抓包验证，已阻止发送')
-      const orderId = 'MO' + Date.now()
+    async submitOrder(items, draft) {
+      if (isLive) {
+        if (!draft?.submitBody) throw new Error('实弹订单 body 尚未按真实 App 抓包验证，已阻止发送')
+        return live.submitOrder(draft.submitBody)
+      }
+      const orderId = draft?.orderId || 'MO' + Date.now()
       const o = { orderId, amount: (items.reduce((s, x) => s + x.product.price * x.qty, 0) / 100).toFixed(2), subject: items.map((x) => x.product.name).join(' / ') }
       mockSubmitOrder({ orderId, items: items.map((x) => ({ sku: x.product.id, qty: x.qty })) })
       return { order: o, resp: { status: 200, json: { code: 2000, message: '模拟下单成功', data: { orderId } }, simulated: true } }
     },
-  }), [mode, profile, deviceKey, address])
+  }), [mode, profile, deviceKey, demoDeviceKey, address])
 
   const startLive = (p) => {
     const nextProfile = usableSession(session) && session.mode === 'live' ? applySessionToken(p, session.token, session.h5Token) : p
@@ -154,6 +161,12 @@ export default function App() {
     setSession(null); setStep(0); setOrder(null); setCart([])
   }
   const startClean = (p) => { setProfileState(p); setProfile(p); resetBudget(); setClean(true); setMode('live'); setStep(0) }
+  const startOfflineResearch = (p) => {
+    setClean(false)
+    setProfileState(p)
+    setMode('mock')
+    setStep(0)
+  }
 
   return (
     <div className="app">
@@ -197,8 +210,13 @@ export default function App() {
         <div className="modesel">
           <div className="card modecard mock" onClick={() => setMode('mock')}>
             <h3>🟢 演示模式（Mock）</h3>
-            <p>完整走一遍「登录 → 选购 → 验证码自动识别 → 地址 → 支付 → 链接生成」流程，所有请求为本地 Mock，随时可演示，无任何生产交互。</p>
+            <p>完整走一遍「登录 → 选购 → 本地验证码 fixture 状态机 → 地址 → 支付 → 链接生成」流程，所有请求为本地 Mock，随时可演示，无任何生产交互。</p>
             <span className="btn primary">进入演示模式</span>
+          </div>
+          <div className="card modecard research" onClick={() => setMode('research')}>
+            <h3>🧪 离线算法研究（无真机）</h3>
+            <p>不读取 real-headermap.json；按可验证公式生成签名 fixture，并展示设备 ID 的合成算法边界，随后可进入完全本地的购买流程。</p>
+            <span className="btn primary">打开算法研究台</span>
           </div>
           <div className="card modecard" onClick={() => { setClean(true); setMode('gate') }}>
             <h3>🎬 纯净版流程（开场真实下单 · 无说明）</h3>
@@ -232,6 +250,10 @@ export default function App() {
         <ModeGate onConfirm={startLive} />
       )}
 
+      {mode === 'research' && (
+        <OfflineIdentityLab onBack={() => setMode('select')} onStartMock={startOfflineResearch} />
+      )}
+
       {mode === 'swagger' && <SwaggerPage onBack={() => setMode('select')} />}
 
       {(mode === 'mock' || mode === 'live') && (
@@ -253,10 +275,20 @@ export default function App() {
               )}
               {step === 1 && (
                 <ProductSelect clean={clean} cart={cart} setCart={setCart} api={api} isLive={isLive}
-                  onSubmit={(o) => { setOrder(o); setStep(2) }} />
+                  onSubmit={(o, selectedItems) => { setOrder(o); setPendingItems(selectedItems); setStep(2) }} />
               )}
               {step === 2 && (
-                <CaptchaVerify clean={clean} order={order} isLive={isLive} onPass={() => setStep(3)} />
+                <CaptchaVerify
+                  clean={clean}
+                  order={order}
+                  isLive={isLive}
+                  onPass={async () => {
+                    const result = await api.submitOrder(pendingItems.length ? pendingItems : cart, order)
+                    if (result?.order) setOrder(result.order)
+                    setStep(3)
+                    return result
+                  }}
+                />
               )}
               {step === 3 && (
                 <AddressForm address={address} setAddress={setAddress} onNext={() => setStep(4)} />
@@ -270,9 +302,9 @@ export default function App() {
 
             {!clean && (<aside className="side">
               <div className="devinfo">
-                <div className="devinfo-title">🖥️ 设备信息（{isLive ? '实弹：来自测试设备取证档案' : '演示：本机模拟'}）</div>
-                <div className="kv"><span>deviceKey</span><code>{isLive ? profile?.deviceKey : deviceKey}</code></div>
-                <div className="kv"><span>clips_token</span><code>{isLive ? '(档案 headers 内)…' : clipsToken}</code></div>
+                <div className="devinfo-title">🖥️ 设备信息（{isLive ? '实弹：来自测试设备取证档案' : researchOnly ? '离线：synthetic fixture' : '演示：本机模拟'}）</div>
+                <div className="kv"><span>{researchOnly ? 'signingKey fixture' : 'deviceKey'}</span><code>{isLive ? (profile?.deviceKey || '未提供') : demoDeviceKey}</code></div>
+                <div className="kv"><span>{researchOnly ? 'synthetic device ID' : 'clips_token'}</span><code>{isLive ? '(档案 headers 内)…' : researchOnly ? profile.syntheticDeviceId : clipsToken}</code></div>
                 <div className="kv"><span>MT-Token（登录态）</span><code>{token ? String(token).slice(0, 30) + '…' : '未登录'}</code></div>
                 <div className="kv"><span>接口网关</span><code>{isLive ? '认证/订单：app · purchaseInfo：h5' : 'app（仅展示）'}</code></div>
                 {isLive && <div className="kv"><span>请求预算</span><code>{liveStats().count} 已用 / 剩余 {budgetLeft()}</code></div>}

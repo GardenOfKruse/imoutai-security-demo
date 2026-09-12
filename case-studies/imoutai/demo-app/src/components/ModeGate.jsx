@@ -4,9 +4,9 @@ import { deriveDeviceKey } from '../lib/deviceKey.js'
 import { md5 } from '../lib/signature.js'
 
 /**
- * 默认 HeaderMap 档案自动生成：
- * - deviceKey/MT-Device-ID：由当前环境指纹派生（模拟 native 设备绑定）
- * - 字段名采用公开协议已知的头名骨架（现场如拿到测试设备真实抓包，直接粘贴覆盖即可校准）
+ * Live 默认文本只用于解释档案结构，不能解锁 Live：
+ * - 浏览器环境派生值是 synthetic fixture，不是 native deviceKey 算法
+ * - 字段名采用公开协议已知的头名骨架，缺少真实取证字段时必须拒绝发送
  */
 function generateDefaultProfile() {
   const dk = deriveDeviceKey()
@@ -25,8 +25,10 @@ function generateDefaultProfile() {
     },
     _meta: {
       generated: new Date().toLocaleString('zh-CN', { hour12: false }),
-      note: '本 _meta 块仅存在于客户端档案，不会进入任何真实请求；请求头已按真实 App 形态生成，不含任何模拟标记',
+      note: '本档案是 Live 结构说明用 synthetic fixture，不含真实设备证明，不能解锁 Live；_meta 不会进入请求',
     },
+    profileType: 'generated-skeleton',
+    verifiedCapture: false,
   }
 }
 
@@ -71,6 +73,7 @@ export default function ModeGate({ onConfirm }) {
         appHeaders,
         h5Headers: h5.headers,
         profileType: 'paired app-domain + h5-webview real profiles',
+        verifiedCapture: true,
         _meta: { source: 'local authorized mitm capture', app: 'derived from the same captured device profile', h5: h5._meta },
       }, null, 2))
     } catch (e) {
@@ -115,7 +118,7 @@ export default function ModeGate({ onConfirm }) {
 
       <div className="frow col">
         <label className="flabel">
-          HeaderMap 档案（已自动生成默认档案，每次进入实弹模式都会重新生成；如现场有测试设备真实抓包 JSON 可直接粘贴覆盖）
+          HeaderMap 档案（默认内容仅为 synthetic 结构 fixture；Live 必须粘贴授权测试设备真实抓包 JSON）
         </label>
         <textarea className="ipt area" rows={10} value={profileText} onChange={(e) => setProfileText(e.target.value)} />
         <div style={{ display: 'flex', gap: 10 }}>
@@ -124,8 +127,8 @@ export default function ModeGate({ onConfirm }) {
         </div>
       </div>
 
-      <div className="note">📌 档案说明：请求头按<b>真实 App 形态</b>生成，不含任何模拟标记（实弹全真实原则，见 AGENTS.md）；
-        <code>deviceKey / MT-Device-ID</code> 由本机环境指纹派生，<code>MT-Token</code> 留空（登录后由服务端下发并自动注入）。
+      <div className="note">📌 档案说明：默认值只用于展示字段结构，<b>不代表真机算法或真机身份</b>；
+        <code>deviceKey / MT-Device-ID</code> 的 native 派生仍未验证，<code>MT-Token</code> 留空（登录后由服务端下发并自动注入）。
         下方 <code>_meta</code> 块仅存在客户端，绝不随请求发出。</div>
 
       {err && <div className="errmsg">{err}</div>}

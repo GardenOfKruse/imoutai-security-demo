@@ -1,8 +1,7 @@
 // deviceKey.js — 设备指纹的"可复刻性"演示
 //
-// 真实 App 的 deviceKey 由 native 层派生（libCryptoSeed/CryptoUtil，32-hex，设备绑定）。
-// 但关键教学点：无论密钥藏在多深的 native，只要它能出现在"运行中的客户端"，
-// 攻击者就能把它读出来并复制到任何环境。本页用浏览器指纹模拟同样的"设备绑定"效果。
+// 运行态观察到真实 App 使用 32-hex、跨会话稳定的 deviceKey；CryptoUtil/native 是候选来源，
+// 但具体派生链尚未完成归因。本文件只做浏览器环境的 synthetic 演示，不能当作 native 算法。
 
 function fnv1a(str) {
   let h = 0x811c9dc5
@@ -13,7 +12,7 @@ function fnv1a(str) {
   return h.toString(16).padStart(8, '0')
 }
 
-/** 模拟 native 设备指纹派生：把浏览器环境特征压成 32-hex（演示用，非真实算法） */
+/** 把浏览器环境特征压成 32-hex（演示用，非真实算法） */
 export function deriveDeviceKey() {
   const seeds = [
     navigator.userAgent,

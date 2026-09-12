@@ -1,0 +1,33 @@
+{
+  "deviceKey": "<redacted-device-key>",
+  "profileType": "authorized-live-capture-redacted",
+  "targetApi": {
+    "url": "<authorized-target-url>",
+    "method": "POST",
+    "bodyTemplate": {
+      "hot": "<redacted>",
+      "spuId": "<redacted>",
+      "jt": "<redacted>"
+    },
+    "capturedStatus": "not-for-production"
+  },
+  "headers": {
+    "Accept": "application/json",
+    "x-csrf-token": "<redacted>",
+    "X-Requested-With": "<redacted>",
+    "MT-APP-Version": "<version>",
+    "User-Agent": "<redacted>",
+    "content-type": "application/json",
+    "Origin": "<redacted-origin>",
+    "Sec-Fetch-Site": "same-site",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+    "Referer": "<redacted-referer>",
+    "Cookie": "<redacted>"
+  },
+  "_meta": {
+    "source": "authorized local capture, redacted structure only",
+    "credential": "none",
+    "note": "Do not replace placeholders with live credentials in a public or shared repository."
+  }
+}

@@ -1038,3 +1038,26 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 本地 Mock 验证码改为按“字符 → 滑块 → 点选”顺序轮换；每次刷新生成下一类，页面显示已覆盖数量，便于培训现场逐类演示。
 - 三类验证码仍为本地生成和本地自动通过动画，不请求线上验证码、不提交线上校验结果，也不将其描述为真实验证。
 - 真实订单验证码的 challenge、校验回调和刷新协议仍未取得；线上反自动化校验不做自动化通过。
+
+### S6-36. 验证码证据边界与 Demo 状态机修复（2026-09-12）
+
+- 对照 JADX 资源、反射 JSONL、F7 审计和本文件历史记录：原生已确认 `com.netease.nis.captcha.CaptchaWebView` 作为订单验证码承载组件；`compose/v2 → 风控验证码 → submit/v2` 的接口顺序和订单模型字段已确认，但真实 challenge、校验回调、刷新协议和完整订单 body 仍未验证。
+- 发现并修复 Demo 流程错配：原来选购页先调用 `submitOrder`，导致 Mock 在验证码前记录下单成功，Live 则直接因未验证 body 中止；现在先创建订单草稿，验证码成功后才触发订单提交。
+- 重写 `demo-app/src/components/CaptchaVerify.jsx`：三类本地 fixture 使用确定性输入，支持手动失败、fixture 成功、刷新轮换；移除自动成功定时器，加入按轮次幂等保护和卸载安全，不再把“知道答案 + 定时器”描述成 OCR、目标检测、轨迹仿真或原生算法还原。
+- Live 保留验证码通过后的 `live.submitOrder` 接线，但无真实 `submitBody` 时继续硬阻断；支付接口未添加、未调用。
+- 验证命令：`npm run build`（PASS，Vite 50 modules）；`git diff --check`（PASS）；本轮未发送验证码、订单或支付生产请求。
+
+### S6-37. 无真机算法研究入口与 HeaderMap 依赖隔离（2026-09-12）
+
+- 新增 `demo-app/src/components/OfflineIdentityLab.jsx` 与 `src/lib/offlineIdentity.js`：不读取 `real-headermap.json`，可用固定 seed 重复生成本地 synthetic device ID / clips_* fixture，并直接进入零网络 Mock 购买流程。
+- 证据边界拆分：`MD5(deviceKey + mobile + timestamp)` 继续使用已验证的 15/15 公式；native `deviceKey` 来源、`clips_*` / `MT-Device-ID` 派生算法、`MT-R` 仍显示为“未验证”，未用合成值冒充真机结果。
+- `ModeGate` 默认内容改为“结构说明用 synthetic skeleton”；只有本地授权测试设备档案标记 `verifiedCapture=true` 才可通过 Live 请求层。`realApi.liveRequest` 增加代码级拒绝，离线研究档案不能发真实请求。
+- 离线研究 fixture 仅进入 Mock，支付接口仍不存在且未调用；本轮未读取或输出真实 HeaderMap 内容，未发送验证码、订单或支付生产请求。
+- 验证命令：`npm run build`（PASS，Vite 52 modules）；`git diff --check`（PASS）。
+
+### S6-38. RiskStub 设备因子与业务设备码分层调研（2026-09-12）
+
+- JADX 静态确认 RiskStub.dex 存在独立的 udid 链：采集 android_id / drmid / mac / imei / serial 等因子，按有效性优先级选择后使用 UUID.nameUUIDFromBytes 生成 UUID，并写入应用私有 SharedPreferences("tmp_d2")；无有效因子时回退随机 UUID，服务端还可覆盖 udid。
+- n3.f() 返回的是 RiskStub 的 udid，y1/w9 将其用于风控 SDK 数据；当前没有证据证明它等于业务登录的 32-hex deviceKey 或 clips_*。
+- 新增 findings/device-identity-chain-assessment-20260912.md，明确可等价 Mock 的 RiskStub UDID、只能 synthetic Mock 的业务设备绑定字段，以及下一步需要的同请求窗口调用关联证据。
+- 本步骤只做 JADX/本地 findings 静态分析，未访问生产、未读取或输出真实 HeaderMap 内容。

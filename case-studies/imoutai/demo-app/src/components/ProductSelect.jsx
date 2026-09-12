@@ -13,7 +13,6 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
     }).catch((e) => setLiveErr(String(e.message || e)))
   }, [isLive, api])
   const [err, setErr] = useState('')
-  const [serverMsg, setServerMsg] = useState(null)
   const toggle = (p) => {
     setErr('')
     setCart((c) => (c.find((x) => x.product.id === p.id) ? c.filter((x) => x.product.id !== p.id) : [...c, { product: p, qty: 1 }]))
@@ -22,24 +21,12 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
     setCart((c) => c.map((x) => (x.product.id === id ? { ...x, qty: Math.max(1, Math.min(6, x.qty + d)) } : x)))
   const total = cart.reduce((s, x) => s + x.product.price * x.qty, 0)
 
-  const submit = async () => {
+  const submit = () => {
     if (!cart.length) { setErr('请先勾选商品'); return }
-    let order = null
-    try {
-      const r = await api.submitOrder(cart)
-      if (r.resp) setServerMsg({ status: r.resp.status, msg: r.resp.json?.message || '', simulated: r.resp.simulated })
-      order = r.order
-    } catch (e) {
-      setServerMsg({ status: 'ERR', msg: String(e.message || e), simulated: !isLive })
-      // 实弹订单 body 尚未有真实抓包基准时必须停在这里，不能用演示订单掩盖未验证请求。
-      if (isLive) return
-      order = null
-    }
-    if (!order) {
-      const total2 = cart.reduce((s, x) => s + x.product.price * x.qty, 0)
-      order = { orderId: 'MO' + Date.now(), amount: (total2 / 100).toFixed(2), subject: cart.map((x) => x.product.name).join(' / ') }
-    }
-    onSubmit(order)
+    const total2 = cart.reduce((s, x) => s + x.product.price * x.qty, 0)
+    const orderId = isLive ? 'LIVE_PENDING' : 'MO' + Date.now()
+    const order = { orderId, amount: (total2 / 100).toFixed(2), subject: cart.map((x) => x.product.name).join(' / ') }
+    onSubmit(order, cart)
   }
 
   return (
@@ -74,16 +61,9 @@ export default function ProductSelect({ clean, cart, setCart, api, isLive, onSub
           <div className="wire-line mono">{liveResp ? JSON.stringify(liveResp).slice(0, 400) : '请求中…'}</div>
         </div>
       )}
-      {serverMsg && (
-        <div className={'servermsg' + (serverMsg.simulated ? ' sim' : serverMsg.status === 200 ? ' ok' : ' bad')}>
-          服务端响应：HTTP {serverMsg.status}
-          {serverMsg.msg ? ` · ${serverMsg.msg}` : ''}
-          {serverMsg.simulated && '（非演示时段 · 未发送真实请求）'}
-        </div>
-      )}
       <div className="cartbar">
         <span>合计：<b>¥{(total / 100).toFixed(2)}</b></span>
-        <button className="btn primary" disabled={isLive && (!liveResp || liveResp.status !== 200)} onClick={submit}>提交订单</button>
+        <button className="btn primary" disabled={isLive && (!liveResp || liveResp.status !== 200)} onClick={submit}>进入验证码</button>
       </div>
       {err && <div className="errmsg">{err}</div>}
     </div>
