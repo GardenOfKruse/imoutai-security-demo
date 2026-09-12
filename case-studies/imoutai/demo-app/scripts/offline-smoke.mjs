@@ -11,6 +11,10 @@ const profileB = deriveOfflineResearchProfile('training-fixture-001')
 const headmapA = buildOfflineHeadmap(profileA)
 const headmapB = buildOfflineHeadmap(profileB)
 const checkedInHeadmap = JSON.parse(fs.readFileSync(new URL('../public/offline-headermap.json', import.meta.url), 'utf8'))
+const fallbackHeadmap = buildOfflineHeadmap(deriveOfflineResearchProfile('training-fixture-001', {
+  androidId: 'NA',
+  drmid: 'drmid-fixture-123',
+}))
 
 assert(JSON.stringify(headmapA) === JSON.stringify(headmapB), 'offline HeadMap must be deterministic')
 assert(JSON.stringify(headmapA) === JSON.stringify(checkedInHeadmap), 'checked-in offline HeadMap is stale')
@@ -18,6 +22,8 @@ assert(headmapA.profileType === 'offline-algorithm-research', 'offline profile t
 assert(headmapA.verifiedCapture === false, 'offline fixture must not be treated as a real capture')
 assert(headmapA.headers.Cookie.includes('<offline-placeholder>'), 'offline fixture must contain only placeholder cookies')
 assert(headmapA.riskStub.clientToken === '761d432f17845289134f2403b5ce62334ac6f4ca4f', 'RiskStub client_token fixture changed unexpectedly')
+assert(fallbackHeadmap.riskStub.selectedFactor === 'drmid', 'RiskStub factor fallback must follow the selected input')
+assert(fallbackHeadmap.riskStub.udid !== headmapA.riskStub.udid, 'changing the selected factor must change the RiskStub udid')
 assert(deriveRiskStubClientToken('1789140362120') === deriveRiskStubClientToken('1789140362120'), 'RiskStub client_token must be deterministic for fixed time')
 assert(deriveRiskStubClientToken('1789140362120')?.length > 20, 'RiskStub client_token fixture is missing')
 

@@ -1144,3 +1144,10 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 从 `openapi.json` 读取并断言 `ComposeOrderRequestWrapper` 的 6 个字段、`SubmitOrderRequestV2Wrapper` 的 13 个字段。
 - Mock submit 现在记录完整 13 字段 synthetic body；字段集合来自反射，字段值仍不是实测订单 body，Live 不复用该 body。
+
+### S6-54. 设备参数可编辑 Mock 与因子回退校正（2026-09-12）
+
+- 离线算法研究台增加 Android API、manufacturer、model、android_id、drmid、mac、imei、serial 输入；修改后只重新生成本地 synthetic profile，不读取真机、不访问网络。
+- `selectedFactor` 不再固定为 `android_id`，HeadMap 与页面会显示实际命中的因子；烟测覆盖 `android_id=NA` 回退到 `drmid` 的场景，并确认 UUID v3 输出随因子变化。
+- 对照 JADX `aa.d()` 修正无效因子哨兵值比较为原生 `String.equals` 的大小写语义；默认 seed 输出保持与已提交离线 HeadMap 字节一致。
+- 验证命令：`npm run test:offline`、`npm run build`、`node --check server/live-server.mjs`、`git diff --check`；均通过。构建仅有既有 chunk 大小警告。

@@ -26,7 +26,9 @@ const INVALID_MAC_PREFIXES = [
 
 function isValidRiskFactor(value) {
   const text = String(value || '').trim()
-  if (!text || INVALID_RISK_FACTORS.has(text.toLowerCase())) return false
+  // JADX 的 aa.d() 使用 String.equals，保留这些哨兵值的大小写语义；
+  // 不能把 `NA`/`NP` 先转小写，否则会与原生判断不一致。
+  if (!text || INVALID_RISK_FACTORS.has(text)) return false
   if (new Set(text.toLowerCase().split('')).size < 3) return false
   return !text.split('').every((char, index, chars) => index === 0 || char.charCodeAt(0) - chars[index - 1].charCodeAt(0) === 1)
 }
@@ -36,6 +38,13 @@ function isValidMac(value) {
   if (!/^([0-9a-f]{2}:){5}[0-9a-f]{2}$/i.test(text)) return false
   if (new Set(text.toLowerCase().split(':')).size <= 2) return false
   return !INVALID_MAC_PREFIXES.some((prefix) => text.toLowerCase().startsWith(prefix.toLowerCase()))
+}
+
+function selectRiskFactor(factors = {}) {
+  return RISK_FACTOR_PRIORITY.find((name) => {
+    const value = factors[name]
+    return name === 'mac' ? isValidMac(value) : isValidRiskFactor(value)
+  }) || null
 }
 
 function uuidV3FromText(value) {
@@ -76,10 +85,7 @@ export function deriveRiskStubClientToken(epochMs) {
  * 该结果只代表 RiskStub udid，不代表业务 deviceKey / clips_*。
  */
 export function deriveRiskStubUdid(factors = {}) {
-  const selected = RISK_FACTOR_PRIORITY.find((name) => {
-    const value = factors[name]
-    return name === 'mac' ? isValidMac(value) : isValidRiskFactor(value)
-  })
+  const selected = selectRiskFactor(factors)
   return selected ? uuidV3FromText(String(factors[selected]).trim()) : null
 }
 
@@ -92,16 +98,43 @@ function syntheticClipsToken(material, slot) {
  * 生成稳定的本地研究档案。
  * signingDeviceKey 使用已确认的 32-hex 样本作为公式 fixture，不表示当前浏览器就是该设备。
  */
-export function deriveOfflineResearchProfile(seed = 'training-fixture-001') {
-  const material = `${seed}|${OBSERVED_DEVICE_TUPLE}`
-  const syntheticDeviceKey = md5(`device-key-fixture|${material}`)
-  const riskStubFactors = {
-    android_id: 'android-id-' + md5('risk-factor|' + seed).slice(0, 12),
+export function deriveOfflineResearchProfile(seed = 'training-fixture-001', overrides = {}) {
+  const defaultAndroidId = 'android-id-' + md5('risk-factor|' + seed).slice(0, 12)
+  const defaultParameters = {
+    apiLevel: 31,
+    manufacturer: 'Redmi',
+    model: 'lime',
+    androidId: defaultAndroidId,
     drmid: '',
     mac: '',
     imei: '',
     serial: '',
   }
+  const rawApiLevel = String(overrides.apiLevel ?? '').trim()
+  const rawAndroidId = String(overrides.androidId ?? '').trim()
+  const deviceParameters = {
+    apiLevel: rawApiLevel && Number.isFinite(Number(rawApiLevel)) ? Number(rawApiLevel) : defaultParameters.apiLevel,
+    manufacturer: String(overrides.manufacturer ?? 'Redmi'),
+    model: String(overrides.model ?? 'lime'),
+    androidId: rawAndroidId || defaultAndroidId,
+    drmid: String(overrides.drmid ?? ''),
+    mac: String(overrides.mac ?? ''),
+    imei: String(overrides.imei ?? ''),
+    serial: String(overrides.serial ?? ''),
+  }
+  const hasOverrides = Object.entries(deviceParameters).some(([name, value]) => String(value) !== String(defaultParameters[name]))
+  const material = hasOverrides
+    ? `${seed}|${JSON.stringify(deviceParameters)}`
+    : `${seed}|${OBSERVED_DEVICE_TUPLE}`
+  const syntheticDeviceKey = md5(`device-key-fixture|${material}`)
+  const riskStubFactors = {
+    android_id: deviceParameters.androidId,
+    drmid: deviceParameters.drmid,
+    mac: deviceParameters.mac,
+    imei: deviceParameters.imei,
+    serial: deviceParameters.serial,
+  }
+  const selectedRiskFactor = selectRiskFactor(riskStubFactors)
   return {
     profileType: RESEARCH_PROFILE_TYPE,
     verifiedCapture: false,
@@ -109,19 +142,11 @@ export function deriveOfflineResearchProfile(seed = 'training-fixture-001') {
     observedDeviceTuple: OBSERVED_DEVICE_TUPLE,
     signingDeviceKey: VERIFIED_DEVICE_KEY,
     syntheticDeviceKey,
-    deviceParameters: {
-      apiLevel: 31,
-      manufacturer: 'Redmi',
-      model: 'lime',
-      androidId: riskStubFactors.android_id,
-      drmid: '',
-      mac: '',
-      imei: '',
-      serial: '',
-    },
+    deviceParameters,
     syntheticDeviceId: syntheticClipsToken(material, 'device-id'),
     riskStubFactors,
     riskStubUdid: deriveRiskStubUdid(riskStubFactors),
+    riskStubSelectedFactor: selectedRiskFactor,
     syntheticClipsTokens: [
       syntheticClipsToken(material, 'a'),
       syntheticClipsToken(material, 'b'),
@@ -170,7 +195,7 @@ export function buildOfflineHeadmap(profile) {
     deviceParameters: profile.deviceParameters,
     riskStub: {
       factors: profile.riskStubFactors,
-      selectedFactor: 'android_id',
+      selectedFactor: profile.riskStubSelectedFactor,
       udid: profile.riskStubUdid,
       clientTokenTimestampMs: RISK_STUB_FIXTURE_EPOCH_MS,
       clientToken: deriveRiskStubClientToken(RISK_STUB_FIXTURE_EPOCH_MS),
@@ -205,6 +230,7 @@ export function buildOfflineResearchTrace(profile, mobile = '10086', timestamp =
     riskStub: {
       factors: profile.riskStubFactors,
       priority: 'android_id → drmid → mac → imei → serial',
+      selectedFactor: profile.riskStubSelectedFactor,
       algorithm: 'UUID.nameUUIDFromBytes(selectedFactor.getBytes()) / UUID v3',
       udid: profile.riskStubUdid,
       clientToken: deriveRiskStubClientToken(timestamp),

@@ -98,3 +98,4 @@
 | 2026-09-12 | 交叉核对 APK/JADX 后确认验证码协议仍缺 SDK 类体与运行态回调证据 | steps-log S6-51 |
 | 2026-09-12 | 仓库内离线 HeadMap fixture 补齐已确认的 RiskStub client_token，保持业务设备码边界 | steps-log S6-52 |
 | 2026-09-12 | Mock submit 使用反射确认的 13 字段静态骨架，并由烟测锁定字段集合，Live 不复用 | steps-log S6-53 |
+| 2026-09-12 | 离线研究台支持可编辑设备参数，动态展示 RiskStub 实际命中因子并修正 JADX 对应的大小写哨兵判断；业务 deviceKey/clips_* 仍明确为未验证 | steps-log S6-54 |

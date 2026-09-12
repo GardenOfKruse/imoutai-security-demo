@@ -10,8 +10,22 @@ export default function OfflineIdentityLab({ onBack, onStartMock }) {
   const [seed, setSeed] = useState('training-fixture-001')
   const [mobile, setMobile] = useState('10086')
   const [timestamp, setTimestamp] = useState('1789140362120')
-  const profile = useMemo(() => deriveOfflineResearchProfile(seed), [seed])
+  const [deviceParameters, setDeviceParameters] = useState({
+    apiLevel: '31',
+    manufacturer: 'Redmi',
+    model: 'lime',
+    androidId: '',
+    drmid: '',
+    mac: '',
+    imei: '',
+    serial: '',
+  })
+  const profile = useMemo(() => deriveOfflineResearchProfile(seed, deviceParameters), [seed, deviceParameters])
   const trace = useMemo(() => buildOfflineResearchTrace(profile, mobile, timestamp), [profile, mobile, timestamp])
+
+  const updateDeviceParameter = (name, value) => {
+    setDeviceParameters((current) => ({ ...current, [name]: value }))
+  }
 
   const downloadFixture = () => {
     const payload = buildOfflineHeadmap(profile)
@@ -44,6 +58,26 @@ export default function OfflineIdentityLab({ onBack, onStartMock }) {
             <input className="ipt" value={timestamp} onChange={(e) => setTimestamp(e.target.value)} /></label>
         </div>
 
+        <div className="research-section synthetic">
+          <h3>🧩 可编辑：设备参数 Mock 输入</h3>
+          <p className="research-note">修改这里会重新计算本地合成档案。只有命中 RiskStub 优先级的有效因子会改变已确认的 udid；这不会声称恢复业务 deviceKey 或 MT-Device-ID。</p>
+          <div className="research-grid">
+            {[
+              ['apiLevel', 'Android API level'],
+              ['manufacturer', 'manufacturer'],
+              ['model', 'model'],
+              ['androidId', 'android_id（空=按 seed 生成）'],
+              ['drmid', 'drmid'],
+              ['mac', 'mac'],
+              ['imei', 'imei'],
+              ['serial', 'serial'],
+            ].map(([name, label]) => (
+              <label className="frow col" key={name}><span className="flabel">{label}</span>
+                <input className="ipt" value={deviceParameters[name]} onChange={(e) => updateDeviceParameter(name, e.target.value)} /></label>
+            ))}
+          </div>
+        </div>
+
         <div className="research-section confirmed">
           <h3>✅ 已确认：短信验证码签名</h3>
           <div className="kv"><span>公式</span><code>MD5(deviceKey + mobile + timestamp)</code></div>
@@ -55,7 +89,8 @@ export default function OfflineIdentityLab({ onBack, onStartMock }) {
         <div className="research-section confirmed">
           <h3>✅ 已确认：RiskStub udid（独立于业务设备码）</h3>
           <div className="kv"><span>因子优先级</span><code>{trace.riskStub.priority}</code></div>
-          <div className="kv"><span>命中因子</span><code>android_id = {trace.riskStub.factors.android_id}</code></div>
+          <div className="kv"><span>实际命中因子</span><code>{trace.riskStub.selectedFactor || '无有效因子'}</code></div>
+          <div className="kv"><span>命中因子值</span><code>{trace.riskStub.selectedFactor ? `${trace.riskStub.selectedFactor} = ${trace.riskStub.factors[trace.riskStub.selectedFactor]}` : '无'}</code></div>
           <div className="kv"><span>算法输出</span><code>{trace.riskStub.udid}</code></div>
           <div className="kv"><span>client_token（固定时间 fixture）</span><code>{trace.riskStub.clientToken || '请输入有效毫秒时间戳'}</code></div>
           <p className="research-note">JADX 已确认两段 RiskStub 算法：有效设备因子 → UUID v3，以及 b4.java 的时间型 client_token 拼装。二者都可脱离真机复现，但没有证据表明它们就是业务 deviceKey 或 clips_*。</p>
