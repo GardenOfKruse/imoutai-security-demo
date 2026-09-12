@@ -1024,3 +1024,17 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 支付链接继续只执行本地参数拼接和文本复制，不打开 scheme、不请求支付网关。
 - `npm run build`、`git diff --check` 和 Mock API/支付链接模块级检查通过。
 - 当前浏览器自动化会话在 UI 回归前失效，未宣称已完成点击级 UI 回归；线上订单验证码没有真实抓包 fixture，本步骤未调用线上验证码接口。
+
+### S6-34. 订单写模型与验证码组件静态研究（2026-09-12）
+
+- 只读解析反射 JSONL 与 OpenAPI：确认 `compose/v2` 使用 `ComposeOrderRequestWrapper`，`submit/v2` 使用 `SubmitOrderRequestV2Wrapper`；字段集合已写入审计报告 F7。
+- 确认调用顺序应为“compose/v2 → 风控验证码 → submit/v2”；此前 UI 中的 `orderId/items/addressToken` 猜测 body 不具备证据基础，继续保持阻断。
+- APK 资源确认订单验证码承载组件为 `com.netease.nis.captcha.CaptchaWebView`；当前没有真实 challenge、校验回调或刷新协议样本。
+- `CopyInfoVerifyCodeModel(md5,timestamp)` 已排除为订单验证码模型，避免把账户资料复制验证码误接入订单流程。
+- 本步骤只做静态/本地分析，未调用 compose、submit、订单验证码或支付接口。
+
+### S6-35. 三类订单验证码 Mock 演示补强（2026-09-12）
+
+- 本地 Mock 验证码改为按“字符 → 滑块 → 点选”顺序轮换；每次刷新生成下一类，页面显示已覆盖数量，便于培训现场逐类演示。
+- 三类验证码仍为本地生成和本地自动通过动画，不请求线上验证码、不提交线上校验结果，也不将其描述为真实验证。
+- 真实订单验证码的 challenge、校验回调和刷新协议仍未取得；线上反自动化校验不做自动化通过。

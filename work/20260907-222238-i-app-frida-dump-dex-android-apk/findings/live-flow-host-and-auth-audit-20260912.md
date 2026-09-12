@@ -56,6 +56,18 @@ Live 选购页现在会显示 purchaseInfoV2 的 HTTP 非 200 错误，并在没
 
 客户端和本地代理均保证相邻真实请求至少间隔 2 秒；客户端会串行等待而不是让登录后的自动 purchaseInfo 请求静默失败。代理返回给 UI、写入新增证据的请求头和响应预览均做敏感值脱敏；真实值只在发送请求的内存路径使用。
 
+### F7. 订单写模型与验证码组件静态归因
+
+对本地 APK 反射结果和生成的 OpenAPI 进行只读整理，得到以下可确认字段链：
+
+- `POST /xhr/front/trade/order/standard/compose/v2` 对应 App 方法 `api.f.e`，请求模型为 `ComposeOrderRequestWrapper`，字段为 `actParam`、`addressInfo`、`deliverMethod`、`itemList`、`selfPickUpSite`、`shopSelfPickUpInventoryInfo`。
+- `POST /xhr/front/trade/order/standard/submit/v2` 对应 App 方法 `api.f.T0`，请求模型为 `SubmitOrderRequestV2Wrapper`，除组合阶段字段外还包括 `instantDeliveryInfo`、`invoiceSubmitDTO`、`payChannel`、`selectedCoupon`、`source`、`sourceId`、`transactionId` 等字段。
+- 两个 App 方法都带动态 HeaderMap 参数；当前证据只证明接口、模型和字段存在，不证明任一订单 body 已在运行时成功发送。
+- APK 布局包含 `com.netease.nis.captcha.CaptchaWebView`，说明订单验证码 UI 使用网易验证码 WebView 组件；现有反射结果没有给出订单验证码的真实 challenge、校验回调或刷新协议。
+- `CopyInfoVerifyCodeModel(md5,timestamp)` 属于用户资料复制/迁移验证码模型，不能当作订单验证码协议；没有将其误用到订单链路。
+
+因此，当前可以把订单写链路准确建模为“compose/v2 → 风控验证码 → submit/v2”的状态机，但仍不能凭静态字段拼出可发送的真实请求，也不能宣称订单验证码已验证。
+
 ## 证据边界
 
 - App 原生基址：`findings/login-signature.md`、`extract/obs-mp34-annot2-t6-20260911/reflection.jsonl`。
@@ -65,6 +77,6 @@ Live 选购页现在会显示 purchaseInfoV2 的 HTTP 非 200 错误，并在没
 
 ## 当前可确认范围
 
-已确认：App 域验证码请求、App 域异常账号登录结果解析、H5 域 purchaseInfoV2 请求复现、登录态传播修复、订单猜测请求阻断、支付止步。
+已确认：App 域验证码请求、App 域异常账号登录结果解析、H5 域 purchaseInfoV2 请求复现、登录态传播修复、订单 compose/submit 模型字段与调用顺序的静态归因、订单猜测请求阻断、支付止步。
 
-未确认：compose/submit 的真实 body 与完整响应、订单验证码的真实协议。因此这些项目仍保持未验证，不在培训材料中宣称“完整真实下单已打通”。
+未确认：compose/submit 的真实 body 与完整响应、订单验证码的真实 challenge/校验/刷新协议。因此这些项目仍保持未验证，不在培训材料中宣称“完整真实下单已打通”。

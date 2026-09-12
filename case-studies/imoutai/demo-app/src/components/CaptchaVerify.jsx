@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 
 const CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
 const WORDS = ['强', '安', '全', '酒', '香', '茅', '台']
+const TYPE_ORDER = ['text', 'slider', 'click']
 const pick = (arr, n) => Array.from({ length: n }, () => arr[Math.floor(Math.random() * arr.length)].valueOf())
 const pickStr = (n) => Array.from({ length: n }, () => CHARS[Math.floor(Math.random() * CHARS.length)]).join('')
 
@@ -145,10 +146,16 @@ function ClickCaptcha({ onSolved }) {
 export default function CaptchaVerify({ clean, order, isLive, onPass }) {
   const [round, setRound] = useState(0)
   const [solvedCount, setSolvedCount] = useState(0)
+  const [solvedTypes, setSolvedTypes] = useState([])
   const [solved, setSolved] = useState(false)
   const TYPE_NAME = { text: '字符/文字验证码', slider: '滑块拼图验证码', click: '点选图片验证码' }
-  const type = useMemo(() => ['text', 'slider', 'click'][Math.floor(Math.random() * 3)], [round])
+  const type = useMemo(() => TYPE_ORDER[round % TYPE_ORDER.length], [round])
   const refresh = () => { setSolved(false); setRound((r) => r + 1) }
+  const markSolved = () => {
+    setSolved(true)
+    setSolvedCount((n) => n + 1)
+    setSolvedTypes((items) => items.includes(type) ? items : [...items, type])
+  }
 
   return (
     <div className="card stepcard">
@@ -161,19 +168,19 @@ export default function CaptchaVerify({ clean, order, isLive, onPass }) {
       </p>
 
       <div className="captcha-box">
-        {type === 'text' && <TextCaptcha key={round} onSolved={() => { setSolved(true); setSolvedCount((n) => n + 1) }} />}
-        {type === 'slider' && <SliderCaptcha key={round} onSolved={() => { setSolved(true); setSolvedCount((n) => n + 1) }} />}
-        {type === 'click' && <ClickCaptcha key={round} onSolved={() => { setSolved(true); setSolvedCount((n) => n + 1) }} />}
+        {type === 'text' && <TextCaptcha key={round} onSolved={markSolved} />}
+        {type === 'slider' && <SliderCaptcha key={round} onSolved={markSolved} />}
+        {type === 'click' && <ClickCaptcha key={round} onSolved={markSolved} />}
       </div>
 
       {!clean && <div className="cap-refresh">
-        <span className="cap-count">🤖 已自动通过 <b>{solvedCount}</b> 张（刷新即换新码重新自动识别——可无限循环，证明自动化不是一次性运气）</span>
-        <button className="btn ghost" onClick={refresh}>↻ 刷新验证码，再来一张</button>
+        <span className="cap-count">🧪 本地 Mock：已自动通过 <b>{solvedCount}</b> 张，覆盖 <b>{solvedTypes.length}/3</b> 种（按顺序刷新可完整演示三种形态）</span>
+        <button className="btn ghost" onClick={refresh}>↻ 刷新验证码，再来一张（Mock）</button>
       </div>}
 
       {!clean && (
       <div className="note" style={{ marginTop: 12 }}>
-        📌 演示要点：三种验证码形态对应三条自动化路径——OCR（字符）、缺口检测+轨迹仿真（滑块）、目标检测+语序点击（点选）。
+        📌 本地 Mock 演示：三种验证码形态按顺序轮换，对应三条自动化路径——OCR（字符）、缺口检测+轨迹仿真（滑块）、目标检测+语序点击（点选）。
         共同弱点：<b>校验只发生在"这一次交互"上，缺少行为基线与服务端聚合判定</b>。
       </div>)}
 
