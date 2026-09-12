@@ -168,6 +168,9 @@ async function handleLive(req, res, raw) {
     return json(res, 403, { error: '仅允许授权测试设备真实取证档案；占位或离线研究档案已阻断' })
   }
   if (!api || !api.startsWith('/')) return json(res, 400, { error: 'bad api path' })
+  if (/(^|\/)pay(\/|$)/i.test(api) || /(^|\/)order\/pay(\/|$)/i.test(api)) {
+    return json(res, 403, { error: '支付接口永久禁止调用' })
+  }
 
   count++
   lastSentAt = now

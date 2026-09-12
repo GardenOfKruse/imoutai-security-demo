@@ -1080,3 +1080,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 发现 live-server.mjs 原来只检查 profile.headers/appHeaders，直接向 localhost /api/live 提交占位档案时可能绕过浏览器授权门。
 - 增加服务端硬校验：必须 verifiedCapture=true，且拒绝 redacted-template 与 offline-algorithm-research 档案。
 - 在隔离本地端口 18787 用脱敏占位档案验证，服务返回 HTTP 403；未触达外部目标，未发送验证码、订单或支付请求。
+
+### S6-42. 本地代理支付路径硬拒绝（2026-09-12）
+
+- 发现 /api/live 原先接受任意 API 路径，前端不暴露支付调用不等于代理层永久禁止支付。
+- 增加服务端支付路径拒绝：命中 /pay 或 /order/pay 时直接返回 HTTP 403，计数器不增加，不建立外部连接。
+- 在隔离本地端口 18788 验证：占位档案返回 403，带 verifiedCapture=true 的支付路径也返回 403；未触达外部目标。
