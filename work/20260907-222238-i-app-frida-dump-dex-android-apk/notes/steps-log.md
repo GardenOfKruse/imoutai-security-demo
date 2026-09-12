@@ -1151,3 +1151,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - `selectedFactor` 不再固定为 `android_id`，HeadMap 与页面会显示实际命中的因子；烟测覆盖 `android_id=NA` 回退到 `drmid` 的场景，并确认 UUID v3 输出随因子变化。
 - 对照 JADX `aa.d()` 修正无效因子哨兵值比较为原生 `String.equals` 的大小写语义；默认 seed 输出保持与已提交离线 HeadMap 字节一致。
 - 验证命令：`npm run test:offline`、`npm run build`、`node --check server/live-server.mjs`、`git diff --check`；均通过。构建仅有既有 chunk 大小警告。
+
+### S6-55. 业务设备字段的反射别名边界（2026-09-12）
+
+- 只读复核 `com.moutai.mall.api.a` / `a$b` 的反射 JSONL 与 4 份脱敏 HeaderMap 观察：`api.a.b/c/d` 与 `a$b.b/c/d` 分别逐项相等，`b/c` 为稳定 `clips_` 形态，`d` 为稳定 Android 设备串；`a$b.a` 是独立的第三个 `clips_` 值。
+- 该结果证明字段访问层和跨观察稳定性，不证明 `clips_*`、`MT-Device-ID` 的生成算法；`CryptoSeed` 仍只有 JNI 导出证据，没有业务调用连续链路。
+- 未读取、输出或提交原始 HeaderMap 值；未发起网络请求。证据详见 `findings/device-identity-chain-assessment-20260912.md` §E。

@@ -91,3 +91,15 @@ client_token = U[0] + S[0:3] + U[1] + S[3:5] + U[2] + S[5:8] + U[3] + S[8:] + U[
 4. 对比这些输出是否与 RiskStub.udid、本地 SharedPreferences 或服务端返回的 ctdid 相等。
 
 在这条关联证据出现前，不能把 RiskStub 的可复现 UDID 算法升级为业务设备码算法。
+
+## E. 无真机阶段新增的反射字段边界（2026-09-12）
+
+对既有 `obs-mp34-annot2-t6-20260911/reflection.jsonl` 与 4 份脱敏 HeaderMap 观察做了只读交叉核对：
+
+- `com.moutai.mall.api.a` 的 `b/c/d` 是 `kotlin.j` 懒加载字段，并存在 `intercept(okhttp3.w$a)`；内层 `com.moutai.mall.api.a$b` 暴露 `a/b/c/d` 四个字符串 getter。
+- 在 `obs-annot5/5b/5c` 与 `obs-final-smoke2` 中，`api.a.b`、`api.a.c`、`a$b.b`、`a$b.c` 都保持 `clips_` 前缀、长度 50；`api.a.d` 与 `a$b.d` 都保持长度 21 的 Android 设备串。
+- 同一批观察中，`a$b.b == api.a.b`、`a$b.c == api.a.c`、`a$b.d == api.a.d`；`a$b.a` 是另一个独立的 `clips_` 值。该结论只描述字段关系和稳定形态，不包含原始值。
+- 这进一步确认 `a$b` 是 HeaderMap 设备字段的别名/访问层，但没有给出 `b/c/a` 的输入材料、密钥、native 调用或序列化规则；因此 `clips_*`、`MT-Device-ID` 派生仍为 **UNVERIFIED**。
+- `libCryptoSeed.so` 的 `getSeed/getPrivateKey` 仍只有 JNI 导出/字符串证据，未形成“业务调用点 → native 输入输出 → HeaderMap 字段”的连续静态链路；不能把它们直接当作设备码生成器。
+
+无真机时可继续做的低风险工作是：按字段 getter、`api.a.intercept`、`CryptoUtil.getSeed/getPrivateKey` 三个锚点整理调用关联和输入输出类型；恢复真机后再在同一进程窗口采集参数与返回值，不能用合成 HeadMap 补齐这条证据链。
