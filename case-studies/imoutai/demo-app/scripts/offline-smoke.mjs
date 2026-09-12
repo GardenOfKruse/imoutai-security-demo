@@ -12,6 +12,7 @@ const profileB = deriveOfflineResearchProfile('training-fixture-001')
 const headmapA = buildOfflineHeadmap(profileA)
 const headmapB = buildOfflineHeadmap(profileB)
 const checkedInHeadmap = JSON.parse(fs.readFileSync(new URL('../public/offline-headermap.json', import.meta.url), 'utf8'))
+const openapi = JSON.parse(fs.readFileSync(new URL('../src/lib/openapi.json', import.meta.url), 'utf8'))
 const fallbackHeadmap = buildOfflineHeadmap(deriveOfflineResearchProfile('training-fixture-001', {
   androidId: 'NA',
   drmid: 'drmid-fixture-123',
@@ -40,8 +41,9 @@ const items = [{ product: { id: 'fly53', name: 'fixture product', price: 1499 },
 const before = logStore.getAll().length
 const draft = mockComposeOrder(items)
 assert(draft.transactionId && draft.composeBody && draft.submitBody, 'compose fixture is incomplete')
-assert(Object.keys(draft.composeBody).sort().join(',') === 'actParam,addressInfo,deliverMethod,itemList,selfPickUpSite,shopSelfPickUpInventoryInfo', 'compose field skeleton changed')
-assert(Object.keys(draft.submitBody).sort().join(',') === 'actParam,addressInfo,deliverMethod,instantDeliveryInfo,invoiceSubmitDTO,itemList,payChannel,selectedCoupon,selfPickUpSite,shopSelfPickUpInventoryInfo,source,sourceId,transactionId', 'submit field skeleton changed')
+const schemaFields = (name) => Object.keys(openapi.components.schemas[name].properties).sort().join(',')
+assert(Object.keys(draft.composeBody).sort().join(',') === schemaFields('com.moutai.mall.api.model.ComposeOrderRequestWrapper'), 'compose fixture diverges from reflected schema')
+assert(Object.keys(draft.submitBody).sort().join(',') === schemaFields('com.moutai.mall.api.model.SubmitOrderRequestV2Wrapper'), 'submit fixture diverges from reflected schema')
 assert(logStore.getAll().length === before + 1, 'compose must be recorded once')
 
 mockSubmitOrder(draft.submitBody, draft.order.orderId)
@@ -53,6 +55,7 @@ assert(entries[1].api.endsWith('/submit/v2'), 'submit event is missing')
 console.log(JSON.stringify({
   deterministicHeadmap: true,
   liveUnlock: false,
+  modelFieldsVerified: true,
   orderSequence: entries.map((entry) => entry.api),
   network: 'none',
 }, null, 2))

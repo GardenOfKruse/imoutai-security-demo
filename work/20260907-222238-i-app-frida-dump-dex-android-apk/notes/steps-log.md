@@ -1223,3 +1223,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 在临时本机端口 `8788` 启动 `live-server.mjs`，向本机 `/api/live` 提交 synthetic `generated-skeleton` 档案；代理返回 HTTP 403，错误为占位/离线档案阻断。
 - 请求未离开本机，未触碰目标域名；回归后确认临时端口已释放，未留下服务进程。
+
+### S6-67. Smoke test 机械比对 Mock 与反射模型字段（2026-09-12）
+
+- `offline-smoke.mjs` 现在直接读取 `src/lib/openapi.json` 中的 `ComposeOrderRequestWrapper` 和 `SubmitOrderRequestV2Wrapper` 字段集合，再与 Mock compose/submit body 比对，不再依赖手写字段字符串。
+- 该校验只证明 Mock 字段骨架与静态 schema 同步；字段值、嵌套对象和真实订单协议仍未验证，未发起网络请求。

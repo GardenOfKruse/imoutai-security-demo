@@ -111,3 +111,4 @@
 | 2026-09-12 | 新增安全事件摘要器与无设备 self-test，回机后可自动判断三段顺序和字段缺口，不执行日志内容、不输出原始值 | steps-log S6-64；hooks/summarize-order-evidence.py |
 | 2026-09-12 | 修复 Live 代理与前端档案门禁不一致，服务端现在也拒绝 generated-skeleton 等 synthetic 档案 | steps-log S6-65 |
 | 2026-09-12 | 通过临时本机 HTTP 回归实测服务端对 generated-skeleton 返回 403，确认门禁在代理运行态生效且未发起目标请求 | steps-log S6-66 |
+| 2026-09-12 | Smoke test 改为机械比对 Mock body 与 OpenAPI/反射字段集合，避免培训演示骨架与静态证据漂移 | steps-log S6-67 |
