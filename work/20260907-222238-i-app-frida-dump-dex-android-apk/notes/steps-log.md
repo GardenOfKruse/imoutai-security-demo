@@ -1129,3 +1129,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - `dist/offline-headermap.json`（2527 bytes）和 `dist/real-headermap.json`（976 bytes）均存在；本地静态服务读取两者均返回 HTTP 200。
 - 解析结果分别为 `offline-algorithm-research/false` 与 `redacted-template/false`；未访问 `/api/live`，未连接外部目标。
+
+### S6-51. 验证码 SDK 静态覆盖核对（2026-09-12）
+
+- 交叉检查 JADX 源码/资源、APK 容器目录和 APK 二进制字符串：确认可见的是 `CaptchaWebView` XML 承载点与 `yd_captcha_*` 资源名，未找到 SDK 类体、challenge 参数或回调方法名。
+- 将结论限定为“当前静态材料不足”，不把资源名推断成协议；订单验证码仍需要运行态 WebView 初始化、回调和刷新事件证据。

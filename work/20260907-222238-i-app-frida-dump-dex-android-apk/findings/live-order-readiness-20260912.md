@@ -20,8 +20,13 @@
 | 订单组合 | compose/v2、ComposeOrderRequestWrapper 字段集合 | 真实 body、响应字段和交易状态 | Live 不发送猜测 body |
 | 订单验证码 | com.netease.nis.captcha.CaptchaWebView | challenge、回调、刷新和服务端校验 | Mock 只演示状态机，不冒充原生算法 |
 | 订单提交 | submit/v2、SubmitOrderRequestV2Wrapper 字段集合 | 完整真实 body、响应和幂等关系 | 无真实 submitBody 时硬阻断 |
+
 | 支付 | 支付模型和静态拼接线索 | 无需验证真实支付调用 | 永久禁止真实调用 |
 | 设备标识 | RiskStub udid 算法可离线复现 | 业务 deviceKey、clips_* 派生链 | 分层 Mock，不混用 |
+
+### 静态覆盖边界补充
+
+对 `jadx-out` 源码/资源、APK 容器目录和 APK 二进制字符串做了交叉核对：当前可见证据包括 `yd_dialog_captcha*.xml` 中的 `CaptchaWebView` 和 `yd_captcha_*` 资源名；没有发现 `com.netease.nis.captcha` SDK 类体、challenge URL/参数或回调方法名。该“未发现”不能证明 SDK 未被拆分/动态加载，但足以说明当前静态材料不能推出订单验证码协议，仍需运行态记录 WebView 初始化、回调与刷新事件。
 
 ## 回机后的最小取证动作
 

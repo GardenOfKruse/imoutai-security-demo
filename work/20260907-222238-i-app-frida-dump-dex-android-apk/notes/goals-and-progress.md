@@ -95,3 +95,4 @@
 | 2026-09-12 | 确认 RiskStub b4.java 的时间型 client_token 算法并加入离线研究台，仍与业务设备码分离 | steps-log S6-48 |
 | 2026-09-12 | 将默认离线 HeadMap fixture 直接随仓库提供，与真实 HeadMap 文件分离 | steps-log S6-49 |
 | 2026-09-12 | 验证构建产物可静态读取离线与脱敏 HeadMap，两个文件均不具备 Live 解锁标记 | steps-log S6-50 |
+| 2026-09-12 | 交叉核对 APK/JADX 后确认验证码协议仍缺 SDK 类体与运行态回调证据 | steps-log S6-51 |
