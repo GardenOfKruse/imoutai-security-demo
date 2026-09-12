@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import { windowStatus } from '../lib/realApi.js'
 import { deriveDeviceKey } from '../lib/deviceKey.js'
 import { md5 } from '../lib/signature.js'
+import { validateCaptureEvidence } from '../lib/captureEvidence.js'
 
 /**
  * Live 默认文本只用于解释档案结构，不能解锁 Live：
@@ -43,6 +44,10 @@ export default function ModeGate({ onConfirm, onFallbackMock }) {
   const [loadingReal, setLoadingReal] = useState(false)
   const fileRef = useRef(null)
   const ws = windowStatus()
+  let evidenceStatus = null
+  try {
+    evidenceStatus = validateCaptureEvidence(JSON.parse(profileText))
+  } catch { evidenceStatus = validateCaptureEvidence(null) }
 
   const regenerate = () => {
     setErr('')
@@ -134,6 +139,11 @@ export default function ModeGate({ onConfirm, onFallbackMock }) {
       <div className="note">📌 档案说明：默认值只用于展示字段结构，<b>不代表真机算法或真机身份</b>；
         <code>deviceKey / MT-Device-ID</code> 的 native 派生仍未验证，<code>MT-Token</code> 留空（登录后由服务端下发并自动注入）。
         下方 <code>_meta</code> 块仅存在客户端，绝不随请求发出。</div>
+
+      <div className="note">🧾 订单取证完整度：<b>{evidenceStatus.orderReady ? '已具备结构化下单证据' : '尚未具备真实下单证据'}</b>。
+        {evidenceStatus.missing.length > 0 && <span> 缺少：{evidenceStatus.missing.slice(0, 4).join('、')}{evidenceStatus.missing.length > 4 ? ' 等' : ''}。</span>}
+        <span>此检查仅为结构提示，不会把 JSON 变成真实授权，也不会解锁或发送请求。</span>
+      </div>
 
       {err && <div className="errmsg">{err}
         {onFallbackMock && <button className="btn ghost" style={{ marginLeft: 10 }} onClick={onFallbackMock}>切换到本地 Mock 演示</button>}

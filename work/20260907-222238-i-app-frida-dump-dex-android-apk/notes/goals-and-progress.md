@@ -102,3 +102,4 @@
 | 2026-09-12 | 反射与脱敏观察确认 `api.a`/`a$b` 的稳定设备字段别名关系，但未找到 clips_* 生成调用链；继续保持算法未验证 | steps-log S6-55 |
 | 2026-09-12 | 将 HeaderMap 访问层证据边界加入离线研究台，培训界面可直接区分稳定字段形态与未还原生成算法 | steps-log S6-56 |
 | 2026-09-12 | 从既有 H5 取证片段确认 WASM/JS 签名边界，进一步将 H5 device-id/BS-DVID 与 App clips_*、RiskStub 设备码分层 | steps-log S6-57 |
+| 2026-09-12 | 增加只读的真实订单取证结构校验器；离线/脱敏 HeadMap 明确不能通过 orderReady，Live 请求门禁保持不变 | steps-log S6-58 |

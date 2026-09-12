@@ -1169,3 +1169,10 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 对既有 H5 资源流做离线只读检查：`1.1.6.5_wasm.zip` 响应在日志中被截断，但可见片段包含 `env`、`memory`、`js_invoke_for_sign` 运行时导入名。
 - 该结果只证明 H5 签名存在 WASM/JS 回调边界，不证明 H5 `device-id`、`BS-DVID`、`Content-Info-Bb` 与 App `clips_*` 或 RiskStub udid 相同；完整 H5 算法继续标记未验证。
 - 未发起 H5/API 请求，未把截断载荷或任何原始头值写入 demo fixture。
+
+### S6-58. 新增真实订单取证结构校验器（2026-09-12）
+
+- 新增 `demo-app/src/lib/captureEvidence.js`，仅检查取证 JSON 是否同时包含脱敏 HeaderMap、compose/v2 请求与响应、transactionId、验证码 challenge/callback/pass/refresh 观察、submit/v2 请求与响应及订单创建标记。
+- 校验器明确排除 `generated-skeleton`、`redacted-template`、`offline-algorithm-research` 等 synthetic profile；返回 `structuralOnly`，不生成授权、不验证 token、不构造请求体，也不改变 Live 发送门禁。
+- ModeGate 现在显示“尚未具备真实下单证据”及缺失项；离线 smoke 断言默认 HeadMap 不能通过 `orderReady`。
+- 验证命令：`npm run test:offline`、`npm run build`、`node --check server/live-server.mjs`、`git diff --check`；均通过。构建仅有既有 chunk 大小警告。

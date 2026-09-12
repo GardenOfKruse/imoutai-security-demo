@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import { buildOfflineHeadmap, deriveOfflineResearchProfile, deriveRiskStubClientToken } from '../src/lib/offlineIdentity.js'
+import { validateCaptureEvidence } from '../src/lib/captureEvidence.js'
 import { logStore, mockComposeOrder, mockSubmitOrder } from '../src/lib/mockApi.js'
 
 function assert(condition, message) {
@@ -26,6 +27,10 @@ assert(fallbackHeadmap.riskStub.selectedFactor === 'drmid', 'RiskStub factor fal
 assert(fallbackHeadmap.riskStub.udid !== headmapA.riskStub.udid, 'changing the selected factor must change the RiskStub udid')
 assert(deriveRiskStubClientToken('1789140362120') === deriveRiskStubClientToken('1789140362120'), 'RiskStub client_token must be deterministic for fixed time')
 assert(deriveRiskStubClientToken('1789140362120')?.length > 20, 'RiskStub client_token fixture is missing')
+const evidenceStatus = validateCaptureEvidence({ ...headmapA, orderEvidence: {} })
+assert(evidenceStatus.orderReady === false, 'offline HeadMap must not appear order-ready')
+assert(evidenceStatus.structuralOnly === true, 'capture evidence check must remain structural-only')
+assert(evidenceStatus.missing.includes('compose/v2 请求体'), 'missing compose evidence must be reported')
 
 const items = [{ product: { id: 'fly53', name: 'fixture product', price: 1499 }, qty: 1 }]
 const before = logStore.getAll().length
