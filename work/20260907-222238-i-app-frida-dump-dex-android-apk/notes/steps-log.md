@@ -1065,6 +1065,6 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 ### S6-39. HeaderMap 文件分层与脱敏占位（2026-09-12）
 
 - 发现 public/real-headermap.json 与本地真实抓包副本相同，包含 Cookie/JWT、设备标识和 deviceKey，不能作为仓库文件提交。
-- 将真实副本改名为本地专用的 public/real-headermap.local.json，继续由 .gitignore 忽略；仓库内保留同名 public/real-headermap.json，但只含脱敏字段结构、verifiedCapture=false 和占位值。
+- 原始副本继续保留在本地忽略路径 docs/real-headermap.json；仓库内保留同名 public/real-headermap.json，但只含脱敏字段结构、verifiedCapture=false 和占位值。
 - 修复 ModeGate：改为由操作者选择本地授权 JSON；仓库占位文件不再自动参与 Live，避免静态构建把真实 HeaderMap 带入发布产物。
 - 验证：构建后占位档案仍为 profileType=redacted-template、verifiedCapture=false；本地真实副本存在且保持忽略；未发送生产请求。
