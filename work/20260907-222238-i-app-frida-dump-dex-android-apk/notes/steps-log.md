@@ -1068,3 +1068,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 原始副本继续保留在本地忽略路径 docs/real-headermap.json；仓库内保留同名 public/real-headermap.json，但只含脱敏字段结构、verifiedCapture=false 和占位值。
 - 修复 ModeGate：改为由操作者选择本地授权 JSON；仓库占位文件不再自动参与 Live，避免静态构建把真实 HeaderMap 带入发布产物。
 - 验证：构建后占位档案仍为 profileType=redacted-template、verifiedCapture=false；本地真实副本存在且保持忽略；未发送生产请求。
+
+### S6-40. Live 订单就绪矩阵（2026-09-12）
+
+- 对照 live-flow-host-and-auth-audit-20260912.md、反射 OpenAPI 和当前 Demo 调用链，确认 purchaseInfoV2 已有成功样本，但 compose/submit 真实 body、订单验证码 challenge/回调/刷新仍缺运行态证据。
+- 新增 findings/live-order-readiness-20260912.md，给出回机后的最小取证动作和“真实下单已验证”的必要条件。
+- 本步骤只做本地静态审计和文档补充，未发送验证码、订单或支付请求。
