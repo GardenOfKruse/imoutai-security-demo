@@ -1109,3 +1109,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 将 Mock 验证码的“订单提交完成”和“页面推进”拆开；只有当前 generation 的异步回调仍有效时才进入地址页。
 - 刷新或卸载旧轮次后，旧回调不会再推进 UI；Live 仍不生成未经验证的 challenge 或回调。
+
+### S6-47. 无网络离线烟测（2026-09-12）
+
+- 新增 `npm run test:offline`，断言 HeadMap fixture 的确定性、`verifiedCapture=false` 和占位 Cookie，并断言 Mock 订单事件严格为 compose 后 submit。
+- 烟测只导入本地 JS 模块，输出 `network=none`；不读取真实 HeadMap，不启动 Live 代理，不连接生产。
