@@ -34,7 +34,7 @@ npm run live       # = npm run build && npm start
 | 自动生成（本机指纹） | HTTP 480 · 4010 —— "设备绑定防线有效"叙事 |
 | 📂 真实档案（授权门内一键「📂 加载真实档案」） | **HTTP 200 · code 2000 真实业务数据** —— "后台查无异常"叙事 |
 
-真实档案来自 mitmproxy 抓包，运行时只允许使用本地未跟踪的 `public/real-headermap.local.json`；仓库中的 `public/real-headermap.json` 仅是脱敏结构占位文件，不含凭据。
+真实档案来自 mitmproxy 抓包，运行时由操作者通过文件选择器加载本地授权 JSON；仓库中的 `public/real-headermap.json` 仅是脱敏结构占位文件，不含凭据。
 purchaseInfoV2 请求规范与拒绝矩阵详见 `work/.../findings/purchase-info-v2-assessment.md`。
 页面 JS 崩溃会直接渲染错误栈在页面上（全局错误钩子），现场排障无需 DevTools。
 

@@ -204,7 +204,7 @@ Swagger 文档再生成（取证数据更新时）：`python hooks/gen_openapi.p
 | 档案 | 结果 | 演示叙事 |
 |---|---|---|
 | 自动生成档案（本机指纹） | 服务端 480/4010 拒绝 | "被识别为非注册设备——设备绑定防线有效" |
-| 📂 真实档案（mitm 抓包，`public/real-headermap.local.json`，仅本地） | **HTTP 200 · code 2000 真实业务数据** | "与真实 App 逐头一致，后台查无异常" |
+| 📂 真实档案（mitm 抓包，由操作者选择本地 JSON） | **HTTP 200 · code 2000 真实业务数据** | "与真实 App 逐头一致，后台查无异常" |
 
 ### 11.3 purchaseInfoV2 已完整还原（目标接口）
 - 请求规范/响应结构/拒绝矩阵：`work/.../findings/purchase-info-v2-assessment.md`

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { windowStatus } from '../lib/realApi.js'
 import { deriveDeviceKey } from '../lib/deviceKey.js'
 import { md5 } from '../lib/signature.js'
@@ -41,27 +41,21 @@ export default function ModeGate({ onConfirm, onFallbackMock }) {
   const [profileText, setProfileText] = useState(initial)
   const [err, setErr] = useState('')
   const [loadingReal, setLoadingReal] = useState(false)
+  const fileRef = useRef(null)
   const ws = windowStatus()
 
   const regenerate = () => {
     setErr('')
     setProfileText(JSON.stringify(generateDefaultProfile(), null, 2))
   }
-  const loadReal = async () => {
+  const loadRealFile = async (event) => {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
     setLoadingReal(true)
     setErr('')
     try {
-      const read = async (name) => {
-        const r = await fetch('./' + name)
-        if (!r.ok) throw new Error(name + ' HTTP ' + r.status)
-        return r.json()
-      }
-      // 仓库内的 real-headermap.json 只保留脱敏结构；真实授权档案只能使用
-      // 本地未跟踪的 real-headermap.local.json，避免占位文件误解锁 Live。
-      const localName = 'real-headermap.local.json'
-      const local = await read(localName).catch(() => null)
-      const sourceName = local ? localName : 'real-headermap.json'
-      const h5 = local || await read(sourceName)
+      const h5 = JSON.parse(await file.text())
       // 部署包只携带一份本地真实档案，避免把含 Cookie 的 App 档案再复制一份。
       // GLM 的成功样本表明 App 验证码请求相对 H5 只需补齐 MT-Device-ID 和
       // WebView 的 Accept-* 头；Cookie、Origin、Referer 等沿用同一份抓包档案。
@@ -77,16 +71,16 @@ export default function ModeGate({ onConfirm, onFallbackMock }) {
         headers: appHeaders,
         appHeaders,
         h5Headers: h5.headers,
-        profileType: sourceName === localName ? 'paired app-domain + h5-webview real profiles' : 'redacted-template',
-        verifiedCapture: sourceName === localName && h5.verifiedCapture !== false,
+        profileType: 'paired app-domain + h5-webview real profiles',
+        verifiedCapture: h5.verifiedCapture !== false,
         _meta: {
-          source: sourceName === localName ? 'local authorized mitm capture' : 'checked-in redacted structure',
-          app: sourceName === localName ? 'derived from the same captured device profile' : 'not production-ready',
+          source: 'operator-selected local authorized capture',
+          app: 'derived from the same captured device profile',
           h5: h5._meta,
         },
       }, null, 2))
     } catch (e) {
-      setErr('真实档案加载失败：' + e.message + '（确认 real-headermap.json 随包部署）')
+      setErr('真实档案加载失败：' + e.message + '（请选择授权取证导出的 JSON 文件）')
     } finally { setLoadingReal(false) }
   }
 
@@ -132,7 +126,8 @@ export default function ModeGate({ onConfirm, onFallbackMock }) {
         <textarea className="ipt area" rows={10} value={profileText} onChange={(e) => setProfileText(e.target.value)} />
         <div style={{ display: 'flex', gap: 10 }}>
           <button className="btn ghost" style={{ alignSelf: 'flex-start' }} onClick={regenerate}>↺ 重新生成默认档案</button>
-          <button className="btn primary" style={{ alignSelf: 'flex-start' }} onClick={loadReal} disabled={loadingReal}>{loadingReal ? '⏳ 加载中…' : '📂 加载真实档案（App + H5 抓包）'}</button>
+          <input ref={fileRef} type="file" accept=".json,application/json" onChange={loadRealFile} style={{ display: 'none' }} />
+          <button className="btn primary" style={{ alignSelf: 'flex-start' }} onClick={() => fileRef.current?.click()} disabled={loadingReal}>{loadingReal ? '⏳ 加载中…' : '📂 选择真实档案（App + H5 抓包）'}</button>
         </div>
       </div>
 
