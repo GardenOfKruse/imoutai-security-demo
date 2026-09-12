@@ -1157,3 +1157,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 只读复核 `com.moutai.mall.api.a` / `a$b` 的反射 JSONL 与 4 份脱敏 HeaderMap 观察：`api.a.b/c/d` 与 `a$b.b/c/d` 分别逐项相等，`b/c` 为稳定 `clips_` 形态，`d` 为稳定 Android 设备串；`a$b.a` 是独立的第三个 `clips_` 值。
 - 该结果证明字段访问层和跨观察稳定性，不证明 `clips_*`、`MT-Device-ID` 的生成算法；`CryptoSeed` 仍只有 JNI 导出证据，没有业务调用连续链路。
 - 未读取、输出或提交原始 HeaderMap 值；未发起网络请求。证据详见 `findings/device-identity-chain-assessment-20260912.md` §E。
+
+### S6-56. 研究台展示 HeaderMap 证据边界（2026-09-12）
+
+- 将 S6-55 的 `api.a`/`a$b` 访问层关系加入离线研究台，展示拦截器、懒加载字段、别名关系和稳定形态。
+- 页面继续把 `clips_*`、`MT-Device-ID`、`MT-R` 归入未还原区，不把稳定输出或 synthetic 值称为生成算法；Live 门禁与请求行为未改变。
+- `npm run test:offline`、`npm run build`、`git diff --check` 通过；未发起网络请求。

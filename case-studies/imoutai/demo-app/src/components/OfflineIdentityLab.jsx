@@ -107,6 +107,15 @@ export default function OfflineIdentityLab({ onBack, onStartMock }) {
         </div>
 
         <div className="research-section unverified">
+          <h3>🔎 已观察但未还原：App HeaderMap 访问层</h3>
+          <div className="kv"><span>拦截器</span><code>com.moutai.mall.api.a.intercept(okhttp3.w$a)</code></div>
+          <div className="kv"><span>懒加载字段</span><code>api.a.b / api.a.c / api.a.d → kotlin.j</code></div>
+          <div className="kv"><span>别名关系</span><code>a$b.b/c/d == api.a.b/c/d（4 份脱敏观察）</code></div>
+          <div className="kv"><span>稳定形态</span><code>b/c：clips_ + 长度 50；d：Android 设备串 + 长度 21</code></div>
+          <p className="research-note">这说明字段访问层和跨观察稳定性，不说明 clips_*、MT-Device-ID 或 MT-R 的生成算法；CryptoSeed JNI 也尚未形成业务调用链。合成输出不会被当作真机结果。</p>
+        </div>
+
+        <div className="research-section unverified">
           <h3>❔ 未验证：禁止自行补协议</h3>
           <ul>{trace.unverified.map((item) => <li key={item}>{item}</li>)}</ul>
           <p className="research-note">下一步只能通过新增 JADX/运行态/抓包证据收敛，不能用合成值替代真机 HeaderMap。</p>
