@@ -1218,3 +1218,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 代码审查发现 `server/live-server.mjs` 只排除三种 profile，直接 POST `/api/live` 时可能放过带 `verifiedCapture=true` 的 `generated-skeleton`。
 - 代理现在复用 `src/lib/captureEvidence.js` 的 `isVerifiedCaptureProfile`；前端和服务端统一要求显式真实取证标记、非 synthetic、`deviceKey` 和非空 HeaderMap。
 - 离线 smoke 新增 generated-skeleton 反例；未发起真实请求，支付白名单和支付拒绝逻辑保持不变。
+
+### S6-66. 本机 HTTP 回归验证代理门禁（2026-09-12）
+
+- 在临时本机端口 `8788` 启动 `live-server.mjs`，向本机 `/api/live` 提交 synthetic `generated-skeleton` 档案；代理返回 HTTP 403，错误为占位/离线档案阻断。
+- 请求未离开本机，未触碰目标域名；回归后确认临时端口已释放，未留下服务进程。
