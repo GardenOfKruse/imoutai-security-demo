@@ -164,6 +164,9 @@ async function handleLive(req, res, raw) {
   try { payload = JSON.parse(raw) } catch { return json(res, 400, { error: 'bad json' }) }
   const { host, api, method = 'POST', body = {}, profile } = payload
   if (!profile?.headers && !profile?.appHeaders) return json(res, 400, { error: '缺少 profile.headers（授权门生成）' })
+  if (profile.verifiedCapture !== true || profile.profileType === 'redacted-template' || profile.profileType === 'offline-algorithm-research') {
+    return json(res, 403, { error: '仅允许授权测试设备真实取证档案；占位或离线研究档案已阻断' })
+  }
   if (!api || !api.startsWith('/')) return json(res, 400, { error: 'bad api path' })
 
   count++

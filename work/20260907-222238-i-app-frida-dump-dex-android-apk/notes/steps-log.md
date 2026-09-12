@@ -1074,3 +1074,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 对照 live-flow-host-and-auth-audit-20260912.md、反射 OpenAPI 和当前 Demo 调用链，确认 purchaseInfoV2 已有成功样本，但 compose/submit 真实 body、订单验证码 challenge/回调/刷新仍缺运行态证据。
 - 新增 findings/live-order-readiness-20260912.md，给出回机后的最小取证动作和“真实下单已验证”的必要条件。
 - 本步骤只做本地静态审计和文档补充，未发送验证码、订单或支付请求。
+
+### S6-41. 本地代理复刻 Live 门禁（2026-09-12）
+
+- 发现 live-server.mjs 原来只检查 profile.headers/appHeaders，直接向 localhost /api/live 提交占位档案时可能绕过浏览器授权门。
+- 增加服务端硬校验：必须 verifiedCapture=true，且拒绝 redacted-template 与 offline-algorithm-research 档案。
+- 在隔离本地端口 18787 用脱敏占位档案验证，服务返回 HTTP 403；未触达外部目标，未发送验证码、订单或支付请求。
