@@ -1189,3 +1189,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 盘点现有 `extract`、JADX、反射 JSONL 和 findings：没有 compose/submit 运行态 body 或验证码回调样本，只有接口/字段和 `CaptchaWebView` 组件证据；因此未拼接实弹请求。
 - 新增 `demo-app/scripts/check-capture-evidence.mjs` 与 `npm run check:capture`，恢复真机后可对本地授权 JSON 输出结构检查结果和缺失项；脚本只输出字段状态，不回显 Header、Cookie、token、请求体或响应值。
 - 不完整取证包退出码为 1；只有 compose、验证码和 submit 结构证据齐全时才返回 0；该命令仍是结构检查，不等价于服务端授权或订单成功。
+
+### S6-61. 补齐订单 wrapper 的反射类型边界（2026-09-12）
+
+- 只读解析 `obs-mp34-reflect-20260910/reflection.jsonl`：compose 的 `addressInfo` 类型为 `ComposeAddressUpload`，submit 的 `addressInfo` 类型为 `ShipAddressResult`；`actParam/source/sourceId/transactionId` 为 `String`，`payChannel` 为 `int`，`deliverMethod` 为 `DeliverMethod`。
+- 该差异说明两阶段不能直接复用同一个地址对象或把静态 OpenAPI 的 object 当作具体 JSON；Demo 继续只用 null/synthetic fixture，Live 仍不发送猜测 body。
+- 未读取或输出任何运行态请求值，未发起网络请求；详细边界加入 `findings/live-flow-host-and-auth-audit-20260912.md` §F7。

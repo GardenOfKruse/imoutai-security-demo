@@ -105,3 +105,4 @@
 | 2026-09-12 | 增加只读的真实订单取证结构校验器；离线/脱敏 HeadMap 明确不能通过 orderReady，Live 请求门禁保持不变 | steps-log S6-58 |
 | 2026-09-12 | 修复 Live 档案门禁将缺失 verifiedCapture 默认放行的缺口；必须显式真实取证标记且非 synthetic 才能进入基础 Live 请求层 | steps-log S6-59；findings/device-identity-chain-assessment-20260912.md §G |
 | 2026-09-12 | 盘点确认现有材料没有 compose/验证码/submit 运行态样本；新增真机回归前的取证包只读检查命令，避免下次采集后再次往返判断 | steps-log S6-60 |
+| 2026-09-12 | 从反射结果补齐 compose/submit 地址对象和标量类型差异，避免未来把两个阶段误合并成同一猜测请求体 | steps-log S6-61；findings/live-flow-host-and-auth-audit-20260912.md §F7 |

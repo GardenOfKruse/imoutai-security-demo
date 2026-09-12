@@ -68,6 +68,17 @@ Live 选购页现在会显示 purchaseInfoV2 的 HTTP 非 200 错误，并在没
 
 因此，当前可以把订单写链路准确建模为“compose/v2 → 风控验证码 → submit/v2”的状态机，但仍不能凭静态字段拼出可发送的真实请求，也不能宣称订单验证码已验证。
 
+### 反射类型补充（静态事实）
+
+从同一份运行时反射结果进一步确认：
+
+- `ComposeOrderRequestWrapper.actParam` 是 `String`，`addressInfo` 是 `ComposeAddressUpload`；
+- `SubmitOrderRequestV2Wrapper.actParam` 是 `String`，`addressInfo` 是 `ShipAddressResult`；
+- submit 的 `source`、`sourceId`、`transactionId` 是 `String`，`payChannel` 是 `int`；
+- `deliverMethod` 两阶段均为 `DeliverMethod`，其暴露 `value` 和 `desc` 访问器。
+
+这只提高字段类型层面的静态还原精度，不提供真实字段值、嵌套对象内容、服务端交易字段或验证码协议；下次取证仍需按阶段分别记录完整 JSON。
+
 ## 证据边界
 
 - App 原生基址：`findings/login-signature.md`、`extract/obs-mp34-annot2-t6-20260911/reflection.jsonl`。
