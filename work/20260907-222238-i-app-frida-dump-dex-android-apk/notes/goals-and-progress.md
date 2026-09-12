@@ -107,3 +107,4 @@
 | 2026-09-12 | 盘点确认现有材料没有 compose/验证码/submit 运行态样本；新增真机回归前的取证包只读检查命令，避免下次采集后再次往返判断 | steps-log S6-60 |
 | 2026-09-12 | 从反射结果补齐 compose/submit 地址对象和标量类型差异，避免未来把两个阶段误合并成同一猜测请求体 | steps-log S6-61；findings/live-flow-host-and-auth-audit-20260912.md §F7 |
 | 2026-09-12 | 核对原始 APK 归档和提取二进制，确认验证码静态证据只到承载 XML，未获得 SDK 内部回调协议 | steps-log S6-62；findings/live-order-readiness-20260912.md |
+| 2026-09-12 | 新增订单三段只读 Hook 和回机采集手册，固定 compose→验证码→submit 的一次性取证路径，仍不把字段形状冒充真实 body | steps-log S6-63；notes/m17-order-evidence-capture-procedure.md |

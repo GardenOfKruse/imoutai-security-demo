@@ -1201,3 +1201,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 只读检查原始 APK 归档：仅有 `classes.dex` 和 `assets/RiskStub.dex`，没有独立 `classes2.dex`、`.jar` 或 `.aar` 验证码 SDK 文件；对已提取 dex/native 文件做字符串扫描未发现订单验证码回调协议。
 - 结合 JADX 资源中已确认的 `CaptchaWebView` 承载 XML，结论收敛为“组件使用有证据，SDK 内部/动态协议没有静态证据”，不据此猜测 challenge、callback 或 refresh。
 - 未发起网络请求，未修改 APK 或提取物；详情补入 `findings/live-order-readiness-20260912.md` 静态覆盖边界。
+
+### S6-63. 固化订单三段只读 Hook 与回机手册（2026-09-12）
+
+- 新增 `_build/entry-order-evidence.js`：复用 `api.a.intercept`，只对 compose/captcha-network/submit 记录路径、Header 名称、请求 JSON 字段形状/长度、响应状态和顶层字段形状；不输出值、不改请求、不调用验证码或支付。
+- 新增已编译 `dump-dex-hook-order-evidence.js`，esbuild 编译成功，`node --check` 通过；新增 `notes/m17-order-evidence-capture-procedure.md` 固化单进程回机操作顺序和判定条件。
+- 当前仅完成脚本静态验证，未连接设备、未发起网络请求；该 Hook 不能把字段形状直接升级为真实订单 body，仍需授权设备运行态样本。
