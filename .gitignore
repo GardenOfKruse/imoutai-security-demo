@@ -18,6 +18,7 @@ Thumbs.db
 **/docs/real-headermap.json
 **/docs/real-app-profile.json
 **/dist/real-headermap.json
+**/dist/real-headermap.local.json
 **/public/real-headermap.json
 !**/public/real-headermap.json
 **/public/real-headermap.local.json
