@@ -85,6 +85,16 @@ export function deriveOfflineResearchProfile(seed = 'training-fixture-001') {
     observedDeviceTuple: OBSERVED_DEVICE_TUPLE,
     signingDeviceKey: VERIFIED_DEVICE_KEY,
     syntheticDeviceKey,
+    deviceParameters: {
+      apiLevel: 31,
+      manufacturer: 'Redmi',
+      model: 'lime',
+      androidId: riskStubFactors.android_id,
+      drmid: '',
+      mac: '',
+      imei: '',
+      serial: '',
+    },
     syntheticDeviceId: syntheticClipsToken(material, 'device-id'),
     riskStubFactors,
     riskStubUdid: deriveRiskStubUdid(riskStubFactors),
@@ -98,6 +108,57 @@ export function deriveOfflineResearchProfile(seed = 'training-fixture-001') {
       'clips_* / MT-Device-ID 派生算法',
       'MT-R 生成算法',
     ],
+  }
+}
+
+/**
+ * 导出可重复的离线 HeadMap fixture。
+ *
+ * 这个文件只描述“输入可控时如何生成一组本地演示字段”，绝不代表真机抓包，
+ * 也不包含 Cookie/JWT/MT-Token 等真实凭据。verifiedCapture 保持 false，
+ * 因此即使被误选进 Live，前端与本地代理都会拒绝发送。
+ */
+export function buildOfflineHeadmap(profile) {
+  const deviceId = profile.syntheticDeviceKey
+  const appHeaders = {
+    'MT-Device-ID': deviceId,
+    'MT-APP-Version': '1.9.12',
+    'MT-Token': '<offline-placeholder>',
+    'MT-R': md5(`mt-r-fixture|${profile.fixtureSeed}|${deviceId}`),
+    'User-Agent': `MT/android ${profile.deviceParameters.apiLevel};device/${profile.deviceParameters.manufacturer} ${profile.deviceParameters.model};app/1.9.12;`,
+    'Content-Type': 'application/json',
+    'Cookie': 'MT-Token-Wap=<offline-placeholder>',
+  }
+  const h5Headers = {
+    ...appHeaders,
+    Accept: 'application/json, text/plain, */*',
+    Origin: 'https://h5.moutai519.com.cn',
+    Referer: 'https://h5.moutai519.com.cn/',
+  }
+  return {
+    profileType: RESEARCH_PROFILE_TYPE,
+    verifiedCapture: false,
+    fixtureSeed: profile.fixtureSeed,
+    observedDeviceTuple: profile.observedDeviceTuple,
+    deviceKey: deviceId,
+    syntheticDeviceKey: deviceId,
+    syntheticDeviceId: profile.syntheticDeviceId,
+    deviceParameters: profile.deviceParameters,
+    riskStub: {
+      factors: profile.riskStubFactors,
+      selectedFactor: 'android_id',
+      udid: profile.riskStubUdid,
+      algorithm: 'UUID.nameUUIDFromBytes(selectedFactor.getBytes()) / UUID v3',
+    },
+    headers: appHeaders,
+    appHeaders,
+    h5Headers,
+    _meta: {
+      source: 'offline deterministic algorithm fixture',
+      warning: 'Not a real device capture. Contains placeholders only and cannot unlock Live.',
+      confirmed: ['MD5(deviceKey + mobile + timestamp)', 'RiskStub factor priority and UUID v3'],
+      unverified: profile.unverified,
+    },
   }
 }
 

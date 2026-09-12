@@ -1092,3 +1092,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 为 app/h5 两个目标域分别加入已确认接口白名单：短信、登录、purchaseInfoV2、compose/v2、submit/v2。
 - 未列入白名单的路径在代理层直接返回 HTTP 403，不增加请求计数，不建立外部连接；支付拒绝规则继续保留。
 - 本步骤只做本地代理拒绝测试，未发送外部请求。
+
+### S6-44. 离线 HeadMap fixture 导出（2026-09-12）
+
+- 为无真机算法研究台增加确定性 HeadMap JSON 导出；输入为 fixture seed、Android 参数和已确认的 RiskStub 因子，输出包含 synthetic deviceKey、设备 ID、clips_* 演示值和占位请求头。
+- 导出档案固定标记 `profileType=offline-algorithm-research`、`verifiedCapture=false`，不含真实 Cookie/JWT/MT-Token，不能解锁 Live；前端与本地代理继续拒绝该档案进入生产请求。
+- `npm run build`、`node --check server/live-server.mjs`、`git diff --check` 通过；同一 seed 的导出结果已用 Node 断言字节级确定性。

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { buildOfflineResearchTrace, deriveOfflineResearchProfile, OBSERVED_DEVICE_TUPLE } from '../lib/offlineIdentity.js'
+import { buildOfflineHeadmap, buildOfflineResearchTrace, deriveOfflineResearchProfile, OBSERVED_DEVICE_TUPLE } from '../lib/offlineIdentity.js'
 
 function short(value) {
   const s = String(value || '')
@@ -13,11 +13,23 @@ export default function OfflineIdentityLab({ onBack, onStartMock }) {
   const profile = useMemo(() => deriveOfflineResearchProfile(seed), [seed])
   const trace = useMemo(() => buildOfflineResearchTrace(profile, mobile, timestamp), [profile, mobile, timestamp])
 
+  const downloadFixture = () => {
+    const payload = buildOfflineHeadmap(profile)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `offline-headermap-${profile.fixtureSeed.replace(/[^a-z0-9_-]/gi, '_')}.json`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <main className="research-layout">
       <section className="card stepcard">
         <div className="btnrow">
           <button className="btn ghost" onClick={onBack}>← 返回模式选择</button>
+          <button className="btn ghost" onClick={downloadFixture}>下载离线 HeadMap fixture</button>
           <button className="btn primary" onClick={() => onStartMock(profile)}>进入离线购买演示 →</button>
         </div>
         <h2>🧪 离线算法研究 · 无真机</h2>
@@ -51,9 +63,11 @@ export default function OfflineIdentityLab({ onBack, onStartMock }) {
         <div className="research-section synthetic">
           <h3>🟡 仅合成：设备 ID / clips_* 演示值</h3>
           <div className="kv"><span>观察到的设备串</span><code>{OBSERVED_DEVICE_TUPLE}</code></div>
+          <div className="kv"><span>synthetic deviceKey</span><code>{profile.syntheticDeviceKey}</code></div>
+          <div className="kv"><span>设备参数输入</span><code>API {profile.deviceParameters.apiLevel} · {profile.deviceParameters.manufacturer} {profile.deviceParameters.model} · android_id</code></div>
           <div className="kv"><span>synthetic deviceId</span><code>{trace.synthetic.deviceId}</code></div>
           {trace.synthetic.clipsTokens.map((token, index) => <div className="kv" key={token}><span>synthetic clips_{String.fromCharCode(97 + index)}</span><code>{token}</code></div>)}
-          <p className="research-note">这些值只用于验证“输入稳定 → 输出稳定”的演示效果，不能声称与真机 ID 相等，也不能解锁 Live。</p>
+          <p className="research-note">这些值只用于验证“输入稳定 → 输出稳定”的演示效果；按钮导出的 JSON 也明确标为 offline research，不能声称与真机 ID 相等，也不能解锁 Live。</p>
         </div>
 
         <div className="research-section unverified">

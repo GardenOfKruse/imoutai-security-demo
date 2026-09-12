@@ -88,3 +88,4 @@
 | 2026-09-12 | HeaderMap 改为脱敏占位文件；真实档案由本地文件选择器加载，避免进入 Git 或 dist | steps-log S6-39 |
 | 2026-09-12 | 新增 Live 订单就绪矩阵：compose/submit body 与订单验证码回调仍为下一次真机取证门槛 | steps-log S6-40 |
 | 2026-09-12 | 本地 Live 代理增加 verifiedCapture 硬校验、支付路径拒绝和 app/h5 API 白名单 | steps-log S6-41~S6-43 |
+| 2026-09-12 | 离线研究台可导出确定性 HeadMap fixture；设备参数、RiskStub 输出与业务 ID 合成值可复用，但明确不能进入 Live | steps-log S6-44 |
