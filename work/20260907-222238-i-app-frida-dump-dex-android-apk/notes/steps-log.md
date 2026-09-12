@@ -1114,3 +1114,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 新增 `npm run test:offline`，断言 HeadMap fixture 的确定性、`verifiedCapture=false` 和占位 Cookie，并断言 Mock 订单事件严格为 compose 后 submit。
 - 烟测只导入本地 JS 模块，输出 `network=none`；不读取真实 HeadMap，不启动 Live 代理，不连接生产。
+
+### S6-48. RiskStub client_token 静态算法确认（2026-09-12）
+
+- 对照 `com.coralline.sea.b4.java` 与 `c7.java`，确认 `client_token` 为“毫秒时间字符串的 UUID v3”与“秒级时间字符串”按固定片段交错拼接，分隔符为空。
+- 将该独立算法加入离线研究台；固定时间输入可重复生成，仍明确不等同于业务 deviceKey、clips_* 或生产凭据。

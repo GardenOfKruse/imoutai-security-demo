@@ -57,7 +57,8 @@ export default function OfflineIdentityLab({ onBack, onStartMock }) {
           <div className="kv"><span>因子优先级</span><code>{trace.riskStub.priority}</code></div>
           <div className="kv"><span>命中因子</span><code>android_id = {trace.riskStub.factors.android_id}</code></div>
           <div className="kv"><span>算法输出</span><code>{trace.riskStub.udid}</code></div>
-          <p className="research-note">这是 JADX 已确认的 RiskStub 算法：有效设备因子 → UUID v3。它可脱离真机精确 Mock，但目前没有证据表明它就是业务 deviceKey 或 clips_*。</p>
+          <div className="kv"><span>client_token（固定时间 fixture）</span><code>{trace.riskStub.clientToken || '请输入有效毫秒时间戳'}</code></div>
+          <p className="research-note">JADX 已确认两段 RiskStub 算法：有效设备因子 → UUID v3，以及 b4.java 的时间型 client_token 拼装。二者都可脱离真机复现，但没有证据表明它们就是业务 deviceKey 或 clips_*。</p>
         </div>
 
         <div className="research-section synthetic">

@@ -42,6 +42,20 @@ UUID.nameUUIDFromBytes(factor.getBytes())
 
 证据：z9.java、aa.java 的持久化和服务端响应处理逻辑。
 
+### RiskStub client_token：静态算法已确认
+
+`com.coralline.sea.b4.a()` 另行构造时间型 `client_token`，与业务 `deviceKey`、`clips_*` 无直接等同证据。给定固定的毫秒时间 `T`，其结构为：
+
+```text
+U = UUID.nameUUIDFromBytes(String.valueOf(T).getBytes()).split("-")
+S = String.valueOf(T / 1000)
+client_token = U[0] + S[0:3] + U[1] + S[3:5] + U[2] + S[5:8] + U[3] + S[8:] + U[4]
+```
+
+其中 `c7.c` 已确认为空字符串。该值随时间变化，不能作为稳定设备码或有效生产会话凭据；Demo 仅使用固定时间做可重复 Mock。
+
+证据：`jadx-out/sources/com/coralline/sea/b4.java`、`c7.java`。
+
 ## B. 已观察但未连接：业务设备身份
 
 | 字段 | 当前证据 | 结论 |

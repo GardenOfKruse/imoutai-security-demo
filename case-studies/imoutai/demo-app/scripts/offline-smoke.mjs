@@ -1,4 +1,4 @@
-import { buildOfflineHeadmap, deriveOfflineResearchProfile } from '../src/lib/offlineIdentity.js'
+import { buildOfflineHeadmap, deriveOfflineResearchProfile, deriveRiskStubClientToken } from '../src/lib/offlineIdentity.js'
 import { logStore, mockComposeOrder, mockSubmitOrder } from '../src/lib/mockApi.js'
 
 function assert(condition, message) {
@@ -14,6 +14,8 @@ assert(JSON.stringify(headmapA) === JSON.stringify(headmapB), 'offline HeadMap m
 assert(headmapA.profileType === 'offline-algorithm-research', 'offline profile type is missing')
 assert(headmapA.verifiedCapture === false, 'offline fixture must not be treated as a real capture')
 assert(headmapA.headers.Cookie.includes('<offline-placeholder>'), 'offline fixture must contain only placeholder cookies')
+assert(deriveRiskStubClientToken('1789140362120') === deriveRiskStubClientToken('1789140362120'), 'RiskStub client_token must be deterministic for fixed time')
+assert(deriveRiskStubClientToken('1789140362120')?.length > 20, 'RiskStub client_token fixture is missing')
 
 const items = [{ product: { id: 'fly53', name: 'fixture product', price: 1499 }, qty: 1 }]
 const before = logStore.getAll().length
