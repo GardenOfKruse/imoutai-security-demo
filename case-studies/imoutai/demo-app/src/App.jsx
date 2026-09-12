@@ -292,6 +292,7 @@ export default function App() {
                     if (result?.order) setOrder(result.order)
                     return result
                   }}
+                  onBack={() => setStep(1)}
                   onComplete={() => setStep(3)}
                 />
               )}

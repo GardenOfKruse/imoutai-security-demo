@@ -247,6 +247,10 @@ function serveStatic(req, res) {
   if (!file.startsWith(DIST)) return json(res, 403, { error: 'forbidden' })
   fs.readFile(file, (err, data) => {
     if (err) {
+      // JSON 配置缺失时不能回退到 index.html，否则前端会把 HTML 当 JSON 解析。
+      if (path.extname(file).toLowerCase() === '.json') {
+        return json(res, 404, { error: `静态 JSON 未部署：${path.basename(file)}` })
+      }
       fs.readFile(path.join(DIST, 'index.html'), (e2, d2) => {
         if (e2) return json(res, 404, { error: 'dist 未构建：先 npm run build' })
         res.writeHead(200, { 'Content-Type': 'text/html', 'Cache-Control': 'no-store, must-revalidate' }); res.end(d2)

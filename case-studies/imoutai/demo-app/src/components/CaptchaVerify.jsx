@@ -174,7 +174,7 @@ function ClickCaptcha({ round, onResult }) {
   )
 }
 
-export default function CaptchaVerify({ clean, order, isLive, onPass, onComplete }) {
+export default function CaptchaVerify({ clean, order, isLive, onPass, onComplete, onBack }) {
   const [round, setRound] = useState(0)
   const [solvedCount, setSolvedCount] = useState(0)
   const [solvedTypes, setSolvedTypes] = useState([])
@@ -229,6 +229,7 @@ export default function CaptchaVerify({ clean, order, isLive, onPass, onComplete
         <div className="note">
           Live 仅保留“验证码通过后调用订单提交、止步支付”的调用边界。原生证据目前只确认 <code>com.netease.nis.captcha.CaptchaWebView</code>；真实 challenge、校验回调和刷新协议均未验证，因此这里不生成 Mock challenge，也不把本地 fixture 当作 Live 验证结果。
         </div>
+        {onBack && <button className="btn ghost" onClick={onBack}>← 返回商品选择</button>}
       </div>
     )
   }

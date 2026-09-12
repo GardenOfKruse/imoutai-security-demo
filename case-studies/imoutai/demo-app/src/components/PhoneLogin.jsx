@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { buildVcodeSign } from '../lib/signature.js'
 
 /** Step 1：手机号 + 短信验证码登录（签名实时复刻演示） */
@@ -10,6 +10,14 @@ export default function PhoneLogin({ clean, mobile, setMobile, deviceKey, api, i
   const [countdown, setCountdown] = useState(0)
   const [err, setErr] = useState('')
   const [serverMsg, setServerMsg] = useState(null)
+
+  useEffect(() => {
+    if (countdown <= 0) return undefined
+    const timer = window.setInterval(() => {
+      setCountdown((value) => Math.max(0, value - 1))
+    }, 1000)
+    return () => window.clearInterval(timer)
+  }, [countdown])
 
   const sendCode = async () => {
     if (!/^1\d{10}$/.test(mobile)) { setErr('请输入正确的 11 位手机号'); return }
