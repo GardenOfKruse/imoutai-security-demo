@@ -66,7 +66,7 @@ function buildMockOrder(items) {
     },
     transactionId,
     composeBody: {
-      actParam: { fixture: true },
+      actParam: 'offline-fixture',
       addressInfo: null,
       deliverMethod: 'mock',
       itemList: items.map((x) => ({ sku: x.product.id, qty: x.qty })),
@@ -84,14 +84,24 @@ export function mockComposeOrder(items) {
     note: '本地 Mock compose 阶段；字段名来自静态模型，值为 synthetic fixture，未向生产发送',
     body: draft.composeBody,
   })
+  draft.submitBody = {
+    ...draft.composeBody,
+    instantDeliveryInfo: null,
+    invoiceSubmitDTO: null,
+    payChannel: 0,
+    selectedCoupon: null,
+    source: 'offline-fixture',
+    sourceId: 'training-fixture-001',
+    transactionId: draft.transactionId,
+  }
   return draft
 }
 
-export function mockSubmitOrder(order) {
+export function mockSubmitOrder(submitBody, fixtureOrderId) {
   return recordApi({
     api: '/xhr/front/trade/order/standard/submit/v2',
-    note: '本地 Mock submit 阶段；仅在验证码 fixture 通过后记录，未向生产发送',
-    body: order,
+    note: `本地 Mock submit 阶段（fixture order ${fixtureOrderId}）；字段名来自静态模型，未向生产发送`,
+    body: submitBody,
   })
 }
 

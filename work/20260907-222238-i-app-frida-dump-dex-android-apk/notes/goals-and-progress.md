@@ -97,3 +97,4 @@
 | 2026-09-12 | 验证构建产物可静态读取离线与脱敏 HeadMap，两个文件均不具备 Live 解锁标记 | steps-log S6-50 |
 | 2026-09-12 | 交叉核对 APK/JADX 后确认验证码协议仍缺 SDK 类体与运行态回调证据 | steps-log S6-51 |
 | 2026-09-12 | 仓库内离线 HeadMap fixture 补齐已确认的 RiskStub client_token，保持业务设备码边界 | steps-log S6-52 |
+| 2026-09-12 | Mock submit 使用反射确认的 13 字段静态骨架，并由烟测锁定字段集合，Live 不复用 | steps-log S6-53 |

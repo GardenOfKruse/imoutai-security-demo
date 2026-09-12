@@ -1139,3 +1139,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 将已确认的时间型 `client_token` 及固定时间输入写入仓库内离线 fixture，保持与生成器字节级一致。
 - 该字段只位于 `riskStub` 研究区，不进入请求头，也不改变业务 `deviceKey`/`clips_*` 未验证结论。
+
+### S6-53. Mock 订单采用完整静态模型骨架（2026-09-12）
+
+- 从 `openapi.json` 读取并断言 `ComposeOrderRequestWrapper` 的 6 个字段、`SubmitOrderRequestV2Wrapper` 的 13 个字段。
+- Mock submit 现在记录完整 13 字段 synthetic body；字段集合来自反射，字段值仍不是实测订单 body，Live 不复用该 body。

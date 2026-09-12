@@ -150,11 +150,7 @@ export default function App() {
       if (!draft?.composeResult?.transactionId) throw new Error('本地订单缺少 compose 阶段结果，已阻止 submit')
       const orderId = draft.orderId
       const o = { orderId, amount: draft.amount, subject: draft.subject }
-      mockSubmitOrder({
-        transactionId: draft.composeResult.transactionId,
-        orderId,
-        items: items.map((x) => ({ sku: x.product.id, qty: x.qty })),
-      })
+      mockSubmitOrder(draft.composeResult.submitBody, orderId)
       return { order: o, resp: { status: 200, json: { code: 2000, message: '模拟下单成功', data: { orderId } }, simulated: true } }
     },
   }), [mode, profile, deviceKey, demoDeviceKey, address])

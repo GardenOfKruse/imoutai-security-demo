@@ -24,14 +24,12 @@ assert(deriveRiskStubClientToken('1789140362120')?.length > 20, 'RiskStub client
 const items = [{ product: { id: 'fly53', name: 'fixture product', price: 1499 }, qty: 1 }]
 const before = logStore.getAll().length
 const draft = mockComposeOrder(items)
-assert(draft.transactionId && draft.composeBody, 'compose fixture is incomplete')
+assert(draft.transactionId && draft.composeBody && draft.submitBody, 'compose fixture is incomplete')
+assert(Object.keys(draft.composeBody).sort().join(',') === 'actParam,addressInfo,deliverMethod,itemList,selfPickUpSite,shopSelfPickUpInventoryInfo', 'compose field skeleton changed')
+assert(Object.keys(draft.submitBody).sort().join(',') === 'actParam,addressInfo,deliverMethod,instantDeliveryInfo,invoiceSubmitDTO,itemList,payChannel,selectedCoupon,selfPickUpSite,shopSelfPickUpInventoryInfo,source,sourceId,transactionId', 'submit field skeleton changed')
 assert(logStore.getAll().length === before + 1, 'compose must be recorded once')
 
-mockSubmitOrder({
-  transactionId: draft.transactionId,
-  orderId: draft.order.orderId,
-  items: [{ sku: 'fly53', qty: 1 }],
-})
+mockSubmitOrder(draft.submitBody, draft.order.orderId)
 const entries = logStore.getAll().slice(before)
 assert(entries.length === 2, 'compose and submit must be the only two mock order events')
 assert(entries[0].api.endsWith('/compose/v2'), 'compose must precede submit')
