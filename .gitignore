@@ -19,6 +19,8 @@ Thumbs.db
 **/docs/real-app-profile.json
 **/dist/real-headermap.json
 **/public/real-headermap.json
+!**/public/real-headermap.json
+**/public/real-headermap.local.json
 **/evidence/mitm-flows-*.jsonl
 **/extract/obs-final-smoke-20260912/
 **/extract/obs-final-smoke2-20260912/

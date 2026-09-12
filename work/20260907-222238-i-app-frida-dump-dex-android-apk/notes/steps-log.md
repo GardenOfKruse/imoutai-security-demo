@@ -1061,3 +1061,10 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - n3.f() 返回的是 RiskStub 的 udid，y1/w9 将其用于风控 SDK 数据；当前没有证据证明它等于业务登录的 32-hex deviceKey 或 clips_*。
 - 新增 findings/device-identity-chain-assessment-20260912.md，明确可等价 Mock 的 RiskStub UDID、只能 synthetic Mock 的业务设备绑定字段，以及下一步需要的同请求窗口调用关联证据。
 - 本步骤只做 JADX/本地 findings 静态分析，未访问生产、未读取或输出真实 HeaderMap 内容。
+
+### S6-39. HeaderMap 文件分层与脱敏占位（2026-09-12）
+
+- 发现 public/real-headermap.json 与本地真实抓包副本相同，包含 Cookie/JWT、设备标识和 deviceKey，不能作为仓库文件提交。
+- 将真实副本改名为本地专用的 public/real-headermap.local.json，继续由 .gitignore 忽略；仓库内保留同名 public/real-headermap.json，但只含脱敏字段结构、verifiedCapture=false 和占位值。
+- 修复 ModeGate：优先加载本地 .local 档案；没有本地真实档案时加载占位文件，但不会将其标记为 verifiedCapture，从而不能误解锁 Live。
+- 验证：构建后占位档案仍为 profileType=redacted-template、verifiedCapture=false；本地真实副本存在且保持忽略；未发送生产请求。

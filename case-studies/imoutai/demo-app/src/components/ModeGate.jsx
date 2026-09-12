@@ -33,7 +33,7 @@ function generateDefaultProfile() {
 }
 
 /** 实弹模式授权门：三确认 + 窗口校验 + HeaderMap 档案（自动生成/可粘贴覆盖） */
-export default function ModeGate({ onConfirm }) {
+export default function ModeGate({ onConfirm, onFallbackMock }) {
   const initial = useMemo(() => JSON.stringify(generateDefaultProfile(), null, 2), [])
   const [c1, setC1] = useState(false)
   const [c2, setC2] = useState(false)
@@ -56,7 +56,12 @@ export default function ModeGate({ onConfirm }) {
         if (!r.ok) throw new Error(name + ' HTTP ' + r.status)
         return r.json()
       }
-      const h5 = await read('real-headermap.json')
+      // 仓库内的 real-headermap.json 只保留脱敏结构；真实授权档案只能使用
+      // 本地未跟踪的 real-headermap.local.json，避免占位文件误解锁 Live。
+      const localName = 'real-headermap.local.json'
+      const local = await read(localName).catch(() => null)
+      const sourceName = local ? localName : 'real-headermap.json'
+      const h5 = local || await read(sourceName)
       // 部署包只携带一份本地真实档案，避免把含 Cookie 的 App 档案再复制一份。
       // GLM 的成功样本表明 App 验证码请求相对 H5 只需补齐 MT-Device-ID 和
       // WebView 的 Accept-* 头；Cookie、Origin、Referer 等沿用同一份抓包档案。
@@ -72,9 +77,13 @@ export default function ModeGate({ onConfirm }) {
         headers: appHeaders,
         appHeaders,
         h5Headers: h5.headers,
-        profileType: 'paired app-domain + h5-webview real profiles',
-        verifiedCapture: true,
-        _meta: { source: 'local authorized mitm capture', app: 'derived from the same captured device profile', h5: h5._meta },
+        profileType: sourceName === localName ? 'paired app-domain + h5-webview real profiles' : 'redacted-template',
+        verifiedCapture: sourceName === localName && h5.verifiedCapture !== false,
+        _meta: {
+          source: sourceName === localName ? 'local authorized mitm capture' : 'checked-in redacted structure',
+          app: sourceName === localName ? 'derived from the same captured device profile' : 'not production-ready',
+          h5: h5._meta,
+        },
       }, null, 2))
     } catch (e) {
       setErr('真实档案加载失败：' + e.message + '（确认 real-headermap.json 随包部署）')
@@ -131,7 +140,9 @@ export default function ModeGate({ onConfirm }) {
         <code>deviceKey / MT-Device-ID</code> 的 native 派生仍未验证，<code>MT-Token</code> 留空（登录后由服务端下发并自动注入）。
         下方 <code>_meta</code> 块仅存在客户端，绝不随请求发出。</div>
 
-      {err && <div className="errmsg">{err}</div>}
+      {err && <div className="errmsg">{err}
+        {onFallbackMock && <button className="btn ghost" style={{ marginLeft: 10 }} onClick={onFallbackMock}>切换到本地 Mock 演示</button>}
+      </div>}
       <button className="btn danger wide" onClick={confirm} disabled={loadingReal}>🔓 解锁实弹模式</button>
     </div>
   )

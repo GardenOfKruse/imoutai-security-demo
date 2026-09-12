@@ -1,0 +1,34 @@
+{
+  "deviceKey": "<redacted-device-key>",
+  "profileType": "redacted-template",
+  "verifiedCapture": false,
+  "targetApi": {
+    "url": "<authorized-target-url>",
+    "method": "POST",
+    "bodyTemplate": {
+      "hot": "<redacted>",
+      "spuId": "<redacted>",
+      "jt": "<redacted>"
+    },
+    "capturedStatus": "not-for-production"
+  },
+  "headers": {
+    "Accept": "application/json",
+    "x-csrf-token": "<redacted>",
+    "X-Requested-With": "<redacted>",
+    "MT-APP-Version": "<version>",
+    "User-Agent": "<redacted>",
+    "content-type": "application/json",
+    "Origin": "<redacted-origin>",
+    "Sec-Fetch-Site": "same-site",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+    "Referer": "<redacted-referer>",
+    "Cookie": "<redacted>"
+  },
+  "_meta": {
+    "source": "checked-in redacted structure only",
+    "credential": "none",
+    "note": "This file cannot unlock Live. Put an authorized capture in real-headermap.local.json locally."
+  }
+}
