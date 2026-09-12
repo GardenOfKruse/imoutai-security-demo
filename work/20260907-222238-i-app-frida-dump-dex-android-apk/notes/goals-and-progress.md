@@ -109,3 +109,4 @@
 | 2026-09-12 | 核对原始 APK 归档和提取二进制，确认验证码静态证据只到承载 XML，未获得 SDK 内部回调协议 | steps-log S6-62；findings/live-order-readiness-20260912.md |
 | 2026-09-12 | 新增订单三段只读 Hook 和回机采集手册，固定 compose→验证码→submit 的一次性取证路径，仍不把字段形状冒充真实 body | steps-log S6-63；notes/m17-order-evidence-capture-procedure.md |
 | 2026-09-12 | 新增安全事件摘要器与无设备 self-test，回机后可自动判断三段顺序和字段缺口，不执行日志内容、不输出原始值 | steps-log S6-64；hooks/summarize-order-evidence.py |
+| 2026-09-12 | 修复 Live 代理与前端档案门禁不一致，服务端现在也拒绝 generated-skeleton 等 synthetic 档案 | steps-log S6-65 |

@@ -34,6 +34,7 @@ assert(evidenceStatus.missing.includes('compose/v2 请求体'), 'missing compose
 assert(isVerifiedCaptureProfile({ ...headmapA, verifiedCapture: false }) === false, 'offline HeadMap must fail the Live profile gate')
 assert(isVerifiedCaptureProfile({ ...headmapA, profileType: 'redacted-template', verifiedCapture: true }) === false, 'redacted template must fail the Live profile gate')
 assert(isVerifiedCaptureProfile({ ...headmapA, profileType: 'authorized-runtime-capture', verifiedCapture: true }) === true, 'explicit real capture marker must pass the structural profile gate')
+assert(isVerifiedCaptureProfile({ ...headmapA, profileType: 'generated-skeleton', verifiedCapture: true }) === false, 'generated skeleton must fail the server-side profile gate')
 
 const items = [{ product: { id: 'fly53', name: 'fixture product', price: 1499 }, qty: 1 }]
 const before = logStore.getAll().length

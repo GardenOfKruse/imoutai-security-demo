@@ -1212,3 +1212,9 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 新增 `hooks/summarize-order-evidence.py`，使用 `ast.literal_eval` 解析 driver 的 Python repr，不执行日志内容；只输出阶段计数、顺序、字段形状、响应状态和缺口，不输出任何值。
 - 内置 `--self-test` 已覆盖 compose→验证码 WebView 信号→submit 的结构顺序、交易字段/订单字段存在性；摘要仍固定 `structuralOnly=true` 且 `orderCreated=false`，不把观察结果冒充服务端成功。
+
+### S6-65. 修复 Live 代理与前端档案门禁漂移（2026-09-12）
+
+- 代码审查发现 `server/live-server.mjs` 只排除三种 profile，直接 POST `/api/live` 时可能放过带 `verifiedCapture=true` 的 `generated-skeleton`。
+- 代理现在复用 `src/lib/captureEvidence.js` 的 `isVerifiedCaptureProfile`；前端和服务端统一要求显式真实取证标记、非 synthetic、`deviceKey` 和非空 HeaderMap。
+- 离线 smoke 新增 generated-skeleton 反例；未发起真实请求，支付白名单和支付拒绝逻辑保持不变。
