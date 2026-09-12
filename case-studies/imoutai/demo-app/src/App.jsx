@@ -247,7 +247,7 @@ export default function App() {
       )}
 
       {mode === 'gate' && (
-        <ModeGate onConfirm={startLive} />
+        <ModeGate onConfirm={startLive} onFallbackMock={() => { setClean(false); setMode('mock'); setStep(0) }} />
       )}
 
       {mode === 'research' && (
