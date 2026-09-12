@@ -174,7 +174,7 @@ function ClickCaptcha({ round, onResult }) {
   )
 }
 
-export default function CaptchaVerify({ clean, order, isLive, onPass }) {
+export default function CaptchaVerify({ clean, order, isLive, onPass, onComplete }) {
   const [round, setRound] = useState(0)
   const [solvedCount, setSolvedCount] = useState(0)
   const [solvedTypes, setSolvedTypes] = useState([])
@@ -211,6 +211,7 @@ export default function CaptchaVerify({ clean, order, isLive, onPass }) {
       if (alive.current && generation.current === currentGeneration) {
         setSubmitState('submitted')
         setMessage('验证码已通过，订单提交已完成；支付接口未调用')
+        onComplete?.()
       }
     } catch (error) {
       if (alive.current && generation.current === currentGeneration) {

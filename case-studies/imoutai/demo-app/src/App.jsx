@@ -294,9 +294,9 @@ export default function App() {
                   onPass={async () => {
                     const result = await api.submitOrder(pendingItems.length ? pendingItems : cart, order)
                     if (result?.order) setOrder(result.order)
-                    setStep(3)
                     return result
                   }}
+                  onComplete={() => setStep(3)}
                 />
               )}
               {step === 3 && (

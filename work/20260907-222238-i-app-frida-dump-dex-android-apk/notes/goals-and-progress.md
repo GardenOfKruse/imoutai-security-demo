@@ -90,3 +90,4 @@
 | 2026-09-12 | 本地 Live 代理增加 verifiedCapture 硬校验、支付路径拒绝和 app/h5 API 白名单 | steps-log S6-41~S6-43 |
 | 2026-09-12 | 离线研究台可导出确定性 HeadMap fixture；设备参数、RiskStub 输出与业务 ID 合成值可复用，但明确不能进入 Live | steps-log S6-44 |
 | 2026-09-12 | Mock 订单改为 compose → 验证码 → submit 两阶段时序；Live 仍阻断未取证 compose body | steps-log S6-45 |
+| 2026-09-12 | 修复验证码异步提交与刷新之间的轮次竞态，旧回调不再推进地址页 | steps-log S6-46 |

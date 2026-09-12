@@ -1104,3 +1104,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 将 Mock 订单从一次性 submit 改为 `compose/v2（本地合成）→ 本地验证码 → submit/v2（本地合成）`，请求日志可观察 transactionId 和两阶段顺序。
 - compose 字段名沿用反射得到的模型字段，但所有值都标记为 synthetic fixture；Live 分支只建立 UI 草稿，不发送未经验证的 compose body。
 - 本地函数断言确认 compose 记录先于 submit 记录；验证码组件仍是 submit 的唯一前置条件，支付路径不变。
+
+### S6-46. 验证码轮次推进竞态修复（2026-09-12）
+
+- 将 Mock 验证码的“订单提交完成”和“页面推进”拆开；只有当前 generation 的异步回调仍有效时才进入地址页。
+- 刷新或卸载旧轮次后，旧回调不会再推进 UI；Live 仍不生成未经验证的 challenge 或回调。
