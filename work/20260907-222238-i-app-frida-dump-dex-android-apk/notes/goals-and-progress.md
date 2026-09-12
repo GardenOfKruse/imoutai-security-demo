@@ -84,3 +84,7 @@
 | 2026-09-12 | 有效账号取得 App/H5 双会话；登录后及缓存重载后的 H5 purchaseInfoV2 均 HTTP 200/code=2000 | steps-log S6-32 |
 | 2026-09-12 | 验证码证据边界收敛；Mock 三类 fixture 改为可重复失败/成功/刷新状态机，订单提交延后到验证码之后 | steps-log S6-36 |
 | 2026-09-12 | 新增无真机算法研究台；合成 ID 与真实 HeaderMap 解耦，Live 层拒绝 synthetic 档案 | steps-log S6-37 |
+| 2026-09-12 | RiskStub udid 算法按 JADX 精确离线复现；业务 deviceKey/clips_* 继续保持未验证分层 | steps-log S6-38 |
+| 2026-09-12 | HeaderMap 改为脱敏占位文件；真实档案由本地文件选择器加载，避免进入 Git 或 dist | steps-log S6-39 |
+| 2026-09-12 | 新增 Live 订单就绪矩阵：compose/submit body 与订单验证码回调仍为下一次真机取证门槛 | steps-log S6-40 |
+| 2026-09-12 | 本地 Live 代理增加 verifiedCapture 硬校验、支付路径拒绝和 app/h5 API 白名单 | steps-log S6-41~S6-43 |
