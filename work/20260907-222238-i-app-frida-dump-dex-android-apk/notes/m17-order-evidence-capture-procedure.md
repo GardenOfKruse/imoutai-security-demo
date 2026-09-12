@@ -42,3 +42,4 @@ Hook 输出的安全摘要包括：
 - 已编译 bundle：`case-studies/imoutai/hooks/dump-dex-hook-order-evidence.js`；
 - 原始事件：只保存在本地 `<case>/extract/order-evidence-<time>/events.log`，不提交；
 - 将摘要字段交给 `demo-app/npm run check:capture -- <authorized-capture.json>` 做结构检查。该命令不验证 token，也不生成订单请求。
+- 先运行 `python summarize-order-evidence.py <case>/extract/order-evidence-<time>/events.log`；该摘要器只输出阶段计数、顺序、字段形状和缺口。`--self-test` 可在无设备时验证解析器。

@@ -1207,3 +1207,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 - 新增 `_build/entry-order-evidence.js`：复用 `api.a.intercept`，只对 compose/captcha-network/submit 记录路径、Header 名称、请求 JSON 字段形状/长度、响应状态和顶层字段形状；不输出值、不改请求、不调用验证码或支付。
 - 新增已编译 `dump-dex-hook-order-evidence.js`，esbuild 编译成功，`node --check` 通过；新增 `notes/m17-order-evidence-capture-procedure.md` 固化单进程回机操作顺序和判定条件。
 - 当前仅完成脚本静态验证，未连接设备、未发起网络请求；该 Hook 不能把字段形状直接升级为真实订单 body，仍需授权设备运行态样本。
+
+### S6-64. 增加 Hook 事件安全摘要器（2026-09-12）
+
+- 新增 `hooks/summarize-order-evidence.py`，使用 `ast.literal_eval` 解析 driver 的 Python repr，不执行日志内容；只输出阶段计数、顺序、字段形状、响应状态和缺口，不输出任何值。
+- 内置 `--self-test` 已覆盖 compose→验证码 WebView 信号→submit 的结构顺序、交易字段/订单字段存在性；摘要仍固定 `structuralOnly=true` 且 `orderCreated=false`，不把观察结果冒充服务端成功。
