@@ -93,3 +93,4 @@
 | 2026-09-12 | 修复验证码异步提交与刷新之间的轮次竞态，旧回调不再推进地址页 | steps-log S6-46 |
 | 2026-09-12 | 增加无网络离线烟测，固定验证 HeadMap 安全边界与 Mock 订单时序 | steps-log S6-47 |
 | 2026-09-12 | 确认 RiskStub b4.java 的时间型 client_token 算法并加入离线研究台，仍与业务设备码分离 | steps-log S6-48 |
+| 2026-09-12 | 将默认离线 HeadMap fixture 直接随仓库提供，与真实 HeadMap 文件分离 | steps-log S6-49 |

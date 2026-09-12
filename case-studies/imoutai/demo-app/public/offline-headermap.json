@@ -1,0 +1,74 @@
+{
+  "profileType": "offline-algorithm-research",
+  "verifiedCapture": false,
+  "fixtureSeed": "training-fixture-001",
+  "observedDeviceTuple": "android;31;Redmi;lime",
+  "deviceKey": "3b100c6981a2872206c63269ccabc90a",
+  "syntheticDeviceKey": "3b100c6981a2872206c63269ccabc90a",
+  "syntheticDeviceId": "clips_cmVzZWFyY2h8ZGV2aWNlLWlkfDkyMDVmM2FlYmYwNTdj",
+  "deviceParameters": {
+    "apiLevel": 31,
+    "manufacturer": "Redmi",
+    "model": "lime",
+    "androidId": "android-id-0e64a3d6c187",
+    "drmid": "",
+    "mac": "",
+    "imei": "",
+    "serial": ""
+  },
+  "riskStub": {
+    "factors": {
+      "android_id": "android-id-0e64a3d6c187",
+      "drmid": "",
+      "mac": "",
+      "imei": "",
+      "serial": ""
+    },
+    "selectedFactor": "android_id",
+    "udid": "49759558-20d0-3d76-afe1-f3186f425456",
+    "algorithm": "UUID.nameUUIDFromBytes(selectedFactor.getBytes()) / UUID v3"
+  },
+  "headers": {
+    "MT-Device-ID": "3b100c6981a2872206c63269ccabc90a",
+    "MT-APP-Version": "1.9.12",
+    "MT-Token": "<offline-placeholder>",
+    "MT-R": "d19798ae788689295cb146f006885418",
+    "User-Agent": "MT/android 31;device/Redmi lime;app/1.9.12;",
+    "Content-Type": "application/json",
+    "Cookie": "MT-Token-Wap=<offline-placeholder>"
+  },
+  "appHeaders": {
+    "MT-Device-ID": "3b100c6981a2872206c63269ccabc90a",
+    "MT-APP-Version": "1.9.12",
+    "MT-Token": "<offline-placeholder>",
+    "MT-R": "d19798ae788689295cb146f006885418",
+    "User-Agent": "MT/android 31;device/Redmi lime;app/1.9.12;",
+    "Content-Type": "application/json",
+    "Cookie": "MT-Token-Wap=<offline-placeholder>"
+  },
+  "h5Headers": {
+    "MT-Device-ID": "3b100c6981a2872206c63269ccabc90a",
+    "MT-APP-Version": "1.9.12",
+    "MT-Token": "<offline-placeholder>",
+    "MT-R": "d19798ae788689295cb146f006885418",
+    "User-Agent": "MT/android 31;device/Redmi lime;app/1.9.12;",
+    "Content-Type": "application/json",
+    "Cookie": "MT-Token-Wap=<offline-placeholder>",
+    "Accept": "application/json, text/plain, */*",
+    "Origin": "https://h5.moutai519.com.cn",
+    "Referer": "https://h5.moutai519.com.cn/"
+  },
+  "_meta": {
+    "source": "offline deterministic algorithm fixture",
+    "warning": "Not a real device capture. Contains placeholders only and cannot unlock Live.",
+    "confirmed": [
+      "MD5(deviceKey + mobile + timestamp)",
+      "RiskStub factor priority and UUID v3"
+    ],
+    "unverified": [
+      "native deviceKey 生成来源",
+      "clips_* / MT-Device-ID 派生算法",
+      "MT-R 生成算法"
+    ]
+  }
+}

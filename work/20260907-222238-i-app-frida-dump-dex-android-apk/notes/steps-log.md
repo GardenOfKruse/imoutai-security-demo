@@ -1119,3 +1119,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 对照 `com.coralline.sea.b4.java` 与 `c7.java`，确认 `client_token` 为“毫秒时间字符串的 UUID v3”与“秒级时间字符串”按固定片段交错拼接，分隔符为空。
 - 将该独立算法加入离线研究台；固定时间输入可重复生成，仍明确不等同于业务 deviceKey、clips_* 或生产凭据。
+
+### S6-49. 提供仓库内离线 HeadMap fixture（2026-09-12）
+
+- 新增 `demo-app/public/offline-headermap.json`，内容与默认 seed 的离线生成器一致，便于无真机、无浏览器操作时直接获取培训 fixture。
+- 该文件与 `real-headermap.json` 分离，固定 `verifiedCapture=false`，所有会话字段为占位值；不作为真实取证档案使用。

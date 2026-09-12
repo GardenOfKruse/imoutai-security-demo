@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import { buildOfflineHeadmap, deriveOfflineResearchProfile, deriveRiskStubClientToken } from '../src/lib/offlineIdentity.js'
 import { logStore, mockComposeOrder, mockSubmitOrder } from '../src/lib/mockApi.js'
 
@@ -9,8 +10,10 @@ const profileA = deriveOfflineResearchProfile('training-fixture-001')
 const profileB = deriveOfflineResearchProfile('training-fixture-001')
 const headmapA = buildOfflineHeadmap(profileA)
 const headmapB = buildOfflineHeadmap(profileB)
+const checkedInHeadmap = JSON.parse(fs.readFileSync(new URL('../public/offline-headermap.json', import.meta.url), 'utf8'))
 
 assert(JSON.stringify(headmapA) === JSON.stringify(headmapB), 'offline HeadMap must be deterministic')
+assert(JSON.stringify(headmapA) === JSON.stringify(checkedInHeadmap), 'checked-in offline HeadMap is stale')
 assert(headmapA.profileType === 'offline-algorithm-research', 'offline profile type is missing')
 assert(headmapA.verifiedCapture === false, 'offline fixture must not be treated as a real capture')
 assert(headmapA.headers.Cookie.includes('<offline-placeholder>'), 'offline fixture must contain only placeholder cookies')
