@@ -17,6 +17,7 @@ assert(JSON.stringify(headmapA) === JSON.stringify(checkedInHeadmap), 'checked-i
 assert(headmapA.profileType === 'offline-algorithm-research', 'offline profile type is missing')
 assert(headmapA.verifiedCapture === false, 'offline fixture must not be treated as a real capture')
 assert(headmapA.headers.Cookie.includes('<offline-placeholder>'), 'offline fixture must contain only placeholder cookies')
+assert(headmapA.riskStub.clientToken === '761d432f17845289134f2403b5ce62334ac6f4ca4f', 'RiskStub client_token fixture changed unexpectedly')
 assert(deriveRiskStubClientToken('1789140362120') === deriveRiskStubClientToken('1789140362120'), 'RiskStub client_token must be deterministic for fixed time')
 assert(deriveRiskStubClientToken('1789140362120')?.length > 20, 'RiskStub client_token fixture is missing')
 

@@ -1134,3 +1134,8 @@ mp34 实验（最小足迹）：只保留 B2（nativeLoad 改写+caller loader�
 
 - 交叉检查 JADX 源码/资源、APK 容器目录和 APK 二进制字符串：确认可见的是 `CaptchaWebView` XML 承载点与 `yd_captcha_*` 资源名，未找到 SDK 类体、challenge 参数或回调方法名。
 - 将结论限定为“当前静态材料不足”，不把资源名推断成协议；订单验证码仍需要运行态 WebView 初始化、回调和刷新事件证据。
+
+### S6-52. 离线 HeadMap 补齐 RiskStub client_token（2026-09-12）
+
+- 将已确认的时间型 `client_token` 及固定时间输入写入仓库内离线 fixture，保持与生成器字节级一致。
+- 该字段只位于 `riskStub` 研究区，不进入请求头，也不改变业务 `deviceKey`/`clips_*` 未验证结论。

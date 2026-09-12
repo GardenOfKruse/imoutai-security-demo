@@ -26,6 +26,8 @@
     },
     "selectedFactor": "android_id",
     "udid": "49759558-20d0-3d76-afe1-f3186f425456",
+    "clientTokenTimestampMs": "1789140362120",
+    "clientToken": "761d432f17845289134f2403b5ce62334ac6f4ca4f",
     "algorithm": "UUID.nameUUIDFromBytes(selectedFactor.getBytes()) / UUID v3"
   },
   "headers": {
@@ -63,7 +65,8 @@
     "warning": "Not a real device capture. Contains placeholders only and cannot unlock Live.",
     "confirmed": [
       "MD5(deviceKey + mobile + timestamp)",
-      "RiskStub factor priority and UUID v3"
+      "RiskStub factor priority and UUID v3",
+      "RiskStub client_token time interleave"
     ],
     "unverified": [
       "native deviceKey 生成来源",

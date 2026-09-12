@@ -9,6 +9,7 @@ import { buildVcodeSign, md5, VERIFIED_DEVICE_KEY } from './signature.js'
 
 export const RESEARCH_PROFILE_TYPE = 'offline-algorithm-research'
 export const OBSERVED_DEVICE_TUPLE = 'android;31;Redmi;lime'
+export const RISK_STUB_FIXTURE_EPOCH_MS = '1789140362120'
 
 const RISK_FACTOR_PRIORITY = ['android_id', 'drmid', 'mac', 'imei', 'serial']
 const INVALID_RISK_FACTORS = new Set([
@@ -171,6 +172,8 @@ export function buildOfflineHeadmap(profile) {
       factors: profile.riskStubFactors,
       selectedFactor: 'android_id',
       udid: profile.riskStubUdid,
+      clientTokenTimestampMs: RISK_STUB_FIXTURE_EPOCH_MS,
+      clientToken: deriveRiskStubClientToken(RISK_STUB_FIXTURE_EPOCH_MS),
       algorithm: 'UUID.nameUUIDFromBytes(selectedFactor.getBytes()) / UUID v3',
     },
     headers: appHeaders,
@@ -179,7 +182,7 @@ export function buildOfflineHeadmap(profile) {
     _meta: {
       source: 'offline deterministic algorithm fixture',
       warning: 'Not a real device capture. Contains placeholders only and cannot unlock Live.',
-      confirmed: ['MD5(deviceKey + mobile + timestamp)', 'RiskStub factor priority and UUID v3'],
+      confirmed: ['MD5(deviceKey + mobile + timestamp)', 'RiskStub factor priority and UUID v3', 'RiskStub client_token time interleave'],
       unverified: profile.unverified,
     },
   }
